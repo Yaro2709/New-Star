@@ -1,0 +1,1684 @@
+/** Edit Color here **/
+
+#.ui-widget-header{
+	background-color:#D20000;
+}
+.res_name{
+	color:#D20000;
+}
+
+body {
+	background:url("img/bkd_page.jpg") no-repeat fixed center center #0d0d0d;
+	min-width: 1000px;
+}
+
+body,input,select,button,textarea,a,td,th,tr,table,a:visited{
+	color:#DDD;
+}
+
+body.mceContentBody,input,button,select,option,textarea, .ui-widget-content{
+	background: #0D1014;
+}
+
+input[type="radio"] {
+	background:transparent;
+	border:0 none;
+}
+
+
+#menu li:first-child, #menu li:last-child{
+	background-color:transparent;
+}
+
+a:hover {
+	color: #9e9e9e;
+	text-decoration:none
+}
+
+table,td,th {
+	font-weight:400
+}
+
+table table,img {
+	border:0
+}
+
+input, select, textarea, #userpic, input, button{
+	border:1px solid #1C1F23;
+}
+
+.tip {
+	border:1px solid #000;
+}
+
+.tip {
+	text-align:center;
+	background: #0D1014;
+	background: rgba(13, 16, 20, 0.95);
+}
+
+button {
+	text-align:center;
+}
+
+input[type=text], input[type=password], input[type=int], input[type=number], select, textarea {
+	background-color: rgb(33, 36, 40);
+    color: #bcbcbc;
+    border: 0 none;
+    border-radius: 3px;
+    height: 30px;
+    padding-left: 5px;
+    font-family: "Open Sans", sans-serif;
+}
+
+th, .ui-widget-header {
+	color:#FFF;
+	font-weight:700;
+	text-align:left
+}
+
+th a:hover, .ui-widget-header a:hover, #menu a:hover  {
+	color:#FFF;
+}
+
+th a:hover, .ui-widget-header a:hover {
+	text-decoration:underline;
+}
+
+/*textarea {
+	background:transparent;
+}*/
+
+select {
+	border:1px solid #212121
+}
+
+.clear {
+	clear: both;
+}
+
+/* Main navigation */
+#main_header {
+	background: rgba(0, 0, 0, 0.8);
+	text-align: center;
+}
+
+.main_list_left {
+	float: left;
+}
+
+.main_list_left ul {
+	list-style: none;
+	display: inline-flex;
+    padding: 0 0 0 5px;
+}
+
+.main_list_left li {
+	
+}
+
+.main_list_right {
+	float: right;
+}
+
+.main_list_right ul {
+	list-style: none;
+	display: inline-flex;
+    padding: 0 5px 0 0;
+}
+
+.main_list_right li {
+	
+}
+
+.main_list_left li a, .main_list_right li a {
+	font-size: 14px;
+	padding: 5px;
+}
+
+#planetSelectorWrapper {
+	width:145px;
+}
+
+#planetSelector {
+	margin: 4px 0px;
+	width:145px;
+}
+
+/* Resources */
+#resourceWrapper{
+	height:90px;
+	text-align:center;
+	margin:0;
+}
+
+#resourceTable{
+	height:80px;
+	width: 100%;
+}
+
+#resourceTable td{
+	margin:0 5px;
+	min-width:130px;
+}
+
+#resourceTable img {
+    display: block;
+    height: 22px;
+    margin: 0 auto;
+    width: 42px;
+}
+
+/*Global Messgae */
+
+.admin {
+	color:red;
+}
+.mod {
+	color:yellow;
+}
+.ops {
+	color:skyblue;
+}
+
+.messages_body .admin {
+	font-weight:700;
+	color:red;
+}
+.messages_body .mod {
+	font-weight:700;
+	color:yellow;
+}
+.messages_body .ops {
+	font-weight:700;
+	color:skyblue;
+}
+
+.res_max {
+	color:#0F0
+}
+
+.res_name {
+	color:red;
+	font-weight:700
+}
+
+.galaxy-alliance-member {
+	color:#99FF66;
+}
+
+.galaxy-alliance-friend {
+	color:#99FFFF;
+}
+
+.galaxy-alliance-enemy {
+	color:#FF0000;
+}
+
+.galaxy-short-noob,
+.galaxy-username-noob{
+	color:#a0ffa0
+}
+
+.galaxy-short-strong,
+.galaxy-username-strong {
+	color:#ffa0a0
+}
+
+.galaxy-short-vacation,
+.galaxy-username-vacation {
+	color:#659ec7
+}
+
+.galaxy-short-inactive,
+.galaxy-username-inactive {
+	color:#ccc
+}
+
+.galaxy-short-longinactive,
+.galaxy-username-longinactive {
+	color:#999
+}
+
+.galaxy-short-banned {
+	text-decoration:line-through
+}
+
+.ownattack {
+	color:#6c3
+}
+
+.owncolony {
+	color:#c1c1c1
+}
+
+.owndeploy {
+	color:#666
+}
+
+.owndestroy {
+	color:#ff9
+}
+
+.ownfederation {
+	color:#c66
+}
+
+.ownharvest {
+	color:#ceff68
+}
+
+.ownhold {
+	color:#80a0c0
+}
+
+.destroy {
+	color:#d4a017
+}
+
+.hold {
+	color:#39c
+}
+
+.warning {
+	color:#FF8040
+}
+
+.notice {
+	color:#FF0
+}
+
+.return {
+	color:#444
+}
+
+.allymember,.colony,.deploy,.harvest,.transport,.success {
+	color:lime
+}
+
+.owntransport {
+	color:#a0ffa0
+}
+
+.ownespionage,.ownmissile {
+	color:#fc6
+}
+
+.espionage,.missile {
+	color:#f60
+}
+
+.build_submit {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: lime;
+}
+.onlist{
+    color: #DDD;
+}
+
+/** HEADER **/
+
+#header {
+	background: #0D1014;
+	background: rgba(6, 5, 5, 0.8);
+	border: 1px solid #524d4d;
+	border-top: none;
+	border-radius: 0 0 10px 10px;
+}
+
+#resourcesdiv{
+	text-align:center;
+}
+
+/** MAIN NAVIGATION HEADER **/
+#newmesnum {
+    color: #fff;
+    background-color: #dc3545;
+    padding: 1px 5px 1px 5px;
+}
+
+#newmes {
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    position: relative;
+    margin: 0 0 0 -10px;
+}
+
+/** TOPNAV **/
+.bar-main-container {
+    margin: 10px 0 0 10px;
+    width: 19%;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 0.8em;
+    color: #FFF;
+    float: left;
+}
+
+.wrap {
+
+}
+
+.bar-percentage {
+  	float: left;
+    background: rgba(0,0,0,0.13);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 10px 0 0 10px;
+    height: 16px;
+    overflow: hidden;
+}
+
+.bar-percentage img {
+  	width: 42px;
+    height: 16px;
+}
+
+.bar-container {
+  	float: left;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 0 10px 10px 0;
+    height: 16px;
+    background: rgba(170, 170, 170, 0.7);
+    width: 50%;
+    overflow: hidden;
+}
+
+.bar-text {
+	margin: 2px 0 0 5px;
+    color: #eeeeee;
+    position: absolute;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.bar-change {
+	float: left;
+    margin-left: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.bar {
+	float: left;
+	height: 100%;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	-moz-opacity: 1;
+	-khtml-opacity: 1;
+	opacity: 1;
+}
+
+.heder_res_921 {
+	margin: 10px 10px 0 0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    font-family: sans-serif;
+    font-weight: normal;
+    color: #FFF;
+    float: right;
+}
+
+.heder_res_921 img {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+/* COLORS */
+.res_901, .bar_901   { background: #38B1CC; }
+.res_902, .bar_902 { background: #2CB299; }
+.res_903, .bar_903  { background: #8E5D9F; }
+.res_911, .bar_911  { background: #EFC32F; }
+.res_921, .bar_921  { background: #a2a217; }
+
+.res_901_text   { color: #38B1CC; }
+.res_902_text { color: #2CB299; }
+.res_903_text  { color: #8E5D9F; }
+.res_911_text  { color: #EFC32F; }
+.res_921_text { color: #a2a217; }
+
+/** MENU **/
+
+#menu a {
+	background: #0D1014;
+	background: rgba(13, 16, 20, 0.95);
+}
+
+#menu a:hover {
+	background: #212428;
+}
+
+.menu-head a {
+	height:78px;
+	background:none !important;
+	padding:0 !important;
+	text-indent: -1000em;
+}
+
+/* PLANETMENU */
+
+#planet_menu_link{
+	font-weight:700;
+}
+
+#planet_menu_header{
+	text-align:right;
+}
+
+#planet_menu_content li {
+	text-align:center;
+}
+
+
+/* CONTENT */
+
+#content {
+    margin: 10px 0 0;
+    padding: 10px 0px 0px 0px;
+}
+
+.tip th{
+	text-align:center
+}
+
+.top {
+	vertical-align:top
+}
+
+.transparent,#header td, .tip td, .tip th, .raportMessage td {
+	background: transparent;
+	border:none;
+	filter: none !important;
+}
+
+.mes_unread td {
+	font-weight:700;
+}
+
+a {
+	text-decoration:none
+}
+
+th a,.res_current{
+	/*color:#FFF*/
+}
+
+.res_current_max,.attack,.federation,.error {
+	color:red
+}
+
+#fleetstatustable td{
+	background: transparent;
+	background-image: none;
+	border: 0 none
+}
+
+.raportWin {
+	color:lime;
+}
+
+.raportLose {
+	color:red;
+}
+
+.ui-progressbar-value {
+	background-image: url(img/processbar.gif);
+	background-position:top left;
+	border-color:#000;
+}
+
+.spyRaportContainerHead {
+	background: #212428;
+	color: white;
+	font-weight: 700;
+	text-align: left;
+	margin: 3px 0;
+	padding: 3px;
+}
+
+.spyRaportContainerRow {
+	border-top:1px solid #DDD;
+}
+.spyRaportContainerHead + .spyRaportContainerRow {
+	border-top:0 none;
+}
+
+.ui-autocomplete, .ui-state-hover, .ui-state-default, .ui-tabs-nav, .ui-tabs, .ui-progressbar, .ui-progressbar-value {
+	-webkit-border-radius:0;
+	-khtml-border-radius:0;
+	border-radius:0;
+}
+
+.ui-state-default{
+	border:1px solid #000 !important;
+	background: #0D1014 !important;
+}
+.ui-state-default > a{
+	cursor:pointer !important;
+}
+
+.ui-state-hover, .ui-progressbar{
+	border:1px solid #000 !important;
+	background: #212428 !important;
+}
+
+.ui-tabs-nav {
+	padding: 0;
+}
+
+.ui-tabs {
+	border:1px solid #000;
+	background:transaprent;
+}
+
+/** CSS PERSO **/
+.title {
+	text-align: center;
+	margin: -5px -5px 5px -5px;
+	background: #28292a;
+	padding: 5px;
+}
+
+.title div.onligne, .title div.ticket {
+	display: inline-block;
+}
+
+.title div.onligne {
+	float: left;
+}
+
+.title div.ticket {
+	float: right;
+}
+
+#contentPlanet {
+	overflow: hidden;
+	width: 705px;
+	height: 220px;
+	position: relative;
+	border: 1px solid #000;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	margin-bottom: 10px;
+	background-size: cover;
+}
+
+#namePlanet {
+	background: rgba(0, 0, 0, 0.7);
+	width: 230px;
+	padding: 5px;
+	border-radius: 0 0 5px 0;
+}
+
+#lunePlanet {
+	background: rgba(0, 0, 0, 0.7);
+	padding: 5px;
+	border-radius: 0 0 5px 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	color: coral;
+}
+
+#listDetailPlanet {
+	background: rgba(0, 0, 0, 0.7);
+	padding: 5px;
+	border-radius: 0 0 5px 0;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+#listDetailPlanet table {
+	width: 100%;
+}
+
+#listDetailPlanet td.desc {
+    font-weight: 700;
+}
+
+#listDetailPlanet td.data {
+    text-align: right;
+}
+
+#listDetailPlanet td {
+	   padding: 2px 5px;
+}
+
+#listDetailPlanet td.desc {
+	   color: #6f9fc8;
+}
+
+.listBat, .listRech, .listFleet {
+	background: rgba(0, 0, 0, 0.7);
+	padding: 5px;
+	border-radius: 0 0 5px 5px;
+	width: 30.33%;
+    float: left;
+    margin: -5px 0 0 10px;
+    text-align: center;
+}
+
+.listBat .timer, .listRech .timer, .listFleet .timer {
+	color: lime;
+	font-weight: bold;
+}
+
+.listBat .level, .listRech .level, .listFleet .level {
+	color: orange;
+	font-weight: bold;
+}
+
+/** Page pour les constructions **/
+.main_construct {
+	display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    justify-content: space-around;
+    float: left;
+    width: 50%;
+}
+
+.block_construct {
+	width: 95%;
+    margin: 10px 0 0 10px;
+}
+
+.block_construct_desc {
+	margin: 0 0 0 -5px;
+	padding: 5px;
+	background: rgba(0,0,0,0.7);
+}
+
+.block_construct_desc_list {
+	min-height: 155px;
+	margin-top: 5px;
+}
+
+.construct_button {
+	max-width: 100%;
+    width: 99%;
+    background: #16501cbf;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.construct_button_lost {
+    background: #a52727b3;
+    padding: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/** CSS pour les fancybox **/
+#fancybox-content {
+	border: 1px solid rgba(13, 16, 20, 0.95);
+	-moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border-width: 2px !important;
+}
+
+body.popup {
+	background: rgba(13, 16, 20, 0.95);
+	margin: 0;
+	padding: 0;
+	min-width: 100%;
+	min-height: 100%;
+}
+
+.ppopup#content {
+	margin: 17px 0 0;
+    padding: 0;
+}
+
+.content_page_popup {
+
+}
+
+.title_popup {
+	text-align: center;
+    margin: -20px 0 0 0;
+    background: #28292a;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.content_popup {
+	background: rgba(0,0,0,0.7);
+	border-top: 1px solid rgba(120, 125, 132, 0.95);
+}
+
+/*
+fancybox
+scrollbar
+*/
+/*fancybox*/
+#fancybox-bg-n {
+    top: -20px;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #000;
+}
+
+.fancybox-bg {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    width: 19px;
+    height: 19px;
+    z-index: 7001;
+    background: #091d2e;
+}
+
+#fancybox-close {
+    position: absolute;
+    top: -19px;
+    right: -19px;
+    width: 18px;
+    height: 18px;
+    background: url(./img/iconav/close.gif);
+    cursor: pointer;
+    z-index: 7103;
+    display: none;
+}
+/*scrollbar*/
+::-webkit-scrollbar{ width: 4px; /* 1 - вертикальный скроллбар */}
+::-webkit-scrollbar:horizontal{ height: 4px; /* 1 - горизонтальный скроллбар */}
+
+::-webkit-scrollbar-track-piece { background: #070D13; /* 4 – видимая часть трека */ }
+::-webkit-scrollbar-thumb {background: #5CA6AA; border-radius: 10px; -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); /* 5 - ползунок */}
+
+/** topnav and leftmenu and mobilmode**/
+#fulls{
+	height:100vh;
+	width:100%;
+	margin:0px;
+	padding:0px;
+	border:0px;
+	background:#000;
+	height:100vh;
+	
+}
+#header{
+	min-width:555px;  
+	padding:0px; 
+	height:unset;
+}
+#headerTable{
+	width:100%;   
+	padding:0px; 
+	margin:0 auto;
+	border-collapse: collapse;
+}
+.pbox{
+	background:rgba(13,16,20,0.95);  
+	width:198px; 
+	height: 78px;
+	border:1px solid #000; 
+	overflow:hidden; 
+	height:78px; 
+	cursor:pointer;
+}
+.pboxname{
+	float: left; 
+	text-align:right;
+	width: 119px; 
+	height: 78px;
+}
+.pbox2{
+	background:rgba(13,16,20,0.95);  
+	border-bottom:1px solid #000; 
+	width:198px; 
+	height: 78px;
+}
+.pbox3{
+	border-right:1px solid #000; 
+	float: left; 
+	height: 78px; 
+	width: 78px; 
+	background-size:100% 100%;
+}
+.pbox:hover{
+	background:rgba(39,48,60,0.95);
+}
+.pboxpic{
+	border-right:1px solid #000; 
+	float: left; 
+	height: 78px; 
+	width: 78px; 
+	background-size:100% 100%; 
+}
+.pboxtext{
+	float: left; 
+	text-align:right;
+	width: 115px; 
+	height: 74px;
+	padding:2px;
+}
+.resbar1{
+	overflow:hidden; 
+	border:1px solid #000; 
+	position:relative; 
+	display: inline-block; 
+	background:rgba(13, 16, 20, 0.95);
+	width:19%; height: 25px;
+}
+.resbar2{
+	height:25px; 
+	overflow:hidden;
+}
+
+.rbimgdiv{
+	display: inline-block; 
+	width:30px; 
+	vertical-align: top; 
+	height:25px;
+}
+.rbpercent{
+	position:absolute;   
+	bottom:6px; 
+	left:2px;
+}
+.ressbarc{
+	position:absolute;   
+	bottom:6px; 
+	right:2px; 
+	text-align:right;
+	text-shadow: 0 0 1px #000, 0 0 3px #000;
+}
+.mpbox{
+	position:absolute; 
+	border-radius: 5px;
+	overflow: hidden; 
+	top:0px; 
+	right:5px; 
+}
+
+
+
+
+
+
+@media screen and (max-width:1024px){
+	#userpic{
+		max-width: 540px;
+	}
+	#planetSelector{
+		margin: 0px;
+		font-size:16px;
+		width:unset;
+		height:50px;
+		text-align:right;
+	}
+	#mmenu{
+		float:right;
+		height:60px;
+		width:60px;
+		padding-bottom:6px;
+		margin-right:210px;
+	}
+	#mobmenu{
+		width: 200px;
+		height: 60px;
+		position: absolute;
+		right: 10px;
+	}
+	#mobmenu img{
+		margin-top:5px;
+		width: 50px;
+		height: 50px;
+	}
+	.mpbox{
+		display:none;
+	}
+	#header{
+		display:block;
+		padding-left:10px;
+		margin:62px 0px -60px 0px;
+		background:rgba(13, 16, 20, 0.95);
+	}
+	#content{
+		text-align:center;
+		margin:60px 0px 0px 0px;
+	}
+	#content td{
+		font-size:14px;
+		line-height:16px;
+	}
+	body{
+		font-size:13px;
+		/*background:url('img/mbg.png') !important;
+		background-attachment:fixed !important;*/
+		margin: 0px;
+		padding: 0px;
+		background-color:#000;
+		/*width:100vw;*/
+	}
+	.resbar1{
+		overflow: hidden;
+		box-shadow: 0 0 0 1px #000 inset;
+		width: calc(100% - 48px);
+		position: relative;
+		display: inline-block;
+		background: rgba(13, 16, 20, 0.95);
+		height: 25px;
+		font-size: 16px;
+	}
+	.resbar2{
+		height:25px; 
+		overflow:hidden;
+	}
+	#mobil{
+		display:block !important;
+		width:100%;
+		border-bottom:2px solid #999;
+		background:rgba(13, 16, 20, 0.95);
+		width:100%;
+		position:fixed;
+		height:62px;
+		top:0px;
+		z-index:4;
+		border-radius:0px 0px 5px 5px;
+		box-shadow: 0px 3px 3px #000;
+	}
+	#page{
+		margin:0px !important;
+	}
+	#leftmenu{
+		top:62px;
+		display:none;
+		position: absolute;
+		width: 100%;
+		line-height: 40px;
+		z-index:4;
+		background:rgba(13, 16, 20, 0.95);
+		height:100%;
+	}
+	.menu-head{
+		display:none;
+	}
+	#leftmenu a{
+		font-size:20px;
+	}
+	table[style*="width:760px"]{
+		max-width:582px !important;
+	}
+	.mright{
+		width: 28%;
+		margin-left: 5%;
+	}
+	#leftmenu tr:first-child {
+		display:none;
+	}
+	.menucat1-head{
+		display:none;
+	}
+	.menucat2-head{
+		display:none;
+	}
+	.menucat3-head{
+		display:none;
+	}
+	#disclamer{
+		display:none;
+	}
+	.menu-footer{
+		display:none;
+	}
+}
+
+#mobil{
+	display:none;
+}
+
+
+
+
+
+
+
+@media screen and (min-width:1025px){
+	#header{
+		padding:0px; 
+		height:unset;
+	}
+	#headerTable{
+		width:100%;   
+		padding:0px; 
+		margin:0 auto;
+		border-collapse: collapse;
+	}
+	#content{
+		margin:0px 200px;
+	}
+}
+
+
+
+#mmenu div {
+	width: 0;
+	height: 0;
+	margin-top:10px;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 40px solid #666;
+}
+/** topnav and leftmenu and mobilmode**/
+
+/** shipyrad **/
+.bsship{
+	min-width:100%; 
+	height:19px; 	 
+}
+.build_submit{
+	color:#fff !important;
+	background:green !important; 
+	margin:0px; 
+	text-align:center; 
+	border:1px solid #000; 
+	border-radius: 5px; 
+	font-weight:bold; 
+	vertical-align:center;	
+}
+.ssubmit{ 
+	width:100px;  
+	height:34px; 
+}
+/** shipyrad **/
+/** research **/
+.fbtext{
+	background:rgba(13, 16, 20, 0.95); 
+	height: 30px; 
+	border-bottom: 1px solid #000; 
+	padding-left:2px; 
+	width:100%;
+}
+/** research **/
+/** building **/
+.floatboxpic{
+	width:172px; 
+	height:172px; 
+}
+abortpic{
+	width:16px; 
+	height:16px; 
+	z-index:5;
+}
+.build_submit{
+	color:#fff; 
+	font-weight:bold;
+}
+.wi{
+	color:#fff;
+}
+.submitdiv{
+	text-align:center; 
+	border:1px solid #000; 
+	border-radius: 5px; 
+	height:34px;
+}
+.divdestruct{
+	position:absolute;  
+	top:156px; 
+	left:0px;
+}
+.divdestruct div{
+	width: 16px;
+	height: 16px;
+}
+.costoverflow{
+	height:60px; 
+	text-align:right;
+}
+/** building **/
+/** floatboxes -build research shipyard officers **/
+.floatbox{
+	overflow:hidden;	
+	position:relative; 
+	border-radius: 5px; 
+	width:172px; 
+	margin:5px; 
+	border:1px solid #000; 
+	height:284px; 
+	float:left; 
+	background:rgba(0,0,0,0.95);
+}
+/** floatboxes -build research shipyard officers end **/
+/** css for tabs **/
+#tabse{
+	width:100%;
+	text-align: center;
+}
+.active{
+	background:green;
+	font-size: 1.2em;
+	font-weight: bold;
+	display:inline; 
+	border:1px solid #000; 
+	font-size: 1.2em; 
+	padding:4px 5px; 
+	cursor:default; 
+}
+.inactive{
+	cursor:pointer; 
+	display:inline; 
+	border:1px solid #000; 
+	font-size: 1.2em; 
+	padding:4px 5px; 
+	background:rgba(13, 16, 20, 0.95);
+}
+.inactivetab{
+	display:none;
+}
+.activetab{
+	display:;
+	width:100%
+}
+/** css for tabs **/
+/** planeten **/
+  #draggable {
+	  position: absolute;
+	top: 20vh;
+	right: 2vw; 
+	min-width: 11vw; 
+	min-height: 6vw; 
+	width: 11vw; 
+	height: 70vh; 
+	padding: 0.9em; 
+	background:rgba(0,0,0,0.6); 
+	overflow-y:scroll; 
+	overflow-x: hidden; 
+	border-radius:1vw;
+}
+.plname{
+	text-align:center;
+}
+.plpic{
+	width: 5vw;
+	height: 5vw;
+	float:left;
+}
+.planet{
+	float:left;
+	width: 10vw;
+	height: 6vw;
+	overflow:hidden;
+	width: 10vw;
+	background:rgba(13, 16, 20, 0.95);
+	border:1px solid #000;
+	border-radius:1vw;
+	margin-right: 0.1vw;
+	margin-bottom: 0.1vw;
+}
+.plfleet{
+	text-align:right;
+}
+.plfleet img{
+	width:1.5vw;
+	height:1.5vw;
+}
+.plress{
+	font-size:0.6vw;
+	text-align:right;
+}
+.plress img{
+	width:0.6vw;
+	height:0.6vw;
+}
+/** planeten **/
+/** new  menu **/
+#menu table{
+	width:100%;		
+}
+
+#menu table div{
+	background-size:100% 100%;	
+	text-align:left;
+}
+#menu img{
+	width:30px;
+	height:30px;
+}
+.mright{
+	width: 24%;
+	float: left;
+	margin-left: 2%;
+	cursor:pointer;
+	text-align:center !important;
+	filter:invert(50%);
+	-webkit-filter:invert(50%);
+}
+.mright:hover{
+	transform: scale(1.3);
+}
+#alarm {
+    background: green;
+    margin: 2px 6px;
+    padding: 2px;
+	border-radius:15px;
+	width:13%;
+	text-align:center !important;
+	height:22px;
+	border:1px solide #000;
+	float:left;
+}
+.atta {
+    -webkit-animation-name: atta; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+    animation-name: atta;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+/** new  menu end**/
+
+/** Edit Color here **/
+ * 
+#.ui-widget-header{
+	background-color:#D20000;
+}
+.res_name{
+	color:#D20000;
+}
+
+body {
+	background:url("img/bkd_page.jpg") no-repeat fixed center center #0d0d0d;
+	/*overflow-y:scroll;*/
+}
+
+body,input,select,button,textarea,a,td,th,tr,table,a:visited{
+	color:#DDD;
+}
+
+body.mceContentBody,input,button,select,option,textarea, .ui-widget-content{
+	background: #0D1014;
+}
+
+input[type="radio"] {
+	background:transparent;
+	border:0 none;
+}
+
+
+#menu li:first-child, #menu li:last-child{
+	background-color:transparent;
+}
+
+a:hover {
+	color:red;
+	text-decoration:none
+}
+
+table,td,th {
+	font-weight:400
+}
+
+table table,img {
+	border:0
+}
+
+input, select, textarea, #userpic, input, button{
+	border:1px solid #1C1F23;
+}
+
+td, th input, .tip {
+	border:1px solid #000;
+}
+
+td, .tip {
+	text-align:center;
+	background: #0D1014;
+	background: rgba(13, 16, 20, 0.95);
+}
+
+input,button {
+	text-align:center
+}
+
+th, .ui-widget-header {
+	background-image:url("img/bkd_title.png");
+	color:#FFF;
+	font-weight:700;
+	text-align:left
+}
+
+th a:hover, .ui-widget-header a:hover, #menu a:hover  {
+	color:#FFF;
+}
+
+th a:hover, .ui-widget-header a:hover {
+	text-decoration:underline;
+}
+
+textarea {
+	background:transparent;
+}
+
+select {
+	border:1px solid #212121
+}
+
+/*Global Messgae */
+
+.admin {
+	color:red;
+}
+.mod {
+	color:yellow;
+}
+.ops {
+	color:skyblue;
+}
+
+.messages_body .admin {
+	font-weight:700;
+	color:red;
+}
+.messages_body .mod {
+	font-weight:700;
+	color:yellow;
+}
+.messages_body .ops {
+	font-weight:700;
+	color:skyblue;
+}
+
+.res_max {
+	color:#0F0
+}
+
+.res_name {
+	color:red;
+	font-weight:700
+}
+
+.galaxy-alliance-member {
+	color:#99FF66;
+}
+
+.galaxy-alliance-friend {
+	color:#99FFFF;
+}
+
+.galaxy-alliance-enemy {
+	color:#FF0000;
+}
+
+.galaxy-short-noob,
+.galaxy-username-noob{
+	color:#a0ffa0
+}
+
+.galaxy-short-strong,
+.galaxy-username-strong {
+	color:#ffa0a0
+}
+
+.galaxy-short-vacation,
+.galaxy-username-vacation {
+	color:#659ec7
+}
+
+.galaxy-short-inactive,
+.galaxy-username-inactive {
+	color:#ccc
+}
+
+.galaxy-short-longinactive,
+.galaxy-username-longinactive {
+	color:#999
+}
+
+.galaxy-short-banned {
+	text-decoration:line-through
+}
+
+.ownattack {
+	color:#6c3
+}
+
+.owncolony {
+	color:#c1c1c1
+}
+
+.owndeploy {
+	color:#666
+}
+
+.owndestroy {
+	color:#ff9
+}
+
+.ownfederation {
+	color:#c66
+}
+
+.ownharvest {
+	color:#ceff68
+}
+
+.ownhold {
+	color:#80a0c0
+}
+
+.destroy {
+	color:#d4a017
+}
+
+.hold {
+	color:#39c
+}
+
+.warning {
+	color:#FF8040
+}
+
+.notice {
+	color:#FF0
+}
+
+.return {
+	color:#444
+}
+
+.allymember,.colony,.deploy,.harvest,.transport,.success {
+	color:lime
+}
+
+.owntransport {
+	color:#a0ffa0
+}
+
+.ownespionage,.ownmissile {
+	color:#fc6
+}
+
+.espionage,.missile {
+	color:#f60
+}
+
+.build_submit {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: lime;
+}
+.onlist{
+    color: #DDD;
+}
+
+/** HEADER **/
+
+#header {
+	background: #0D1014;
+	background: rgba(13, 16, 20, 0.95);
+	border: 1px solid black;
+}
+
+#resourcesdiv{
+	text-align:center;
+}
+
+/** MENU **/
+
+#menu a {
+	background: #0D1014;
+	background: rgba(13, 16, 20, 0.95);
+	border-top:1px solid black;
+}
+
+#menu a:hover {
+	background: #212428;
+}
+
+.menu-head a{
+	height:78px;
+	background:none !important;
+	padding:0 !important;
+	text-indent: -1000em;
+}
+
+.menu-head {
+	background: url('./img/menu-top.png') no-repeat scroll 0 -22px transparent;
+}
+
+.menucat1-head {
+	background-image: url('./img/menu_wirt.png');
+}
+
+.menucat2-head {
+	background-image: url('./img/menu_com.png');
+}
+
+.menucat3-head {
+	background-image: url('./img/menu_acc.png');
+}
+
+.menu-footer{
+	background-image: url('./img/menu-foot.png');
+}
+
+/* PLANETMENU */
+
+#planet_menu_link{
+	font-weight:700;
+}
+
+#planet_menu_header{
+	text-align:right;
+}
+
+#planet_menu_content li {
+	text-align:center;
+}
+
+
+/* CONTENT */
+
+.tip th{
+	text-align:center
+}
+
+.top {
+	vertical-align:top
+}
+
+.transparent,#header td, .tip td, .tip th, .raportMessage td {
+	background: transparent;
+	border:none;
+	filter: none !important;
+}
+
+.mes_unread td {
+	font-weight:700;
+}
+
+a {
+	text-decoration:none
+}
+
+th a,.res_current{
+	color:#FFF
+}
+
+.res_current_max,.attack,.federation,.error {
+	color:red
+}
+
+#fleetstatustable td{
+	background: transparent;
+	background-image: none;
+	border: 0 none
+}
+
+.raportWin {
+	color:lime;
+}
+
+.raportLose {
+	color:red;
+}
+
+.ui-progressbar-value {
+	background-image: url(img/processbar.gif);
+	background-position:top left;
+	border-color:#000;
+}
+
+.spyRaportContainerHead {
+	background: #212428;
+	color: white;
+	font-weight: 700;
+	text-align: left;
+	margin: 3px 0;
+	padding: 3px;
+}
+
+.spyRaportContainerRow {
+	border-top:1px solid #DDD;
+}
+.spyRaportContainerHead + .spyRaportContainerRow {
+	border-top:0 none;
+}
+
+.ui-autocomplete, .ui-state-hover, .ui-state-default, .ui-tabs-nav, .ui-tabs, .ui-progressbar, .ui-progressbar-value {
+	-webkit-border-radius:0;
+	-khtml-border-radius:0;
+	border-radius:0;
+}
+
+.ui-state-default{
+	border:1px solid #000 !important;
+	background: #0D1014 !important;
+}
+.ui-state-default > a{
+	cursor:pointer !important;
+}
+
+.ui-state-hover, .ui-progressbar{
+	border:1px solid #000 !important;
+	background: #212428 !important;
+}
+
+.ui-tabs-nav {
+	padding: 0;
+}
+
+.ui-tabs {
+	border:1px solid #000;
+	background:transaprent;
+}
