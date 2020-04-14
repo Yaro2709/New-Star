@@ -14086,3 +14086,215 @@ Stack trace:
 #3 /includes/pages/login/ShowVertifyPage.class.php(127): ShowVertifyPage-&gt;_activeUser()
 #4 /index.php(57): ShowVertifyPage-&gt;show()
 #5 {main}
+[13-Apr-2020 14:37:25] USER ERROR: "Main Planet does not exist!"
+File: W:\domains\new-star.net\includes\common.php | Line: 190
+URL: http://new-star.net/game.php | Version: 1.0.git
+Stack trace:
+#0 /game.php(25): require()
+#1 {main}
+[13-Apr-2020 14:37:37] USER ERROR: "Main Planet does not exist!"
+File: W:\domains\new-star.net\includes\common.php | Line: 190
+URL: http://new-star.net/game.php | Version: 1.0.git
+Stack trace:
+#0 /game.php(25): require()
+#1 {main}
+[13-Apr-2020 15:06:53] WARNING: "imagettftext(): Could not find/open font"
+File: W:\domains\new-star.net\includes\classes\class.StatBanner.php | Line: 55
+URL: http://new-star.net/userpic.php?id=3 | Version: 1.0.git
+Stack trace:
+#0 [internal function]: errorHandler(2, 'imagettftext():...', 'W://domains//new-...', 55, Array)
+#1 /includes/classes/class.StatBanner.php(55): imagettftext(Resource id #42, 20, 0, 20, 31, 2171169, 'styles/resource...', 'admin')
+#2 /userpic.php(53): StatBanner-&gt;CreateUTF8Banner(Array)
+#3 {main}
+[13-Apr-2020 19:07:35] NOTICE: "Undefined offset: 229"
+File: W:\domains\new-star.net\includes\classes\class.BuildFunctions.php | Line: 85
+URL: http://new-star.net/game.php?page=Resourcecalc&options=200 | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/class.BuildFunctions.php(85): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 85, Array)
+#1 /includes/pages/game/ShowResourcecalcPage.class.php(67): BuildFunctions::getElementPriceCalcu(Array, Array, 229)
+#2 /game.php(58): ShowResourcecalcPage-&gt;show()
+#3 {main}
+[13-Apr-2020 19:10:18] NOTICE: "Undefined variable: elementId"
+File: W:\domains\new-star.net\includes\pages\game\ShowResourcecalcPage.class.php | Line: 148
+URL: http://new-star.net/game.php?page=Resourcecalc&options=200 | Version: 1.0.git
+Stack trace:
+#0 /includes/pages/game/ShowResourcecalcPage.class.php(148): errorHandler(8, 'Undefined varia...', 'W://domains//new-...', 148, Array)
+#1 /game.php(58): ShowResourcecalcPage-&gt;show()
+#2 {main}
+[13-Apr-2020 19:10:58] NOTICE: "Undefined variable: elementId"
+File: W:\domains\new-star.net\includes\pages\game\ShowResourcecalcPage.class.php | Line: 147
+URL: http://new-star.net/game.php?page=Resourcecalc&options=200 | Version: 1.0.git
+Stack trace:
+#0 /includes/pages/game/ShowResourcecalcPage.class.php(147): errorHandler(8, 'Undefined varia...', 'W://domains//new-...', 147, Array)
+#1 /game.php(58): ShowResourcecalcPage-&gt;show()
+#2 {main}
+[13-Apr-2020 20:00:36] WARNING: "imagettftext(): Could not find/open font"
+File: W:\domains\new-star.net\includes\classes\class.StatBanner.php | Line: 55
+URL: http://new-star.net/userpic.php?id=3 | Version: 1.0.git
+Stack trace:
+#0 [internal function]: errorHandler(2, 'imagettftext():...', 'W://domains//new-...', 55, Array)
+#1 /includes/classes/class.StatBanner.php(55): imagettftext(Resource id #42, 20, 0, 20, 31, 2171169, 'styles/resource...', 'admin')
+#2 /userpic.php(53): StatBanner-&gt;CreateUTF8Banner(Array)
+#3 {main}
+[13-Apr-2020 21:37:49] USER ERROR: "Unable to load template 'file:error_message_body.tpl'"
+File: W:\domains\new-star.net\includes\libs\Smarty\sysplugins\smarty_internal_template.php | Line: 163
+URL: http://new-star.net/install/index.php?mode=upgrade | Version: 2.0.0 (FILE)
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#1 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#2 /includes/classes/class.template.php(130): Smarty_Internal_TemplateBase-&gt;display('error_message_b...')
+#3 /includes/classes/class.template.php(160): template-&gt;show('error_message_b...')
+#4 /install/index.php(66): template-&gt;message('### Template &quot;l...', false, 0, true)
+#5 {main}
+[13-Apr-2020 21:37:50] USER ERROR: "Unable to load template 'file:error_message_body.tpl'"
+File: W:\domains\new-star.net\includes\libs\Smarty\sysplugins\smarty_internal_template.php | Line: 163
+URL: http://new-star.net/install/index.php?mode=upgrade | Version: 2.0.0 (FILE)
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#1 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#2 /includes/classes/class.template.php(130): Smarty_Internal_TemplateBase-&gt;display('error_message_b...')
+#3 /includes/classes/class.template.php(160): template-&gt;show('error_message_b...')
+#4 /install/index.php(66): template-&gt;message('### Template &quot;l...', false, 0, true)
+#5 {main}
+[13-Apr-2020 21:39:14 Europe/Moscow] PHP Fatal error:  Uncaught PDOException: SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected in W:\domains\new-star.net\includes\classes\Database.class.php:259
+Stack trace:
+#0 W:\domains\new-star.net\includes\classes\Database.class.php(259): PDO->query('SELECT * FROM u...')
+#1 W:\domains\new-star.net\includes\classes\Config.class.php(80): Database->nativeQuery('SELECT * FROM u...')
+#2 W:\domains\new-star.net\includes\classes\Config.class.php(55): Config::generateInstances()
+#3 W:\domains\new-star.net\includes\GeneralFunctions.php(525): Config::get()
+#4 [internal function]: exceptionHandler(Object(PDOException))
+#5 {main}
+  thrown in W:\domains\new-star.net\includes\classes\Database.class.php on line 259
+[13-Apr-2020 21:39:19 Europe/Moscow] PHP Fatal error:  Uncaught PDOException: SQLSTATE[3D000]: Invalid catalog name: 1046 No database selected in W:\domains\new-star.net\includes\classes\Database.class.php:259
+Stack trace:
+#0 W:\domains\new-star.net\includes\classes\Database.class.php(259): PDO->query('SELECT * FROM u...')
+#1 W:\domains\new-star.net\includes\classes\Config.class.php(80): Database->nativeQuery('SELECT * FROM u...')
+#2 W:\domains\new-star.net\includes\classes\Config.class.php(55): Config::generateInstances()
+#3 W:\domains\new-star.net\includes\GeneralFunctions.php(525): Config::get()
+#4 [internal function]: exceptionHandler(Object(PDOException))
+#5 {main}
+  thrown in W:\domains\new-star.net\includes\classes\Database.class.php on line 259
+[13-Apr-2020 21:39:43] USER ERROR: "Unable to load template 'file:error_message_body.tpl'"
+File: W:\domains\new-star.net\includes\libs\Smarty\sysplugins\smarty_internal_template.php | Line: 163
+URL: http://new-star.net/install/index.php?mode=upgrade | Version: 2.0.0 (FILE)
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#1 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#2 /includes/classes/class.template.php(130): Smarty_Internal_TemplateBase-&gt;display('error_message_b...')
+#3 /includes/classes/class.template.php(160): template-&gt;show('error_message_b...')
+#4 /install/index.php(66): template-&gt;message('### Template &quot;l...', false, 0, true)
+#5 {main}
+[13-Apr-2020 22:12:30] USER ERROR: "Call to undefined function isModulAvalible()"
+File: W:\domains\new-star.net\includes\pages\game\ShowRacePage.class.php | Line: 99
+URL: http://new-star.net/game.php?page=race | Version: 1.0.git
+Stack trace:
+#0 /game.php(58): ShowRacePage-&gt;show()
+#1 {main}
+[13-Apr-2020 22:13:43] NOTICE: "Undefined index: race"
+File: W:\domains\new-star.net\includes\pages\game\ShowRacePage.class.php | Line: 101
+URL: http://new-star.net/game.php?page=race | Version: 1.0.git
+Stack trace:
+#0 /includes/pages/game/ShowRacePage.class.php(101): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 101, Array)
+#1 /game.php(58): ShowRacePage-&gt;show()
+#2 {main}
+[13-Apr-2020 22:14:12] NOTICE: "Undefined index: race"
+File: W:\domains\new-star.net\includes\pages\game\ShowRacePage.class.php | Line: 133
+URL: http://new-star.net/game.php?page=race | Version: 1.0.git
+Stack trace:
+#0 /includes/pages/game/ShowRacePage.class.php(133): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 133, Array)
+#1 /game.php(58): ShowRacePage-&gt;show()
+#2 {main}
+[13-Apr-2020 22:27:46] USER ERROR: "SQL Error: Table 'newstarnet.uni1_vars_bonus' doesn't existQuery Code: SELECT * FROM `uni1_vars_bonus` WHERE elementID = 1501 ;"
+File: W:\domains\new-star.net\includes\classes\Database_BC.class.php | Line: 70
+URL: http://new-star.net/game.php?page=race | Version: 1.0.git
+Stack trace:
+#0 /includes/pages/game/ShowRacePage.class.php(105): Database_BC-&gt;query('SELECT * FROM `...')
+#1 /game.php(58): ShowRacePage-&gt;show()
+#2 {main}
+[13-Apr-2020 22:28:32] NOTICE: "Trying to get property 'num_rows' of non-object"
+File: W:\domains\new-star.net\includes\classes\Database_BC.class.php | Line: 168
+URL: http://new-star.net/game.php?page=race | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/Database_BC.class.php(168): errorHandler(8, 'Trying to get p...', 'W://domains//new-...', 168, Array)
+#1 /includes/pages/game/ShowRacePage.class.php(107): Database_BC-&gt;numRows(0)
+#2 /game.php(58): ShowRacePage-&gt;show()
+#3 {main}
+[13-Apr-2020 22:29:35] NOTICE: "Undefined offset: 1500"
+File: W:\domains\new-star.net\cache\templates\ru^06c5e3c4fdb4ae0acab7f421b31919cd949f1e1d.page.race.default.tpl.php | Line: 662
+URL: http://new-star.net/game.php?page=race | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^06c5e3c4fdb4ae0acab7f421b31919cd949f1e1d.page.race.default.tpl.php(662): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 662, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e94bc04bf8a18_69699290(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRacePage.class.php(136): AbstractGamePage-&gt;display('page.race.defau...')
+#9 /game.php(58): ShowRacePage-&gt;show()
+#10 {main}
+[13-Apr-2020 22:30:14] NOTICE: "Undefined offset: 1500"
+File: W:\domains\new-star.net\cache\templates\ru^06c5e3c4fdb4ae0acab7f421b31919cd949f1e1d.page.race.default.tpl.php | Line: 662
+URL: http://new-star.net/game.php?page=race | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^06c5e3c4fdb4ae0acab7f421b31919cd949f1e1d.page.race.default.tpl.php(662): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 662, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e94bdcb2eda84_03943035(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRacePage.class.php(125): AbstractGamePage-&gt;display('page.race.defau...')
+#10 /game.php(58): ShowRacePage-&gt;show()
+#11 {main}
+[13-Apr-2020 22:30:40] NOTICE: "Undefined offset: 1501"
+File: W:\domains\new-star.net\cache\templates\ru^06c5e3c4fdb4ae0acab7f421b31919cd949f1e1d.page.race.default.tpl.php | Line: 673
+URL: http://new-star.net/game.php?page=race | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^06c5e3c4fdb4ae0acab7f421b31919cd949f1e1d.page.race.default.tpl.php(673): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 673, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e94bde4b31d90_83884555(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRacePage.class.php(125): AbstractGamePage-&gt;display('page.race.defau...')
+#10 /game.php(58): ShowRacePage-&gt;show()
+#11 {main}
+[13-Apr-2020 23:15:56] NOTICE: "Undefined offset: 901"
+File: W:\domains\new-star.net\includes\pages\game\ShowRacePage.class.php | Line: 44
+URL: http://new-star.net/game.php?page=race | Version: 1.0.git
+Stack trace:
+#0 /includes/pages/game/ShowRacePage.class.php(44): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 44, Array)
+#1 /includes/pages/game/ShowRacePage.class.php(91): ShowRacePage-&gt;UpdateRace(1501)
+#2 /game.php(58): ShowRacePage-&gt;show()
+#3 {main}
+[14-Apr-2020 11:57:58 Europe/Moscow] PHP Fatal error:  Uncaught UnexpectedValueException: Unknown configuration key game_name! in W:\domains\new-star.net\includes\classes\Config.class.php:96
+Stack trace:
+#0 W:\domains\new-star.net\includes\GeneralFunctions.php(526): Config->__get('game_name')
+#1 [internal function]: exceptionHandler(Object(UnexpectedValueException))
+#2 {main}
+  thrown in W:\domains\new-star.net\includes\classes\Config.class.php on line 96
+[14-Apr-2020 11:58:56 Europe/Moscow] PHP Fatal error:  Uncaught UnexpectedValueException: Unknown configuration key game_name! in W:\domains\new-star.net\includes\classes\Config.class.php:96
+Stack trace:
+#0 W:\domains\new-star.net\includes\GeneralFunctions.php(526): Config->__get('game_name')
+#1 [internal function]: exceptionHandler(Object(UnexpectedValueException))
+#2 {main}
+  thrown in W:\domains\new-star.net\includes\classes\Config.class.php on line 96
+[14-Apr-2020 12:00:32 Europe/Moscow] PHP Fatal error:  Uncaught UnexpectedValueException: Unknown configuration key game_name! in W:\domains\new-star.net\includes\classes\Config.class.php:96
+Stack trace:
+#0 W:\domains\new-star.net\includes\GeneralFunctions.php(526): Config->__get('game_name')
+#1 [internal function]: exceptionHandler(Object(UnexpectedValueException))
+#2 {main}
+  thrown in W:\domains\new-star.net\includes\classes\Config.class.php on line 96
+[14-Apr-2020 12:00:39 Europe/Moscow] PHP Fatal error:  Uncaught UnexpectedValueException: Unknown configuration key game_name! in W:\domains\new-star.net\includes\classes\Config.class.php:96
+Stack trace:
+#0 W:\domains\new-star.net\includes\GeneralFunctions.php(526): Config->__get('game_name')
+#1 [internal function]: exceptionHandler(Object(UnexpectedValueException))
+#2 {main}
+  thrown in W:\domains\new-star.net\includes\classes\Config.class.php on line 96

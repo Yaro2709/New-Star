@@ -1,4 +1,10 @@
 
+.race_elements .build_box {
+width: 98% !important;
+    float: none !important;
+    height: auto !important;
+}
+
 /* Боевая система */
  body {
 	background-image:none;

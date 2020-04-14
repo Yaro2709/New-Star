@@ -155,7 +155,7 @@ class ShowOfficierPage extends AbstractGamePage
 			}
 		}
 		
-		$this->tplObj->assign_vars(array(	
+		$this->assign(array(	
 			'officierList'		=> $officierList,
 		));
 		

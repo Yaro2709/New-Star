@@ -119,7 +119,7 @@ class ShowFleetStep2Page extends AbstractGamePage
 		);
 			
 		$this->tplObj->execscript('calculateTransportCapacity();');
-		$this->tplObj->assign_vars(array(
+		$this->assign(array(
 			'fleetdata'						=> $fleetData,
 			'consumption'					=> floattostring($consumption),
 			'mission'						=> $targetMission,

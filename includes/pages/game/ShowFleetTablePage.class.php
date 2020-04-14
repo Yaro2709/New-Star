@@ -417,7 +417,7 @@ class ShowFleetTablePage extends AbstractGamePage
 			$fleetGroopName[] = $Row[0];
 		}
 		
-		$this->tplObj->assign_vars(array(
+		$this->assign(array(
 		    'acsData'				=> $acsData,
 			'FleetsOnPlanet'		=> $FleetsOnPlanet,
 			'elementList'			=> $elementList,

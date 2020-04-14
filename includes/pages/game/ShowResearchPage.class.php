@@ -519,7 +519,7 @@ class ShowResearchPage extends AbstractGamePage
 		}
 		
 		$this->tplObj->loadscript('research.js');
-		$this->tplObj->assign_vars(array(
+		$this->assign(array(
 			'ResearchList'	=> $ResearchList,
 			'IsLabinBuild'	=> !$bContinue,
 			'IsFullQueue'	=> Config::get()->max_elements_tech == 0 || Config::get()->max_elements_tech == count($TechQueue),

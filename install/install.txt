@@ -3,6 +3,7 @@
 2. Файлы загрузите в корневой каталог вашего сайта.
 3. Создадите пустую базу данных у вас на хосте и импортируйте базу /includes/backups/no_clean.sql
 4. Редактируем файл /includes/config.php где меняем уже данные на вашу базу данных.
+5. Перейдите в /index.php
 
 Админ:
 Пароль: admin@admin.com
@@ -16,6 +17,7 @@
 2. Upload the files to the root directory of your site.
 3. Create an empty database on your host and import the /includes/backups/no_clean.sql database
 4. Edit the file /includes/config.php where we are changing the data to your database.
+5. Go to /index.php
 
 Admin:
 Password: admin@admin.com

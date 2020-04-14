@@ -134,7 +134,7 @@ class ShowGubernatorsPage extends AbstractGamePage
 			}
 		}
 		
-		$this->tplObj->assign_vars(array(	
+		$this->assign(array(	
 			'darkmatterList'	=> $darkmatterList,
 		));
 		

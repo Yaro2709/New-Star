@@ -114,157 +114,133 @@ abstract class AbstractGamePage
 		}
 		foreach($USER['PLANETS'] as $PlanetQuery)
 		{
-			
-		if ($PlanetQuery['b_building'] - TIMESTAMP > 0) {
-			$Queue			= unserialize($PlanetQuery['b_building_id']);
-			$buildInfo['buildings']	= array(
-				'id'		=> $Queue[0][0],
-				'level'		=> $Queue[0][1],
-				'timeleft'	=> $PlanetQuery['b_building'] - TIMESTAMP,
-				'time'		=> $PlanetQuery['b_building'],
-				'starttime'	=> pretty_time($PlanetQuery['b_building'] - TIMESTAMP),
-			);
-		}
-		else {
-			$buildInfo['buildings']	= false;
-		}
-		
-		if (!empty($PlanetQuery['b_hangar_id'])) {
-			$Queue	= unserialize($PlanetQuery['b_hangar_id']);
-			$time	= BuildFunctions::getBuildingTime($USER, $PlanetQuery, $Queue[0][0]) * $Queue[0][1];
-			$buildInfo['fleet']	= array(
-				'id'		=> $Queue[0][0],
-				'level'		=> $Queue[0][1],
-				'timeleft'	=> $time - $PlanetQuery['b_hangar'],
-				'time'		=> $time,
-				'starttime'	=> pretty_time($time - $PlanetQuery['b_hangar']),
-			);
-		}
-		else {
+			//Видимость построек
+            if ($PlanetQuery['b_building'] - TIMESTAMP > 0) {
+                $Queue			= unserialize($PlanetQuery['b_building_id']);
+                $buildInfo['buildings']	= array(
+                    'id'		=> $Queue[0][0],
+                    'level'		=> $Queue[0][1],
+                    'timeleft'	=> $PlanetQuery['b_building'] - TIMESTAMP,
+                    'time'		=> $PlanetQuery['b_building'],
+                    'starttime'	=> pretty_time($PlanetQuery['b_building'] - TIMESTAMP),
+                );
+            }else{
+                $buildInfo['buildings']	= false;
+            }
+            //Видимость флота и обороны
+            if (!empty($PlanetQuery['b_hangar_id'])) {
+                $Queue	= unserialize($PlanetQuery['b_hangar_id']);
+                $time	= BuildFunctions::getBuildingTime($USER, $PlanetQuery, $Queue[0][0]) * $Queue[0][1];
+                $buildInfo['fleet']	= array(
+                    'id'		=> $Queue[0][0],
+                    'level'		=> $Queue[0][1],
+                    'timeleft'	=> $time - $PlanetQuery['b_hangar'],
+                    'time'		=> $time,
+                    'starttime'	=> pretty_time($time - $PlanetQuery['b_hangar']),
+                );
+            }else{
 			$buildInfo['fleet']	= false;
-		}
+            }
+            //Видимость исследований
+            if ($USER['b_tech'] - TIMESTAMP > 0) {
+                $Queue			= unserialize($USER['b_tech_queue']);
+                $buildInfo['tech']	= array(
+                    'id'		=> $Queue[0][0],
+                    'level'		=> $Queue[0][1],
+                    'timeleft'	=> $USER['b_tech'] - TIMESTAMP,
+                    'time'		=> $USER['b_tech'],
+                    'starttime'	=> pretty_time($USER['b_tech'] - TIMESTAMP),
+                );
+            }else{
+                $buildInfo['tech']	= false;
+            }
+            //Видимость атак на планету
+            $totalAttacks       = 0;
+            $sql	            = 'SELECT COUNT(fleet_id) as fleet_id FROM %%FLEETS%% WHERE fleet_target_owner = :userId AND fleet_mission = :missionID AND fleet_mess = :mesID AND     fleet_end_id = :fleet_end_id;';
+            $totalAttacks	    = Database::get()->selectSingle($sql, array(
+                ':userId'	        => $USER['id'],
+                ':missionID'	    => 1,
+                ':mesID'	        => 0,
+                ':fleet_end_id'	    => $PlanetQuery['id']
+            ), 'fleet_id');
+        
+            if($totalAttacks != 0){
+                $totalAttacks = $totalAttacks;	
+            }
+            //Видимость ракетных атак на планету
+            $totalRockets       = 0;
+            $sql	            = 'SELECT COUNT(fleet_id) as fleet_id FROM %%FLEETS%% WHERE fleet_target_owner = :userId AND fleet_mission = :missionID AND fleet_mess = :mesID AND fleet_end_id = :fleet_end_id;';
+            $totalRockets	    = Database::get()->selectSingle($sql, array(
+                ':userId'	        => $USER['id'],
+                ':missionID'	    => 10,
+                ':mesID'	        => 0,
+                ':fleet_end_id' 	=> $PlanetQuery['id']
+            ), 'fleet_id');
+        
+            if($totalRockets != 0){
+                $totalRockets = $totalRockets;	
+            }
+            //Видимость шпионажа на планету
+            $totalSpio          = 0;
+            $sql	            = 'SELECT COUNT(fleet_id) as fleet_id FROM %%FLEETS%% WHERE fleet_target_owner = :userId AND fleet_mission = :missionID AND fleet_mess = :mesID AND fleet_end_id = :fleet_end_id;';
+            $totalSpio	        = Database::get()->selectSingle($sql, array(
+                ':userId'	        => $USER['id'],
+                ':missionID'	    => 6,
+                ':mesID'	        => 0,
+                ':fleet_end_id'	    => $PlanetQuery['id']
+            ), 'fleet_id');
+        
+            if($totalSpio != 0){
+                $totalSpio = $totalSpio;	
+            }
+            //Видимость действий на луну
+            $totalAttackLuna = 0;
+            $totalRocketsLuna = 0;
+            $totalSpioLuna = 0;
 		
-		if ($USER['b_tech'] - TIMESTAMP > 0) {
-			$Queue			= unserialize($USER['b_tech_queue']);
-			$buildInfo['tech']	= array(
-				'id'		=> $Queue[0][0],
-				'level'		=> $Queue[0][1],
-				'timeleft'	=> $USER['b_tech'] - TIMESTAMP,
-				'time'		=> $USER['b_tech'],
-				'starttime'	=> pretty_time($USER['b_tech'] - TIMESTAMP),
-			);
-		}
-		else {
-			$buildInfo['tech']	= false;
-		}
-		
-		//ATTACK PART
-		$totalAttacks = 0;
-		$sql	= 'SELECT COUNT(fleet_id) as fleet_id FROM %%FLEETS%% WHERE fleet_target_owner = :userId AND fleet_mission = :missionID AND fleet_mess = :mesID AND fleet_end_id = :fleet_end_id;';
-		$totalAttacks	= Database::get()->selectSingle($sql, array(
-		':userId'	=> $USER['id'],
-		':missionID'	=> 1,
-		':mesID'	=> 0,
-		':fleet_end_id'	=> $PlanetQuery['id']
-		), 'fleet_id');
-		if($totalAttacks != 0){
-		$totalAttacks = $totalAttacks;	
-		}
-		//END ATTACK PART
-		
-		//CAPTURE PART
-		$totalCapture = 0;
-		$sql	= 'SELECT COUNT(fleet_id) as fleet_id FROM %%FLEETS%% WHERE fleet_target_owner = :userId AND fleet_mission = :missionID AND fleet_mess != :mesID AND fleet_end_id = :fleet_end_id;';
-		$totalCapture	= Database::get()->selectSingle($sql, array(
-		':userId'	=> $USER['id'],
-		':missionID'	=> 25,
-		':mesID'	=> 1,
-		':fleet_end_id'	=> $PlanetQuery['id']
-		), 'fleet_id');
-		if($totalCapture != 0){
-		$totalCapture = $totalCapture;	
-		}
-		//END CAPTURE PART
-		
-		//ROCKET PART
-		$totalRockets = 0;
-		$sql	= 'SELECT COUNT(fleet_id) as fleet_id FROM %%FLEETS%% WHERE fleet_target_owner = :userId AND fleet_mission = :missionID AND fleet_mess = :mesID AND fleet_end_id = :fleet_end_id;';
-		$totalRockets	= Database::get()->selectSingle($sql, array(
-		':userId'	=> $USER['id'],
-		':missionID'	=> 10,
-		':mesID'	=> 0,
-		':fleet_end_id'	=> $PlanetQuery['id']
-		), 'fleet_id');
-		if($totalRockets != 0){
-		$totalRockets = $totalRockets;	
-		}
-		//END ROCKET PART
-		
-		//SPIO PART
-		$totalSpio = 0;
-		$sql	= 'SELECT COUNT(fleet_id) as fleet_id FROM %%FLEETS%% WHERE fleet_target_owner = :userId AND fleet_mission = :missionID AND fleet_mess = :mesID AND fleet_end_id = :fleet_end_id;';
-		$totalSpio	= Database::get()->selectSingle($sql, array(
-		':userId'	=> $USER['id'],
-		':missionID'	=> 6,
-		':mesID'	=> 0,
-		':fleet_end_id'	=> $PlanetQuery['id']
-		), 'fleet_id');
-		if($totalSpio != 0){
-		$totalSpio = $totalSpio;	
-		}
-		//END SPIO PART
-		
-		
-		$totalAttackLuna = 0;
-		$totalRocketsLuna = 0;
-		$totalSpioLuna = 0;
-		
-		if($PlanetQuery['id_luna'] != 0){
-			//ATTACK PART
-		$totalAttackLuna = 0;
-		$sql	= 'SELECT COUNT(fleet_id) as fleet_id FROM %%FLEETS%% WHERE fleet_target_owner = :userId AND fleet_mission = :missionID AND fleet_mess = :mesID AND fleet_end_id = :fleet_end_id;';
-		$totalAttackLuna	= Database::get()->selectSingle($sql, array(
-		':userId'	=> $USER['id'],
-		':missionID'	=> 1,
-		':mesID'	=> 0,
-		':fleet_end_id'	=> $PlanetQuery['id_luna']
-		), 'fleet_id');
-		if($totalAttackLuna != 0){
-		$totalAttackLuna = $totalAttackLuna;	
-		}
-		//END ATTACK PART
-		
-		//ROCKET PART
-		$totalRocketsLuna = 0;
-		$sql	= 'SELECT COUNT(fleet_id) as fleet_id FROM %%FLEETS%% WHERE fleet_target_owner = :userId AND fleet_mission = :missionID AND fleet_mess = :mesID AND fleet_end_id = :fleet_end_id;';
-		$totalRocketsLuna	= Database::get()->selectSingle($sql, array(
-		':userId'	=> $USER['id'],
-		':missionID'	=> 10,
-		':mesID'	=> 0,
-		':fleet_end_id'	=> $PlanetQuery['id_luna']
-		), 'fleet_id');
-		if($totalRocketsLuna != 0){
-		$totalRocketsLuna = $totalRocketsLuna;	
-		}
-		//END ROCKET PART
-		
-		//SPIO PART
-		$totalSpioLuna = 0;
-		$sql	= 'SELECT COUNT(fleet_id) as fleet_id FROM %%FLEETS%% WHERE fleet_target_owner = :userId AND fleet_mission = :missionID AND fleet_mess = :mesID AND fleet_end_id = :fleet_end_id;';
-		$totalSpioLuna	= Database::get()->selectSingle($sql, array(
-		':userId'	=> $USER['id'],
-		':missionID'	=> 6,
-		':mesID'	=> 0,
-		':fleet_end_id'	=> $PlanetQuery['id_luna']
-		), 'fleet_id');
-		if($totalSpioLuna != 0){
-		$totalSpioLuna = $totalSpioLuna;	
-		}
-		//END SPIO PART
-			
-		}
-		
-		$PlanetListing[$PlanetQuery['id']] = array(
+            if($PlanetQuery['id_luna'] != 0){
+			//Видимость атак на луну
+                $totalAttackLuna    = 0;
+                $sql	            = 'SELECT COUNT(fleet_id) as fleet_id FROM %%FLEETS%% WHERE fleet_target_owner = :userId AND fleet_mission = :missionID AND fleet_mess = :mesID AND fleet_end_id = :fleet_end_id;';
+                $totalAttackLuna    = Database::get()->selectSingle($sql, array(
+                    ':userId'	        => $USER['id'],
+                    ':missionID'	    => 1,
+                    ':mesID'	        => 0,
+                    ':fleet_end_id'	    => $PlanetQuery['id_luna']
+                ), 'fleet_id');
+            
+                if($totalAttackLuna != 0){
+                    $totalAttackLuna = $totalAttackLuna;	
+                }
+                //Видимость ракетных атак на луну
+                $totalRocketsLuna   = 0;
+                $sql	            = 'SELECT COUNT(fleet_id) as fleet_id FROM %%FLEETS%% WHERE fleet_target_owner = :userId AND fleet_mission = :missionID AND fleet_mess = :mesID AND fleet_end_id = :fleet_end_id;';
+                $totalRocketsLuna	= Database::get()->selectSingle($sql, array(
+                    ':userId'	        => $USER['id'],
+                    ':missionID'	    => 10,
+                    ':mesID'	        => 0,
+                    ':fleet_end_id'	    => $PlanetQuery['id_luna']
+                ), 'fleet_id');
+            
+                if($totalRocketsLuna != 0){
+                    $totalRocketsLuna = $totalRocketsLuna;	
+                }
+                //Видимость шпионажа на луну
+                $totalSpioLuna      = 0;
+                $sql	            = 'SELECT COUNT(fleet_id) as fleet_id FROM %%FLEETS%% WHERE fleet_target_owner = :userId AND fleet_mission = :missionID AND fleet_mess = :mesID AND fleet_end_id = :fleet_end_id;';
+                $totalSpioLuna	    = Database::get()->selectSingle($sql, array(
+                    ':userId'	        => $USER['id'],
+                    ':missionID'	    => 6,
+                    ':mesID'	        => 0,
+                    ':fleet_end_id'	    => $PlanetQuery['id_luna']
+                ), 'fleet_id');
+                
+                if($totalSpioLuna != 0){
+                    $totalSpioLuna = $totalSpioLuna;	
+                }
+            }
+            //Вывод
+            $PlanetListing[$PlanetQuery['id']] = array(
 				'name'					=> $PlanetQuery['name'],
 				'galaxy'				=> $PlanetQuery['galaxy'],
 				'image'				    => $PlanetQuery['image'],
@@ -283,6 +259,7 @@ abstract class AbstractGamePage
         //Навигация - ресурсы
 		$resourceTable	= array();
 		$resourceSpeed	= $config->resource_multiplier;
+        //Перебор $reslist['resstype'][1]
 		foreach($reslist['resstype'][1] as $resourceID)
 		{
 			$resourceTable[$resourceID]['name']			    = $resource[$resourceID];
@@ -308,7 +285,7 @@ abstract class AbstractGamePage
 				$resourceTable[$resourceID]['production']	= $PLANET[$resource[$resourceID].'_perhour'] + $config->{$resource[$resourceID].'_basic_income'} * $resourceSpeed;
 			}
 		}
-
+        //Перебор $reslist['resstype'][2]
 		foreach($reslist['resstype'][2] as $resourceID)
 		{
 			$resourceTable[$resourceID]['name']			    = $resource[$resourceID];
@@ -323,15 +300,14 @@ abstract class AbstractGamePage
                 $resourceTable[$resourceID]['percent']		    = 100 / $PLANET[$resource[$resourceID]] * ($PLANET[$resource[$resourceID]] - abs($PLANET[$resource[$resourceID].'_used'])) / 2;
                 $resourceTable[$resourceID]['percenta']		    = abs(100 / $PLANET[$resource[$resourceID]] * ($PLANET[$resource[$resourceID]] - abs($PLANET[$resource[$resourceID].'_used'])) / 2);
 			}
-
 		}
-
+        //Перебор $reslist['resstype'][3]
 		foreach($reslist['resstype'][3] as $resourceID)
 		{
 			$resourceTable[$resourceID]['name']			= $resource[$resourceID];
 			$resourceTable[$resourceID]['current']		= $USER[$resource[$resourceID]];	
 		}
-        
+        //Информация об энергии на планете
         if($PLANET['energy'] > 0){
             $PercentageEnergy = round( ($PLANET['energy'] + $PLANET['energy_used']) / ($PLANET['energy']) * 100);
 		}else{
@@ -341,9 +317,9 @@ abstract class AbstractGamePage
 		$themeSettings	= $THEME->getStyleSettings();
         
 		$this->assign(array(
-            //для ресурсов
+            //Для ресурсов
             'PercentageEnergy'	=> $PercentageEnergy,
-            //перменные для PlanetSelect
+            //Перменные для PlanetSelect
             'planetName'		=> $PLANET['name'],
 			'planetImage'		=> $PLANET['image'],
 			'planetGalaxy'		=> $PLANET['galaxy'],
@@ -352,7 +328,7 @@ abstract class AbstractGamePage
             'PlanetListing'			=> $PlanetListing,
             'current_pid'		=> $PLANET['id'],
 			'current_pids'		=> '?'.$this->getQueryString().'&cp='.$PLANET['id'],
-            //стандартные перменные
+            //Стандартные перменные
 			'PlanetSelect'		=> $PlanetSelect,
 			'new_message' 		=> $USER['messages'],
 			'vacation'			=> $USER['urlaubs_modus'] ? _date($LNG['php_tdformat'], $USER['urlaubs_until'], $USER['timezone']) : false,
@@ -392,8 +368,9 @@ abstract class AbstractGamePage
 		$config	= Config::get();
 
 		$this->assign(array(
+            //Переменная имени
             'username'	        => $USER['username'],
-            
+            //Стандартные перменные
 			'vmode'				=> $USER['urlaubs_modus'],
 			'authlevel'			=> $USER['authlevel'],
 			'userID'			=> $USER['id'],

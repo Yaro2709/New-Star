@@ -39,6 +39,8 @@ class VarsBuildCache implements BuildCache
 		$reslist['missile']		= array();
 		$reslist['officier']	= array();
 		$reslist['dmfunc']		= array();
+        
+        $reslist['race']		= array();
 		
 		$db	= Database::get();
 		
@@ -159,6 +161,9 @@ class VarsBuildCache implements BuildCache
 				break;
 				case 700: 
 					$reslist['dmfunc'][]	= $varsRow['elementID'];
+				break;
+                case 1500: 
+					$reslist['race'][]	= $varsRow['elementID'];
 				break;
 			}
 		}

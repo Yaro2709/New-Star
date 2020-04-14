@@ -133,7 +133,7 @@ class ShowTechtreePage extends AbstractGamePage
 		}
         
 		$this->tplObj->loadscript("techtree.js");
-		$this->tplObj->assign_vars(array(
+		$this->assign(array(
 			'TechTreeList'		=> $TechTreeList,
 			'TechTreeList2'		=> $TechTreeList2,
 			'TechTreeList3'		=> $TechTreeList3,

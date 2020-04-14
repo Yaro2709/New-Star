@@ -524,7 +524,7 @@ class ShowBuildingsPage extends AbstractGamePage
 		}
 
 		$this->tplObj->loadscript('buildlist.js');
-		$this->tplObj->assign_vars(array(
+		$this->assign(array(
 			'BuildInfoList'		    => $BuildInfoList,
 			'CanBuildElement'	    => $CanBuildElement,
 			'RoomIsOk'			    => $RoomIsOk,

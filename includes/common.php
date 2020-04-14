@@ -74,7 +74,8 @@ if (MODE === 'INSTALL')
 }
 
 if(!file_exists('includes/config.php') || filesize('includes/config.php') === 0) {
-	HTTP::redirectTo('install/index.php');
+	//HTTP::redirectTo('install/index.php');
+    HTTP::redirectTo('install/index.html');
 }
 
 try {
@@ -88,7 +89,8 @@ try {
 }
 
 if ($dbNeedsUpgrade) {
-    HTTP::redirectTo('install/index.php?mode=upgrade');
+    //HTTP::redirectTo('install/index.php?mode=upgrade');
+    HTTP::redirectTo('install/index.html');
 }
 
 if(defined('DATABASE_VERSION') && DATABASE_VERSION === 'OLD')
