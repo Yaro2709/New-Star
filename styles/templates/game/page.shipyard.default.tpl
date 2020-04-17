@@ -67,7 +67,12 @@
                     <div class="clear"></div>
                     <div class="time_build">
                     {if !$Element.techacc}{else}
-                        {$LNG.fgf_time}: <span class="time_build_text">{$Element.elementTime|time} </span>
+                        {if $Element.elementTime >= 1} 
+                        <span class="time_build_text">{$Element.elementTime|time}</span>
+                        {else}
+                        <span class="time_build_text">{$Element.elementTime|time}</span>
+                        {$LNG.build_conv} <span>{round(1 / $Element.elementTime)} {$LNG.sec_conv}</span>
+                        {/if} 
                     {/if}
                     </div>
                     {if $NotBuilding && $Element.buyable && $Element.techacc}

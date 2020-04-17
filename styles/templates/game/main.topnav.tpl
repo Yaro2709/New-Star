@@ -187,9 +187,9 @@
         </div>      		
         <div class="premiumbarra">
 			<img class="premiumimgbarra" src="{$dpath}img/iconav/ico-account-premium.png">
-            <a href="game.php?page=gubernators">  
+            <a href="game.php?page=premium">  
                 <span class="premiumtopbar">
-                    <span class="premiumscrittabar">{$LNG.lm_governors}</span>
+                    <span class="premiumscrittabar">{$LNG.lm_premium}</span>
                 </span>
             </a>
         </div>

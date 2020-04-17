@@ -137,7 +137,7 @@ class ShowResearchPage extends AbstractGamePage
 		$db = Database::get();
 
 		$elementId		= $USER['b_tech_id'];
-		$costResources	= BuildFunctions::getElementPrice($USER, $PLANET, $elementId, false, $USER[$resource[$elementId]] + 1);
+		$costResources	= BuildFunctions::getElementPrice($USER, $PLANET, $elementId);
 		
 		if($PLANET['id'] == $USER['b_tech_planet'])
 		{
@@ -200,7 +200,7 @@ class ShowResearchPage extends AbstractGamePage
 					$CPLANET		= $PLANET;
 				
 				$CPLANET[$resource[31].'_inter']	= $this->ecoObj->getNetworkLevel($USER, $CPLANET);
-				$BuildEndTime       				+= BuildFunctions::getBuildingTime($USER, $CPLANET, $ListIDArray[0], NULL, false, $ListIDArray[1]);
+				$BuildEndTime       				+= BuildFunctions::getBuildingTime($USER, $CPLANET, NULL, $ListIDArray[0]);
 				$ListIDArray[3]						= $BuildEndTime;
 				$NewCurrentQueue[]					= $ListIDArray;				
 			}
@@ -281,25 +281,24 @@ class ShowResearchPage extends AbstractGamePage
 		return true;
 	}
 
-	private function AddBuildingToQueue($Element, $lvlup, $lvlup1, $AddMode = true)
-	
-	
- {
-  if($this->bOnInsert==FALSE)
-  {
-   $this->build_anz=(int)$_POST['lvlup'] - $_POST['lvlup1'];
-   if($this->build_anz>=1 )
-   {
-    $this->bOnInsert=TRUE;
-    while($this->build_anz>0)
-    {
-     $this->DoAddBuildingToQueue($Element, $AddMode);
-     $this->build_anz=$this->build_anz-1;
-    }
-    $this->bOnInsert=FALSE;
-   }
-  }
- }
+	private function AddBuildingToQueue($elementId, $lvlup, $lvlup1, $levelToBuildInFo, $AddMode = true)
+	{
+		if($this->bOnInsert==FALSE)
+		{
+			$this->build_anz=$lvlup - $levelToBuildInFo;
+			if($this->build_anz>=1 )
+			{
+				$this->bOnInsert=TRUE;
+				while($this->build_anz>0)
+				{
+					$this->DoAddBuildingToQueue($elementId, $AddMode);
+					$this->build_anz=$this->build_anz-1;
+				}
+				$this->bOnInsert=FALSE;
+		   }
+		}
+	}
+    
 	private function DoAddBuildingToQueue($elementId, $AddMode = true)
 	{
 		global $PLANET, $USER, $resource, $reslist, $pricelist;
@@ -321,7 +320,7 @@ class ShowResearchPage extends AbstractGamePage
 			$ActualCount   	= 0;
 		}
 				
-		if(Config::get()->max_elements_tech != 0 && Config::get()->max_elements_tech <= $ActualCount)
+		if(Config::get()->max_elements_tech != 0 && (Config::get()->max_elements_tech + $USER['factor']['ResearchSlots']) <= $ActualCount)
 		{
 			return false;
 		}
@@ -334,7 +333,7 @@ class ShowResearchPage extends AbstractGamePage
 				return false;
 			}
 
-			$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $elementId, !$AddMode);
+			$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $elementId, !$AddMode); // BAG $Id_0001
 			
 			if(!BuildFunctions::isElementBuyable($USER, $PLANET, $elementId, $costResources))
 			{
@@ -386,7 +385,7 @@ class ShowResearchPage extends AbstractGamePage
 		$scriptData		= array();
 		$quickinfo		= array();
 		
-		if ($USER['b_tech'] == 0)
+		if ($USER['b_tech'] == 0 || $USER['b_tech_queue'] == "")
 		return array('queue' => $scriptData, 'quickinfo' => $quickinfo);
 		
 		$CurrentQueue   = unserialize($USER['b_tech_queue']);
@@ -397,7 +396,7 @@ class ShowResearchPage extends AbstractGamePage
 			
 			$PlanetName	= '';
 		
-			//$quickinfo[$BuildArray[0]]	= $BuildArray[1]; //Адская фигня, после которой баг в очереди
+			$quickinfo[$BuildArray[0]]	= $BuildArray[1];
 			
 			if($BuildArray[4] != $PLANET['id'])
 				$PlanetName		= $USER['PLANETS'][$BuildArray[4]]['name'];
@@ -434,7 +433,9 @@ class ShowResearchPage extends AbstractGamePage
 		$TheCommand		= HTTP::_GP('cmd','');
 		$Element     	= HTTP::_GP('tech', 0);
 		$ListID     	= HTTP::_GP('listid', 0);
+		$lvlup      	= HTTP::_GP('lvlup', 0);
 		$lvlup1      	= HTTP::_GP('lvlup1', 0);
+		$levelToBuildInFo      	= HTTP::_GP('levelToBuildInFo', 0);
 		
 		$PLANET[$resource[31].'_inter']	= ResourceUpdate::getNetworkLevel($USER, $PLANET);	
 
@@ -452,7 +453,7 @@ class ShowResearchPage extends AbstractGamePage
 					$this->InstantBuildingFromQueue(); 	 	
 				break; 	 	
 				case 'insert':
-					$this->AddBuildingToQueue($Element, $lvlup1, true);
+					$this->AddBuildingToQueue($Element, $lvlup, $lvlup1, $levelToBuildInFo, true);
 				break;
 				case 'destroy':
 					$this->DoAddBuildingToQueue($Element, false);
@@ -522,7 +523,7 @@ class ShowResearchPage extends AbstractGamePage
 		$this->assign(array(
 			'ResearchList'	=> $ResearchList,
 			'IsLabinBuild'	=> !$bContinue,
-			'IsFullQueue'	=> Config::get()->max_elements_tech == 0 || Config::get()->max_elements_tech == count($TechQueue),
+			'IsFullQueue'	=> Config::get()->max_elements_tech == 0 || (Config::get()->max_elements_tech + + $USER['factor']['ResearchSlots']) == count($TechQueue),
 			'Queue'			=> $TechQueue,
 			'need_dm'		=> floor(10 + ((800*($USER['b_tech']-TIMESTAMP))/3600)),
 		));

@@ -51,14 +51,14 @@ class ShowGubernatorsPage extends AbstractGamePage
 		$USER[$resource[$Element]]	= max($USER[$resource[$Element]], TIMESTAMP) + ($pricelist[$Element]['time']) * $amount;
         
         if($amount > 365){
-            $this->printMessage(''.$LNG['gv_limit'].'',true, array("game.php?page=officier", 2));	
+            $this->printMessage(''.$LNG['gv_limit'].'',true, array("game.php?page=gubernators", 2));	
         }
 		
         foreach($reslist['resstype'][1] as $resPM)
 		{
             if(isset($costResources[$resPM])) {
                 if($PLANET[$resource[$resPM]] < $costResources[$resPM]* $amount){
-                    $this->printMessage("".$LNG['gv_stop']."", true, array('game.php?page=officier', 2));
+                    $this->printMessage("".$LNG['gv_stop']."", true, array('game.php?page=gubernators', 2));
                 }
             }
         }
@@ -67,7 +67,7 @@ class ShowGubernatorsPage extends AbstractGamePage
 		{
             if(isset($costResources[$resUM])) {
                 if($USER[$resource[$resUM]] < $costResources[$resUM]* $amount){
-                    $this->printMessage("".$LNG['gv_stop']."", true, array('game.php?page=officier', 2));
+                    $this->printMessage("".$LNG['gv_stop']."", true, array('game.php?page=gubernators', 2));
                 }
             }
         }

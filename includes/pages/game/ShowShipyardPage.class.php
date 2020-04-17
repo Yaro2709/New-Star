@@ -186,21 +186,6 @@ class ShowShipyardPage extends AbstractGamePage
 	public function show()
 	{
 		global $USER, $PLANET, $LNG, $resource, $reslist, $requeriments;
-        //$new_code
-        foreach($reslist['shipyard'] as $elementID) //проверка всего масива элементов
-		{
-            if ($PLANET[$resource[$elementID]] == 0)
-            {
-                $this->printMessage($LNG['bd_shipyard_required']);
-            }
-        }
-        //$new_code
-		/* $old_code
-		if ($PLANET[$resource[21]] == 0)
-		{
-			$this->printMessage($LNG['bd_shipyard_required']);
-		}
-        $old_code*/
 
 		$buildTodo	= HTTP::_GP('fmenge', array());
 		$action		= HTTP::_GP('action', '');
@@ -355,6 +340,7 @@ class ShowShipyardPage extends AbstractGamePage
 				'costResources'	    => $costResources,
 				'costOverflow'		=> $costOverflow,
 				'elementTime'    	=> $elementTime,
+                'perSec'			=> floor(1/$elementTime),
 				'buyable'			=> $buyable,
 				'maxBuildable'		=> floattostring($maxBuildable),
 				'AlreadyBuild'		=> $AlreadyBuild,

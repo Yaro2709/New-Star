@@ -87,9 +87,9 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
 			$attackShield[$fleetID] = 0;
 			$attackAmount[$fleetID] = 0;
 
-			$attTech	= (1 + $attacker['player']['factor']['Attack']); //attaque
-			$defTech	= (1 + $attacker['player']['factor']['Defensive']); //bouclier
-			$shieldTech = (1 + $attacker['player']['factor']['Shield']); //coque
+			$attTech	= (1 + $attacker['player']['factor']['Attack'] + $attacker['player']['factor']['AttackA']); //attaque
+			$defTech	= (1 + $attacker['player']['factor']['Defensive'] + $attacker['player']['factor']['DefensiveA']); //bouclier
+			$shieldTech = (1 + $attacker['player']['factor']['Shield'] + $attacker['player']['factor']['ShieldA']); //coque
 			$attackers[$fleetID]['techs'] = array($attTech, $defTech, $shieldTech);
 				
 			foreach ($attacker['unit'] as $element => $amount) {
@@ -113,9 +113,9 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
 			$defenseShield[$fleetID] = 0;
 			$defenseAmount[$fleetID] = 0;
 
-			$attTech	= (1 + $defender['player']['factor']['Attack']); //attaquue
-			$defTech	= (1 + $defender['player']['factor']['Defensive']); //bouclier
-			$shieldTech = (1 + $defender['player']['factor']['Shield']); //coque
+			$attTech	= (1 + $defender['player']['factor']['Attack'] + $defender['player']['factor']['AttackD']); //attaquue
+			$defTech	= (1 + $defender['player']['factor']['Defensive'] + $defender['player']['factor']['DefensiveD']); //bouclier
+			$shieldTech = (1 + $defender['player']['factor']['Shield'] + $defender['player']['factor']['ShieldD']); //coque
 			$defenders[$fleetID]['techs'] = array($attTech, $defTech, $shieldTech);
 
 			foreach ($defender['unit'] as $element => $amount) {

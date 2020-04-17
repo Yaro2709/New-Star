@@ -14,7 +14,7 @@
  * @version 1.8.0
  * @link https://github.com/jkroepke/2Moons
  */
-define('DATABASE_VERSION', 'OLD');
+//define('DATABASE_VERSION', 'OLD');
  
 define('MODE', 'INGAME');
 define('ROOT_PATH', str_replace('\\', '/',dirname(__FILE__)).'/');

@@ -131,6 +131,7 @@
                         <input type="hidden" value="insert" name="cmd"></input>
                         <input type="hidden" value="{$ID}" name="building"></input>
                         <input type="hidden" value="{$Element.level}" name="lvlup1"></input>
+                        <input type="hidden" value="{$Element.levelToBuild}" name="levelToBuildInFo"></input>	
                         <input id="b_input_{$ID}" class="build_number" type="number" value="{$Element.levelToBuild + 1}" min="{$Element.levelToBuild + 1}" maxlength="3" size="3" name="lvlup" onchange="counting('{$ID}');"></input>
                         <button class="btn_build_part_left" type="submit">
                         {$LNG.bd_build}

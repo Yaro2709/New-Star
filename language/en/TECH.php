@@ -53,37 +53,39 @@ $LNG['shortNames'] = array (
 );
 
 $LNG['bonus'] = array(
-	'Attack'			=> 'Attack',
-	'Defensive'			=> 'Defence',
-	'Shield'			=> 'Shield',
-	'BuildTime'			=> 'Construction Time',
-	'ResearchTime'		=> 'Research time',
-    //$new_code
-    'ResearchSlotPlanet'    => ' intergalactic research network',
-    //$new_code
-	'ShipTime'			=> 'Ship Building time',
-	'DefensiveTime'		=> 'Defense Building time',
-	'Resource'			=> 'Production of Resources',
-    //$new_code
-    'Pmetal'		    => 'to metal mining',
-	'Pcrystal'			=> 'to crystal mining',
-	'Pdeuterium'		=> 'to deuterium mining',
-	'Senergy'			=> 'Production of Energy',
-    //$new_code
-	'ResourceStorage'	=> 'Resource storage',
-	'ShipStorage'		=> 'Ships storage',
-	'FlyTime'			=> 'Flying time',
-    //$new_code
-    'FlyTimeCom'            => ' flight speed of ships with jet engines',
-    'FlyTimeImp'            => ' flight speed of ships with impulse engines',
-    'FlyTimeHyp'            => ' flight speed of ships with hyperspace engines',
-    //$new_code
-	'FleetSlots'		=> 'Fleet Slots',
-	'Planets'			=> 'Planets',
-	'SpyPower'			=> 'Espionage power',
-	'Expedition'		=> 'Expeditions',
-	'GateCoolTime'		=> 'Jump gate charging time',
-	'MoreFound'			=> 'Expedition Found',
+    'AttackA'			    => 'attack on attack',
+    'DefensiveA'		    => 'defence on attack',
+    'ShieldA'			    => 'shield on attack',
+    'AttackD'			    => 'attack on defense',
+    'DefensiveD'		    => 'defence on defense',
+    'ShieldD'			    => 'shield on defense',
+	'Attack'			    => 'attack',
+	'Defensive'			    => 'defence',
+	'Shield'			    => 'shield',
+	'BuildTime'			    => 'construction time',
+    'BuildSlots'	        => 'construction queues',
+    'ResearchTime'		    => 'research time',
+    'ResearchSlots'		    => 'research queues',
+    'ResearchSlotPlanet'    => 'intergalactic research network',
+	'ShipTime'			    => 'ship Building time',
+	'DefensiveTime'		    => 'defense Building time',
+	'Resource'			    => 'production of Resources',
+    'Pmetal'		        => 'to metal mining',
+	'Pcrystal'			    => 'to crystal mining',
+	'Pdeuterium'		    => 'to deuterium mining',
+	'Senergy'			    => 'production of Energy',
+	'ResourceStorage'	    => 'resource storage',
+	'ShipStorage'		    => 'ships storage',
+	'FlyTime'			    => 'flight speed of ships',
+    'FlyTimeCom'            => 'flight speed of ships with jet engines',
+    'FlyTimeImp'            => 'flight speed of ships with impulse engines',
+    'FlyTimeHyp'            => 'flight speed of ships with hyperspace engines',
+	'FleetSlots'		    => 'fleet Slots',
+	'Planets'			    => 'planets',
+	'SpyPower'			    => 'espionage power',
+	'Expedition'		    => 'expeditions',
+	'GateCoolTime'		    => 'jump gate charging time',
+	'MoreFound'			    => 'expedition Found',
 );
 					
 $LNG['tech'] = array(
@@ -201,6 +203,12 @@ $LNG['tech'] = array(
 	903 => 'Deuterium',
 	911 => 'Energy',
 	921 => 'Dark Matter',
+    
+1500 => 'Race is missing',
+1501 => 'Photorians',
+1502 => 'Sinuria',
+1503 => 'People',
+1504 => 'Vains',
 );
 
 $LNG['shortDescription'] = array(

@@ -47,7 +47,7 @@
             <a class="nuovomenusinistra" href="game.php?page=market">{$LNG.lm_market}</a>
             <a class="nuovomenudestra" href="game.php?page=market"><img src="{$dpath}img/iconav/market.png" class="imgovernuovo"></a>
             {if isModuleAvailable($smarty.const.MODULE_GALAXY)}
-            <a class="galassiabott" href="game.php?page=galaxy" id="munu_galaxy">Галактика </a>
+            <a class="galassiabott" href="game.php?page=galaxy" id="munu_galaxy">{$LNG.lm_galaxy}</a>
             {/if}        		
             <div class="clear"></div>                
     </div>

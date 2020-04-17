@@ -37,20 +37,20 @@
                     <div class="rexx16">
                         <img src="{$dpath}gebaeude/109.gif" alt="{$LNG.tech.109}">
                         <span>{$LNG.tech.109}</span>
-                        <input type="text" size="10" value="{if isset($battleinput.{$smarty.section.content.index}.1.109)}{$battleinput.{$smarty.section.content.index}.1.109}{else}0{/if}" name="battleinput[{$smarty.section.content.index}][1][109]" class="rexx18" name="battleinput[{$smarty.section.content.index}][1][109]">
-                        <input type="text" size="10" value="{if isset($battleinput.{$smarty.section.content.index}.0.109)}{$battleinput.{$smarty.section.content.index}.0.109}{else}0{/if}" name="battleinput[{$smarty.section.content.index}][0][109]" class="rexx17" name="battleinput[{$smarty.section.content.index}][0][109]">
+                        <input type="text" size="10" value="{if isset($battleinput.{$smarty.section.content.index}.1.109)}{$battleinput.{$smarty.section.content.index}.1.109}{else}0{/if}" name="battleinput[{$smarty.section.content.index}][1][109]" class="rexx18">
+                        <input type="text" size="10" value="{if isset($battleinput.{$smarty.section.content.index}.0.109)}{$battleinput.{$smarty.section.content.index}.0.109}{else}0{/if}" name="battleinput[{$smarty.section.content.index}][0][109]" class="rexx17">
                     </div>
                     <div class="rexx16">
                         <img src="{$dpath}gebaeude/110.gif" alt="{$LNG.tech.110}">
                         <span>{$LNG.tech.110}</span>
-                        <input type="text" size="10" value="{if isset($battleinput.{$smarty.section.content.index}.1.110)}{$battleinput.{$smarty.section.content.index}.1.110}{else}0{/if}" name="battleinput[{$smarty.section.content.index}][1][110]" class="rexx18" name="battleinput[{$smarty.section.content.index}][1][110]">
-                        <input type="text" size="10" value="{if isset($battleinput.{$smarty.section.content.index}.0.110)}{$battleinput.{$smarty.section.content.index}.0.110}{else}0{/if}" name="battleinput[{$smarty.section.content.index}][0][110]" class="rexx17" name="battleinput[{$smarty.section.content.index}][0][110]">
+                        <input type="text" size="10" value="{if isset($battleinput.{$smarty.section.content.index}.1.110)}{$battleinput.{$smarty.section.content.index}.1.110}{else}0{/if}" name="battleinput[{$smarty.section.content.index}][1][110]" class="rexx18">
+                        <input type="text" size="10" value="{if isset($battleinput.{$smarty.section.content.index}.0.110)}{$battleinput.{$smarty.section.content.index}.0.110}{else}0{/if}" name="battleinput[{$smarty.section.content.index}][0][110]" class="rexx17">
                     </div>
                     <div class="rexx16">
                         <img src="{$dpath}gebaeude/111.gif" alt="{$LNG.tech.111}">
                         <span>{$LNG.tech.111}</span>
-                        <input type="text" size="10" value="{if isset($battleinput.{$smarty.section.content.index}.1.111)}{$battleinput.{$smarty.section.content.index}.1.111}{else}0{/if}" name="battleinput[{$smarty.section.content.index}][1][111]" class="rexx18" name="battleinput[{$smarty.section.content.index}][1][111]">
-                        <input type="text" size="10" value="{if isset($battleinput.{$smarty.section.content.index}.0.111)}{$battleinput.{$smarty.section.content.index}.0.111}{else}0{/if}" name="battleinput[{$smarty.section.content.index}][0][111]" class="rexx17" name="battleinput[{$smarty.section.content.index}][0][111]">
+                        <input type="text" size="10" value="{if isset($battleinput.{$smarty.section.content.index}.1.111)}{$battleinput.{$smarty.section.content.index}.1.111}{else}0{/if}" name="battleinput[{$smarty.section.content.index}][1][111]" class="rexx18">
+                        <input type="text" size="10" value="{if isset($battleinput.{$smarty.section.content.index}.0.111)}{$battleinput.{$smarty.section.content.index}.0.111}{else}0{/if}" name="battleinput[{$smarty.section.content.index}][0][111]" class="rexx17">
                     </div>
                 </div>
                 <div class="rexx14">
@@ -63,8 +63,8 @@
                     <div class="rexx16">
                         <img src="{$dpath}gebaeude/602.jpg" alt="{$LNG.tech.602}">
                         <span>{$LNG.tech.602}</span>
-                        <input type="text" size="10" value="{if isset($battleinput.{$smarty.section.content.index}.1.602)}{$battleinput.{$smarty.section.content.index}.1.602}{else}0{/if}" name="battleinput[{$smarty.section.content.index}][1][602]" class="rexx18" name="battleinput[{$smarty.section.content.index}][1][602]">
-                        <input type="text" size="10" value="{if isset($battleinput.{$smarty.section.content.index}.0.602)}{$battleinput.{$smarty.section.content.index}.0.602}{else}0{/if}" name="battleinput[{$smarty.section.content.index}][0][602]" class="rexx17" name="battleinput[{$smarty.section.content.index}][0][602]">
+                        <input type="text" size="10" value="{if isset($battleinput.{$smarty.section.content.index}.1.602)}{$battleinput.{$smarty.section.content.index}.1.602}{else}0{/if}" name="battleinput[{$smarty.section.content.index}][1][602]" class="rexx18">
+                        <input type="text" size="10" value="{if isset($battleinput.{$smarty.section.content.index}.0.602)}{$battleinput.{$smarty.section.content.index}.0.602}{else}0{/if}" name="battleinput[{$smarty.section.content.index}][0][602]" class="rexx17">
                     </div>
                     {*<div class="rexx16 battlesim_skils_hiden">
                         <img src="./battleSimulator_files/#.jpg" alt="lngtext">

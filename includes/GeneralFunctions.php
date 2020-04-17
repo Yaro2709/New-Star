@@ -69,7 +69,7 @@ function getFactors($USER, $Type = 'basic', $TIME = NULL) {
 			continue;
 		}
 		
-		if(in_array($elementID, $reslist['dmfunc'])) {
+		if(in_array($elementID, array_merge($reslist['dmfunc'], $reslist['premium']))) {
 			if(DMExtra($elementLevel, $TIME, false, true)) {
 				continue;
 			}

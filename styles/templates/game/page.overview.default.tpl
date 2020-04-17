@@ -89,11 +89,11 @@
         {/if}
         {/if}
 	</div>
-    <div class="gray_latdes overvieew2" style="background: url({$dpath}img/content/control_roompi.png) no-repeat, url({$dpath}img/content/control_acc.png) no-repeat ; background-size:cover;">
+    <div class="gray_latdes overvieew2" style="background: url({$dpath}img/content/control_roompi.png) no-repeat, url({$dpath}gebaeude/race/ov_{$race}.jpg) no-repeat ; background-size:cover;">
         <div>
-            <a href="game.php?page=market"><span class="overvieew5">{$LNG.lm_market}</span></a>
-            <a href="game.php?page=market" class=" ">
-            <img src="{$dpath}img/content/market.png" class="overvieew4 tooltip" data-tooltip-content="{$LNG.lm_market}" style="opacity:0.8">
+            <a href="game.php?page=race"><span class="overvieew5">{$LNG.tech.$race}</span></a>
+            <a href="game.php?page=race" class=" ">
+            <img style='width: 90px;' src="{$dpath}gebaeude/{$race}.png" class="overvieew4 tooltip" data-tooltip-content="{$LNG.lm_race}" style="opacity:0.8">
             </a>
         </div>
 	</div> 

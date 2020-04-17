@@ -14298,3 +14298,2058 @@ Stack trace:
 #1 [internal function]: exceptionHandler(Object(UnexpectedValueException))
 #2 {main}
   thrown in W:\domains\new-star.net\includes\classes\Config.class.php on line 96
+[14-Apr-2020 18:38:29] USER ERROR: "SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''1503' = 1501,
+        race_1501 = 1
+		WHERE
+		id = '3'' at line 2
+
+Query-Code:UPDATE uni1_users SET
+        1503 = 1501,
+        race_1501 = 1
+		WHERE
+		id = 3;"
+File: W:\domains\new-star.net\includes\classes\Database.class.php | Line: 126
+URL: http://new-star.net/game.php?page=race | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/Database.class.php(177): Database-&gt;_query('UPDATE uni1_use...', Array, 'update')
+#1 /includes/pages/game/ShowRacePage.class.php(100): Database-&gt;update('UPDATE %%USERS%...', Array)
+#2 /includes/pages/game/ShowRacePage.class.php(114): ShowRacePage-&gt;UpdateRace(1501)
+#3 /game.php(58): ShowRacePage-&gt;show()
+#4 {main}
+[14-Apr-2020 19:15:02] NOTICE: "Undefined index: race"
+File: W:\domains\new-star.net\cache\ru^c42fb4976fb61778ad98658fbacfe2b816951684_1.extends.page.overview.default.tpl.cache.php | Line: 305
+URL: http://new-star.net/game.php?page=overview | Version: 1.0.git
+Stack trace:
+#0 /cache/ru^c42fb4976fb61778ad98658fbacfe2b816951684_1.extends.page.overview.default.tpl.cache.php(305): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 305, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_inheritance.php(219): Block_14686822785e95e188414f01_50576365-&gt;callBlock(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_inheritance.php(162): Smarty_Internal_Runtime_Inheritance-&gt;callBlock(Object(Block_14686822785e95e188414f01_50576365), Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_inheritance.php(164): Smarty_Internal_Runtime_Inheritance-&gt;process(Object(Smarty_Internal_Template), Object(Block_14686822785e95e188414f01_50576365), Object(Block_14900236345e95e1892794d5_45823285))
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_inheritance.php(136): Smarty_Internal_Runtime_Inheritance-&gt;process(Object(Smarty_Internal_Template), Object(Block_14900236345e95e1892794d5_45823285))
+#5 /cache/ru^c42fb4976fb61778ad98658fbacfe2b816951684_1.extends.page.overview.default.tpl.cache.php(1429): Smarty_Internal_Runtime_Inheritance-&gt;instanceBlock(Object(Smarty_Internal_Template), 'Block_149002363...', 'content')
+#6 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e95e18841de88_00958412(Object(Smarty_Internal_Template))
+#7 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(341): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template), 'content_5e95e18...')
+#8 /cache/ru^c42fb4976fb61778ad98658fbacfe2b816951684_1.extends.page.overview.default.tpl.cache.php(67): Smarty_Internal_Template-&gt;_subTemplateRender('file:layout.ful...', NULL, 'ru', 9999, 604800, Array, 2, false, '665de4a6a52388c...', 'content_5e95e18...')
+#9 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e95e1892e6ba5_25011712(Object(Smarty_Internal_Template))
+#10 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(170): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#11 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render(Object(Smarty_Internal_Template))
+#12 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#13 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#14 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#15 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#16 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#17 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#18 /includes/pages/game/ShowOverviewPage.class.php(309): AbstractGamePage-&gt;display('page.overview.d...')
+#19 /game.php(58): ShowOverviewPage-&gt;show()
+#20 {main}
+[15-Apr-2020 17:05:16] WARNING: "imagettftext(): Could not find/open font"
+File: W:\domains\new-star.net\includes\classes\class.StatBanner.php | Line: 55
+URL: http://new-star.net/userpic.php?id=3 | Version: 1.0.git
+Stack trace:
+#0 [internal function]: errorHandler(2, 'imagettftext():...', 'W://domains//new-...', 55, Array)
+#1 /includes/classes/class.StatBanner.php(55): imagettftext(Resource id #42, 20, 0, 20, 31, 2171169, 'styles/resource...', 'admin')
+#2 /userpic.php(53): StatBanner-&gt;CreateUTF8Banner(Array)
+#3 {main}
+[15-Apr-2020 17:06:44] WARNING: "sprintf(): Too few arguments"
+File: W:\domains\new-star.net\includes\pages\game\ShowBuildingsPage.class.php | Line: 486
+URL: http://new-star.net/game.php?page=buildings | Version: 1.0.git
+Stack trace:
+#0 [internal function]: errorHandler(2, 'sprintf(): Too ...', 'W://domains//new-...', 486, Array)
+#1 /includes/pages/game/ShowBuildingsPage.class.php(486): sprintf('Produced &lt;font ...', '77')
+#2 /game.php(58): ShowBuildingsPage-&gt;show()
+#3 {main}
+[15-Apr-2020 17:18:40] NOTICE: "Undefined index: prem"
+File: W:\domains\new-star.net\includes\pages\game\ShowPremiumPage.class.php | Line: 115
+URL: http://new-star.net/game.php?page=premium | Version: 1.0.git
+Stack trace:
+#0 /includes/pages/game/ShowPremiumPage.class.php(115): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 115, Array)
+#1 /game.php(58): ShowPremiumPage-&gt;show()
+#2 {main}
+[15-Apr-2020 17:49:15] NOTICE: "Undefined index: premium"
+File: W:\domains\new-star.net\includes\pages\game\ShowPremiumPage.class.php | Line: 115
+URL: http://new-star.net/game.php?page=premium | Version: 1.0.git
+Stack trace:
+#0 /includes/pages/game/ShowPremiumPage.class.php(115): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 115, Array)
+#1 /game.php(58): ShowPremiumPage-&gt;show()
+#2 {main}
+[15-Apr-2020 17:54:11] NOTICE: "Undefined offset: 1504"
+File: W:\domains\new-star.net\cache\templates\en^8b4bfccd532f841a0cc3e3e4502b94bea6036987.page.overview.default.tpl.php | Line: 794
+URL: http://new-star.net/game.php | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/en^8b4bfccd532f841a0cc3e3e4502b94bea6036987.page.overview.default.tpl.php(794): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 794, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e97201c980138_09190238(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowOverviewPage.class.php(309): AbstractGamePage-&gt;display('page.overview.d...')
+#10 /game.php(58): ShowOverviewPage-&gt;show()
+#11 {main}
+[15-Apr-2020 18:44:46] USER ERROR: "Too few arguments to function ShowResearchPage::AddBuildingToQueue(), 3 passed in W:\domains\new-star.net\includes\pages\game\ShowResearchPage.class.php on line 454 and at least 4 expected"
+File: W:\domains\new-star.net\includes\pages\game\ShowResearchPage.class.php | Line: 284
+URL: http://new-star.net/game.php?page=research | Version: 1.0.git
+Stack trace:
+#0 /includes/pages/game/ShowResearchPage.class.php(454): ShowResearchPage-&gt;AddBuildingToQueue(106, 0, true)
+#1 /game.php(58): ShowResearchPage-&gt;show()
+#2 {main}
+[15-Apr-2020 18:49:26] NOTICE: "Undefined variable: elementId"
+File: W:\domains\new-star.net\includes\pages\game\ShowResearchPage.class.php | Line: 456
+URL: http://new-star.net/game.php?page=research | Version: 1.0.git
+Stack trace:
+#0 /includes/pages/game/ShowResearchPage.class.php(456): errorHandler(8, 'Undefined varia...', 'W://domains//new-...', 456, Array)
+#1 /game.php(58): ShowResearchPage-&gt;show()
+#2 {main}
+[15-Apr-2020 18:56:52] NOTICE: "Undefined index: b_building"
+File: W:\domains\new-star.net\includes\pages\game\ShowBuildingsPage.class.php | Line: 531
+URL: http://new-star.net/game.php?page=buildings | Version: 1.0.git
+Stack trace:
+#0 /includes/pages/game/ShowBuildingsPage.class.php(531): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 531, Array)
+#1 /game.php(58): ShowBuildingsPage-&gt;show()
+#2 {main}
+[15-Apr-2020 19:08:30 Europe/Moscow] PHP Fatal error:  Cannot use 'Iterable' as class name as it is reserved in W:\domains\new-star.net\includes\libs\opbe\utils\Iterable.php on line 29
+[15-Apr-2020 19:09:36 Europe/Moscow] PHP Fatal error:  Cannot use 'Iterable' as class name as it is reserved in W:\domains\new-star.net\includes\libs\opbe\utils\Iterable.php on line 29
+[15-Apr-2020 19:20:16] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\includes\libs\opbe\models\Type.php | Line: 48
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/libs/opbe/models/Type.php(48): errorHandler(8, 'A non well form...', 'W://domains//new-...', 48, Array)
+#1 /includes/libs/opbe/models/ShipType.php(168): Type-&gt;increment('9.000.000')
+#2 /includes/libs/opbe/models/ShipType.php(86): ShipType-&gt;increment('9.000.000')
+#3 /includes/libs/opbe/implementations/2Moons/1_7_2_injectionMode/calculateAttack.php(300): ShipType-&gt;__construct(204, '9.000.000', Array, '10', Array, '50')
+#4 /includes/libs/opbe/implementations/2Moons/1_7_2_injectionMode/calculateAttack.php(110): getShipType(204, '9.000.000')
+#5 /includes/pages/game/ShowBattleSimulatorPage.class.php(131): calculateAttack(Array, Array, '30', '0')
+#6 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#7 {main}
+[15-Apr-2020 19:23:47] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\en^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 419
+URL: http://new-star.net/game.php?page=raport&raport=ebc560431e9a13a2caf270ea834295f7 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/en^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(419): errorHandler(8, 'A non well form...', 'W://domains//new-...', 419, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e9732ca56a928_29350759(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 19:24:23] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\en^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 419
+URL: http://new-star.net/game.php?page=raport&raport=4594fd617a310b0d6745c504fb73d6cc | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/en^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(419): errorHandler(8, 'A non well form...', 'W://domains//new-...', 419, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e9732ca56a928_29350759(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 19:28:33] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\en^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 510
+URL: http://new-star.net/game.php?page=raport&raport=0b7141f5123de5052f1488f684d265f6 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/en^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(510): errorHandler(8, 'A non well form...', 'W://domains//new-...', 510, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e973635015e70_45822108(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[15-Apr-2020 19:29:20] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\en^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 510
+URL: http://new-star.net/game.php?page=raport&raport=c3be4a73c81ed5bcb09909f2948fd977 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/en^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(510): errorHandler(8, 'A non well form...', 'W://domains//new-...', 510, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e973635015e70_45822108(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 19:38:29] NOTICE: "Undefined offset: 602"
+File: W:\domains\new-star.net\includes\pages\game\ShowBattleSimulatorPage.class.php | Line: 62
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/pages/game/ShowBattleSimulatorPage.class.php(62): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 62, Array)
+#1 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#2 {main}
+[15-Apr-2020 19:38:49] NOTICE: "Undefined offset: 602"
+File: W:\domains\new-star.net\includes\pages\game\ShowBattleSimulatorPage.class.php | Line: 62
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/pages/game/ShowBattleSimulatorPage.class.php(62): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 62, Array)
+#1 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#2 {main}
+[15-Apr-2020 19:44:07] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\en^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 510
+URL: http://new-star.net/game.php?page=raport&raport=26f6f8d0a9982b03765aa6ef2737a5a1 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/en^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(510): errorHandler(8, 'A non well form...', 'W://domains//new-...', 510, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e973904223ed1_81515945(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 19:48:13] NOTICE: "Undefined offset: 602"
+File: W:\domains\new-star.net\includes\pages\game\ShowBattleSimulatorPage.class.php | Line: 62
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/pages/game/ShowBattleSimulatorPage.class.php(62): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 62, Array)
+#1 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#2 {main}
+[15-Apr-2020 19:48:28] NOTICE: "Undefined offset: 602"
+File: W:\domains\new-star.net\includes\pages\game\ShowBattleSimulatorPage.class.php | Line: 62
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/pages/game/ShowBattleSimulatorPage.class.php(62): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 62, Array)
+#1 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#2 {main}
+[15-Apr-2020 19:49:53] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\en^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 510
+URL: http://new-star.net/game.php?page=raport&raport=d6986832905f0e093169b491a7b34cfc | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/en^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(510): errorHandler(8, 'A non well form...', 'W://domains//new-...', 510, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e973b34cac303_44462898(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[15-Apr-2020 20:04:05 Europe/Moscow] PHP Fatal error:  Cannot use 'Iterable' as class name as it is reserved in W:\domains\new-star.net\includes\libs\opbe\utils\Iterable.php on line 29
+[15-Apr-2020 20:20:59] NOTICE: "Undefined index: user"
+File: W:\domains\new-star.net\includes\libs\opbe\implementations\2Moons\1_7_2_injectionMode\calculateAttack.php | Line: 229
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/libs/opbe/implementations/2Moons/1_7_2_injectionMode/calculateAttack.php(229): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 229, Array)
+#1 /includes/libs/opbe/implementations/2Moons/1_7_2_injectionMode/calculateAttack.php(146): updatePlayers(Object(PlayerGroup), Array)
+#2 /includes/pages/game/ShowBattleSimulatorPage.class.php(131): calculateAttack(Array, Array, '30', '0')
+#3 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#4 {main}
+[15-Apr-2020 20:26:17] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\en^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 419
+URL: http://new-star.net/game.php?page=raport&raport=da617b4abc57e4fa64f9291dcc8ab1bc | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/en^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(419): errorHandler(8, 'A non well form...', 'W://domains//new-...', 419, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e973b34cac303_44462898(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 20:28:12] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\en^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 419
+URL: http://new-star.net/game.php?page=raport&raport=6b16388e0418f40f5b37f178e9cadbc4 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/en^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(419): errorHandler(8, 'A non well form...', 'W://domains//new-...', 419, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e974432e41427_37981256(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[15-Apr-2020 20:57:17] WARNING: "imagettftext(): Could not find/open font"
+File: W:\domains\new-star.net\includes\classes\class.StatBanner.php | Line: 55
+URL: http://new-star.net/userpic.php?id=3 | Version: 1.0.git
+Stack trace:
+#0 [internal function]: errorHandler(2, 'imagettftext():...', 'W://domains//new-...', 55, Array)
+#1 /includes/classes/class.StatBanner.php(55): imagettftext(Resource id #42, 20, 0, 20, 31, 2171169, 'styles/resource...', 'admin')
+#2 /userpic.php(53): StatBanner-&gt;CreateUTF8Banner(Array)
+#3 {main}
+[15-Apr-2020 20:58:41] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 419
+URL: http://new-star.net/game.php?page=raport&raport=07eb456908b4e840a2d415f46728718d | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(419): errorHandler(8, 'A non well form...', 'W://domains//new-...', 419, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e974b3a7a56b7_29261113(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 21:02:21] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 419
+URL: http://new-star.net/game.php?page=raport&raport=cdceaee46a11de7e2987345583758dcb | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(419): errorHandler(8, 'A non well form...', 'W://domains//new-...', 419, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e974b3a7a56b7_29261113(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 21:06:11] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\includes\libs\opbe\models\Type.php | Line: 48
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/libs/opbe/models/Type.php(48): errorHandler(8, 'A non well form...', 'W://domains//new-...', 48, Array)
+#1 /includes/libs/opbe/models/ShipType.php(168): Type-&gt;increment('10.000.000.000')
+#2 /includes/libs/opbe/models/ShipType.php(86): ShipType-&gt;increment('10.000.000.000')
+#3 /includes/libs/opbe/implementations/2Moons/1_7_2_injectionMode/calculateAttack.php(297): ShipType-&gt;__construct(206, '10.000.000.000', Array, '50', Array, '400')
+#4 /includes/libs/opbe/implementations/2Moons/1_7_2_injectionMode/calculateAttack.php(88): getShipType(206, '10.000.000.000')
+#5 /includes/pages/game/ShowBattleSimulatorPage.class.php(131): calculateAttack(Array, Array, '30', '0')
+#6 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#7 {main}
+[15-Apr-2020 21:31:39] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 419
+URL: http://new-star.net/game.php?page=raport&raport=214d8b37bbf2a96949547786038ef514 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(419): errorHandler(8, 'A non well form...', 'W://domains//new-...', 419, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e974b3a7a56b7_29261113(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 21:32:59] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 419
+URL: http://new-star.net/game.php?page=raport&raport=e48bbb4a6b2d7fcb5e53c8428c5156e1 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(419): errorHandler(8, 'A non well form...', 'W://domains//new-...', 419, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e974b3a7a56b7_29261113(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 21:33:32] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 419
+URL: http://new-star.net/game.php?page=raport&raport=563d4c0ecc724828699332c8893b4a34 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(419): errorHandler(8, 'A non well form...', 'W://domains//new-...', 419, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e974b3a7a56b7_29261113(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 21:33:45] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 419
+URL: http://new-star.net/game.php?page=raport&raport=d3d13734a7893b8a9289136e9d670f59 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(419): errorHandler(8, 'A non well form...', 'W://domains//new-...', 419, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e974b3a7a56b7_29261113(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 21:39:34] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 419
+URL: http://new-star.net/game.php?page=raport&raport=e11da9903d46b8b81590da9291852b0e | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(419): errorHandler(8, 'A non well form...', 'W://domains//new-...', 419, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e9754efb6de45_43294183(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[15-Apr-2020 21:42:14] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 419
+URL: http://new-star.net/game.php?page=raport&raport=8b6064ef8c1201b94b2ab71c59dd9c85 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(419): errorHandler(8, 'A non well form...', 'W://domains//new-...', 419, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e9754efb6de45_43294183(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 21:43:44] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 419
+URL: http://new-star.net/game.php?page=raport&raport=4685325ebd94d563d7db591b97a59d00 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(419): errorHandler(8, 'A non well form...', 'W://domains//new-...', 419, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e9754efb6de45_43294183(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 21:45:12] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 419
+URL: http://new-star.net/game.php?page=raport&raport=b8de3107b2fbe0b5b1783de4ba996361 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(419): errorHandler(8, 'A non well form...', 'W://domains//new-...', 419, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e9754efb6de45_43294183(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 21:46:54] USER ERROR: "Syntax error in template "file:W:\domains\new-star.net\styles\templates\game\page.battleSimulator.default.tpl"  on line 232 "{$LNG.bs_send}" unclosed {block} tag"
+File: W:\domains\new-star.net\includes\libs\Smarty\sysplugins\smarty_internal_templatecompilerbase.php | Line: 232
+URL: http://new-star.net/game.php?page=battleSimulator | Version: 1.0.git
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_compilebase.php(187): Smarty_Internal_TemplateCompilerBase-&gt;trigger_template_error('unclosed {block...')
+#1 /includes/libs/Smarty/sysplugins/smarty_internal_compile_section.php(454): Smarty_Internal_CompileBase-&gt;closeTag(Object(Smarty_Internal_SmartyTemplateCompiler), Array)
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Sectionclose-&gt;compile(Array, Object(Smarty_Internal_SmartyTemplateCompiler), Array, NULL, NULL)
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler('sectionclose', Array, Array)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2('sectionclose', Array, Array)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(1882): Smarty_Internal_TemplateCompilerBase-&gt;compileTag('sectionclose', Array)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2730): Smarty_Internal_Templateparser-&gt;yy_r55()
+#7 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2825): Smarty_Internal_Templateparser-&gt;yy_reduce(55)
+#8 /includes/libs/Smarty/sysplugins/smarty_internal_smartytemplatecompiler.php(114): Smarty_Internal_Templateparser-&gt;doParse(5, '/n            &lt;/...')
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(404): Smarty_Internal_SmartyTemplateCompiler-&gt;doCompile('{block name=&quot;ti...', true)
+#10 /includes/libs/Smarty/sysplugins/smarty_internal_compile_include.php(324): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplateSource(Object(Smarty_Internal_Template), false, Object(Smarty_Internal_SmartyTemplateCompiler))
+#11 /includes/libs/Smarty/sysplugins/smarty_internal_compile_include.php(216): Smarty_Internal_Compile_Include-&gt;compileInlineTemplate(Object(Smarty_Internal_SmartyTemplateCompiler), Object(Smarty_Internal_Template), '24b7af1fa47f6ef...')
+#12 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Include-&gt;compile(Array, Object(Smarty_Internal_SmartyTemplateCompiler), Array, NULL, NULL)
+#13 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler('include', Array, Array)
+#14 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2('include', Array, Array)
+#15 /includes/libs/Smarty/sysplugins/smarty_internal_compile_extends.php(115): Smarty_Internal_TemplateCompilerBase-&gt;compileTag('include', Array)
+#16 /includes/libs/Smarty/sysplugins/smarty_internal_compile_extends.php(81): Smarty_Internal_Compile_Extends-&gt;compileInclude(Object(Smarty_Internal_SmartyTemplateCompiler), ''page.battleSim...')
+#17 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Extends-&gt;compile(Array, Object(Smarty_Internal_SmartyTemplateCompiler), Array, NULL, NULL)
+#18 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler('extends', Array, Array)
+#19 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2('extends', Array, Array)
+#20 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(1670): Smarty_Internal_TemplateCompilerBase-&gt;compileTag('extends', Array)
+#21 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2730): Smarty_Internal_Templateparser-&gt;yy_r32()
+#22 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2825): Smarty_Internal_Templateparser-&gt;yy_reduce(32)
+#23 /includes/libs/Smarty/sysplugins/smarty_internal_smartytemplatecompiler.php(114): Smarty_Internal_Templateparser-&gt;doParse(11, '}')
+#24 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(404): Smarty_Internal_SmartyTemplateCompiler-&gt;doCompile('{extends file='...', true)
+#25 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(336): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplateSource(Object(Smarty_Internal_Template), false, NULL)
+#26 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(199): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplate(Object(Smarty_Internal_Template))
+#27 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(98): Smarty_Template_Compiled-&gt;compileTemplateSource(Object(Smarty_Internal_Template))
+#28 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(161): Smarty_Template_Compiled-&gt;process(Object(Smarty_Internal_Template))
+#29 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render(Object(Smarty_Internal_Template))
+#30 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#31 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#32 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#33 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#34 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#35 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#36 /includes/pages/game/ShowBattleSimulatorPage.class.php(264): AbstractGamePage-&gt;display('page.battleSimu...')
+#37 /game.php(58): ShowBattleSimulatorPage-&gt;show()
+#38 {main}
+[15-Apr-2020 21:48:01] NOTICE: "Undefined offset: 602"
+File: W:\domains\new-star.net\includes\pages\game\ShowBattleSimulatorPage.class.php | Line: 62
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/pages/game/ShowBattleSimulatorPage.class.php(62): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 62, Array)
+#1 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#2 {main}
+[15-Apr-2020 21:49:41] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 419
+URL: http://new-star.net/game.php?page=raport&raport=70f635ecc4db4239cc7d37edae348acf | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(419): errorHandler(8, 'A non well form...', 'W://domains//new-...', 419, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e9754efb6de45_43294183(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 21:56:15] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 419
+URL: http://new-star.net/game.php?page=raport&raport=27e77eb6f3b9b016d2c42e426b465a44 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(419): errorHandler(8, 'A non well form...', 'W://domains//new-...', 419, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e9754efb6de45_43294183(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 23:00:33] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 510
+URL: http://new-star.net/game.php?page=raport&raport=51ef8be760d1f653d78a671d49dc5a62 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(510): errorHandler(8, 'A non well form...', 'W://domains//new-...', 510, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e9767c7920879_59537251(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 23:13:10] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\includes\classes\missions\functions\calculateAttack.php | Line: 36
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/missions/functions/calculateAttack.php(36): errorHandler(8, 'A non well form...', 'W://domains//new-...', 36, Array)
+#1 /includes/pages/game/ShowBattleSimulatorPage.class.php(131): calculateAttack(Array, Array, '30', '0')
+#2 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#3 {main}
+[15-Apr-2020 23:15:22] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\includes\classes\missions\functions\calculateAttack.php | Line: 36
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/missions/functions/calculateAttack.php(36): errorHandler(8, 'A non well form...', 'W://domains//new-...', 36, Array)
+#1 /includes/pages/game/ShowBattleSimulatorPage.class.php(131): calculateAttack(Array, Array, '30', '0')
+#2 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#3 {main}
+[15-Apr-2020 23:15:34] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\includes\classes\missions\functions\calculateAttack.php | Line: 36
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/missions/functions/calculateAttack.php(36): errorHandler(8, 'A non well form...', 'W://domains//new-...', 36, Array)
+#1 /includes/pages/game/ShowBattleSimulatorPage.class.php(131): calculateAttack(Array, Array, '30', '0')
+#2 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#3 {main}
+[15-Apr-2020 23:19:13] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\includes\libs\opbe\models\Type.php | Line: 48
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/libs/opbe/models/Type.php(48): errorHandler(8, 'A non well form...', 'W://domains//new-...', 48, Array)
+#1 /includes/libs/opbe/models/ShipType.php(168): Type-&gt;increment('1.219.000')
+#2 /includes/libs/opbe/models/ShipType.php(86): ShipType-&gt;increment('1.219.000')
+#3 /includes/libs/opbe/implementations/2Moons/1_7_2_injectionMode/calculateAttack.php(297): ShipType-&gt;__construct(204, '1.219.000', Array, '10', Array, '50')
+#4 /includes/libs/opbe/implementations/2Moons/1_7_2_injectionMode/calculateAttack.php(88): getShipType(204, '1.219.000')
+#5 /includes/pages/game/ShowBattleSimulatorPage.class.php(129): calculateAttack(Array, Array, '30', '0')
+#6 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#7 {main}
+[15-Apr-2020 23:19:58] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\includes\libs\opbe\models\Type.php | Line: 48
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/libs/opbe/models/Type.php(48): errorHandler(8, 'A non well form...', 'W://domains//new-...', 48, Array)
+#1 /includes/libs/opbe/models/ShipType.php(168): Type-&gt;increment('1.219.000')
+#2 /includes/libs/opbe/models/ShipType.php(86): ShipType-&gt;increment('1.219.000')
+#3 /includes/libs/opbe/implementations/2Moons/1_7_2_injectionMode/calculateAttack.php(297): ShipType-&gt;__construct(204, '1.219.000', Array, '10', Array, '50')
+#4 /includes/libs/opbe/implementations/2Moons/1_7_2_injectionMode/calculateAttack.php(88): getShipType(204, '1.219.000')
+#5 /includes/pages/game/ShowBattleSimulatorPage.class.php(129): calculateAttack(Array, Array, '30', '0')
+#6 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#7 {main}
+[15-Apr-2020 23:21:47] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\includes\libs\opbe\models\Type.php | Line: 48
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/libs/opbe/models/Type.php(48): errorHandler(8, 'A non well form...', 'W://domains//new-...', 48, Array)
+#1 /includes/libs/opbe/models/ShipType.php(168): Type-&gt;increment('1.210.000')
+#2 /includes/libs/opbe/models/ShipType.php(86): ShipType-&gt;increment('1.210.000')
+#3 /includes/libs/opbe/implementations/2Moons/1_7_2_injectionMode/calculateAttack.php(297): ShipType-&gt;__construct(204, '1.210.000', Array, '10', Array, '50')
+#4 /includes/libs/opbe/implementations/2Moons/1_7_2_injectionMode/calculateAttack.php(88): getShipType(204, '1.210.000')
+#5 /includes/pages/game/ShowBattleSimulatorPage.class.php(129): calculateAttack(Array, Array, '30', '0')
+#6 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#7 {main}
+[15-Apr-2020 23:28:31] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 415
+URL: http://new-star.net/game.php?page=raport&raport=6774f0f7ef26b4b81026566d432b6799 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(415): errorHandler(8, 'A non well form...', 'W://domains//new-...', 415, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e976e74210d14_91394025(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[15-Apr-2020 23:35:31] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 415
+URL: http://new-star.net/game.php?page=raport&raport=6f998c785156b44a6459900a3a7f0d3e | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(415): errorHandler(8, 'A non well form...', 'W://domains//new-...', 415, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e976e74210d14_91394025(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 23:37:09] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 415
+URL: http://new-star.net/game.php?page=raport&raport=cd981b3596afff3849a6cfdbec62cd0b | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(415): errorHandler(8, 'A non well form...', 'W://domains//new-...', 415, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e977078f18094_12954830(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[15-Apr-2020 23:37:56] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 415
+URL: http://new-star.net/game.php?page=raport&raport=176bb58b7df35e948e9fd489722e5ea7 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(415): errorHandler(8, 'A non well form...', 'W://domains//new-...', 415, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e977078f18094_12954830(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 23:41:26] NOTICE: "Undefined offset: 4"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 285
+URL: http://new-star.net/game.php?page=raport&raport=6cddf8b0c7a697cf80e337305330d5df | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(285): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 285, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e97717a7f53c5_41296814(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[15-Apr-2020 23:52:39] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 437
+URL: http://new-star.net/game.php?page=raport&raport=a15ded0b31aea67893ef42c4e6d9fc7a | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(437): errorHandler(8, 'A non well form...', 'W://domains//new-...', 437, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e97717a7f53c5_41296814(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[15-Apr-2020 23:54:21] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 437
+URL: http://new-star.net/game.php?page=raport&raport=cfc4f7757aa86d76e804d4ec9113d916 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(437): errorHandler(8, 'A non well form...', 'W://domains//new-...', 437, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e9774810cbc92_75208762(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[15-Apr-2020 23:56:04] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 433
+URL: http://new-star.net/game.php?page=raport&raport=cb4d6af88adaff7db1a34ffbeb70e8ca | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(433): errorHandler(8, 'A non well form...', 'W://domains//new-...', 433, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e9774e7dd2c39_12475440(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[15-Apr-2020 23:59:18] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 433
+URL: http://new-star.net/game.php?page=raport&raport=a3c7886cfb1f7f18b43e891074fc43cd | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(433): errorHandler(8, 'A non well form...', 'W://domains//new-...', 433, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e9774e7dd2c39_12475440(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[16-Apr-2020 00:02:40] USER ERROR: "Syntax error in template "file:W:\domains\new-star.net\styles\templates\game\shared.mission.raport.tpl"  on line 244 "{* Normal Attack *}" unclosed {block} tag"
+File: W:\domains\new-star.net\includes\libs\Smarty\sysplugins\smarty_internal_templatecompilerbase.php | Line: 244
+URL: http://new-star.net/game.php?page=raport&raport=42a3c7a10400001a5a0349b00735eec6 | Version: 1.0.git
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_compilebase.php(187): Smarty_Internal_TemplateCompilerBase-&gt;trigger_template_error('unclosed {block...')
+#1 /includes/libs/Smarty/sysplugins/smarty_internal_compile_if.php(89): Smarty_Internal_CompileBase-&gt;closeTag(Object(Smarty_Internal_SmartyTemplateCompiler), Array)
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Else-&gt;compile(Array, Object(Smarty_Internal_SmartyTemplateCompiler), Array, NULL, NULL)
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler('else', Array, Array)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2('else', Array, Array)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(1652): Smarty_Internal_TemplateCompilerBase-&gt;compileTag('else', Array)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2730): Smarty_Internal_Templateparser-&gt;yy_r31()
+#7 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2825): Smarty_Internal_Templateparser-&gt;yy_reduce(31)
+#8 /includes/libs/Smarty/sysplugins/smarty_internal_smartytemplatecompiler.php(114): Smarty_Internal_Templateparser-&gt;doParse(5, '/n   ')
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(404): Smarty_Internal_SmartyTemplateCompiler-&gt;doCompile('{block name=&quot;ti...', true)
+#10 /includes/libs/Smarty/sysplugins/smarty_internal_compile_include.php(324): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplateSource(Object(Smarty_Internal_Template), false, Object(Smarty_Internal_SmartyTemplateCompiler))
+#11 /includes/libs/Smarty/sysplugins/smarty_internal_compile_include.php(216): Smarty_Internal_Compile_Include-&gt;compileInlineTemplate(Object(Smarty_Internal_SmartyTemplateCompiler), Object(Smarty_Internal_Template), '24b7af1fa47f6ef...')
+#12 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Include-&gt;compile(Array, Object(Smarty_Internal_SmartyTemplateCompiler), Array, NULL, NULL)
+#13 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler('include', Array, Array)
+#14 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2('include', Array, Array)
+#15 /includes/libs/Smarty/sysplugins/smarty_internal_compile_extends.php(115): Smarty_Internal_TemplateCompilerBase-&gt;compileTag('include', Array)
+#16 /includes/libs/Smarty/sysplugins/smarty_internal_compile_extends.php(81): Smarty_Internal_Compile_Extends-&gt;compileInclude(Object(Smarty_Internal_SmartyTemplateCompiler), ''shared.mission...')
+#17 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Extends-&gt;compile(Array, Object(Smarty_Internal_SmartyTemplateCompiler), Array, NULL, NULL)
+#18 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler('extends', Array, Array)
+#19 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2('extends', Array, Array)
+#20 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(1670): Smarty_Internal_TemplateCompilerBase-&gt;compileTag('extends', Array)
+#21 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2730): Smarty_Internal_Templateparser-&gt;yy_r32()
+#22 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2825): Smarty_Internal_Templateparser-&gt;yy_reduce(32)
+#23 /includes/libs/Smarty/sysplugins/smarty_internal_smartytemplatecompiler.php(114): Smarty_Internal_Templateparser-&gt;doParse(11, '}')
+#24 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(404): Smarty_Internal_SmartyTemplateCompiler-&gt;doCompile('{extends file='...', true)
+#25 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(336): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplateSource(Object(Smarty_Internal_Template), false, NULL)
+#26 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(199): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplate(Object(Smarty_Internal_Template))
+#27 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(98): Smarty_Template_Compiled-&gt;compileTemplateSource(Object(Smarty_Internal_Template))
+#28 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(161): Smarty_Template_Compiled-&gt;process(Object(Smarty_Internal_Template))
+#29 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render(Object(Smarty_Internal_Template))
+#30 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#31 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#32 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#33 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#34 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#35 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#36 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#37 /game.php(58): ShowRaportPage-&gt;show()
+#38 {main}
+[16-Apr-2020 00:03:58] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 415
+URL: http://new-star.net/game.php?page=raport&raport=19fbfbb6228be61e009588b7fdc06c55 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(415): errorHandler(8, 'A non well form...', 'W://domains//new-...', 415, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e9776c2291874_22463205(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[16-Apr-2020 00:04:49] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 415
+URL: http://new-star.net/game.php?page=raport&raport=cf26628117b7f03a1087c3303ad2bd3a | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(415): errorHandler(8, 'A non well form...', 'W://domains//new-...', 415, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e9776f58cbde4_38053822(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[16-Apr-2020 00:06:21] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 416
+URL: http://new-star.net/game.php?page=raport&raport=066c6c274410b0ad5821b99378f7c7b3 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(416): errorHandler(8, 'A non well form...', 'W://domains//new-...', 416, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e9777519c3662_18040355(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[16-Apr-2020 00:07:47] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 463
+URL: http://new-star.net/game.php?page=raport&raport=ce5ad25f2dc07013a036426e2cfeb429 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(463): errorHandler(8, 'A non well form...', 'W://domains//new-...', 463, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e9777a751d206_94254656(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[16-Apr-2020 00:15:54] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 414
+URL: http://new-star.net/game.php?page=raport&raport=a7a102b5284409f34ff073f2eb29a3de | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(414): errorHandler(8, 'A non well form...', 'W://domains//new-...', 414, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e97798eda4eb8_92919010(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[16-Apr-2020 00:22:56] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 414
+URL: http://new-star.net/game.php?page=raport&raport=329d614cc2534d65a8e63d6e75da0809 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(414): errorHandler(8, 'A non well form...', 'W://domains//new-...', 414, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e97798eda4eb8_92919010(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#9 /game.php(58): ShowRaportPage-&gt;show()
+#10 {main}
+[16-Apr-2020 00:27:10] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 414
+URL: http://new-star.net/game.php?page=raport&raport=8a221ddb4147989114bf8d7f9769d80b | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(414): errorHandler(8, 'A non well form...', 'W://domains//new-...', 414, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e977c32734717_55555893(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[16-Apr-2020 00:35:33] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 414
+URL: http://new-star.net/game.php?page=raport&raport=cda43de87a698c6065be7c6ff2a3d564 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(414): errorHandler(8, 'A non well form...', 'W://domains//new-...', 414, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e977e2915fc94_99482131(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[16-Apr-2020 00:45:34] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 415
+URL: http://new-star.net/game.php?page=raport&raport=05a6521e18e204c2f7c7634941622a34 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(415): errorHandler(8, 'A non well form...', 'W://domains//new-...', 415, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e978085335155_97492372(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[16-Apr-2020 15:20:00] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 414
+URL: http://new-star.net/game.php?page=raport&raport=f552f1ffa0c13edda1ec1b1a904b1c4d | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(414): errorHandler(8, 'A non well form...', 'W://domains//new-...', 414, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e984d739f0641_20343148(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[16-Apr-2020 15:24:36] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\cache\templates\ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php | Line: 415
+URL: http://new-star.net/game.php?page=raport&raport=fd877744adf22326b9d56fa11a033529 | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^01fe393bb8d7236fa1a6a3750441f077f9510192.shared.mission.raport.tpl.php(415): errorHandler(8, 'A non well form...', 'W://domains//new-...', 415, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e984e890b5bf6_96123528(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache(Object(Smarty_Template_Cached), Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#8 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#9 /includes/pages/game/ShowRaportPage.class.php(168): AbstractGamePage-&gt;display('shared.mission....')
+#10 /game.php(58): ShowRaportPage-&gt;show()
+#11 {main}
+[16-Apr-2020 17:05:49] NOTICE: "A non well formed numeric value encountered"
+File: W:\domains\new-star.net\includes\libs\opbe\models\Type.php | Line: 48
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/libs/opbe/models/Type.php(48): errorHandler(8, 'A non well form...', 'W://domains//new-...', 48, Array)
+#1 /includes/libs/opbe/models/ShipType.php(168): Type-&gt;increment('9.000.000')
+#2 /includes/libs/opbe/models/ShipType.php(86): ShipType-&gt;increment('9.000.000')
+#3 /includes/libs/opbe/implementations/NewStar/1_0_0_injectionMode/calculateAttack.php(297): ShipType-&gt;__construct(204, '9.000.000', Array, '10', Array, '50')
+#4 /includes/libs/opbe/implementations/NewStar/1_0_0_injectionMode/calculateAttack.php(107): getShipType(204, '9.000.000')
+#5 /includes/pages/game/ShowBattleSimulatorPage.class.php(129): calculateAttack(Array, Array, '30', '0')
+#6 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#7 {main}
+[16-Apr-2020 18:44:48] NOTICE: "Undefined index: premium_1"
+File: W:\domains\new-star.net\includes\pages\game\ShowPremiumPage.class.php | Line: 117
+URL: http://new-star.net/game.php?page=premium | Version: 1.0.git
+Stack trace:
+#0 /includes/pages/game/ShowPremiumPage.class.php(117): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 117, Array)
+#1 /game.php(58): ShowPremiumPage-&gt;show()
+#2 {main}
+[16-Apr-2020 18:47:52] USER ERROR: "SQLSTATE[42S02]: Base table or view not found: 1146 Table 'newstarnet.uni1_users' doesn't exist
+
+Query-Code:SELECT 
+	user.*,
+	COUNT(message.message_id) as messages
+	FROM uni1_users as user
+	LEFT JOIN uni1_messages as message ON message.message_owner = user.id AND message.message_unread = 1
+	WHERE user.id = 3
+	GROUP BY message.message_owner;"
+File: W:\domains\new-star.net\includes\classes\Database.class.php | Line: 126
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/Database.class.php(202): Database-&gt;_query('SELECT /n/tuser.*...', Array, 'select')
+#1 /includes/common.php(148): Database-&gt;selectSingle('SELECT /n/tuser.*...', Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[16-Apr-2020 18:49:41] USER ERROR: "SQLSTATE[42S02]: Base table or view not found: 1146 Table 'newstarnet.uni1_users' doesn't exist
+
+Query-Code:SELECT 
+	user.*,
+	COUNT(message.message_id) as messages
+	FROM uni1_users as user
+	LEFT JOIN uni1_messages as message ON message.message_owner = user.id AND message.message_unread = 1
+	WHERE user.id = 3
+	GROUP BY message.message_owner;"
+File: W:\domains\new-star.net\includes\classes\Database.class.php | Line: 126
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/Database.class.php(202): Database-&gt;_query('SELECT /n/tuser.*...', Array, 'select')
+#1 /includes/common.php(148): Database-&gt;selectSingle('SELECT /n/tuser.*...', Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[16-Apr-2020 18:49:54] NOTICE: "Undefined offset: 2101"
+File: W:\domains\new-star.net\cache\templates\ru^c4df5cba275a0f63d68129afac222021213a7a9d.page.premium.default.tpl.php | Line: 676
+URL: http://new-star.net/game.php?page=premium | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^c4df5cba275a0f63d68129afac222021213a7a9d.page.premium.default.tpl.php(676): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 676, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e987cd747ab96_80559767(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowPremiumPage.class.php(141): AbstractGamePage-&gt;display('page.premium.de...')
+#9 /game.php(58): ShowPremiumPage-&gt;show()
+#10 {main}
+[16-Apr-2020 19:00:24] WARNING: "Use of undefined constant WEAPONS_TECH_INCREMENT_FACTOR - assumed 'WEAPONS_TECH_INCREMENT_FACTOR' (this will throw an Error in a future version of PHP)"
+File: W:\domains\new-star.net\includes\libs\opbe\models\ShipType.php | Line: 108
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/libs/opbe/models/ShipType.php(108): errorHandler(2, 'Use of undefine...', 'W://domains//new-...', 108, Array)
+#1 /includes/libs/opbe/models/ShipType.php(87): ShipType-&gt;setWeaponsTech(0)
+#2 /includes/libs/opbe/models/ShipType.php(506): ShipType-&gt;__construct(204, 1219, Array, '10', Array, '50', 0, 0, 0)
+#3 /includes/libs/opbe/models/Fleet.php(85): ShipType-&gt;cloneMe()
+#4 /includes/libs/opbe/implementations/NewStar/1_0_0_injectionMode/calculateAttack.php(89): Fleet-&gt;addShipType(Object(Ship))
+#5 /includes/pages/game/ShowBattleSimulatorPage.class.php(129): calculateAttack(Array, Array, '30', '0')
+#6 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#7 {main}
+[16-Apr-2020 19:51:09] USER ERROR: "Call to undefined method Ship::setWeaponsTech()"
+File: W:\domains\new-star.net\includes\libs\opbe\models\ShipType.php | Line: 87
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/libs/opbe/implementations/NewStar/1_0_0_injectionMode/calculateAttack.php(297): ShipType-&gt;__construct(204, '1219', Array, '10', Array, '50')
+#1 /includes/libs/opbe/implementations/NewStar/1_0_0_injectionMode/calculateAttack.php(88): getShipType(204, '1219')
+#2 /includes/pages/game/ShowBattleSimulatorPage.class.php(131): calculateAttack(Array, Array, '30', '0')
+#3 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#4 {main}
+[16-Apr-2020 20:13:30] NOTICE: "Undefined offset: 9001"
+File: W:\domains\new-star.net\includes\libs\opbe\implementations\NewStar\1_0_0_injectionMode\calculateAttack.php | Line: 293
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/libs/opbe/implementations/NewStar/1_0_0_injectionMode/calculateAttack.php(293): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 293, Array)
+#1 /includes/libs/opbe/implementations/NewStar/1_0_0_injectionMode/calculateAttack.php(88): getShipType(204, '1219')
+#2 /includes/pages/game/ShowBattleSimulatorPage.class.php(131): calculateAttack(Array, Array, '30', '0')
+#3 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#4 {main}
+[16-Apr-2020 20:13:53] NOTICE: "Undefined offset: 902"
+File: W:\domains\new-star.net\includes\pages\game\ShowBattleSimulatorPage.class.php | Line: 154
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/pages/game/ShowBattleSimulatorPage.class.php(154): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 154, Array)
+#1 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#2 {main}
+[16-Apr-2020 21:04:57] USER ERROR: "syntax error, unexpected ')', expecting ';'"
+File: W:\domains\new-star.net\includes\classes\missions\functions\calculateAttack.php | Line: 74
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#1 {main}
+[16-Apr-2020 21:05:17] NOTICE: "Undefined offset: 0"
+File: W:\domains\new-star.net\includes\classes\missions\functions\GenerateReport.php | Line: 50
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/missions/functions/GenerateReport.php(50): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 50, Array)
+#1 /includes/pages/game/ShowBattleSimulatorPage.class.php(204): GenerateReport(Array, Array)
+#2 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#3 {main}
+[16-Apr-2020 21:06:06] NOTICE: "Undefined offset: 0"
+File: W:\domains\new-star.net\includes\classes\missions\functions\GenerateReport.php | Line: 50
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/missions/functions/GenerateReport.php(50): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 50, Array)
+#1 /includes/pages/game/ShowBattleSimulatorPage.class.php(204): GenerateReport(Array, Array)
+#2 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#3 {main}
+[16-Apr-2020 21:07:17] NOTICE: "Undefined offset: 0"
+File: W:\domains\new-star.net\includes\classes\missions\functions\GenerateReport.php | Line: 50
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/missions/functions/GenerateReport.php(50): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 50, Array)
+#1 /includes/pages/game/ShowBattleSimulatorPage.class.php(204): GenerateReport(Array, Array)
+#2 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#3 {main}
+[16-Apr-2020 21:12:07] WARNING: "Division by zero"
+File: W:\domains\new-star.net\includes\classes\missions\functions\calculateAttack.php | Line: 155
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/missions/functions/calculateAttack.php(155): errorHandler(2, 'Division by zer...', 'W://domains//new-...', 155, Array)
+#1 /includes/pages/game/ShowBattleSimulatorPage.class.php(131): calculateAttack(Array, Array, '30', '0')
+#2 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#3 {main}
+[16-Apr-2020 21:18:25] NOTICE: "Undefined index: total"
+File: W:\domains\new-star.net\includes\classes\missions\functions\calculateAttack.php | Line: 258
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/missions/functions/calculateAttack.php(258): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 258, Array)
+#1 /includes/pages/game/ShowBattleSimulatorPage.class.php(131): calculateAttack(Array, Array, '30', '0')
+#2 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#3 {main}
+[16-Apr-2020 21:19:38] WARNING: "Division by zero"
+File: W:\domains\new-star.net\includes\classes\missions\functions\calculateAttack.php | Line: 149
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/missions/functions/calculateAttack.php(149): errorHandler(2, 'Division by zer...', 'W://domains//new-...', 149, Array)
+#1 /includes/pages/game/ShowBattleSimulatorPage.class.php(131): calculateAttack(Array, Array, '30', '0')
+#2 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#3 {main}
+[16-Apr-2020 21:19:56] WARNING: "Division by zero"
+File: W:\domains\new-star.net\includes\classes\missions\functions\calculateAttack.php | Line: 155
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/missions/functions/calculateAttack.php(155): errorHandler(2, 'Division by zer...', 'W://domains//new-...', 155, Array)
+#1 /includes/pages/game/ShowBattleSimulatorPage.class.php(131): calculateAttack(Array, Array, '30', '0')
+#2 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#3 {main}
+[16-Apr-2020 21:20:14] WARNING: "Division by zero"
+File: W:\domains\new-star.net\includes\classes\missions\functions\calculateAttack.php | Line: 155
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/missions/functions/calculateAttack.php(155): errorHandler(2, 'Division by zer...', 'W://domains//new-...', 155, Array)
+#1 /includes/pages/game/ShowBattleSimulatorPage.class.php(131): calculateAttack(Array, Array, '30', '0')
+#2 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#3 {main}
+[16-Apr-2020 22:08:19] WARNING: "Division by zero"
+File: W:\domains\new-star.net\includes\classes\missions\functions\calculateAttack.php | Line: 155
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/missions/functions/calculateAttack.php(155): errorHandler(2, 'Division by zer...', 'W://domains//new-...', 155, Array)
+#1 /includes/pages/game/ShowBattleSimulatorPage.class.php(131): calculateAttack(Array, Array, '30', '0')
+#2 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#3 {main}
+[16-Apr-2020 22:12:01] NOTICE: "Undefined offset: 0"
+File: W:\domains\new-star.net\includes\classes\missions\functions\GenerateReport.php | Line: 50
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/missions/functions/GenerateReport.php(50): errorHandler(8, 'Undefined offse...', 'W://domains//new-...', 50, Array)
+#1 /includes/pages/game/ShowBattleSimulatorPage.class.php(204): GenerateReport(Array, Array)
+#2 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#3 {main}
+[16-Apr-2020 22:13:45] USER ERROR: "syntax error, unexpected ')', expecting ';'"
+File: W:\domains\new-star.net\includes\classes\missions\functions\calculateAttack.php | Line: 74
+URL: http://new-star.net/game.php?page=battleSimulator&mode=send | Version: 1.0.git
+Stack trace:
+#0 /game.php(58): ShowBattleSimulatorPage-&gt;send()
+#1 {main}
+[17-Apr-2020 16:52:08] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:52:18] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:52:28] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:52:38] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:52:48] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:53:00] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:53:10] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:53:18] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:53:28] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:53:38] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:53:48] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:53:58] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:54:09] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:54:18] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:54:28] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:54:38] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:54:59] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:55:23] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:55:28] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:55:38] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:55:48] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:56:09] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:56:18] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:56:28] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:57:13] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:57:18] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:58:07] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:58:11] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:58:33] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:58:52] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:58:58] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:59:10] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:59:18] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:59:28] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:59:38] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:59:48] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 16:59:58] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:00:08] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:00:18] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:00:28] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:00:38] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:00:48] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:00:58] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:01:08] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:01:18] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:01:28] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:01:38] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:01:48] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:01:58] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:02:08] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:02:18] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:02:28] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:02:38] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:02:48] NOTICE: "Undefined index: AttackA"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:37:08] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:37:18] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:37:28] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:37:38] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:37:48] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:37:58] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:38:08] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:38:18] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:38:28] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:38:38] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:38:48] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:38:58] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:39:08] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:39:18] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:39:28] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:39:38] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:39:48] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:39:59] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:40:08] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:40:18] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:40:28] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:40:38] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:40:48] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:40:58] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:41:08] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:41:18] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:41:28] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:41:38] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:41:48] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:41:58] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:42:08] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:42:18] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:42:28] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:42:38] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:42:48] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:42:58] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:43:08] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:43:18] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:43:28] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:43:38] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:43:48] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:43:58] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:44:08] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:44:18] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:44:28] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:44:38] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:44:48] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:44:58] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:45:08] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:45:18] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:45:28] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:45:38] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=scan | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 17:45:39] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 84
+URL: http://new-star.net/game.php?page=buildings | Version: 1.0.git
+Stack trace:
+#0 /includes/GeneralFunctions.php(84): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 84, Array)
+#1 /includes/common.php(200): getFactors(Array)
+#2 /game.php(25): require('W://domains//new-...')
+#3 {main}
+[17-Apr-2020 18:07:27] NOTICE: "Undefined index: bonusResearchSlots"
+File: W:\domains\new-star.net\includes\classes\cache\builder\VarsBuildCache.class.php | Line: 93
+URL: http://new-star.net/game.php?page=buildings | Version: 1.0.git
+Stack trace:
+#0 /includes/classes/cache/builder/VarsBuildCache.class.php(93): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 93, Array)
+#1 /includes/classes/Cache.class.php(92): VarsBuildCache-&gt;buildCache()
+#2 /includes/classes/Cache.class.php(52): Cache-&gt;buildCache('vars')
+#3 /includes/vars/General.php(22): Cache-&gt;getData('vars')
+#4 /includes/common.php(127): require('W://domains//new-...')
+#5 /game.php(25): require('W://domains//new-...')
+#6 {main}
+[17-Apr-2020 18:19:32] NOTICE: "Undefined index: BuildSlots"
+File: W:\domains\new-star.net\cache\templates\ru^c4df5cba275a0f63d68129afac222021213a7a9d.page.premium.default.tpl.php | Line: 707
+URL: http://new-star.net/game.php?page=premium | Version: 1.0.git
+Stack trace:
+#0 /cache/templates/ru^c4df5cba275a0f63d68129afac222021213a7a9d.page.premium.default.tpl.php(707): errorHandler(8, 'Undefined index...', 'W://domains//new-...', 707, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_5e99b729243552_20084169(Object(Smarty_Internal_Template))
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode(Object(Smarty_Internal_Template))
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render(Object(Smarty_Internal_Template), false)
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render(false, 1)
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute(Object(Smarty_Internal_Template), NULL, NULL, NULL, 1)
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#7 /includes/pages/game/AbstractGamePage.class.php(441): template-&gt;display('extends:layout....')
+#8 /includes/pages/game/ShowPremiumPage.class.php(141): AbstractGamePage-&gt;display('page.premium.de...')
+#9 /game.php(58): ShowPremiumPage-&gt;show()
+#10 {main}
+[17-Apr-2020 19:29:24] WARNING: "in_array() expects parameter 3 to be boolean, array given"
+File: W:\domains\new-star.net\includes\GeneralFunctions.php | Line: 72
+URL: http://new-star.net/game.php?page=buildings | Version: 1.0.git
+Stack trace:
+#0 [internal function]: errorHandler(2, 'in_array() expe...', 'W://domains//new-...', 72, Array)
+#1 /includes/GeneralFunctions.php(72): in_array('108', Array, Array)
+#2 /includes/common.php(200): getFactors(Array)
+#3 /game.php(25): require('W://domains//new-...')
+#4 {main}

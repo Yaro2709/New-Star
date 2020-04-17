@@ -120,8 +120,10 @@ function GenerateReport($combatResult, $reportInfo)
 			$DATA['rounds'][$Round]['defender'][] = $playerData;
 		}
 		$round_no++;
+        /*
 		if ($Round >= MAX_ATTACK_ROUNDS || $Destroy['att'] == count($RoundInfo['attackers']) || $Destroy['def'] == count($RoundInfo['defenders']))
 			break;
+        */
 		
 		if(isset($RoundInfo['attack'], $RoundInfo['attackShield'], $RoundInfo['defense'], $RoundInfo['defShield']))
 			$DATA['rounds'][$Round]['info']	= array($RoundInfo['attack'], $RoundInfo['attackShield'], $RoundInfo['defense'], $RoundInfo['defShield']);

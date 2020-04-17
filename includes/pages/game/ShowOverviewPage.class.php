@@ -273,6 +273,7 @@ class ShowOverviewPage extends AbstractGamePage
 		
 		$this->assign(array(
             'UsersOnline'				=> $UsersOnline,
+            'race'                      => $USER['race'],
         
 			'rankInfo'					=> $rankInfo,
 			'is_news'					=> $config->OverviewNewsFrame,

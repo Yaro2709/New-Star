@@ -87,6 +87,8 @@ $LNG['ov_create_moon']                    = 'Create Moon';
 //Navigation
 $LNG['lm_market']                         = 'Market';
 $LNG['lm_governors']                      = 'Governors';
+$LNG['lm_race']                           = 'Race';
+$LNG['lm_premium']                        = 'Premium';
 $LNG['PPS']                               = 'Production per hour';
 $LNG['PPD']                               = 'Production per day';
 $LNG['PPW']                               = 'Production per week';
@@ -125,3 +127,18 @@ $LNG['gv_time']                           = 'Days:';
 $LNG['gv_go']                             = 'Buy';
 $LNG['gv_stop']                           = 'Not enough resources!';
 $LNG['gv_limit']                          = 'You cannot buy so much!';
+// Races
+$LNG['race_bonus']                        = 'Race Skills';
+$LNG['race_req']                          = 'New units';
+$LNG['race_one']                          = 'Race selection:';
+$LNG['race_stop_res']                     = 'Insufficient resources!';
+$LNG['race_stop_choice']                  = 'The race is already selected!';
+$LNG['race_yes']                          = 'Race selected.';
+//Conveyor
+$LNG['build_conv']                        = 'Build';
+$LNG['sec_conv']                          = 'per second';
+//Prem
+$LNG['prem_time']                         = 'Days:';
+$LNG['prem_go']                           = 'Buy';
+$LNG['prem_stop']                         = 'Not enough resources!';
+$LNG['prem_limit']                        = 'You cannot buy so much!';

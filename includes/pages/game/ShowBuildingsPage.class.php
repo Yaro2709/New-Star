@@ -49,7 +49,7 @@ class ShowBuildingsPage extends AbstractGamePage
 		$Element				 = $CurrentQueue[0][0];
 		$BuildMode			     = $CurrentQueue[0][4];
 		$fast				     = $resource[$Element]; 
-		$NeededDm		         = 10 + ((400*($USER['b_tech']-TIMESTAMP))/3600);
+		$NeededDm		         = 10 + ((400*($PLANET['b_building']-TIMESTAMP))/3600);
 		if($NeededDm < 10)
 			$NeededDm=10;
 		if ($USER['darkmatter'] >= $NeededDm){
@@ -130,7 +130,7 @@ class ShowBuildingsPage extends AbstractGamePage
 				if($Element == $ListIDArray[0])
 					continue;
 					
-				$BuildEndTime       += BuildFunctions::getBuildingTime($USER, $PLANET, $ListIDArray[0], $costResources, $ListIDArray[4] == 'destroy');
+				$BuildEndTime       += BuildFunctions::getBuildingTime($USER, $PLANET, $ListIDArray[0], NULL, $ListIDArray[4] == 'destroy');
 				$ListIDArray[3]		= $BuildEndTime;
 				$NewQueueArray[]	= $ListIDArray;					
 			}
@@ -168,8 +168,7 @@ class ShowBuildingsPage extends AbstractGamePage
         }
 
         // Get ElementID from the task to cancel.
-		$Element		= $CurrentQueue[$QueueID - 1][0];
-
+		$Element		= $CurrentQueue[$QueueID - 2][0];
 		$BuildEndTime	= $CurrentQueue[$QueueID - 2][3];
 		unset($CurrentQueue[$QueueID - 1]);
 		$NewQueueArray	= array();
@@ -181,7 +180,7 @@ class ShowBuildingsPage extends AbstractGamePage
 				if($Element == $ListIDArray[0] || empty($ListIDArray[0]))
 					continue;
 
-				$BuildEndTime       += BuildFunctions::getBuildingTime($USER, $PLANET, $ListIDArray[0], NULL, $ListIDArray[4] == 'destroy', $ListIDArray[1]);
+				$BuildEndTime       += BuildFunctions::getBuildingTime($USER, $PLANET, $ListIDArray[0]);
 				$ListIDArray[3]		= $BuildEndTime;
 				$NewQueueArray[]	= $ListIDArray;				
 			}
@@ -195,23 +194,20 @@ class ShowBuildingsPage extends AbstractGamePage
         return true;
 	}
 
-	private function AddBuildingToQueue($Element, $lvlup, $lvlup1, $AddMode = true)
-	 {
-	  if($this->bOnInsert==FALSE)
-	  {
-	   $this->build_anz=(int)$_POST['lvlup'] - $_POST['lvlup1'];
-	   if($this->build_anz>=1 )
-	   {
-		$this->bOnInsert=TRUE;
-		while($this->build_anz>0)
-		{
-		 $this->DoAddBuildingToQueue($Element, $AddMode);
-		 $this->build_anz=$this->build_anz-1;
+	private function AddBuildingToQueue($Element, $lvlup, $lvlup1, $levelToBuildInFo, $AddMode = true)
+	{
+		if($this->bOnInsert==FALSE){
+			$this->build_anz=(int)$lvlup - $levelToBuildInFo;
+			if($this->build_anz>=1){
+				$this->bOnInsert=TRUE;
+				while($this->build_anz>0){
+					$this->DoAddBuildingToQueue($Element, $AddMode);
+					$this->build_anz=$this->build_anz-1;
+				}
+				$this->bOnInsert=FALSE;
+			}
 		}
-		$this->bOnInsert=FALSE;
-	   }
-	  }
-	 }
+	}
 	 
 	private function DoAddBuildingToQueue($Element, $AddMode = true)	
     {
@@ -251,7 +247,7 @@ class ShowBuildingsPage extends AbstractGamePage
  
         $config	= Config::get();
 
-		if (($config->max_elements_build != 0 && $ActualCount == $config->max_elements_build)
+		if (($config->max_elements_build != 0 && $ActualCount == ($config->max_elements_build + $USER['factor']['BuildSlots']))
 			|| ($AddMode && $PLANET["field_current"] >= ($CurrentMaxFields - $ActualCount)))
 		{
 			return;
@@ -265,7 +261,7 @@ class ShowBuildingsPage extends AbstractGamePage
 			if($pricelist[$Element]['max'] < $BuildLevel)
 				return;
 
-			$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element, !$AddMode, $BuildLevel);
+			$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element, !$AddMode); // BAG $Id_0001
 			
 			if(!BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources))
 				return;
@@ -330,7 +326,7 @@ class ShowBuildingsPage extends AbstractGamePage
 			if ($BuildArray[3] < TIMESTAMP)
 				continue;
 			
-			//$quickinfo[$BuildArray[0]]	= $BuildArray[1]; //Адская фигня, после которой баг в очереди
+			$quickinfo[$BuildArray[0]]	= $BuildArray[1];
 			
 			$scriptData[] = array(
 				'element'	=> $BuildArray[0], 
@@ -367,7 +363,9 @@ class ShowBuildingsPage extends AbstractGamePage
 		{
 			$Element     	= HTTP::_GP('building', 0);
 			$ListID      	= HTTP::_GP('listid', 0);
-			$lvlup1      	= HTTP::_GP('lvlup1', 0);
+			$lvlup      			= HTTP::_GP('lvlup', 0);
+			$lvlup1      			= HTTP::_GP('lvlup1', 0);
+			$levelToBuildInFo      	= HTTP::_GP('levelToBuildInFo', 0);
 			switch($TheCommand)
 			{
 				case 'cancel':
@@ -377,7 +375,7 @@ class ShowBuildingsPage extends AbstractGamePage
 					$this->RemoveBuildingFromQueue($ListID);
 				break;
 				case 'insert':
-					$this->AddBuildingToQueue($Element, $lvlup1, true);
+					$this->AddBuildingToQueue($Element, $lvlup, $lvlup1, $levelToBuildInFo, true);
 				break;
 				case 'destroy':
 					$this->DoAddBuildingToQueue($Element, false);
@@ -394,7 +392,7 @@ class ShowBuildingsPage extends AbstractGamePage
 		$queueData	 		= $this->getQueueData();
 		$Queue	 			= $queueData['queue'];
 		$QueueCount			= count($Queue);
-		$CanBuildElement 	= isVacationMode($USER) || $config->max_elements_build == 0 || $QueueCount < $config->max_elements_build;
+		$CanBuildElement 	= isVacationMode($USER) || $config->max_elements_build == 0 || $QueueCount < ($config->max_elements_build + $USER['factor']['BuildSlots']);
 		$CurrentMaxFields   = CalculateMaxPlanetFields($PLANET);
 		
 		$RoomIsOk 			= $PLANET['field_current'] < ($CurrentMaxFields - $QueueCount);	
@@ -530,7 +528,7 @@ class ShowBuildingsPage extends AbstractGamePage
 			'RoomIsOk'			    => $RoomIsOk,
 			'Queue'				    => $Queue,
 			'isBusy'			    => array('shipyard' => !empty($PLANET['b_hangar_id']), 'research' => $USER['b_tech_planet'] != 0),
-            'need_dm'		        => floor(10 + ((400*($USER['b_tech']-TIMESTAMP))/3600)),	
+            'need_dm'		        => floor(10 + ((400*($PLANET['b_building']-TIMESTAMP))/3600)),	
 			'field_used'		    => $PLANET['field_current'],
 			'field_max'		        => CalculateMaxPlanetFields($PLANET),
 			'field_left'		    => CalculateMaxPlanetFields($PLANET) - $PLANET['field_current'],

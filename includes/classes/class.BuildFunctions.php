@@ -19,31 +19,33 @@ class BuildFunctions
 {
 
     static $bonusList	= array(
+    	'AttackA',
+		'DefensiveA', 
+		'ShieldA', 	
+		'AttackD',
+		'DefensiveD', 
+		'ShieldD',
         'Attack',
         'Defensive',
         'Shield',
-        'BuildTime',
-        'ResearchTime',
-        // $new_code
-        'ResearchSlotPlanet',
-        // $new_code 
+		'BuildTime',
+		'BuildSlots',	
+		'ResearchTime',
+		'ResearchSlots',
+		'ResearchSlotPlanet',
         'ShipTime',
         'DefensiveTime',
         'Resource',
-        // $new_code
         'Pmetal',
         'Pcrystal',
         'Pdeuterium',   
-        'Senergy',   
-        // $new_code        
+        'Senergy',          
         'ResourceStorage',
         'ShipStorage',
         'FlyTime',
-        // $new_code
         'FlyTimeCom',
 		'FlyTimeImp',
 		'FlyTimeHyp',
-        // $new_code
         'FleetSlots',
         'Planets',
         'SpyPower',
@@ -195,13 +197,15 @@ class BuildFunctions
             $elementCost	+= $elementPrice[902];
         }
 
-        if	   (in_array($Element, $reslist['build'])) {
-            $time	= $elementCost / ($config->game_speed * (1 + $PLANET[$resource[14]])) * pow(0.5, $PLANET[$resource[15]]) * (1 + $USER['factor']['BuildTime']);
-        } elseif (in_array($Element, $reslist['fleet'])) {
-            $time	= $elementCost / ($config->game_speed * (1 + $PLANET[$resource[21]])) * pow(0.5, $PLANET[$resource[15]]) * (1 + $USER['factor']['ShipTime']);
-        } elseif (in_array($Element, $reslist['defense'])) {
-            $time	= $elementCost / ($config->game_speed * (1 + $PLANET[$resource[21]])) * pow(0.5, $PLANET[$resource[15]]) * (1 + $USER['factor']['DefensiveTime']);
-        } elseif (in_array($Element, $reslist['tech'])) {
+        if(in_array($Element, $reslist['build'])) {		
+			$time	= $elementCost / ($config->game_speed * (1 + $PLANET[$resource[14]])) * pow(0.5, $PLANET[$resource[15]]) * (pow(0.99, ($USER['factor']['BuildTime'] * 100)));
+		}elseif (in_array($Element, $reslist['fleet'])) {			
+			$time	= $elementCost/($config->game_speed * (1 + $PLANET[$resource[14]] + $PLANET[$resource[21]])) * pow(0.88, $PLANET[$resource[15]]) * pow(0.99, $USER['factor']['ShipTime'] * 100);			
+		}elseif (in_array($Element, $reslist['defense'])) {
+			$time	= $elementCost/($config->game_speed * (1 + $PLANET[$resource[14]] + $PLANET[$resource[21]])) * pow(0.88, $PLANET[$resource[15]]) * pow(0.99, $USER['factor']['DefensiveTime'] * 100);	
+        }elseif (in_array($Element, $reslist['missile'])) {
+			$time	= $elementCost/($config->game_speed * (1 + (3 * $PLANET[$resource[44]])));	
+		}elseif (in_array($Element, $reslist['tech'])) {
             if(is_numeric($PLANET[$resource[31].'_inter']))
             {
                 $Level	= $PLANET[$resource[31]];
@@ -214,16 +218,21 @@ class BuildFunctions
                 }
             }
 
-            $time	= $elementCost / (1000 * (1 + $Level)) / ($config->game_speed / 2500) * pow(1 - $config->factor_university / 100, $PLANET[$resource[6]]) * (1 + $USER['factor']['ResearchTime']);
+            $time	= $elementCost / (1000 * (1 + $Level)) / ($config->game_speed / 2500) * pow(1 - $config->factor_university / 100, $PLANET[$resource[6]]) * (pow(0.99, $USER['factor']['ResearchTime'] * 100));
         }
 
-        if($forDestroy) {
-            $time	= floor($time * 1300);
-        } else {
-            $time	= floor($time * 3600);
-        }
-
-        return max($time, $config->min_build_time);
+        if((in_array($Element, $reslist['fleet']) || in_array($Element, $reslist['defense']))){
+			$time	= $time * 3600;
+		}	
+		else{
+			if($forDestroy) {
+				$time	= floor($time * 1300);
+			} else {
+				$time	= floor($time * 3600);
+			}
+			$time	 = max($time, $config->min_build_time);
+		}		
+		return $time; 
     }
 
     public static function isElementBuyable($USER, $PLANET, $Element, $elementPrice = NULL, $forDestroy = false, $forLevel = NULL)
