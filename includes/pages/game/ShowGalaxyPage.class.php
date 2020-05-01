@@ -19,7 +19,7 @@ require_once('includes/classes/class.GalaxyRows.php');
 
 class ShowGalaxyPage extends AbstractGamePage
 {
-    public static $requireModule = MODULE_RESEARCH;
+    public static $requireModule = MODULE_GALAXY;
 
 	function __construct() 
 	{

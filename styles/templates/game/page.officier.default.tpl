@@ -15,7 +15,7 @@
             <div id="ofic_{$ID}" class="build_box {if !$Element.techacc}required{/if}">
                <div class="head">               
                   <a href="#" onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}</a> 
-                  <font class="gov6">({$LNG.of_lvl} {$Element.level}/{$Element.maxLevel})</font>
+                  <font class="gov6">({$LNG.bd_lvl} {$Element.level}/{$Element.maxLevel})</font>
                </div>
                <div class="content_box">
                   <div class="image_mini">
@@ -53,19 +53,19 @@
                   <div class="clear"></div>
                   <input name="id" value="{$ID}" type="hidden">      
                   <div class="btn_build_border btn_build_border_left dm_btn_build_border_left">
-                  <label class="max_btn_ship">{$LNG.of_lvl_up}</label>
+                  <label class="max_btn_ship">{$LNG.bd_lvl_up}</label>
                   <div class="div_text count_ships_dots">
                   {foreach $Element.costResources as $RessID => $RessAmount}
-                  <input id="amount{$ID}" class="text" onchange="Price{$RessID}('{$ID}', {$RessAmount});" name="amount" max="500" min="1" value="1" type="number">
+                  <input id="amount{$ID}" class="text" onchange="Price{$RessID}('{$ID}', {$RessAmount});" name="amount" max="{$Element.maxLevel}" min="1" value="1" type="number">
                   {/foreach}
                   </div>
                   </div>
                   <div class="btn_build_border btn_build_border_right dm_btn_build_border_right">
-                  <button class="btn_build gubernators_form_submit" type="submit">{$LNG.of_buy}</button>  
+                  <button class="btn_build gubernators_form_submit" type="submit">{$LNG.bd_buy}</button>  
                   </div>                  
                   </form>
                   {else}
-                  <span class="btn_build red">{$LNG.of_notres}</span>
+                  <span class="btn_build red">{$LNG.bd_notres}</span>
                   {/if}
                   </div>
                   </form>

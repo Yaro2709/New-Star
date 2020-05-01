@@ -38,7 +38,7 @@ $reslist['res_production']      = array(901 => 0, 902 => 0, 903 => 0, 911 => 0);
 $reslist['lab']                 = array(31); //единицы, которые объединяются в сеть
 $reslist['planet_no_basic']     = array(3); //планеты, у которых нет базовой добычи
 $reslist['shipyard']            = array(21); //нет верфя - ничего не построешь
-$reslist['shipyard_no_build']   = array(15,21); //если эти еденицы улучшаются, то верфь не работает
+$reslist['shipyard_no_build']   = array(14,15,21); //если эти еденицы улучшаются, то верфь не работает
 $reslist['storage']             = array(22, 23, 24);
 
 

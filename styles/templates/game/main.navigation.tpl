@@ -5,6 +5,9 @@
             </div>
             {*<a class="oamlink pulsanti" href="">Купить АМ<span class="oamperc">+100%</span></a>*} 
             <a class="big_btn btn_menu btn_menu_big"> <div class="servertime oservertime"></div> </a>
+            {if $bonus_time < TIMESTAMP}
+            <a class="big_btn blue btn_menu btn_menu_big" href="game.php?page=bonus">{$LNG.lm_bonus}</a>
+            {/if}
             {*<div class="separator"></div>*} 
             <!-- ricerche  tecnologie-->
             {if isModuleAvailable($smarty.const.MODULE_RESEARCH)}

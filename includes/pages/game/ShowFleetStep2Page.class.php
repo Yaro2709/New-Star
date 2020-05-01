@@ -48,7 +48,7 @@ class ShowFleetStep2Page extends AbstractGamePage
 		$fleetArray    				= $_SESSION['fleet'][$token]['fleet'];
 
         $db = Database::get();
-        $sql = "SELECT id, id_owner, der_metal, der_crystal FROM %%PLANETS%% WHERE universe = :universe AND galaxy = :targetGalaxy AND system = :targetSystem AND planet = :targetPlanet AND planet_type = '1';";
+        $sql = "SELECT id, id_owner, der_metal, der_crystal FROM %%PLANETS%% WHERE universe = :universe AND galaxy = :targetGalaxy AND `system` = :targetSystem AND planet = :targetPlanet AND planet_type = '1';";
         $targetPlanetData = $db->selectSingle($sql, array(
             ':universe' => Universe::current(),
             ':targetGalaxy' => $targetGalaxy,

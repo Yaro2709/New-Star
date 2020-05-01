@@ -198,7 +198,7 @@ class BuildFunctions
         }
 
         if(in_array($Element, $reslist['build'])) {		
-			$time	= $elementCost / ($config->game_speed * (1 + $PLANET[$resource[14]])) * pow(0.5, $PLANET[$resource[15]]) * (pow(0.99, ($USER['factor']['BuildTime'] * 100)));
+			$time	= $elementCost/($config->game_speed * (1 + $PLANET[$resource[14]])) * pow(0.5, $PLANET[$resource[15]]) * (pow(0.99, ($USER['factor']['BuildTime'] * 100)));
 		}elseif (in_array($Element, $reslist['fleet'])) {			
 			$time	= $elementCost/($config->game_speed * (1 + $PLANET[$resource[14]] + $PLANET[$resource[21]])) * pow(0.88, $PLANET[$resource[15]]) * pow(0.99, $USER['factor']['ShipTime'] * 100);			
 		}elseif (in_array($Element, $reslist['defense'])) {
@@ -218,7 +218,7 @@ class BuildFunctions
                 }
             }
 
-            $time	= $elementCost / (1000 * (1 + $Level)) / ($config->game_speed / 2500) * pow(1 - $config->factor_university / 100, $PLANET[$resource[6]]) * (pow(0.99, $USER['factor']['ResearchTime'] * 100));
+            $time	= $elementCost / (1000 * (1 + $Level))/($config->game_speed / 2500) * pow(1 - $config->factor_university / 100, $PLANET[$resource[6]]) * (pow(0.99, $USER['factor']['ResearchTime'] * 100));
         }
 
         if((in_array($Element, $reslist['fleet']) || in_array($Element, $reslist['defense']))){

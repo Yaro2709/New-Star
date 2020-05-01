@@ -1,5 +1,5 @@
 <?php
-
+//$new_code
 /*
  * ╔╗╔╗╔╗╔══╗╔═══╗──╔══╗╔═══╗╔══╗╔══╗╔═══╗
  * ║║║║║║║╔╗║║╔═╗║──║╔═╝║╔═╗║║╔╗║║╔═╝║╔══╝
@@ -16,7 +16,7 @@
 
 class ShowRacePage extends AbstractGamePage
 {
-	public static $requireModule = MODULE_OFFICIER;
+	public static $requireModule = MODULE_RACE;
 
 	function __construct() 
 	{
@@ -34,38 +34,13 @@ class ShowRacePage extends AbstractGamePage
 			|| $pricelist[$Element]['max'] <= $USER[$resource[$Element]]) {
 			return;
 		}
+        
+        $amount = 1;
+        $USER[$resource[$Element]]	+= $amount;
 		
-		if (($pricelist[$Element]['max']) < $USER[$resource[$Element]]){
-			$this->printMessage("".$LNG['race_stop_choice']."", true, array('game.php?page=race', 2));
-		}	
-        
-        foreach($reslist['resstype'][1] as $resPM)
-		{
-            if(isset($costResources[$resPM])) {
-                if($PLANET[$resource[$resPM]] < $costResources[$resPM]){
-                    $this->printMessage("".$LNG['race_stop_res']."", true, array('game.php?page=officier', 2));
-                }
-            }
-        }
-        
-        foreach($reslist['resstype'][3] as $resUM)
-		{
-            if(isset($costResources[$resUM])) {
-                if($USER[$resource[$resUM]] < $costResources[$resUM]){
-                    $this->printMessage("".$LNG['race_stop_res']."", true, array('game.php?page=officier', 2));
-                }
-            }
-        }
-        
-        foreach($reslist['resstype'][1] as $resP)
-		{
-            if(isset($costResources[$resP])) {$PLANET[$resource[$resP]]	-= $costResources[$resP]; }
-        }
-        
-        foreach($reslist['resstype'][3] as $resU)
-		{
-            if(isset($costResources[$resU])) {$USER[$resource[$resU]]	-= $costResources[$resU]; }
-        }
+        $href = 'game.php?page=race'; 
+        require_once('includes/subclasses/subclass.UpdateMaxLvl.php');
+        require_once('includes/subclasses/subclass.UpdateResAmount.php');
 		
         foreach($reslist['race'] as $Elements)
 		{ 
@@ -80,12 +55,13 @@ class ShowRacePage extends AbstractGamePage
         }
         
         $sql	= 'UPDATE %%USERS%% SET
-        race = '.$Element.',
-        '.$resource[$Element].' = 1
-		WHERE
-		id = :userId;';
+                race = '.$Element.',
+                '.$resource[$Element].' = :newPost
+                WHERE
+                id = :userId;';
 
 		Database::get()->update($sql, array(
+            ':newPost'	=> $USER[$resource[$Element]],
 			':userId'	=> $USER['id']
 		));
 		$this->printMessage(''.$LNG['race_yes'].'', true, array("?page=race", 2));	
@@ -108,7 +84,7 @@ class ShowRacePage extends AbstractGamePage
 		
 		$RaceList	= array();
 		
-		if(isModuleAvailable(MODULE_OFFICIER))
+		if(isModuleAvailable(MODULE_RACE))
 		{
 			foreach($reslist['race'] as $Element)
 			{
@@ -137,3 +113,4 @@ class ShowRacePage extends AbstractGamePage
 		$this->display('page.race.default.tpl');
 	}
 }
+//$new_code

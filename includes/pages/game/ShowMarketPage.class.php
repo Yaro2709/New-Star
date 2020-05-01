@@ -5,7 +5,7 @@
 
 class ShowMarketPage extends AbstractGamePage
 {
-	public static $requireModule = MODULE_FLEET_TABLE;
+	public static $requireModule = MODULE_MARKET;
 	function __construct() 
 	{
 		parent::__construct();

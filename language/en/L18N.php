@@ -1,25 +1,14 @@
 <?php
-/**
- *  2Moons 
- *   by Jan-Otto Kröpke 2009-2016
- *
- * For the full copyright and license information, please view the LICENSE
- *
- * @package 2Moons
- * @author Jan-Otto Kröpke <slaver7@gmail.com>
- * @copyright 2009 Lucky
- * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
- * @licence MIT
- * @version 1.8.0
- * @link https://github.com/jkroepke/2Moons
- */
+// Translated into English by Yaro2709;
+// All rights reserved from 2020;
+// Company 1367.
 
-setlocale(LC_ALL, 'de_DE', 'german'); // http://msdn.microsoft.com/en-us/library/39cwe7zf%28vs.71%29.aspx
+setlocale(LC_ALL, 'de_DE', 'german');
 setlocale(LC_NUMERIC, 'C');
 
 //SERVER GENERALS
 $LNG['dir']         	= 'ltr';
-$LNG['week_day']		= array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'); # Start with Sun!
+$LNG['week_day']		= array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
 $LNG['months']			= array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
 $LNG['js_tdformat']		= '[M] [D] [d] [H]:[i]:[s]';
 $LNG['php_timeformat']	= 'H:i:s';
@@ -29,8 +18,6 @@ $LNG['short_day']		= 'd';
 $LNG['short_hour']		= 'h';
 $LNG['short_minute']	= 'm';
 $LNG['short_second']	= 's';
-
-//Note for the translators, use the phpBB Translation file (LANG/common.php) instead of your own translations
 
 $LNG['timezones']		= array(
 	'-12'	=> '[UTC - 12] Baker Island Time',

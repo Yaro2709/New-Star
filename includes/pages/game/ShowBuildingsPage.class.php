@@ -523,6 +523,7 @@ class ShowBuildingsPage extends AbstractGamePage
 
 		$this->tplObj->loadscript('buildlist.js');
 		$this->assign(array(
+            'HaveMissiles'		    => (bool) $PLANET[$resource[503]] + $PLANET[$resource[502]],
 			'BuildInfoList'		    => $BuildInfoList,
 			'CanBuildElement'	    => $CanBuildElement,
 			'RoomIsOk'			    => $RoomIsOk,

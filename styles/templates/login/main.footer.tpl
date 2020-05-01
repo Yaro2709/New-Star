@@ -1,7 +1,7 @@
 <div class="container">
 	<footer>
 		<p class="pull-right"><a href="#">Back to top</a></p>
-		<p>© 2018 {$gameName}, Inc. · <a href="http://2moons.de">by 2moons.de</a> · <a href="https://github.com/HikeGame/2moons-2.0">github</a></p>
+		<p>© 2020 {$gameName}, <a href="https://github.com/Yaro2709/New-Star">github</a></p>
 	</footer>
 </div>
 <div id="dialog" style="display:none;"></div>

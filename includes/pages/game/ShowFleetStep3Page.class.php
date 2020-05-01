@@ -122,7 +122,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 			}
 		}
 
-        $sql = "SELECT id, id_owner, der_metal, der_crystal, destruyed, ally_deposit FROM %%PLANETS%% WHERE universe = :universe AND galaxy = :targetGalaxy AND system = :targetSystem AND planet = :targetPlanet AND planet_type = :targetType;";
+        $sql = "SELECT id, id_owner, der_metal, der_crystal, destruyed, ally_deposit FROM %%PLANETS%% WHERE universe = :universe AND galaxy = :targetGalaxy AND `system` = :targetSystem AND planet = :targetPlanet AND planet_type = :targetType;";
         $targetPlanetData = $db->selectSingle($sql, array(
             ':universe'     => Universe::current(),
             ':targetGalaxy' => $targetGalaxy,

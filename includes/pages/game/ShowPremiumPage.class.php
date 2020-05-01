@@ -1,5 +1,5 @@
 <?php
-
+//$new_code
 /**
  *  2Moons
  *  Copyright (C) 2012 Jan Kröpke
@@ -29,7 +29,7 @@
 
 class ShowPremiumPage extends AbstractGamePage
 {
-	public static $requireModule = MODULE_OFFICIER;
+	public static $requireModule = MODULE_PREMIUM;
 
 	function __construct() 
 	{
@@ -47,50 +47,12 @@ class ShowPremiumPage extends AbstractGamePage
 		}
         
         $amount = HTTP::_GP('amount', 0);
-		
 		$USER[$resource[$Element]]	= max($USER[$resource[$Element]], TIMESTAMP) + ($pricelist[$Element]['time']) * $amount;
         
-        if($amount > 365){
-            $this->printMessage(''.$LNG['prem_limit'].'',true, array("game.php?page=premium", 2));	
-        }
-		
-        foreach($reslist['resstype'][1] as $resPM)
-		{
-            if(isset($costResources[$resPM])) {
-                if($PLANET[$resource[$resPM]] < $costResources[$resPM]* $amount){
-                    $this->printMessage("".$LNG['prem_stop']."", true, array('game.php?page=premium', 2));
-                }
-            }
-        }
-        
-        foreach($reslist['resstype'][3] as $resUM)
-		{
-            if(isset($costResources[$resUM])) {
-                if($USER[$resource[$resUM]] < $costResources[$resUM]* $amount){
-                    $this->printMessage("".$LNG['prem_stop']."", true, array('game.php?page=premium', 2));
-                }
-            }
-        }
-        
-        foreach($reslist['resstype'][1] as $resP)
-		{
-            if(isset($costResources[$resP])) {$PLANET[$resource[$resP]]	-= $costResources[$resP]* $amount; }
-        }
-        
-        foreach($reslist['resstype'][3] as $resU)
-		{
-            if(isset($costResources[$resU])) {$USER[$resource[$resU]]	-= $costResources[$resU]* $amount; }
-        }
-		
-        $sql	= 'UPDATE %%USERS%% SET
-				'.$resource[$Element].' = :newTime
-				WHERE
-				id = :userId;';
-
-		Database::get()->update($sql, array(
-			':newTime'	=> $USER[$resource[$Element]],
-			':userId'	=> $USER['id']
-		));
+        $href = 'game.php?page=premium'; 
+        require_once('includes/subclasses/subclass.UpdateMaxAmount.php');
+        require_once('includes/subclasses/subclass.UpdateResAmount.php');
+		require_once('includes/subclasses/subclass.UpdateSqlGeneral.php');
 	}
 	
 	public function show()
@@ -110,7 +72,7 @@ class ShowPremiumPage extends AbstractGamePage
 		
 		$premiumList	= array();
 		
-		if(isModuleAvailable(MODULE_OFFICIER)) 
+		if(isModuleAvailable(MODULE_PREMIUM)) 
 		{
 			foreach($reslist['premium'] as $Element)
 			{
@@ -141,3 +103,4 @@ class ShowPremiumPage extends AbstractGamePage
 		$this->display('page.premium.default.tpl');
 	}
 }
+//$new_code

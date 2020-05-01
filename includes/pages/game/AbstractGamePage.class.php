@@ -328,6 +328,8 @@ abstract class AbstractGamePage
             'PlanetListing'			=> $PlanetListing,
             'current_pid'		=> $PLANET['id'],
 			'current_pids'		=> '?'.$this->getQueryString().'&cp='.$PLANET['id'],
+            //Бонус
+            'bonus_time'		=> $USER['bonus_time'],
             //Стандартные перменные
 			'PlanetSelect'		=> $PlanetSelect,
 			'new_message' 		=> $USER['messages'],

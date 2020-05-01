@@ -49,54 +49,13 @@ class ShowOfficierPage extends AbstractGamePage
 		}
         
         $amount = HTTP::_GP('amount', 0);
-		
 		$USER[$resource[$Element]]	+= $amount;
         
-        if (($pricelist[$Element]['max']) < $USER[$resource[$Element]]){
-			$this->printMessage("".$LNG['bd_maxlevel']."", true, array('game.php?page=officier', 2));
-		}	
-        
-        if($amount > 500){
-            $this->printMessage(''.$LNG['of_limit'].'',true, array("game.php?page=officier", 2));	
-        }
-		
-        foreach($reslist['resstype'][1] as $resPM)
-		{
-            if(isset($costResources[$resPM])) {
-                if($PLANET[$resource[$resPM]] < $costResources[$resPM]* $amount){
-                    $this->printMessage("".$LNG['of_notres']."", true, array('game.php?page=officier', 2));
-                }
-            }
-        }
-        
-        foreach($reslist['resstype'][3] as $resUM)
-		{
-            if(isset($costResources[$resUM])) {
-                if($USER[$resource[$resUM]] < $costResources[$resUM]* $amount){
-                    $this->printMessage("".$LNG['of_notres']."", true, array('game.php?page=officier', 2));
-                }
-            }
-        }
-        
-        foreach($reslist['resstype'][1] as $resP)
-		{
-            if(isset($costResources[$resP])) {$PLANET[$resource[$resP]]	-= $costResources[$resP]* $amount; }
-        }
-        
-        foreach($reslist['resstype'][3] as $resU)
-		{
-            if(isset($costResources[$resU])) {$USER[$resource[$resU]]	-= $costResources[$resU]* $amount; }
-        }
-		
-        $sql	= 'UPDATE %%USERS%% SET
-				'.$resource[$Element].' = :newTime
-				WHERE
-				id = :userId;';
-
-		Database::get()->update($sql, array(
-			':newTime'	=> $USER[$resource[$Element]],
-			':userId'	=> $USER['id']
-		));
+        $href = 'game.php?page=officier'; 
+        require_once('includes/subclasses/subclass.UpdateMaxLvl.php');
+        require_once('includes/subclasses/subclass.UpdateMaxAmount.php');
+        require_once('includes/subclasses/subclass.UpdateResAmount.php');
+        require_once('includes/subclasses/subclass.UpdateSqlGeneral.php');
 	}
 	
 	public function show()
@@ -145,7 +104,7 @@ class ShowOfficierPage extends AbstractGamePage
 					'level'				=> $USER[$resource[$Element]],
 					'maxLevel'			=> $pricelist[$Element]['max'],
                     'factor'		    => $pricelist[$Element]['factor'],
-					'costResources'	=> $costResources,
+					'costResources'	    => $costResources,
 					'buyable'			=> $buyable,
 					'costOverflow'		=> $costOverflow,
 					'elementBonus'		=> $elementBonus,

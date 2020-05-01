@@ -1,5 +1,6 @@
  {block name="title" prepend}{$LNG.lm_buildings}{/block}
-{block name="content"}
+{block name="content"} 
+
 <div id="page">
    <div id="content">
       {if !empty($Queue)}
@@ -162,7 +163,7 @@
    <div class="clear"></div>
 </div>
 <!--/body-->
-<script type="text/javascript">
+<script async type="text/javascript">
    DatatList		= {literal}{{/literal}
    	{foreach $BuildInfoList as $ID => $Element}
    	{literal}

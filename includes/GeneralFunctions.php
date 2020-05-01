@@ -6,7 +6,7 @@ function getPlanetsHIDDEN($USER)
 
 	$order = $USER['planet_sort_order'] == 1 ? "DESC" : "ASC" ;
 
-	$sql = "SELECT id, name, galaxy, system, id_luna, hangar, nano_factory, planet, planet_type, image, b_building, b_building_id, b_hangar_id, b_hangar, metal, crystal, deuterium, metal_max, crystal_max, deuterium_max, ev_transporter
+	$sql = "SELECT id, name, galaxy, `system`, id_luna, robot_factory, hangar, nano_factory, planet, planet_type, image, b_building, b_building_id, b_hangar_id, b_hangar, metal, crystal, deuterium, metal_max, crystal_max, deuterium_max, ev_transporter
 			FROM %%PLANETS%% WHERE id_owner = :userId AND destruyed = :destruyed ORDER BY ";
 
 	switch($USER['planet_sort'])
@@ -96,7 +96,7 @@ function getPlanets($USER)
 
 	$order = $USER['planet_sort_order'] == 1 ? "DESC" : "ASC" ;
 
-	$sql = "SELECT id, name, galaxy, system, id_luna, hangar, nano_factory, planet, planet_type, image, b_building, b_building_id, b_hangar_id, b_hangar, metal, crystal, deuterium, metal_max, crystal_max, deuterium_max, ev_transporter
+	$sql = "SELECT id, name, galaxy, `system`, id_luna, robot_factory, hangar, nano_factory, planet, planet_type, image, b_building, b_building_id, b_hangar_id, b_hangar, metal, crystal, deuterium, metal_max, crystal_max, deuterium_max, ev_transporter
 			FROM %%PLANETS%% WHERE id_owner = :userId AND planet_type = :planet_type AND destruyed = :destruyed ORDER BY ";
 
 	switch($USER['planet_sort'])
