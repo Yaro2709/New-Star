@@ -1,19 +1,19 @@
 <?php
 
-/**
- *  2Moons 
- *   by Jan-Otto Kröpke 2009-2016
+/*
+ * ╔══╗╔══╗╔╗──╔╗╔═══╗╔══╗╔╗─╔╗╔╗╔╗──╔╗╔══╗╔══╗╔══╗
+ * ║╔═╝║╔╗║║║──║║║╔═╗║║╔╗║║╚═╝║║║║║─╔╝║╚═╗║║╔═╝╚═╗║
+ * ║║──║║║║║╚╗╔╝║║╚═╝║║╚╝║║╔╗─║║╚╝║─╚╗║╔═╝║║╚═╗──║║
+ * ║║──║║║║║╔╗╔╗║║╔══╝║╔╗║║║╚╗║╚═╗║──║║╚═╗║║╔╗║──║║
+ * ║╚═╗║╚╝║║║╚╝║║║║───║║║║║║─║║─╔╝║──║║╔═╝║║╚╝║──║║
+ * ╚══╝╚══╝╚╝──╚╝╚╝───╚╝╚╝╚╝─╚╝─╚═╝──╚╝╚══╝╚══╝──╚╝
  *
- * For the full copyright and license information, please view the LICENSE
- *
- * @package 2Moons
- * @author Jan-Otto Kröpke <slaver7@gmail.com>
- * @copyright 2009 Lucky
- * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
- * @licence MIT
- * @version 1.8.0
- * @link https://github.com/jkroepke/2Moons
- */
+ * @author Tsvira Yaroslav <https://github.com/Yaro2709>
+ * @info ***
+ * @link https://github.com/Yaro2709/New-Star
+ * @Basis 2Moons: XG-Project v2.8.0
+ * @Basis New-Star: 2Moons v1.8.0
+ */
 
 class ShowMessagesPage extends AbstractGamePage
 {
@@ -248,17 +248,15 @@ class ShowMessagesPage extends AbstractGamePage
 			break;
             case 'deleteall':
                 if(Config::get()->message_delete_behavior == 1) {
-                    $sql = "UPDATE %%MESSAGES%% SET message_deleted = :timestamp WHERE message_owner = :userID AND message_type != '200';";
+                    $sql = "UPDATE %%MESSAGES%% SET message_deleted = :timestamp WHERE message_owner = :userID AND message_type != 200;";
                     $db->update($sql, array(
                         ':timestamp'    => TIMESTAMP,
-                        ':userID'       => $USER['id'],
-                        ':messCategory' => $MessCategory
+                        ':userID'       => $USER['id']
                     ));
                 } else {
-                    $sql = "DELETE FROM %%MESSAGES%% WHERE message_owner = :userID AND message_type != '200';";
+                    $sql = "DELETE FROM %%MESSAGES%% WHERE message_owner = :userID AND message_type != 200;";
                     $db->delete($sql, array(
-                        ':userID'       => $USER['id'],
-                        ':messCategory' => $MessCategory
+                        ':userID'       => $USER['id']
                     ));
                 }
 			break;

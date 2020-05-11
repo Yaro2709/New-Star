@@ -1,8 +1,20 @@
 <?php
-//$new_code
-#
-# MOD BY Aurum79 aka Чук
-#
+
+/*
+ * ╔══╗╔══╗╔╗──╔╗╔═══╗╔══╗╔╗─╔╗╔╗╔╗──╔╗╔══╗╔══╗╔══╗
+ * ║╔═╝║╔╗║║║──║║║╔═╗║║╔╗║║╚═╝║║║║║─╔╝║╚═╗║║╔═╝╚═╗║
+ * ║║──║║║║║╚╗╔╝║║╚═╝║║╚╝║║╔╗─║║╚╝║─╚╗║╔═╝║║╚═╗──║║
+ * ║║──║║║║║╔╗╔╗║║╔══╝║╔╗║║║╚╗║╚═╗║──║║╚═╗║║╔╗║──║║
+ * ║╚═╗║╚╝║║║╚╝║║║║───║║║║║║─║║─╔╝║──║║╔═╝║║╚╝║──║║
+ * ╚══╝╚══╝╚╝──╚╝╚╝───╚╝╚╝╚╝─╚╝─╚═╝──╚╝╚══╝╚══╝──╚╝
+ *
+ * @author Aurum79 aka Чук
+ * @info ***
+ * @link https://github.com/Yaro2709/New-Star
+ * @Basis 2Moons: XG-Project v2.8.0
+ * @Basis New-Star: 2Moons v1.8.0
+ */
+
 class ShowBonusPage extends AbstractGamePage 
 {
 	public static $requireModule = MODULE_BONUS;
@@ -54,4 +66,3 @@ class ShowBonusPage extends AbstractGamePage
 		$this->display('page.bonus.default.tpl');
 	}	
 }
-//$new_code

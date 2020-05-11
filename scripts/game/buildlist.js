@@ -212,7 +212,7 @@ function counting(id)
 	s =  Math.ceil(Data.elementTime);  
 	for (var i = 2; i <= (count - countMin); i++) 
 	{    
-		s +=  Math.ceil(Data.elementTime * Math.pow(Data.factor, i));    	
+		s +=  Math.ceil(Data.elementTime * Math.pow(Data.factor, i-1));    	
     }
 		
 	//s =  Math.ceil(Data.elementTime * count);

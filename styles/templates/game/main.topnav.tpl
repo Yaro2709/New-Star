@@ -91,67 +91,55 @@
         </div><!--/planet_select-->			
 		<img title="" src="{$dpath}img/iconav/avatar_default.png" class="settingxterium" onclick="return Dialog.Playercard({$userID}, '{$username}');">
         <span class="usernameow" onclick="return Dialog.Playercard({$userID}, '{$username}');">{$username}</span>
-		<span class="usernamepos"></span>				
+		<span class="usernamepos"></span>        
         <div id="res_nav">
-            {foreach $resourceTable as $resourceID => $resouceData}
-            {if !isset($resouceData.current)}
-            {$resouceData.current = $resouceData.max + $resouceData.used}   
-            <div id="res_block_{$resouceData.name}" class="bloc_res">
-            <div class="ico_res tooltip"></div>
-                <div class="stock_res">
-                    {if $resouceData.used1 > $resouceData.max}
-                    <div class="stock_percentage stock_percentage_left" style="width:{$resouceData.percenta}%;"></div>
-                    <div class="stock_percentage stock_percentage_right" style="width:0;display:none;";"></div>
-                    {else}
-                    <div class="stock_percentage stock_percentage_left" style="width:0;display:none;";"></div>
-                    <div class="stock_percentage stock_percentage_right" style="width:{$resouceData.percent}%;"></div>
-                    {/if}
-                    <div class="stock_text tooltip" data-tooltip-content="<span class='p_res'>{if $resouceData.name == "energy"}{$LNG.tech.911}{/if}</span>
-                        <div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>
-                        {$LNG.RE} {$PercentageEnergy}%"><span id="current_{$resouceData.name}" name="{$resouceData.current|number}" data-real="{$resouceData.current}">{$resouceData.current|number}&nbsp;/&nbsp;{$resouceData.max|number}</span> 
+            {foreach $resourceTable as $resourceID => $resouceData} 
+                {if !isset($resouceData.current)}
+                    {$resouceData.current = $resouceData.max + $resouceData.used}
+                    <div id="res_block_{$resouceData.name}" class="bloc_res tooltip" data-tooltip-content="<span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span><div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>{$LNG.RE} {$resouceData.percent|number}%">
+                        <div class="ico_res"></div>
+                        <div class="stock_res">
+                            <div class="stock_percentage stock_percentage_left" style="width:{abs($resouceData.percent/2)}%;{if $resouceData.percent > -0.1}display:none;{/if}"></div>
+                            <div class="stock_percentage stock_percentage_right" style="width:{$resouceData.percent/2}%;{if $resouceData.percent < 0.1}display:none;{/if}"></div>
+                            <div class="separator_{$resouceData.name}"></div>
+                            <div class="stock_text"><span id="current_{$resouceData.name}" name="{$resouceData.current|number}" data-real="{$resouceData.current}">{$resouceData.used|number}</span>/{$resouceData.max|number}</div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            {else}								
-            <div id="res_block_{$resouceData.name}" class="bloc_res">
-                <div class="ico_res"></div>
-                {if !isset($resouceData.current) || !isset($resouceData.max)}
-                
-                <div class="stock_res">
-                    <div class="stock_text">
-                        <span id="current_{$resouceData.name}"  class="tooltip_sticky" data-tooltip-content="<span class='p_res'>{if $resouceData.name == "darkmatter"}{$LNG.tech.921}{elseif $resouceData.name == "antimatter"}{$LNG.tech.922}{elseif $resouceData.name == "stardust"}{$LNG.tech.923}{else $resouceData.name == "contein"}{$LNG.tech.924}{/if}</span>
-                        {*<div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>
-                        {if $resouceData.name == darkmatter}
-                        <a class='tooltip_class_a_bigbtn' href='game.php?page=trader'>{$LNG.torg}</a>
-                        {elseif $resouceData.name == antimatter}
-                        <a class='tooltip_class_a_bigbtn' href='game.php?page=donatebis'>{$LNG.alm_purchase}</a>
-                        {elseif $resouceData.name == stardust}
-                        <a class='tooltip_class_a_bigbtn' href='game.php?page=art'>{$LNG.mag_name}</a>
-                        {else}
-                        <a class='tooltip_class_a_bigbtn' href='game.php?page=conteiner'>{$LNG.hnav_cont}</a>
-                        {/if}*}
-                        <div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>
-                        <span style='color:#999'>{if $resouceData.name == "darkmatter"}{$LNG.tech.921}{elseif $resouceData.name == "antimatter"}{$LNG.tech.922}{elseif $resouceData.name == "stardust"}{$LNG.tech.923}{else $resouceData.name == "contein"}{$LNG.tech.924}{/if} {pretty_number($resouceData.current)}</span>" name="{$resouceData.current|number}" data-real="{$resouceData.current}">{pretty_number($resouceData.current)}</span>
-                    </div>
-                </div>
-                
                 {else}
-                {if $resouceData.name != "darkmatter"}
-                <a href="game.php?page=trader" class="exchange_res tooltip" data-tooltip-content="{$LNG.tr_exchange} <span class='p_res'>{if $resouceData.name == "metal"}{$LNG.tech.901}{elseif $resouceData.name == "crystal"}{$LNG.tech.902}{elseif $resouceData.name == "deuterium"}{$LNG.tech.903}{/if}</span>"></a>     {/if}               
-                <div class="stock_res">
-                    <div class="stock_percentage" style="width:{$resouceData.percent}%;"></div>
-                    <div class="stock_text tooltip" {if $resouceData.name != "darkmatter"}class="bloc_res tooltip" data-tooltip-content="<span class='p_res'>{if $resouceData.name == "metal"}{$LNG.tech.901}{elseif $resouceData.name == "crystal"}{$LNG.tech.902}{elseif $resouceData.name == "deuterium"}{$LNG.tech.903}{/if}</span>
-                        <div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>
-                        {$LNG.PPS}: {$resouceData.information}<br />{$LNG.PPD}: {$resouceData.informationd}<br />{$LNG.PPW}: {$resouceData.informationz} 
-                        <div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>
-                        <span style='color:#999'>{$resouceData.current|number}&nbsp;/&nbsp;{$resouceData.max|number}</span>"{/if}><span id="current_{$resouceData.name}" name="{$resouceData.current|number}" data-real="{$resouceData.current}">{pretty_number($resouceData.current)}</span>{if $resouceData.name != "darkmatter"} (<span class="pricent">{if $resouceData.percent <= 100}{$resouceData.percent}{else $resouceData.percent > 100}100{/if}</span>%){/if}     
-                    </div>
-                </div>
+                    {if !isset($resouceData.current) || !isset($resouceData.max)}
+                        <div id="res_block_{$resouceData.name}" class="bloc_res tooltip" data-tooltip-content="<span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span><div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>{$LNG.RE} {pretty_number($resouceData.current)}">
+                            <div class="ico_res"></div>
+                            <div class="stock_res2">
+                                <div class="stock_percentage" style="width:100%;"></div>
+                                <div class="separator_{$resouceData.name}"></div>
+                                <div class="stock_text"><span class='colore{$resourceID}' id="current_{$resouceData.name}" name="{$resouceData.current|number}" data-real="{$resouceData.current}">{$resouceData.current|number}</span></div>
+                            </div>
+                        </div>
+                    {else}
+                        <div id="res_block_{$resouceData.name}" class="bloc_res tooltip" 
+                            data-tooltip-content="
+                            <span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span>
+                            <div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>
+                            {$LNG.PPS}: {$resouceData.information}
+                            <br/>{$LNG.PPD}: {$resouceData.informationd}
+                            <br/>{$LNG.PPW}: {$resouceData.informationz} 
+                            <div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'>
+                            </div> <span style='color:#999'>{$resouceData.current|number}/{$resouceData.max|number}</span>">
+                            <div class="ico_res"></div> 
+                            {*<a href="game.php?page=trader&amp;mode=trade&amp;resource=901" class="exchange_res tooltip" data-tooltip-content="Обменять <span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span>"></a>  *}
+                            <div class="stock_res">
+                                <div class="stock_percentage" style="width:{$resouceData.percent}%;"></div>
+                                <div class="stock_text">
+                                    <span id="current_{$resouceData.name}" name="{$resouceData.current|number}" data-real="{$resouceData.current}">{pretty_number($resouceData.current)}</span>
+                                    (<span class="pricent">{if $resouceData.percent <= 100}{$resouceData.percent}{else $resouceData.percent > 100}100{/if}</span>%)
+                                </div>
+                            </div>	
+                        </div>
+                    {/if}
                 {/if}
-            </div>
-            {/if}
-            {/foreach}
-        </div><!--/res_nav-->            
+            {/foreach}       
+        </div>
+        <!--/res_nav-->            
     </div><!--/top_nav-->
     <div id="barrasottoover">
 		<div id="top_nav_parte_left">

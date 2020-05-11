@@ -1,5 +1,20 @@
 <?php
 
+/*
+ * ╔══╗╔══╗╔╗──╔╗╔═══╗╔══╗╔╗─╔╗╔╗╔╗──╔╗╔══╗╔══╗╔══╗
+ * ║╔═╝║╔╗║║║──║║║╔═╗║║╔╗║║╚═╝║║║║║─╔╝║╚═╗║║╔═╝╚═╗║
+ * ║║──║║║║║╚╗╔╝║║╚═╝║║╚╝║║╔╗─║║╚╝║─╚╗║╔═╝║║╚═╗──║║
+ * ║║──║║║║║╔╗╔╗║║╔══╝║╔╗║║║╚╗║╚═╗║──║║╚═╗║║╔╗║──║║
+ * ║╚═╗║╚╝║║║╚╝║║║║───║║║║║║─║║─╔╝║──║║╔═╝║║╚╝║──║║
+ * ╚══╝╚══╝╚╝──╚╝╚╝───╚╝╚╝╚╝─╚╝─╚═╝──╚╝╚══╝╚══╝──╚╝
+ *
+ * @author Tsvira Yaroslav <https://github.com/Yaro2709>
+ * @info ***
+ * @link https://github.com/Yaro2709/New-Star
+ * @Basis 2Moons: XG-Project v2.8.0
+ * @Basis New-Star: 2Moons v1.8.0
+ */
+
 class ResourceUpdate
 {
 
@@ -259,7 +274,7 @@ class ResourceUpdate
 	public function ReBuildCache()
 	{
         // $new_code
-		global $ProdGrid, $resource, $reslist;
+		global $ProdGrid, $resource, $reslist, $res_stop_product;
         
         foreach($reslist['planet_no_basic'] as $planetNoBasic) 
         {
@@ -349,7 +364,7 @@ class ResourceUpdate
 			}
 		}
         
-        // $new_code !
+        // $new_code ! 
         foreach($reslist['resstype'][1] as $resP) //проверка всего масива элементов
 		{
             $this->PLANET[''.$resource[$resP].'_max']		= $temp[$resP]['max'] * $this->config->storage_multiplier * (1 + $this->USER['factor']['ResourceStorage']);
@@ -359,17 +374,31 @@ class ResourceUpdate
                 $this->PLANET[''.$resource[$resS].'']				= round($temp[$resS]['plus'] * $this->config->energySpeed * (1 + $this->USER['factor']['S'.$resource[$resS].''])); 
                 $this->PLANET[''.$resource[$resS].'_used']		    = $temp[$resS]['minus'] * $this->config->energySpeed;
             
-                if($this->PLANET[''.$resource[$resS].'_used'] == 0) {
+                if($this->PLANET[''.$resource[$res_stop_product].'_used'] == 0) { 
                     $this->PLANET[''.$resource[$resP].'_perhour']		= 0;
-                } elseif($this->PLANET[''.$resource[$resP].''] == 0 && $this->PLANET[''.$resource[$resP].'_perhour'] <= 0) {
-                    $this->PLANET[''.$resource[$resP].'_perhour']		= 0;
+                //} elseif($this->PLANET[''.$resource[$resP].''] == 0 && $this->PLANET[''.$resource[$resP].'_perhour'] <= 0) {
+                    //$this->PLANET[''.$resource[$resP].'_perhour']		= 0;
                 } else {
-                    $prodLevel	= min(1, $this->PLANET[''.$resource[$resS].''] / abs($this->PLANET[''.$resource[$resS].'_used']));
+                    $prodLevel	= min(1, $this->PLANET[''.$resource[$res_stop_product].''] / abs($this->PLANET[''.$resource[$res_stop_product].'_used']));
 			
                     $this->PLANET[''.$resource[$resP].'_perhour']		= ($temp[$resP]['plus'] * (1 + $this->USER['factor']['Resource'] + $this->USER['factor']['P'.$resource[$resP].'']) * $prodLevel + $temp[$resP]['minus']) * $this->config->resource_multiplier;  
                 }
             }
         }
+        /*
+        foreach($reslist['resstype'][1] as $resP) //проверка всего масива элементов
+		{
+            $this->PLANET[''.$resource[$resP].'_max']		= $temp[$resP]['max'] * $this->config->storage_multiplier * (1 + $this->USER['factor']['ResourceStorage']);
+           
+            $this->PLANET[''.$resource[$resP].'_perhour']		= ($temp[$resP]['plus'] * (1 + $this->USER['factor']['Resource'] + $this->USER['factor']['P'.$resource[$resP].'']) * $prodLevel + $temp[$resP]['minus']) * $this->config->resource_multiplier;  
+        }
+        
+        foreach($reslist['resstype'][2] as $resS) //проверка всего масива элементов
+        {
+            $this->PLANET[''.$resource[$resS].'']				= round($temp[$resS]['plus'] * $this->config->energySpeed * (1 + $this->USER['factor']['S'.$resource[$resS].''])); 
+            $this->PLANET[''.$resource[$resS].'_used']		    = $temp[$resS]['minus'] * $this->config->energySpeed;
+        }
+       
         // $new_code
         /* $old_code
 		$this->PLANET['metal_max']			= $temp[901]['max'] * $this->config->storage_multiplier * (1 + $this->USER['factor']['ResourceStorage']);

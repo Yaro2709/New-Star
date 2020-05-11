@@ -97,7 +97,7 @@ $LNG['time_hours']                                   = 'Hour';
 $LNG['time_minutes']                                 = 'Minutes';
 $LNG['time_seconds']                                 = 'Seconds';
 //{IDs_0005} Server information
-$LNG['info_information']                             = 'Send or report bugs in the forum for <a href="%s" target="tracker">2Moons</a><br>Otherwise there will be support!';
+$LNG['info_information']                             = 'Send or report bugs in the forum for <a href="%s" target="tracker">New-Star</a><br>Otherwise there will be support!';
 //{IDs_0006} Yes or no
 $LNG['one_is_yes'][1]                                = 'Yes';
 $LNG['one_is_yes'][0]                                = 'no';
@@ -303,9 +303,9 @@ $LNG['ma_mode']                                      = 'As transport';
 $LNG['ma_all']                                       = 'All';
 $LNG['ma_modes']                                     = array('Game','Mail','Game & Mail');
 //{IDs_0027} Home page
-$LNG['ow_title']                                     = 'Welcome to 2Moons!';
+$LNG['ow_title']                                     = 'Welcome to New-Star!';
 $LNG['ow_donate']                                    = 'Donate';
-$LNG['ow_welcome_text']                              = 'Welcome to popular 2Moons! (:';
+$LNG['ow_welcome_text']                              = 'Welcome to popular New-Star! (:';
 $LNG['ow_overview']                                  = 'Control';
 $LNG['ow_support']                                   = 'Support';
 $LNG['ow_credits']                                   = 'Credits';
@@ -385,7 +385,7 @@ $LNG['se_news']                                      = 'News';
 $LNG['se_verfiy_mail']                               = 'The system of checking email';
 $LNG['se_verfiy_mail_info']                          = 'If this option is active players has to activate their accounts.';
 $LNG['se_smtp']                                      = 'Settings of SMTP';
-$LNG['se_smtp_info']					             = 'Enter the SMTP server to allow communication between the 2Moons server and their players by SMTP mail server.';
+$LNG['se_smtp_info']					             = 'Enter the SMTP server to allow communication between the New-Star server and their players by SMTP mail server.';
 $LNG['se_mail_active']                               = 'Enables it to Email?';
 $LNG['se_mail_use']						             = 'Version of email:';
 $LNG['se_mail_sel'][0]					             = 'Function PHP mail()';
@@ -1076,8 +1076,8 @@ $LNG['up_del']							             = 'Deleted in:';
 $LNG['up_submit']						             = 'Send';
 $LNG['up_version']						             = 'Version';
 $LNG['up_chmod_error']					             = "No write permission (s) for folder:\n\n";
-$LNG['up_need_curl']					             = 'Error: CURL is not present.<br>The maintaining of 2Moons requires cURL to run download files.';
-$LNG['up_no_xml_ext']					             = 'Error: XML Parser is not present.<br>The maintaining of 2Moons requires XML Parser to process the files present.';
+$LNG['up_need_curl']					             = 'Error: CURL is not present.<br>The maintaining of New-Star requires cURL to run download files.';
+$LNG['up_no_xml_ext']					             = 'Error: XML Parser is not present.<br>The maintaining of New-Star requires XML Parser to process the files present.';
 $LNG['up_offline']						             = 'Update of server unavailable';
 //{IDs_0056} Chat settings
 $LNG['ch_socket_chatid_info']                        = 'This IP can be used to distinguish the definition of chat, use the same server socket.';

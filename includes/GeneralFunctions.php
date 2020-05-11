@@ -1,13 +1,27 @@
 <?php
 
-function getPlanetsHIDDEN($USER)
-{
-	
+/*
+ * ╔══╗╔══╗╔╗──╔╗╔═══╗╔══╗╔╗─╔╗╔╗╔╗──╔╗╔══╗╔══╗╔══╗
+ * ║╔═╝║╔╗║║║──║║║╔═╗║║╔╗║║╚═╝║║║║║─╔╝║╚═╗║║╔═╝╚═╗║
+ * ║║──║║║║║╚╗╔╝║║╚═╝║║╚╝║║╔╗─║║╚╝║─╚╗║╔═╝║║╚═╗──║║
+ * ║║──║║║║║╔╗╔╗║║╔══╝║╔╗║║║╚╗║╚═╗║──║║╚═╗║║╔╗║──║║
+ * ║╚═╗║╚╝║║║╚╝║║║║───║║║║║║─║║─╔╝║──║║╔═╝║║╚╝║──║║
+ * ╚══╝╚══╝╚╝──╚╝╚╝───╚╝╚╝╚╝─╚╝─╚═╝──╚╝╚══╝╚══╝──╚╝
+ *
+ * @author Tsvira Yaroslav <https://github.com/Yaro2709>
+ * @info ***
+ * @link https://github.com/Yaro2709/New-Star
+ * @Basis 2Moons: XG-Project v2.8.0
+ * @Basis New-Star: 2Moons v1.8.0
+ */
 
+function getPlanetsHIDDEN($USER){
+    global $resource, $pricelist, $reslist;
+    
 	$order = $USER['planet_sort_order'] == 1 ? "DESC" : "ASC" ;
 
-	$sql = "SELECT id, name, galaxy, `system`, id_luna, robot_factory, hangar, nano_factory, planet, planet_type, image, b_building, b_building_id, b_hangar_id, b_hangar, metal, crystal, deuterium, metal_max, crystal_max, deuterium_max, ev_transporter
-			FROM %%PLANETS%% WHERE id_owner = :userId AND destruyed = :destruyed ORDER BY ";
+    $sql = "SELECT id, name, galaxy, `system`, id_luna, planet, planet_type, image, b_building, b_building_id, b_hangar_id, b_hangar
+    FROM %%PLANETS%% WHERE id_owner = :userId AND destruyed = :destruyed ORDER BY ";
 
 	switch($USER['planet_sort'])
 	{
@@ -35,20 +49,6 @@ function getPlanetsHIDDEN($USER)
 
 	return $planetsList;
 }
-/**
- *  2Moons 
- *   by Jan-Otto Kröpke 2009-2016
- *
- * For the full copyright and license information, please view the LICENSE
- *
- * @package 2Moons
- * @author Jan-Otto Kröpke <slaver7@gmail.com>
- * @copyright 2009 Lucky
- * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
- * @licence MIT
- * @version 1.8.0
- * @link https://github.com/jkroepke/2Moons
- */
 
 function getFactors($USER, $Type = 'basic', $TIME = NULL) {
 	global $resource, $pricelist, $reslist;
@@ -91,13 +91,31 @@ function getFactors($USER, $Type = 'basic', $TIME = NULL) {
 
 function getPlanets($USER)
 {
+    global $resource, $pricelist, $reslist;
 	if(isset($USER['PLANETS']))
 		return $USER['PLANETS'];
 
 	$order = $USER['planet_sort_order'] == 1 ? "DESC" : "ASC" ;
 
-	$sql = "SELECT id, name, galaxy, `system`, id_luna, robot_factory, hangar, nano_factory, planet, planet_type, image, b_building, b_building_id, b_hangar_id, b_hangar, metal, crystal, deuterium, metal_max, crystal_max, deuterium_max, ev_transporter
-			FROM %%PLANETS%% WHERE id_owner = :userId AND planet_type = :planet_type AND destruyed = :destruyed ORDER BY ";
+    $sql = "SELECT";
+	$sql .= " id, name, galaxy, `system`, id_luna, planet, planet_type, image, b_building, b_building_id, b_hangar_id, b_hangar ";
+    
+    foreach($reslist['resstype'][1] as $resP) //проверка всего масива элементов
+    {
+        $sql .= " ,".$resource[$resP].", ".$resource[$resP]."_perhour, ".$resource[$resP]."_max ";
+    }
+   
+    foreach($reslist['resstype'][2] as $resS) //проверка всего масива элементов
+	{
+        $sql .= " ,".$resource[$resS]."_used, ".$resource[$resS]." ";
+    }
+    
+    foreach(array_merge($reslist['build'], $reslist['fleet'], $reslist['defense'], $reslist['missile']) as $res) //проверка всего масива элементов
+	{
+        $sql .= " ,".$resource[$res]." ";
+    }
+    
+    $sql .= " FROM %%PLANETS%% WHERE id_owner = :userId AND planet_type = :planet_type AND destruyed = :destruyed ORDER BY  ";
 
 	switch($USER['planet_sort'])
 	{

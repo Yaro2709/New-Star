@@ -93,13 +93,20 @@
                      </div>
                      {/if} 
                      {/foreach}      
-                     {if !empty($Element.infoEnergy)}<div class="energicos">{$Element.infoEnergy}<img height="15" width="15" src="{$dpath}img/resources/911f.png"></div>{/if} 
                      <div class="res_global_info">
+                     
                      {foreach $Element.ressources as $res}
-                     {if !empty($Element.$res)}
-                        <div class="res_info info_res_{$res}"><a class="tooltip" data-tooltip-content="{$Element.$res}" href="#" onclick="return Dialog.info({$ID})"><img height="15" width="15" src="{$dpath}img/resources/{$res}f.png"></a></div>   
+                     {if !empty($Element.{$res + $Element.class_production})}
+                        <div class="res_info info_res_{$res}"><a class="tooltip" data-tooltip-content="{$Element.{$res + $Element.class_production}}" href="#" onclick="return Dialog.info({$ID})"><img height="15" width="15" src="{$dpath}img/resources/{$res}f.png"></a></div>   
 					 {/if}
                      {/foreach}
+                     
+                     {foreach $Element.storage as $res}
+                     {if !empty($Element.{$res + $Element.class_storage})}
+                        <div class="res_info info_res_{$res}"><a class="tooltip" data-tooltip-content="{$Element.{$res + $Element.class_storage}}" href="#" onclick="return Dialog.info({$ID})"><img height="15" width="15" src="{$dpath}img/resources/{$res}f.png"></a></div>   
+					 {/if}
+                     {/foreach}
+                     
                      </div>
                   </div>
                   {/if}

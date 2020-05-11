@@ -1,19 +1,19 @@
 <?php
 
-/**
- *  2Moons 
- *   by Jan-Otto Kröpke 2009-2016
+/*
+ * ╔══╗╔══╗╔╗──╔╗╔═══╗╔══╗╔╗─╔╗╔╗╔╗──╔╗╔══╗╔══╗╔══╗
+ * ║╔═╝║╔╗║║║──║║║╔═╗║║╔╗║║╚═╝║║║║║─╔╝║╚═╗║║╔═╝╚═╗║
+ * ║║──║║║║║╚╗╔╝║║╚═╝║║╚╝║║╔╗─║║╚╝║─╚╗║╔═╝║║╚═╗──║║
+ * ║║──║║║║║╔╗╔╗║║╔══╝║╔╗║║║╚╗║╚═╗║──║║╚═╗║║╔╗║──║║
+ * ║╚═╗║╚╝║║║╚╝║║║║───║║║║║║─║║─╔╝║──║║╔═╝║║╚╝║──║║
+ * ╚══╝╚══╝╚╝──╚╝╚╝───╚╝╚╝╚╝─╚╝─╚═╝──╚╝╚══╝╚══╝──╚╝
  *
- * For the full copyright and license information, please view the LICENSE
- *
- * @package 2Moons
- * @author Jan-Otto Kröpke <slaver7@gmail.com>
- * @copyright 2009 Lucky
- * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
- * @licence MIT
- * @version 1.8.0
- * @link https://github.com/jkroepke/2Moons
- */
+ * @author Tsvira Yaroslav <https://github.com/Yaro2709>
+ * @info ***
+ * @link https://github.com/Yaro2709/New-Star
+ * @Basis 2Moons: XG-Project v2.8.0
+ * @Basis New-Star: 2Moons v1.8.0
+ */
 
 if (isset($_POST['GLOBALS']) || isset($_GET['GLOBALS'])) {
 	exit('You cannot set the GLOBALS-array from outside the script.');
@@ -74,8 +74,7 @@ if (MODE === 'INSTALL')
 }
 
 if(!file_exists('includes/config.php') || filesize('includes/config.php') === 0) {
-	//HTTP::redirectTo('install/index.php');
-    HTTP::redirectTo('install/index.html');
+	HTTP::redirectTo('install/index.php');
 }
 
 try {
@@ -89,8 +88,7 @@ try {
 }
 
 if ($dbNeedsUpgrade) {
-    //HTTP::redirectTo('install/index.php?mode=upgrade');
-    HTTP::redirectTo('install/index.html');
+    HTTP::redirectTo('install/index.php?mode=upgrade');
 }
 
 if(defined('DATABASE_VERSION') && DATABASE_VERSION === 'OLD')

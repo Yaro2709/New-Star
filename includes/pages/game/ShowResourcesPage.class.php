@@ -1,19 +1,19 @@
 <?php
 
-/**
- *  2Moons 
- *   by Jan-Otto Kröpke 2009-2016
+/*
+ * ╔══╗╔══╗╔╗──╔╗╔═══╗╔══╗╔╗─╔╗╔╗╔╗──╔╗╔══╗╔══╗╔══╗
+ * ║╔═╝║╔╗║║║──║║║╔═╗║║╔╗║║╚═╝║║║║║─╔╝║╚═╗║║╔═╝╚═╗║
+ * ║║──║║║║║╚╗╔╝║║╚═╝║║╚╝║║╔╗─║║╚╝║─╚╗║╔═╝║║╚═╗──║║
+ * ║║──║║║║║╔╗╔╗║║╔══╝║╔╗║║║╚╗║╚═╗║──║║╚═╗║║╔╗║──║║
+ * ║╚═╗║╚╝║║║╚╝║║║║───║║║║║║─║║─╔╝║──║║╔═╝║║╚╝║──║║
+ * ╚══╝╚══╝╚╝──╚╝╚╝───╚╝╚╝╚╝─╚╝─╚═╝──╚╝╚══╝╚══╝──╚╝
  *
- * For the full copyright and license information, please view the LICENSE
- *
- * @package 2Moons
- * @author Jan-Otto Kröpke <slaver7@gmail.com>
- * @copyright 2009 Lucky
- * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
- * @licence MIT
- * @version 1.8.0
- * @link https://github.com/jkroepke/2Moons
- */
+ * @author Tsvira Yaroslav <https://github.com/Yaro2709>
+ * @info ***
+ * @link https://github.com/Yaro2709/New-Star
+ * @Basis 2Moons: XG-Project v2.8.0
+ * @Basis New-Star: 2Moons v1.8.0
+ */
 
 class ShowResourcesPage extends AbstractGamePage
 {
@@ -26,35 +26,31 @@ class ShowResourcesPage extends AbstractGamePage
     
     function AllPlanets()
 	{
-		global $resource, $USER, $PLANET, $LNG;
+		global $reslist, $resource, $USER, $PLANET, $LNG;
 		$db = Database::get();
 		$action = HTTP::_GP('action','');
-		$account_before = array(
-			'metal'							=> $PLANET['metal'],
-			'crystal'						=> $PLANET['crystal'],
-			'deuterium'						=> $PLANET['deuterium'],
-			'metal_mine_porcent'			=> $PLANET['metal_mine_porcent'],
-			'crystal_mine_porcent'			=> $PLANET['crystal_mine_porcent'],
-			'deuterium_sintetizer_porcent'	=> $PLANET['deuterium_sintetizer_porcent'],
-			'solar_plant_porcent'			=> $PLANET['solar_plant_porcent'],
-			'fusion_plant_porcent'			=> $PLANET['fusion_plant_porcent'],
-			'solar_satelit_porcent'			=> $PLANET['solar_satelit_porcent'],
-		);
 			
 		if ($action == 'on'){
-			$sql = "UPDATE %%PLANETS%% SET
-							metal_mine_porcent = '11',
-							crystal_mine_porcent = '11',
-							deuterium_sintetizer_porcent = '11',
-							solar_plant_porcent = '11',
-							fusion_plant_porcent = '11',
-							solar_satelit_porcent = '11',
-							last_update 		= :last_update
-							WHERE id_owner = :userID;";
+            
+            $sql = "UPDATE %%PLANETS%% SET
+				last_update 		= :last_update
+				WHERE id_owner = :userID;";
 			$db->update($sql, array(
-							':last_update'	=> TIMESTAMP,
-							':userID'		=> $USER['id']
-			));	
+				':last_update'	=> TIMESTAMP,
+				':userID'		=> $USER['id']
+            ));	
+            
+            foreach($reslist['prod'] as $ProdID) //проверка всего масива элементов
+            { 
+                $sql .= "UPDATE %%PLANETS%% SET
+                    ".$resource[$ProdID]."_porcent = '11'
+					WHERE id_owner = :userID;";
+                $db->update($sql, array(
+                    ':last_update'	=> TIMESTAMP,
+                    ':userID'		=> $USER['id']
+                ));	
+            }
+
 			$PLANET['last_update']	= TIMESTAMP;
 			$this->ecoObj->setData($USER, $PLANET);
 			$this->ecoObj->ReBuildCache();
@@ -67,31 +63,29 @@ class ShowResourcesPage extends AbstractGamePage
 				':planetId'		=> $PLANET['id'],
 			));
 			
-			$account_after = array(
-				'metal'							=> $getPlanet['metal'],
-				'crystal'						=> $getPlanet['crystal'],
-				'deuterium'						=> $getPlanet['deuterium'],
-				'metal_mine_porcent'			=> $getPlanet['metal_mine_porcent'],
-				'crystal_mine_porcent'			=> $getPlanet['crystal_mine_porcent'],
-				'deuterium_sintetizer_porcent'	=> $getPlanet['deuterium_sintetizer_porcent'],
-				'solar_plant_porcent'			=> $getPlanet['solar_plant_porcent'],
-				'fusion_plant_porcent'			=> $getPlanet['fusion_plant_porcent'],
-				'solar_satelit_porcent'			=> $getPlanet['solar_satelit_porcent'],
-			);
 			$this->printMessage($LNG['res_cl_activate'], true, array('game.php?page=resources', 2));
             
 		}elseif ($action == 'off'){
-			$sql = "UPDATE %%PLANETS%% SET
-							metal_mine_porcent = '0',
-							crystal_mine_porcent = '0',
-							deuterium_sintetizer_porcent = '0',
-							solar_plant_porcent = '0',
-							fusion_plant_porcent = '0',
-							solar_satelit_porcent = '0'
-							WHERE id_owner = :userID;";
+            
+            $sql = "UPDATE %%PLANETS%% SET
+				last_update 		= :last_update
+				WHERE id_owner = :userID;";
 			$db->update($sql, array(
-							':userID'	=> $USER['id']
-			));
+				':last_update'	=> TIMESTAMP,
+				':userID'		=> $USER['id']
+            ));	
+            
+            foreach($reslist['prod'] as $ProdID) //проверка всего масива элементов
+            { 
+                $sql .= "UPDATE %%PLANETS%% SET
+                    ".$resource[$ProdID]."_porcent = '0'
+					WHERE id_owner = :userID;";
+                $db->update($sql, array(
+                    ':last_update'	=> TIMESTAMP,
+                    ':userID'		=> $USER['id']
+                ));	
+            }
+            
 			$this->ecoObj->setData($USER, $PLANET);
 			$this->ecoObj->ReBuildCache();
 			list($USER, $PLANET)	= $this->ecoObj->getData();
@@ -103,17 +97,6 @@ class ShowResourcesPage extends AbstractGamePage
 				':planetId'		=> $PLANET['id'],
 			));
 			
-			$account_after = array(
-				'metal'							=> $getPlanet['metal'],
-				'crystal'						=> $getPlanet['crystal'],
-				'deuterium'						=> $getPlanet['deuterium'],
-				'metal_mine_porcent'			=> $getPlanet['metal_mine_porcent'],
-				'crystal_mine_porcent'			=> $getPlanet['crystal_mine_porcent'],
-				'deuterium_sintetizer_porcent'	=> $getPlanet['deuterium_sintetizer_porcent'],
-				'solar_plant_porcent'			=> $getPlanet['solar_plant_porcent'],
-				'fusion_plant_porcent'			=> $getPlanet['fusion_plant_porcent'],
-				'solar_satelit_porcent'			=> $getPlanet['solar_satelit_porcent'],
-			);
 			$this->printMessage($LNG['res_cl_dactivate'], true, array('game.php?page=resources', 2));
 		}
 		
@@ -160,7 +143,7 @@ class ShowResourcesPage extends AbstractGamePage
 	}
 	function show()
 	{
-		global $LNG, $ProdGrid, $resource, $reslist, $USER, $PLANET;
+		global $LNG, $ProdGrid, $resource, $reslist, $USER, $PLANET, $res_stop_product;
 
 		$config	= Config::get();
 
@@ -227,13 +210,13 @@ class ShowResourcesPage extends AbstractGamePage
 		}
         $old_code */
         //$new_code
-        foreach($reslist['resstype'][2] as $resS) {
-            if($PLANET[''.$resource[$resS].'_used'] != 0) {
-                $prodLevel	= min(1, $PLANET[''.$resource[$resS].''] / abs($PLANET[''.$resource[$resS].'_used']));
-            } else {
-                $prodLevel	= 0;
-            }
+        //foreach($reslist['resstype'][2] as $resS) {
+        if($PLANET[''.$resource[$res_stop_product].'_used'] != 0) {
+            $prodLevel	= min(1, $PLANET[''.$resource[$res_stop_product].''] / abs($PLANET[''.$resource[$res_stop_product].'_used']));
+        } else {
+            $prodLevel	= 0;
         }
+        //}
         //$new_code
 
 		/* Data for eval */
@@ -298,7 +281,7 @@ class ShowResourcesPage extends AbstractGamePage
         foreach($reslist['resstype'][1] as $resP)//проверка всего масива элементов
         { 
             $storage	        += array(
-			$resP => shortly_number($PLANET[$resource[$resP].'_max']));
+			$resP => ($PLANET[$resource[$resP].'_max']));
             
             $basicProduction	+= array(
 			$resP => $basicIncome[$resP] * $config->resource_multiplier);
@@ -384,6 +367,8 @@ class ShowResourcesPage extends AbstractGamePage
 		}
 		
 		$this->assign(array(
+            'resstype1'         => $reslist['resstype'][1],
+            'resstype2'         => $reslist['resstype'][2],
 			'header'			=> sprintf($LNG['rs_production_on_planet'], $PLANET['name']),
 			'prodSelector'		=> $prodSelector,
 			'productionList'	=> $productionList,

@@ -1,19 +1,19 @@
 <?php
 
-/**
- *  2Moons 
- *   by Jan-Otto Kröpke 2009-2016
+/*
+ * ╔══╗╔══╗╔╗──╔╗╔═══╗╔══╗╔╗─╔╗╔╗╔╗──╔╗╔══╗╔══╗╔══╗
+ * ║╔═╝║╔╗║║║──║║║╔═╗║║╔╗║║╚═╝║║║║║─╔╝║╚═╗║║╔═╝╚═╗║
+ * ║║──║║║║║╚╗╔╝║║╚═╝║║╚╝║║╔╗─║║╚╝║─╚╗║╔═╝║║╚═╗──║║
+ * ║║──║║║║║╔╗╔╗║║╔══╝║╔╗║║║╚╗║╚═╗║──║║╚═╗║║╔╗║──║║
+ * ║╚═╗║╚╝║║║╚╝║║║║───║║║║║║─║║─╔╝║──║║╔═╝║║╚╝║──║║
+ * ╚══╝╚══╝╚╝──╚╝╚╝───╚╝╚╝╚╝─╚╝─╚═╝──╚╝╚══╝╚══╝──╚╝
  *
- * For the full copyright and license information, please view the LICENSE
- *
- * @package 2Moons
- * @author Jan-Otto Kröpke <slaver7@gmail.com>
- * @copyright 2009 Lucky
- * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
- * @licence MIT
- * @version 1.8.0
- * @link https://github.com/jkroepke/2Moons
- */
+ * @author Tsvira Yaroslav <https://github.com/Yaro2709>
+ * @info ***
+ * @link https://github.com/Yaro2709/New-Star
+ * @Basis 2Moons: XG-Project v2.8.0
+ * @Basis New-Star: 2Moons v1.8.0
+ */
 
 abstract class AbstractGamePage
 {
@@ -288,18 +288,10 @@ abstract class AbstractGamePage
         //Перебор $reslist['resstype'][2]
 		foreach($reslist['resstype'][2] as $resourceID)
 		{
-			$resourceTable[$resourceID]['name']			    = $resource[$resourceID];
-			$resourceTable[$resourceID]['used']			    = $PLANET[$resource[$resourceID].'_used'];
-			$resourceTable[$resourceID]['max']			    = $PLANET[$resource[$resourceID]];
-			$resourceTable[$resourceID]['used1']		    = abs($PLANET[$resource[$resourceID].'_used']);
-			
-			if($PLANET[$resource[$resourceID]] == 0){
-                $resourceTable[$resourceID]['percent']          = 0;
-                $resourceTable[$resourceID]['percenta']         = 0;
-			}else{
-                $resourceTable[$resourceID]['percent']		    = 100 / $PLANET[$resource[$resourceID]] * ($PLANET[$resource[$resourceID]] - abs($PLANET[$resource[$resourceID].'_used'])) / 2;
-                $resourceTable[$resourceID]['percenta']		    = abs(100 / $PLANET[$resource[$resourceID]] * ($PLANET[$resource[$resourceID]] - abs($PLANET[$resource[$resourceID].'_used'])) / 2);
-			}
+            $resourceTable[$resourceID]['name']			= $resource[$resourceID];
+			$resourceTable[$resourceID]['used']			= $PLANET[$resource[$resourceID]] + $PLANET[$resource[$resourceID].'_used'];
+			$resourceTable[$resourceID]['max']			= $PLANET[$resource[$resourceID]];
+			$resourceTable[$resourceID]['percent']		= round(($PLANET[$resource[$resourceID]] + $PLANET[$resource[$resourceID].'_used']) * 100 / max(1,$PLANET[$resource[$resourceID]]));
 		}
         //Перебор $reslist['resstype'][3]
 		foreach($reslist['resstype'][3] as $resourceID)
@@ -307,18 +299,10 @@ abstract class AbstractGamePage
 			$resourceTable[$resourceID]['name']			= $resource[$resourceID];
 			$resourceTable[$resourceID]['current']		= $USER[$resource[$resourceID]];	
 		}
-        //Информация об энергии на планете
-        if($PLANET['energy'] > 0){
-            $PercentageEnergy = round( ($PLANET['energy'] + $PLANET['energy_used']) / ($PLANET['energy']) * 100);
-		}else{
-            $PercentageEnergy = 0;
-		}
         //Стиль
 		$themeSettings	= $THEME->getStyleSettings();
         
 		$this->assign(array(
-            //Для ресурсов
-            'PercentageEnergy'	=> $PercentageEnergy,
             //Перменные для PlanetSelect
             'planetName'		=> $PLANET['name'],
 			'planetImage'		=> $PLANET['image'],

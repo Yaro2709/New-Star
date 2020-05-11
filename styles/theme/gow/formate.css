@@ -1219,7 +1219,7 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
     max-width: 1200px;
     top: -3px;
 }
-#res_nav .bloc_res{
+/* #res_nav .bloc_res{
 	margin-left:2%;
 	width:16%;
 	float:left;
@@ -1228,7 +1228,18 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 	height:40px;
 	overflow:hidden;
 	max-width:220px;
+} */
+#res_nav .bloc_res {
+    margin-left: 1%;
+    width: 18.5%;
+    float: left;
+    position: relative;
+    z-index: 3;
+    height: 22px;
+    overflow: hidden;
+    max-width: 220px;
 }
+/*
 #res_nav .bloc_res .ico_res{
 	width: 27px;
     height: 27px;
@@ -1238,6 +1249,16 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
     z-index: 4;
 
 }
+*/
+#res_nav .bloc_res .ico_res {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: -5px;
+    top: -3px;
+    index: 4;
+}
+/*
 #res_nav .bloc_res .stock_res{
 	margin-left: 18px;
 	margin-right: 18px;
@@ -1252,22 +1273,53 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 	overflow:hidden;
 	z-index:2;
 	padding: 1px;
-	/* background: rgba(0, 0, 0, 0.25); */
-	/*box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);*/
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+}
+*/
+#res_nav .bloc_res .stock_res {
+    margin-left: 18px;
+    margin-right: 18px;
+    margin-top: 0px;
+    height: 16px;
+    border: 1px solid #000;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    padding: 1px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+}
+#res_nav .bloc_res .stock_res2 {
+    margin-left: 18px;
+    margin-right: 18px;
+    margin-top: 1px;
+    height: 16px;
+    border: 1px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    padding: 1px;
 }
 #res_nav .bloc_res .stock_percentage{
 	position:absolute;
 	left:0;
-	top:0;
+	top:1px;
 	height:13px;
 	z-index:2;
 	height: 12px;
     margin: 1px;
-    /*border-radius: 4px;*/
+    border-radius: 4px;
     transition: 0.4s linear;
     transition-property: width, background-color;
 	max-width: 99.9%;
-    /*max-width: 97% !important;*/
+    max-width: 97% !important;
 	}
 
 @media screen and (max-width: 992px) {
@@ -1309,26 +1361,26 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 	background-position: 0 -11px;
 }
 /*metall*/
-#res_nav #res_block_metall .ico_res{
-	background-image:url(../images/901f.png);
+#res_nav #res_block_metal .ico_res{
+	background-image:url(./img/resources/901f.png);
 	    background-size: 100%;
 }
-#res_nav #res_block_metall .stock_percentage{
+#res_nav #res_block_metal .stock_percentage{
 	border:1px solid #775e5d;
 	background:#5e4240 url(../images/metall_percentage.gif) repeat-x;
 }
 /*kristall*/
-#res_nav #res_block_kristall .ico_res{
-	background-image:url(../images/902f.png);
+#res_nav #res_block_crystal .ico_res{
+	background-image:url(./img/resources/902f.png);
 	    background-size: 100%;
 }
-#res_nav #res_block_kristall .stock_percentage{
+#res_nav #res_block_crystal .stock_percentage{
 	border:1px solid #5892e7;
 	background:#4a78bc url(../images/kristall_percentage.gif) repeat-x;
 }
 /*deuterium*/
 #res_nav #res_block_deuterium .ico_res{
-	background-image:url(../images/903f.png);
+	background-image:url(./img/resources/903f.png);
 	    background-size: 100%;
 	background-position:center;
 }
@@ -1337,15 +1389,13 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 	background:#268246 url(../images/deuterium_percentage.gif) repeat-x;
 }
 /*energie*/
-#res_nav #res_block_energie .ico_res{
-	background-image:url(../images/911f.png);
+#res_nav #res_block_energy .ico_res{
+	background-image:url(./img/resources/911f.png);
 	    background-size: 100%;
 	background-position:center;
 }
-#res_nav #res_block_energie .stock_res{
-	margin-right:1px;
-}
-#res_nav #res_block_energie .stock_percentage_left{
+
+#res_nav #res_block_energy .stock_percentage_left{
 	right:50%;
 	left:auto;
 	border:1px solid #a4002a;
@@ -1356,7 +1406,7 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 	-webkit-border-radius: 4px 0px 0px 4px;
 	border-radius: 4px 0px 0px 4px;
 }
-#res_nav #res_block_energie .stock_percentage_right{
+#res_nav #res_block_energy .stock_percentage_right{
 	left: 50%;
     border: 1px solid #fcb057;
     max-width: 47% !important;
@@ -1365,7 +1415,177 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
     -webkit-border-radius: 0 4px 4px 0px;
     border-radius: 0 4px 4px 0px;
 }
-#res_nav #res_block_energie .separator_energie{
+#res_nav #res_block_energy .separator_energie{
+	position:absolute;
+	z-index:2;
+	border-left:1px solid #000;
+	height:13px;
+	left:50%;
+}
+/*build*/
+#res_nav #res_block_build .ico_res{
+	background-image:url(./img/resources/912f.png);
+	    background-size: 100%;
+	background-position:center;
+}
+
+#res_nav #res_block_build .stock_percentage_left{
+	right:50%;
+	left:auto;
+	border:1px solid #a4002a;
+	background:#79001d url(../images/energie_percentage_left.gif) repeat-x;
+	margin-right:-1px;
+	max-width: 47% !important;
+	-moz-border-radius: 4px 0px 0px 4px;
+	-webkit-border-radius: 4px 0px 0px 4px;
+	border-radius: 4px 0px 0px 4px;
+}
+#res_nav #res_block_build .stock_percentage_right{
+    left: 50%;
+    border: 1px solid #d85c09;
+    max-width: 47% !important;
+    background: #b14a08 url(../images/energie_percentage_right.gif) repeat-x;
+    moz-border-radius: 0 4px 4px 0px;
+    -webkit-border-radius: 0 4px 4px 0px;
+    border-radius: 0 4px 4px 0px;
+}
+#res_nav #res_block_build .separator_energie{
+	position:absolute;
+	z-index:2;
+	border-left:1px solid #000;
+	height:13px;
+	left:50%;
+}
+/*tech*/
+#res_nav #res_block_tech .ico_res{
+	background-image:url(./img/resources/913f.png);
+	    background-size: 100%;
+	background-position:center;
+}
+
+#res_nav #res_block_tech .stock_percentage_left{
+	right:50%;
+	left:auto;
+	border:1px solid #a4002a;
+	background:#79001d url(../images/energie_percentage_left.gif) repeat-x;
+	margin-right:-1px;
+	max-width: 47% !important;
+	-moz-border-radius: 4px 0px 0px 4px;
+	-webkit-border-radius: 4px 0px 0px 4px;
+	border-radius: 4px 0px 0px 4px;
+}
+#res_nav #res_block_tech .stock_percentage_right{
+    left: 50%;
+    border: 1px solid #2c54a2;
+    max-width: 47% !important;
+    background: #223760 url(../images/energie_percentage_right.gif) repeat-x;
+    -moz-border-radius: 0 4px 4px 0px;
+    -webkit-border-radius: 0 4px 4px 0px;
+    border-radius: 0 4px 4px 0px;
+}
+#res_nav #res_block_tech .separator_energie{
+	position:absolute;
+	z-index:2;
+	border-left:1px solid #000;
+	height:13px;
+	left:50%;
+}
+/*fleet*/
+#res_nav #res_block_fleet .ico_res{
+	background-image:url(./img/resources/914f.png);
+	    background-size: 100%;
+	background-position:center;
+}
+
+#res_nav #res_block_fleet .stock_percentage_left{
+	right:50%;
+	left:auto;
+	border:1px solid #a4002a;
+	background:#79001d url(../images/energie_percentage_left.gif) repeat-x;
+	margin-right:-1px;
+	max-width: 47% !important;
+	-moz-border-radius: 4px 0px 0px 4px;
+	-webkit-border-radius: 4px 0px 0px 4px;
+	border-radius: 4px 0px 0px 4px;
+}
+#res_nav #res_block_fleet .stock_percentage_right{
+    left: 50%;
+    border: 1px solid #a07848;
+    max-width: 47% !important;
+    background: #8c750b url(../images/energie_percentage_right.gif) repeat-x;
+    -moz-border-radius: 0 4px 4px 0px;
+    -webkit-border-radius: 0 4px 4px 0px;
+    border-radius: 0 4px 4px 0px;
+}
+#res_nav #res_block_fleet .separator_energie{
+	position:absolute;
+	z-index:2;
+	border-left:1px solid #000;
+	height:13px;
+	left:50%;
+}
+/*defense*/
+#res_nav #res_block_defense .ico_res{
+	background-image:url(./img/resources/915f.png);
+	    background-size: 100%;
+	background-position:center;
+}
+
+#res_nav #res_block_defense .stock_percentage_left{
+	right:50%;
+	left:auto;
+	border:1px solid #a4002a;
+	background:#79001d url(../images/energie_percentage_left.gif) repeat-x;
+	margin-right:-1px;
+	max-width: 47% !important;
+	-moz-border-radius: 4px 0px 0px 4px;
+	-webkit-border-radius: 4px 0px 0px 4px;
+	border-radius: 4px 0px 0px 4px;
+}
+#res_nav #res_block_defense .stock_percentage_right{
+    left: 50%;
+    border: 1px solid #414760;
+    max-width: 47% !important;
+    background: #5f6397 url(../images/energie_percentage_right.gif) repeat-x;
+    -moz-border-radius: 0 4px 4px 0px;
+    -webkit-border-radius: 0 4px 4px 0px;
+    border-radius: 0 4px 4px 0px;
+}
+#res_nav #res_block_defense .separator_energie{
+	position:absolute;
+	z-index:2;
+	border-left:1px solid #000;
+	height:13px;
+	left:50%;
+}
+/*missile*/
+#res_nav #res_block_missile .ico_res{
+	background-image:url(./img/resources/916f.png);
+	    background-size: 100%;
+	background-position:center;
+}
+
+#res_nav #res_block_missile .stock_percentage_left{
+	right:50%;
+	left:auto;
+	border:1px solid #a4002a;
+	background:#79001d url(../images/energie_percentage_left.gif) repeat-x;
+	margin-right:-1px;
+	max-width: 47% !important;
+	-moz-border-radius: 4px 0px 0px 4px;
+	-webkit-border-radius: 4px 0px 0px 4px;
+	border-radius: 4px 0px 0px 4px;
+}
+#res_nav #res_block_missile .stock_percentage_right{
+    left: 50%;
+    border: 1px solid #045c1d;
+    max-width: 47% !important;
+    background: #047e16 url(../images/energie_percentage_right.gif) repeat-x;
+    -moz-border-radius: 0 4px 4px 0px;
+    -webkit-border-radius: 0 4px 4px 0px;
+    border-radius: 0 4px 4px 0px;
+}
+#res_nav #res_block_missile .separator_energie{
 	position:absolute;
 	z-index:2;
 	border-left:1px solid #000;
@@ -1373,23 +1593,28 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 	left:50%;
 }
 /*darkmatter*/
+/*
 #res_nav #res_block_darkmatter{
 	width:12%;
 	float:right;
 	max-width:180px;
 }
+*/
 #res_nav #res_block_darkmatter .ico_res{
-	background-image:url(../images/darkmatter.gif);
+	background-image:url(./img/resources/921f.png);
+    background-size: 100%;
+	background-position:center;
 }
+/*
 #res_nav #res_block_darkmatter .stock_res{
 	border:0;
 	background:none;
 	margin-right:0;
-}
+}*/
 #res_nav #res_block_darkmatter .stock_text{
 	text-align:left;
-	padding-left:7px;
 }
+
 /*atm*/
 #res_nav #res_block_atm{
 	width:12%;
@@ -3703,6 +3928,56 @@ button.btn_build_part_leftamr {}
     font-size: 11px;
     border: 1px solid rgba(255, 215, 0, 0.19);
 }
+.info_res_912{
+    position: absolute;
+    background: rgba(197, 97, 18, 0.5);
+    border-radius: 31px;
+    color: rgb(252, 101, 1);
+    text-shadow: 0px 1px 0px rgb(0, 0, 0);
+    z-index: 99999;
+    font-size: 11px;
+    border: 1px solid rgba(222, 96, 9, 0.39);
+}
+.info_res_913{
+    position: absolute;
+    background: rgba(91, 129, 207, 0.35);
+    border-radius: 31px;
+    color: rgb(102, 130, 194);
+    text-shadow: 0px 1px 0px rgb(0, 0, 0);
+    z-index: 99999;
+    font-size: 11px;
+    border: 1px solid rgb(40, 70, 220);
+}
+.info_res_914{
+    position: absolute;
+    background: hsla(55, 58%, 53%, 0.5);
+    border-radius: 31px;
+    color: rgb(239, 202, 3);
+    text-shadow: 0px 1px 0px rgb(0, 0, 0);
+    z-index: 99999;
+    font-size: 11px;
+    border: 1px solid rgba(255, 215, 0, 0.39);
+}
+.info_res_915{
+    position: absolute;
+    background: rgba(143, 132, 178, 0.5);
+    border-radius: 31px;
+    color: rgba(39, 0, 255, 0.9);
+    text-shadow: 0px 1px 0px rgb(0, 0, 0);
+    z-index: 99999;
+    font-size: 11px;
+    border: 1px solid rgba(255, 215, 0, 0.19);
+}
+.info_res_916{
+    position: absolute;
+    background: rgb(33, 68, 11);
+    border-radius: 31px;
+    color: rgb(14, 177, 5);
+    text-shadow: 0px 1px 0px rgb(0, 0, 0);
+    z-index: 99999;
+    font-size: 11px;
+    border: 1px solid rgba(255, 215, 0, 0.19);
+}
 #build_elements .build_box .content_box .res_global_info .res_info:nth-child(1){
     left: 7px;
     bottom: 42px;
@@ -3713,6 +3988,10 @@ button.btn_build_part_leftamr {}
 }
 #build_elements .build_box .content_box .res_global_info .res_info:nth-child(3){
     left: 47px;
+    bottom: 42px;
+}
+#build_elements .build_box .content_box .res_global_info .res_info:nth-child(4){
+    left: 67px;
     bottom: 42px;
 }
 .energicosn{
@@ -16530,8 +16809,26 @@ transition: all 0.2s ease-in;
 .colore931{    color: #db374b !important;
     text-shadow: 0px 0px 5px hsla(141, 55%, 30%, 0.5) !important;
     font-size: 14px;}
+.colorered{    color: #db374b !important;
+    text-shadow: 0px 0px 5px hsla(141, 55%, 30%, 0.5) !important;
+    font-size: 14px;}
 .colore911{color: #cd8e43 !important;
-    text-shadow: 0px 0px 5px hsla(49, 94%, 50%, 0.5) !important;
+    text-shadow: 0px 0px 5px hsla(141, 55%, 30%, 0.5) !important;
+    font-size: 14px;}
+.colore912{color: #c15712 !important;
+    text-shadow: 0px 0px 5px hsla(141, 55%, 30%, 0.5) !important;
+    font-size: 14px;}
+.colore913{color: #6292f5 !important;
+    text-shadow: 0px 0px 5px hsla(141, 55%, 30%, 0.5) !important;
+    font-size: 14px;}
+.colore914{color: #e0b703 !important;
+    text-shadow: 0px 0px 5px hsla(141, 55%, 30%, 0.5) !important;
+    font-size: 14px;}
+.colore915{color: #6959f5 !important;
+    text-shadow: 0px 0px 5px hsla(141, 55%, 30%, 0.5) !important;
+    font-size: 14px;}
+.colore916{    color: #00a009 !important;
+    text-shadow: 0px 0px 5px hsla(141, 55%, 30%, 0.5) !important;
     font-size: 14px;}
 .delivress1{ margin: 1px;
     position: absolute;
@@ -17059,22 +17356,29 @@ background: url(../images/tou_alli_act.png);
     border: 1px solid #000;
     background: rgba(0, 0, 0, 0.25);
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.04);
-    height: 363px;
-    width: 110px;
+    /*height: 363px;*/
+    /*width: 110px;*/
+    width: 6.4%;
     float: left;
     position: relative;
     background-repeat: no-repeat;
     background-size: 45px;
     margin-right: 0px;
-    margin-left: 5px;
+    margin-left: 0.7%;
     background-position: center top;
     margin-top: 5px;
     margin-bottom: 0;
 }
-.rexx901{    background-image: url(/styles/images/901b.png);}
-.rexx902{    background-image: url(/styles/images/902b.png);}
-.rexx903{    background-image: url(/styles/images/903b.png);}
-.rexx911{    background-image: url(/styles/images/911b.png);}
+.rexx901{    background-image: url(./img/resources/901f.png);}
+.rexx902{    background-image: url(./img/resources/902f.png);}
+.rexx903{    background-image: url(./img/resources/903f.png);}
+.rexx911{    background-image: url(./img/resources/911f.png);}
+.rexx912{    background-image: url(./img/resources/912f.png);}
+.rexx913{    background-image: url(./img/resources/913f.png);}
+.rexx914{    background-image: url(./img/resources/914f.png);}
+.rexx915{    background-image: url(./img/resources/915f.png);}
+.rexx916{    background-image: url(./img/resources/916f.png);}
+.rexxprocent{background-image: url(./img/resources/procent.png);}
 .rexx2{
     border-bottom: 1px solid rgba(0,0,0,0.3);
     border-top: 1px solid rgba(0,0,0,0.3);
@@ -17082,7 +17386,8 @@ background: url(../images/tou_alli_act.png);
     background: rgba(0, 0, 0, 0.25);
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.04);
     height: 16px;
-    width: 110px;
+    /* width: 110px; */
+    width: 100%;
     margin-left: -1px;
     position: relative;
     float: left;
@@ -17095,15 +17400,15 @@ background: url(../images/tou_alli_act.png);
     }
 .rexx3{
     text-align: left;
-    padding-left: 3px;
+    padding-left: 1%;
     flex-wrap: wrap-reverse;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     width: auto;
-    padding-right: 22px;
-    max-width: 155px;
-    min-width: 155px;
+    padding-right: 11%;
+    max-width: 88%;
+    min-width: 88%;
     }
 .rexx2 span{font-size: 11px;}
 .rexx4{
@@ -17114,7 +17419,7 @@ background: url(../images/tou_alli_act.png);
 	    padding-right: 3px;
 	    color: rgb(123, 152, 180);
 	    text-shadow: 0px 1px 0px rgb(0, 0, 0);
-	    z-index: 999999;
+	    z-index: 1;
 	    font-size: 11px;
 	    float: right;
 	    margin: 2px;
@@ -17132,20 +17437,19 @@ background: url(../images/tou_alli_act.png);
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.04);
     position: relative;
     float: right;
-    width: 53px;
+    width: 99%;
     font-size: 11px;
     padding: 0;
     border-radius: 0;
     height: 18px;
     margin-bottom: 5px;
     padding-left: 2px;}
-.rexx6{    width: 53px;
-    height: 135px;
+.rexx6{    width: 100%;
     float: right;
     position: relative;
     margin-top: 70px;}
 .rexx7{text-align: center;
-    width: 160px;
+    width: 95%;
     height: 14px;
     color: #c9c9c9;
     font-size: 11px;
@@ -17722,283 +18026,8 @@ background-size: 35px;
     border: 1px solid #4c0b0b;}
     
     
-/*
-#res_nav {
-	margin:0 12px 0px 12px;
-	height:85px;
-	border:1px solid #000;
-	background:#08162b url(./img/general/bg_res_nav.jpg) repeat-x;
-	-moz-border-radius: 0px 0px 2px 2px;
-	-webkit-border-radius: 0px 0px 2px 2px;
-	border-radius: 0px 0px 2px 2px;
-	position:static;
-	overflow:visible;
-}
-*/
-#res_nav .bloc_res {
-	margin-left:2%;
-	width:17%;
-	float:left;
-	position:relative;
-	height:32px;
-	overflow:hidden;
-}
-#res_nav .bloc_res .ico_res {
-	width:21px;
-	height:21px;
-	border:1px solid #000;
-	position:absolute;
-	background-color:#000;
-	left:0;
-	top:9px;
-	-moz-border-radius: 11px;
-	-webkit-border-radius: 11px;
-	border-radius: 11px;
-	z-index:2;
 
-}
-#res_nav .bloc_res .stock_res {
-	margin-left:18px;
-	margin-right:16px;
-	margin-top:12px;
-	height:15px;
-	border:1px solid #000;
-	background:#282828;
-	-moz-border-radius: 0px 2px 2px 0px;
-	-webkit-border-radius: 0px 2px 2px 0px;
-	border-radius: 0px 2px 2px 0px;
-	text-align:center;
-	position:relative;
-	overflow:hidden;
-	z-index:1;
-}
-#res_nav .bloc_res .stock_percentage {
-	position:absolute;
-	left:0;
-	top:0;
-	height:13px;
-	z-index:1;
-}
-#res_nav .bloc_res .stock_text {
-	color:#fff;
-	text-shadow:0px 1px 0px rgba(0,0,0,0.5);
-	position:absolute;
-	z-index:2;
-	width:96%;
-	overflow:hidden;
-	height:15px;
-	line-height:15px;
-	font-size:11px;
-	text-align:center;
-	padding-left:3%;
-}
-#res_nav .bloc_res .exchange_res {
-	float:right;
-	width:13px;
-	display:block;
-	height:11px;
-	margin-top:15px;
-	background:url(./img/iconav/exchange_res.png) no-repeat;
-}
-#res_nav .bloc_res .exchange_res:hover {
-	background-position: 0 -11px;
-}
-/*metall*/
-#res_nav #res_block_metall .ico_res {
-	background-image:url(./img/resources/metall.gif);
-}
-#res_nav #res_block_metall .stock_percentage {
-	border:1px solid #775e5d;
-	background:#5e4240 url(./img/resources/metall_percentage.gif) repeat-x;
-}
-/*kristall*/
-#res_nav #res_block_kristall .ico_res {
-	background-image:url(./img/resources/kristall.gif);
-}
-#res_nav #res_block_kristall .stock_percentage {
-	border:1px solid #5892e7;
-	background:#4a78bc url(./img/resources/kristall_percentage.gif) repeat-x;
-}
-/*deuterium*/
-#res_nav #res_block_deuterium .ico_res {
-	background-image:url(./img/resources/deuterium.gif);
-	background-position:center;
-}
-#res_nav #res_block_deuterium .stock_percentage {
-	border:1px solid #33ac5d;
-	background:#268246 url(./img/resources/deuterium_percentage.gif) repeat-x;
-}
-/*energie*/
-#res_nav #res_block_energie .ico_res {
-	background-image:url(./img/resources/energie.gif);
-	background-position:center;
-}
-#res_nav #res_block_energie .stock_res {
-	margin-right:1px;
-}
-#res_nav #res_block_energie .stock_percentage_left {
-	right:50%;
-	left:auto;
-	border:1px solid #a4002a;
-	background:#79001d url(./img/resources/energie_percentage_left.gif) repeat-x;
-	margin-right:-1px;
-}
-#res_nav #res_block_energie .stock_percentage_right {
-	left:50%;
-	border:1px solid #8f48c4;
-	background:#731fab url(./img/resources/energie_percentage_right.gif) repeat-x;
-}
-#res_nav #res_block_energie .separator_energie {
-	position:absolute;
-	z-index:2;
-	border-left:1px solid #000;
-	height:13px;
-	left:50%;
-}
-#res_nav #res_block_darkmatter .ico_res {
-	background-image:url(./img/resources/darkmatter.gif);
-}
-#res_nav #res_block_darkmatter .stock_res {
-	border:0;
-	background:none;
-	margin-right:0;
-}
-#res_nav #res_block_darkmatter .stock_text {
-	text-align:left;
-	padding-left:7px;
-}
-/*atm*/
-#res_nav #res_block_atm {
-	width:22%;
-	float:right;
-	max-width:180px;
-}
-#res_nav #res_block_atm .ico_res {
-	background-image:url(./img/resources/atm.gif);
-}
-#res_nav #res_block_atm .stock_res {
-	border:0;
-	background:none;
-	margin-right:0;
-}
-#res_nav #res_block_atm .stock_text {
-	text-align:left;
-	padding-left:7px;
-}
-#res_nav #res_block_metal .ico_res {
-	background-image:url(./img/resources/metal.gif);
-}
-#res_nav #res_block_metal .stock_percentage {
-	border:1px solid #775e5d;
-	background:#5e4240 url(./img/resources/metal_percentage.gif) repeat-x;
-}
-#res_nav #res_block_crystal .ico_res {
-	background-image:url(./img/resources/kristall.gif);
-}
-#res_nav #res_block_crystal .stock_percentage {
-	border:1px solid #5892e7;
-	background:#4a78bc url(./img/resources/kristall_percentage.gif) repeat-x;
-}
-#res_nav #res_block_deuterium .ico_res {
-	background-image:url(./img/resources/deuterium.gif);
-	background-position:center;
-}
-#res_nav #res_block_deuterium .stock_percentage {
-	border:1px solid #33ac5d;
-	background:#268246 url(./img/resources/deuterium_percentage.gif) repeat-x;
-}
-#res_nav #res_block_energy .ico_res {
-	background-image:url(./img/resources/energie.gif);
-	background-position:center;
-}
-#res_nav #res_block_energy .stock_res {
-	margin-right:1px;
-}
-#res_nav #res_block_energie .stock_percentage_left {
-	right:50%;
-	left:auto;
-	border:1px solid #a4002a;
-	background:#79001d url(./img/resources/energie_percentage_left.gif) repeat-x;
-	margin-right:-1px;
-}
-#res_nav #res_block_energy .stock_percentage_right {
-	left:50%;
-	border:1px solid #8f48c4;
-	background:#731fab url(./img/resources/energie_percentage_right.gif) repeat-x;
-}
-#res_nav #res_block_energy .separator_energie {
-	position:absolute;
-	z-index:2;
-	border-left:1px solid #000;
-	height:13px;
-	left:50%;
-}
-#res_nav #res_block_darkmatter {
-	width:22%;
-	float:right;
-}
-#res_nav #res_block_darkmatter .ico_res {
-	background-image:url(./img/resources/darkmatter.gif);
-}
-#res_nav #res_block_darkmatter .stock_res {
-	border:0;
-	background:none;
-	margin-right:0;
-}
-#res_nav #res_block_darkmatter .stock_text {
-	text-align:left;
-	padding-left:7px;
-}
-#res_nav #res_block_antimatter {
-	width:22%;
-	float:right;
-}
-#res_nav #res_block_antimatter .ico_res {
-	background-image:url(./img/resources/atm.gif);
-}
-#res_nav #res_block_antimatter .stock_res {
-	border:0;
-	background:none;
-	margin-right:0;
-}
-#res_nav #res_block_antimatter .stock_text {
-	text-align:left;
-	padding-left:7px;
-}
-#res_nav #res_block_stardust {
-	width:22%;
-	float:right;
-}
-#res_nav #res_block_stardust .ico_res {
-	background-image:url(./img/resources/stardust.gif);
-}
-#res_nav #res_block_stardust .stock_res {
-	border:0;
-	background:none;
-	margin-right:0;
-}
-#res_nav #res_block_stardust .stock_text {
-	text-align:left;
-	padding-left:7px;
-}
-#res_nav #res_block_contein {
-	width:22%;
-	float:right;
-}
-#res_nav #res_block_contein .ico_res {
-	background-image:url(./img/resources/contein.gif);
-}
-#res_nav #res_block_contein .stock_res {
-	border:0;
-	background:none;
-	margin-right:0;
-}
-#res_nav #res_block_contein .stock_text {
-	text-align:left;
-	padding-left:7px;
-}
-
-
+    
 #alarm {
     background: rgba(0, 200, 0, 0.2);
     margin: 11px -29px;

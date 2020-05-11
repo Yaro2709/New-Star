@@ -1,19 +1,19 @@
 <?php
 
-/**
- *  2Moons 
- *   by Jan-Otto Kröpke 2009-2016
+/*
+ * ╔══╗╔══╗╔╗──╔╗╔═══╗╔══╗╔╗─╔╗╔╗╔╗──╔╗╔══╗╔══╗╔══╗
+ * ║╔═╝║╔╗║║║──║║║╔═╗║║╔╗║║╚═╝║║║║║─╔╝║╚═╗║║╔═╝╚═╗║
+ * ║║──║║║║║╚╗╔╝║║╚═╝║║╚╝║║╔╗─║║╚╝║─╚╗║╔═╝║║╚═╗──║║
+ * ║║──║║║║║╔╗╔╗║║╔══╝║╔╗║║║╚╗║╚═╗║──║║╚═╗║║╔╗║──║║
+ * ║╚═╗║╚╝║║║╚╝║║║║───║║║║║║─║║─╔╝║──║║╔═╝║║╚╝║──║║
+ * ╚══╝╚══╝╚╝──╚╝╚╝───╚╝╚╝╚╝─╚╝─╚═╝──╚╝╚══╝╚══╝──╚╝
  *
- * For the full copyright and license information, please view the LICENSE
- *
- * @package 2Moons
- * @author Jan-Otto Kröpke <slaver7@gmail.com>
- * @copyright 2009 Lucky
- * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
- * @licence MIT
- * @version 1.8.0
- * @link https://github.com/jkroepke/2Moons
- */
+ * @author Tsvira Yaroslav <https://github.com/Yaro2709>
+ * @info ***
+ * @link https://github.com/Yaro2709/New-Star
+ * @Basis 2Moons: XG-Project v2.8.0
+ * @Basis New-Star: 2Moons v1.8.0
+ */
 
 // VARS DB -> SCRIPT WRAPPER
 
@@ -27,20 +27,25 @@ $resource[901] = 'metal';
 $resource[902] = 'crystal';
 $resource[903] = 'deuterium';
 $resource[911] = 'energy';
+$resource[912] = 'build';
+$resource[913] = 'tech';
+$resource[914] = 'fleet';
+$resource[915] = 'defense';
+$resource[916] = 'missile';
 $resource[921] = 'darkmatter';
 
-$reslist['ressources']  = array(901, 902, 903, 911, 921);
-$reslist['resstype'][1] = array(901, 902, 903);
-$reslist['resstype'][2] = array(911);
-$reslist['resstype'][3] = array(921);
-$reslist['res_production']      = array(901 => 0, 902 => 0, 903 => 0, 911 => 0);
+$reslist['ressources']          = array(901, 902, 903, 911, 912, 913, 914, 915, 916, 921);
+$reslist['resstype'][1]         = array(901, 902, 903);
+$reslist['resstype'][2]         = array(911, 912, 913, 914, 915, 916);
+$reslist['resstype'][3]         = array(921);
+$reslist['res_production']      = array(901 => 0, 902 => 0, 903 => 0, 911 => 0, 912 => 0, 913 => 0, 914 => 0, 915 => 0, 916 => 0);
 
-$reslist['lab']                 = array(31); //единицы, которые объединяются в сеть
+$reslist['lab']                 = array(916,913); //единицы, которые объединяются в сеть
 $reslist['planet_no_basic']     = array(3); //планеты, у которых нет базовой добычи
 $reslist['shipyard']            = array(21); //нет верфя - ничего не построешь
 $reslist['shipyard_no_build']   = array(14,15,21); //если эти еденицы улучшаются, то верфь не работает
-$reslist['storage']             = array(22, 23, 24);
 
+$res_stop_product = 911;
 
 //Классофикация флота на орбите
 //Боевой флот

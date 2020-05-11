@@ -18,7 +18,7 @@
 		Information and contribution at https://github.com/HikeGame/2Moons-1.9/
 	-->
 	<meta name="keywords" content="Weltraum Browsergame, XNova, 2Moons, Space, Private, Server, Speed">
-	<meta name="description" content="2Moons Browsergame powerd by https://github.com/HikeGame/2Moons-2.0/"> <!-- Noob Check :) -->
+	<meta name="description" content="New-Star Browsergame powerd by https://github.com/HikeGame/2Moons-2.0/"> <!-- Noob Check :) -->
 	<meta name="viewport" content="width=device-width" /> <!-- Responsive -->
 	<!-- New code -->
 	<script src="http://code.jquery.com/jquery.js"></script>

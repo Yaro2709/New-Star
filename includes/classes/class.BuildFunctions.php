@@ -1,19 +1,19 @@
 <?php
 
-/**
- *  2Moons
- *   by Jan-Otto Kröpke 2009-2016
+/*
+ * ╔══╗╔══╗╔╗──╔╗╔═══╗╔══╗╔╗─╔╗╔╗╔╗──╔╗╔══╗╔══╗╔══╗
+ * ║╔═╝║╔╗║║║──║║║╔═╗║║╔╗║║╚═╝║║║║║─╔╝║╚═╗║║╔═╝╚═╗║
+ * ║║──║║║║║╚╗╔╝║║╚═╝║║╚╝║║╔╗─║║╚╝║─╚╗║╔═╝║║╚═╗──║║
+ * ║║──║║║║║╔╗╔╗║║╔══╝║╔╗║║║╚╗║╚═╗║──║║╚═╗║║╔╗║──║║
+ * ║╚═╗║╚╝║║║╚╝║║║║───║║║║║║─║║─╔╝║──║║╔═╝║║╚╝║──║║
+ * ╚══╝╚══╝╚╝──╚╝╚╝───╚╝╚╝╚╝─╚╝─╚═╝──╚╝╚══╝╚══╝──╚╝
  *
- * For the full copyright and license information, please view the LICENSE
- *
- * @package 2Moons
- * @author Jan-Otto Kröpke <slaver7@gmail.com>
- * @copyright 2009 Lucky
- * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
- * @licence MIT
- * @version 1.8.0
- * @link https://github.com/jkroepke/2Moons
- */
+ * @author Tsvira Yaroslav <https://github.com/Yaro2709>
+ * @info ***
+ * @link https://github.com/Yaro2709/New-Star
+ * @Basis 2Moons: XG-Project v2.8.0
+ * @Basis New-Star: 2Moons v1.8.0
+ */
 
 class BuildFunctions
 {
@@ -28,13 +28,14 @@ class BuildFunctions
         'Attack',
         'Defensive',
         'Shield',
-		'BuildTime',
+        'Sbuild',
 		'BuildSlots',	
-		'ResearchTime',
+        'Stech',
 		'ResearchSlots',
 		'ResearchSlotPlanet',
-        'ShipTime',
-        'DefensiveTime',
+        'Sfleet',
+        'Sdefense',
+        'Smissile',
         'Resource',
         'Pmetal',
         'Pcrystal',
@@ -198,13 +199,13 @@ class BuildFunctions
         }
 
         if(in_array($Element, $reslist['build'])) {		
-			$time	= $elementCost/($config->game_speed * (1 + $PLANET[$resource[14]])) * pow(0.5, $PLANET[$resource[15]]) * (pow(0.99, ($USER['factor']['BuildTime'] * 100)));
+			$time	= $elementCost/$config->game_speed * pow(0.99, ($PLANET[$resource[912]]));
 		}elseif (in_array($Element, $reslist['fleet'])) {			
-			$time	= $elementCost/($config->game_speed * (1 + $PLANET[$resource[14]] + $PLANET[$resource[21]])) * pow(0.88, $PLANET[$resource[15]]) * pow(0.99, $USER['factor']['ShipTime'] * 100);			
+			$time	= $elementCost/$config->game_speed * pow(0.99, ($PLANET[$resource[914]]));			
 		}elseif (in_array($Element, $reslist['defense'])) {
-			$time	= $elementCost/($config->game_speed * (1 + $PLANET[$resource[14]] + $PLANET[$resource[21]])) * pow(0.88, $PLANET[$resource[15]]) * pow(0.99, $USER['factor']['DefensiveTime'] * 100);	
+			$time	= $elementCost/$config->game_speed * pow(0.99, ($PLANET[$resource[915]]));	
         }elseif (in_array($Element, $reslist['missile'])) {
-			$time	= $elementCost/($config->game_speed * (1 + (3 * $PLANET[$resource[44]])));	
+			$time	= $elementCost/$config->game_speed * pow(0.99, ($PLANET[$resource[916]]));	
 		}elseif (in_array($Element, $reslist['tech'])) {
             if(is_numeric($PLANET[$resource[31].'_inter']))
             {
@@ -218,10 +219,10 @@ class BuildFunctions
                 }
             }
 
-            $time	= $elementCost / (1000 * (1 + $Level))/($config->game_speed / 2500) * pow(1 - $config->factor_university / 100, $PLANET[$resource[6]]) * (pow(0.99, $USER['factor']['ResearchTime'] * 100));
+            $time	= $elementCost / (100 * (1 + $Level))/($config->game_speed / 2500);
         }
 
-        if((in_array($Element, $reslist['fleet']) || in_array($Element, $reslist['defense']))){
+        if((in_array($Element, $reslist['fleet']) || in_array($Element, $reslist['defense']) || in_array($Element, $reslist['missile']))){
 			$time	= $time * 3600;
 		}	
 		else{

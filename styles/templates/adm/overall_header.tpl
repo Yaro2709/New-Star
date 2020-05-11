@@ -23,7 +23,6 @@
 	<link rel="stylesheet" type="text/css" href="./styles/resource/css/admin/main.css?v={$REV}">
 	<link rel="stylesheet" type="text/css" href="./styles/resource/css/base/jquery.css?v={$REV}">
 	<link rel="stylesheet" type="text/css" href="./styles/resource/css/base/jquery.fancybox.css?v={$REV}">
-	<link rel="stylesheet" type="text/css" href="./styles/resource/css/base/validationEngine.jquery.css?v={$REV}">
 	<link rel="stylesheet" type="text/css" href="./styles/theme/gow/formate_admin.css?v={$REV}">
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 	<script type="text/javascript">
@@ -47,13 +46,11 @@
 		editlist.focus();
 	}
 	</script> 
-	<script type="text/javascript" src="./scripts/base/jquery.js?v={$REV}"></script>
-	<script type="text/javascript" src="./scripts/base/jquery.ui.js?v={$REV}"></script>
-	<script type="text/javascript" src="./scripts/base/jquery.cookie.js?v={$REV}"></script>
-	<script type="text/javascript" src="./scripts/base/jquery.fancybox.js?v={$REV}"></script>
-	<script type="text/javascript" src="./scripts/base/jquery.validationEngine.js?v={$REV}"></script>
-	<script type="text/javascript" src="./scripts/l18n/validationEngine/jquery.validationEngine-{$lang}.js?v={$REV}"></script>
-	<script type="text/javascript" src="./scripts/base/tooltip.js?v={$REV}"></script>
+	<script type="text/javascript" src="./scripts/base/keypress.js"></script>
+    <script type="text/javascript" src="./scripts/base/jquery.js"></script>
+    <script type="text/javascript" src="./scripts/base/jquery.ui.js"></script>
+	<script type="text/javascript" src="./scripts/base/jquery.cookie.js"></script>
+    <script type="text/javascript" src="./scripts/base/jquery.fancybox.js"></script>
 	<script type="text/javascript" src="./scripts/game/base.js?v={$REV}"></script>
 	{foreach item=scriptname from=$scripts}
 	<script type="text/javascript" src="./scripts/game/{$scriptname}.js?v={$REV}"></script>

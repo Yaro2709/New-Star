@@ -1,30 +1,20 @@
 <?php
 
-/**
- *  2Moons
- *  Copyright (C) 2012 Jan Kröpke
+/*
+ * ╔══╗╔══╗╔╗──╔╗╔═══╗╔══╗╔╗─╔╗╔╗╔╗──╔╗╔══╗╔══╗╔══╗
+ * ║╔═╝║╔╗║║║──║║║╔═╗║║╔╗║║╚═╝║║║║║─╔╝║╚═╗║║╔═╝╚═╗║
+ * ║║──║║║║║╚╗╔╝║║╚═╝║║╚╝║║╔╗─║║╚╝║─╚╗║╔═╝║║╚═╗──║║
+ * ║║──║║║║║╔╗╔╗║║╔══╝║╔╗║║║╚╗║╚═╗║──║║╚═╗║║╔╗║──║║
+ * ║╚═╗║╚╝║║║╚╝║║║║───║║║║║║─║║─╔╝║──║║╔═╝║║╚╝║──║║
+ * ╚══╝╚══╝╚╝──╚╝╚╝───╚╝╚╝╚╝─╚╝─╚═╝──╚╝╚══╝╚══╝──╚╝
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * @package 2Moons
- * @author Jan Kröpke <info@2moons.cc>
- * @copyright 2012 Jan Kröpke <info@2moons.cc>
- * @license http://www.gnu.org/licenses/gpl.html GNU GPLv3 License
- * @version 1.7.3 (2013-05-19)
- * @info $Id: class.ShowBuildingsPage.php 2632 2013-03-18 19:05:14Z slaver7 $
- * @link http://2moons.cc/
- */
+ * @author Tsvira Yaroslav <https://github.com/Yaro2709>
+ * @info ***
+ * @link https://github.com/Yaro2709/New-Star
+ * @Basis 2Moons: XG-Project v2.8.0
+ * @Basis New-Star: 2Moons v1.8.0
+ */
+
 require_once('includes/classes/class.FleetFunctions.php');
 class ShowBuildingsPage extends AbstractGamePage
 {	
@@ -106,10 +96,9 @@ class ShowBuildingsPage extends AbstractGamePage
 		}
 	
 		$Element             	= $CurrentQueue[0][0];
-        $BuildLevel          	= $CurrentQueue[0][1];
 		$BuildMode          	= $CurrentQueue[0][4];
 		
-		$costResources			= BuildFunctions::getElementPrice($USER, $PLANET, $Element, $BuildMode == 'destroy', $BuildLevel);
+		$costResources			= BuildFunctions::getElementPrice($USER, $PLANET, $Element, $BuildMode == 'destroy');
 		/*$old_code
 		if(isset($costResources[901])) { $PLANET[$resource[901]]	+= $costResources[901]; }
 		if(isset($costResources[902])) { $PLANET[$resource[902]]	+= $costResources[902]; }
@@ -458,7 +447,7 @@ class ShowBuildingsPage extends AbstractGamePage
             //$new_code
             foreach(array_merge($reslist['resstype'][1], $reslist['resstype'][2]) as $res)
             { 
-                $info[''.$res.'']	= "";
+                $info_production[''.$res.'']	= "";
                 
                 if(in_array($Element, $reslist['prod']))
                 {
@@ -479,9 +468,31 @@ class ShowBuildingsPage extends AbstractGamePage
 
                     
                     if($require < 0) {
-                        if($Need < 0){$info[''.$res.'']	= sprintf($LNG['bd_need_engine'], pretty_number(abs($require)));}
+                        if($Need < 0){$info_production[''.$res.'']	= sprintf($LNG['bd_need_engine'], pretty_number(abs($require)));}
                     } else {
-                        if($Need > 0){$info[''.$res.'']	= sprintf($LNG['bd_more_engine'], pretty_number(abs($require)));}
+                        if($Need > 0){$info_production[''.$res.'']	= sprintf($LNG['bd_more_engine'], pretty_number(abs($require)));}
+                    }
+                }
+            }
+            
+            foreach($reslist['resstype'][1] as $res)
+            { 
+                $info_storage[''.$res.'']	= "";
+                
+                if(in_array($Element, $reslist['storage']))
+                {
+                    $BuildLevel	= $PLANET[$resource[$Element]];
+                    $Need		= eval(ResourceUpdate::getProd($ProdGrid[$Element]['storage'][''.$res.'']));
+                                        
+                    $BuildLevel	= $levelToBuild + 1;
+                    $Prod		= eval(ResourceUpdate::getProd($ProdGrid[$Element]['storage'][''.$res.'']));
+					
+                    $require	= round(($Prod - $Need) * $config->storage_multiplier);
+                    
+                    if($require < 0) {
+                        if($Need < 0){$info_storage[''.$res.'']	= sprintf($LNG['bd_need_engine'], pretty_number(abs($require)));}
+                    } else {
+                        if($Need > 0){$info_storage[''.$res.'']	= sprintf($LNG['bd_more_engine'], pretty_number(abs($require)));}
                     }
                 }
             }
@@ -510,12 +521,29 @@ class ShowBuildingsPage extends AbstractGamePage
 				'AllTech'				=> $techTreeList,
 				'techacc' 				=> BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element),
                 'ressources'		    => array_merge($reslist['resstype'][1], $reslist['resstype'][2]),
+                'storage'		        => $reslist['resstype'][1],
 			);
+            
             //$new_code
             foreach(array_merge($reslist['resstype'][1], $reslist['resstype'][2]) as $res)
             { 
+                $class_production = 5000;
+                $id_class_production = $res + $class_production;
+                
                 $BuildInfoList[$Element]	+= array(
-                    ''.$res.''	    => $info[''.$res.''],
+                    ''.$id_class_production.''	    => $info_production[''.$res.''],
+                    'class_production'	            => $class_production,
+                );
+            }
+            
+            foreach($reslist['resstype'][1] as $res)
+            {   
+                $class_storage = 5100;
+                $id_class_storage = $res + $class_storage;
+                
+                $BuildInfoList[$Element]	+= array(
+                    ''.$id_class_storage.''	    => $info_storage[''.$res.''],
+                    'class_storage'	            => $class_storage,
                 );
             }
             //$new_code

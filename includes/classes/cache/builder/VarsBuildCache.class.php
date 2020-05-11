@@ -1,19 +1,19 @@
 <?php
 
-/**
- *  2Moons 
- *   by Jan-Otto Kröpke 2009-2016
+/*
+ * ╔══╗╔══╗╔╗──╔╗╔═══╗╔══╗╔╗─╔╗╔╗╔╗──╔╗╔══╗╔══╗╔══╗
+ * ║╔═╝║╔╗║║║──║║║╔═╗║║╔╗║║╚═╝║║║║║─╔╝║╚═╗║║╔═╝╚═╗║
+ * ║║──║║║║║╚╗╔╝║║╚═╝║║╚╝║║╔╗─║║╚╝║─╚╗║╔═╝║║╚═╗──║║
+ * ║║──║║║║║╔╗╔╗║║╔══╝║╔╗║║║╚╗║╚═╗║──║║╚═╗║║╔╗║──║║
+ * ║╚═╗║╚╝║║║╚╝║║║║───║║║║║║─║║─╔╝║──║║╔═╝║║╚╝║──║║
+ * ╚══╝╚══╝╚╝──╚╝╚╝───╚╝╚╝╚╝─╚╝─╚═╝──╚╝╚══╝╚══╝──╚╝
  *
- * For the full copyright and license information, please view the LICENSE
- *
- * @package 2Moons
- * @author Jan-Otto Kröpke <slaver7@gmail.com>
- * @copyright 2009 Lucky
- * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
- * @licence MIT
- * @version 1.8.0
- * @link https://github.com/jkroepke/2Moons
- */
+ * @author Tsvira Yaroslav <https://github.com/Yaro2709>
+ * @info ***
+ * @link https://github.com/Yaro2709/New-Star
+ * @Basis 2Moons: XG-Project v2.8.0
+ * @Basis New-Star: 2Moons v1.8.0
+ */
 
 class VarsBuildCache implements BuildCache
 {
@@ -66,6 +66,11 @@ class VarsBuildCache implements BuildCache
 					902	=> $varsRow['cost902'],
 					903	=> $varsRow['cost903'],
 					911	=> $varsRow['cost911'],
+                    912	=> $varsRow['cost912'],
+                    913	=> $varsRow['cost913'],
+                    914	=> $varsRow['cost914'],
+                    915	=> $varsRow['cost915'],
+                    916	=> $varsRow['cost916'],
 					921	=> $varsRow['cost921'],
 				),
 				'factor'		=> $varsRow['factor'],
@@ -87,13 +92,14 @@ class VarsBuildCache implements BuildCache
 					'Attack'			    => array($varsRow['bonusAttack'], $varsRow['bonusAttackUnit']),
 					'Defensive'			    => array($varsRow['bonusDefensive'], $varsRow['bonusDefensiveUnit']),
 					'Shield'			    => array($varsRow['bonusShield'], $varsRow['bonusShieldUnit']),
-					'BuildTime'			    => array($varsRow['bonusBuildTime'], $varsRow['bonusBuildTimeUnit']),
+                    'Sbuild'			    => array($varsRow['bonusSbuild'], $varsRow['bonusSbuildUnit']),
                     'BuildSlots'		    => array($varsRow['bonusBuildSlots'], $varsRow['bonusBuildSlotsUnit']),
-					'ResearchTime'		    => array($varsRow['bonusResearchTime'], $varsRow['bonusResearchTimeUnit']),
+                    'Stech'		    => array($varsRow['bonusStech'], $varsRow['bonusStechUnit']),
                     'ResearchSlots'		    => array($varsRow['bonusResearchSlots'], $varsRow['bonusResearchSlotsUnit']),
                     'ResearchSlotPlanet'    => array($varsRow['bonusResearchSlotPlanet'], $varsRow['bonusResearchSlotPlanetUnit']),
-					'ShipTime'			    => array($varsRow['bonusShipTime'], $varsRow['bonusShipTimeUnit']),
-					'DefensiveTime'		    => array($varsRow['bonusDefensiveTime'], $varsRow['bonusDefensiveTimeUnit']),
+                    'Sfleet'			    => array($varsRow['bonusSfleet'], $varsRow['bonusSfleetUnit']),
+                    'Sdefense'		    => array($varsRow['bonusSdefense'], $varsRow['bonusSdefenseUnit']),
+                    'Smissile'		    => array($varsRow['bonusSmissile'], $varsRow['bonusSmissileUnit']),
 					'Resource'			    => array($varsRow['bonusResource'], $varsRow['bonusResourceUnit']),
                     'Pmetal'			    => array($varsRow['bonusPmetal'], $varsRow['bonusPmetalUnit']),
                     'Pcrystal'			    => array($varsRow['bonusPcrystal'], $varsRow['bonusPcrystalUnit']),
@@ -119,6 +125,11 @@ class VarsBuildCache implements BuildCache
 				902	=> $varsRow['production902'],
 				903	=> $varsRow['production903'],
 				911	=> $varsRow['production911'],
+                912	=> $varsRow['production912'],
+                913	=> $varsRow['production913'],
+                914	=> $varsRow['production914'],
+                915	=> $varsRow['production915'],
+                916	=> $varsRow['production916'],
 			);
 			
 			$ProdGrid[$varsRow['elementID']]['storage']	= array(
@@ -136,9 +147,9 @@ class VarsBuildCache implements BuildCache
 			if(($varsRow['bonusAttackA'] + $varsRow['bonusDefensiveA'] + $varsRow['bonusShieldA'] +
 			    $varsRow['bonusAttackD'] + $varsRow['bonusDefensiveD'] + $varsRow['bonusShieldD'] +
                 $varsRow['bonusAttack'] + $varsRow['bonusDefensive'] + $varsRow['bonusShield'] + 
-                $varsRow['bonusBuildTime'] + $varsRow['bonusBuildSlots'] + 
-				$varsRow['bonusResearchTime'] + $varsRow['bonusResearchSlots'] +  $varsRow['bonusResearchSlotPlanet'] +
-                $varsRow['bonusShipTime'] + $varsRow['bonusDefensiveTime'] + 
+                $varsRow['bonusSbuild'] + $varsRow['bonusBuildSlots'] + 
+				$varsRow['bonusStech'] + $varsRow['bonusResearchSlots'] +  $varsRow['bonusResearchSlotPlanet'] +
+                $varsRow['bonusSfleet'] + $varsRow['bonusSdefense'] + $varsRow['bonusSmissile'] +
                 $varsRow['bonusResource'] + $varsRow['bonusPmetal'] +  $varsRow['bonusPcrystal'] +  $varsRow['bonusPdeuterium'] + $varsRow['bonusSenergy'] + 
                 $varsRow['bonusResourceStorage'] + $varsRow['bonusShipStorage'] + 
                 $varsRow['bonusFlyTime'] + $varsRow['bonusFlyTimeCom'] + $varsRow['bonusFlyTimeImp'] + $varsRow['bonusFlyTimeHyp'] + 

@@ -246,18 +246,34 @@ var Dialog	= {
 	AllianceChat: function() {
 	    return OpenPopup('game.php?page=chat&action=alliance', "alliance_chat", 960, 900);
 	},
-	
-	open: function(url, width, height) {
-		$.fancybox({
-			width: width,
-			padding: 0,
-			height: height,
-			type: 'iframe',
-			href: url
-		});
-		
-		return false;
-	}
+    
+    galaxy: function() {
+	    return Dialog.open('game.php?page=galaxy', 960, 900);
+	},
+    
+	open: function (url, width, height) {
+        $.fancybox.open({
+            src: url,
+            type: 'iframe',
+            opts : {
+                iframe : {
+                    css : {
+                        width  : width,
+                        height : height, 
+                        /* 
+                        minWidth: width,
+                        minHeight: height,
+                        maxWidth: 9999,
+                        maxHeight: 9999,
+                        */
+                    }
+                },
+            }
+        });
+
+        return false;
+    },
+    
 }
 
 function NotifyBox(text) {
