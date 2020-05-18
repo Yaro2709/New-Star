@@ -157,7 +157,7 @@ define('AUTH_MOD'					, 1);
 define('AUTH_USR'					, 0);
 
 // Modules
-define('MODULE_AMOUNT'				, 47);//количество модов
+define('MODULE_AMOUNT'				, 50);//количество модов
 define('MODULE_ALLIANCE'			, 0);
 define('MODULE_BANLIST'				, 21);
 define('MODULE_BANNER'				, 37);
@@ -206,6 +206,9 @@ define('MODULE_MARKET'			    , 43);
 define('MODULE_RACE'				, 44);
 define('MODULE_PREMIUM'			    , 45);
 define('MODULE_BONUS'				, 46);
+define('MODULE_INFOBONUS'		    , 47);
+define('MODULE_BLACKMARKET'		    , 48);
+define('MODULE_CREATEMOON'		    , 49);
 //$new_code
 
 // FLEET STATE

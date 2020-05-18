@@ -185,7 +185,7 @@ class ShowShipyardPage extends AbstractGamePage
 			foreach($CurrentQueue as $ElementArray)
 			{
                 //$new_code
-                foreach($reslist['shipyard_no_build'] as $elementID) //проверка всего масива элементов
+                foreach($reslist['shipyard'] as $elementID) //проверка всего масива элементов
                 {
                     if($ElementArray[0] == $elementID) {
                         $NotBuilding = false;

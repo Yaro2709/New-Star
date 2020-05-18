@@ -76,6 +76,9 @@ $LNG['lm_governors']                                 = 'Governors';
 $LNG['lm_race']                                      = 'Race';
 $LNG['lm_premium']                                   = 'Premium';
 $LNG['lm_bonus']					                 = 'Bonus'; 
+$LNG['lm_infobonus']					             = 'Empire bonuses'; 
+$LNG['lm_createmoon']					             = 'Сreate moon'; 
+$LNG['lm_blackmarket']					             = 'Black market'; 
 $LNG['PPS']                                          = 'Production per hour';
 $LNG['PPD']                                          = 'Production per day';
 $LNG['PPW']                                          = 'Production per week';
@@ -118,8 +121,21 @@ $LNG['race_yes']                                     = 'Race selected.';
 //Conveyor
 $LNG['build_conv']                                   = 'Build';
 $LNG['sec_conv']                                     = 'per second';
+//Info bonus
+$LNG['inb_percent']                                  = 'Percentage';
+$LNG['inb_units']                                    = 'Units';
+$LNG['inb_name']                                     = 'Name';
+//Create moon
+$LNG['crm_value']                                    = 'To create the moon requires:';
+$LNG['crm_war']                                      = 'The moon has a random diameter!';
+$LNG['crm_create']                                   = 'The moon was successfully created!';
+$LNG['crm_moon_is']                                  = 'You already have a moon on this planet!';
+$LNG['crm_not_res']                                  = 'You do not have enough resources!';
 //Modul
 $LNG['modul_43']                                     = 'Market';
 $LNG['modul_44']                                     = 'Races';
 $LNG['modul_45']                                     = 'Premium';
 $LNG['modul_46']                                     = 'Button bonus';
+$LNG['modul_47']                                     = 'Empire Bonuses';
+$LNG['modul_48']                                     = 'Black Market';
+$LNG['modul_49']                                     = 'Create the Moon';

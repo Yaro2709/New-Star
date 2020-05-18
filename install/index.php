@@ -513,6 +513,7 @@ switch ($mode) {
 					), $installSQL));
 
 					$config = Config::get(Universe::current());
+                    $config->VERSION			= $installVersion;
 					$config->timezone			= @date_default_timezone_get();
 					$config->lang	 			= $LNG->getLanguage();
 					$config->OverviewNewsText	= $LNG['sql_welcome'] . $installVersion;

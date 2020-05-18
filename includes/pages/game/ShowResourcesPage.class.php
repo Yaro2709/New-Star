@@ -143,7 +143,7 @@ class ShowResourcesPage extends AbstractGamePage
 	}
 	function show()
 	{
-		global $LNG, $ProdGrid, $resource, $reslist, $USER, $PLANET, $res_stop_product;
+		global $LNG, $ProdGrid, $resource, $reslist, $USER, $PLANET, $resglobal;
 
 		$config	= Config::get();
 
@@ -211,8 +211,8 @@ class ShowResourcesPage extends AbstractGamePage
         $old_code */
         //$new_code
         //foreach($reslist['resstype'][2] as $resS) {
-        if($PLANET[''.$resource[$res_stop_product].'_used'] != 0) {
-            $prodLevel	= min(1, $PLANET[''.$resource[$res_stop_product].''] / abs($PLANET[''.$resource[$res_stop_product].'_used']));
+        if($PLANET[''.$resource[$resglobal['stop_product']].'_used'] != 0) {
+            $prodLevel	= min(1, $PLANET[''.$resource[$resglobal['stop_product']].''] / abs($PLANET[''.$resource[$resglobal['stop_product']].'_used']));
         } else {
             $prodLevel	= 0;
         }

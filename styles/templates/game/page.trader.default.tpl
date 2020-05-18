@@ -17,10 +17,10 @@
                         <form action="game.php?page=trader" method="post">
                            <input type="hidden" name="mode" value="trade">
                            <input type="hidden" name="resource" value="{$resourceID}">
-                           <input type="image" id="trader_metal" src="{$dpath}img/resources/{$resource.$resourceID}.gif" title="{$LNG.tech.$resourceID}" border="0" height="32" width="52"><br>
+                           <input type="image" id="trader_metal" src="{$dpath}img/resources/{$resourceID}f.png" title="{$LNG.tech.$resourceID}" border="0" height="50" width="50"><br>
                            <label for="trader_metal">{$LNG.tech.$resourceID}</label>
                         </form>
-                        {else}<img src="{$dpath}img/resources/{$resource.$resourceID}.gif" title="{$LNG.tech.$resourceID}" border="0" height="32" width="52" style="margin: 3px;"><br>{$LNG.tech.$resourceID}{/if}
+                        {else}<img src="{$dpath}img/resources/{$resourceID}f.png" title="{$LNG.tech.$resourceID}" border="0" height="50" width="50" style="margin: 3px;"><br>{$LNG.tech.$resourceID}{/if}
                      </div>
                      {/foreach}
                   </div>

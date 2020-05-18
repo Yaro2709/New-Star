@@ -30,7 +30,7 @@ class ShowResearchPage extends AbstractGamePage
 	
 	private function FastBuildingFromQueue()
 	{
-		global $PLANET, $USER, $resource;
+		global $PLANET, $USER, $resource, $resglobal;
 		$CurrentQueue  = unserialize($USER['b_tech_queue']);
 		if (empty($CurrentQueue) || empty($USER['b_tech'])){
 			$USER['b_tech_queue']	= '';
@@ -68,11 +68,11 @@ class ShowResearchPage extends AbstractGamePage
                         continue;
 
                     if($ListIDArray[4] != $PLANET['id'])
-                        $CPLANET		= $GLOBALS['DATABASE']->getFirstRow("SELECT ".$resource[6].", ".$resource[31]." FROM ".PLANETS." WHERE `id` = ".$ListIDArray[4].";");
+                        $CPLANET		= $GLOBALS['DATABASE']->getFirstRow("SELECT ".$resource[$resglobal['tech_speed']]." FROM ".PLANETS." WHERE `id` = ".$ListIDArray[4].";");
                     else
                         $CPLANET		= $PLANET;
 				
-                    $CPLANET[$resource[31].'_inter']	= $this->ecoObj->getNetworkLevel($USER, $CPLANET);
+                    $CPLANET[$resource[$resglobal['tech_speed']].'_inter']	= $this->ecoObj->getNetworkLevel($USER, $CPLANET);
                     $BuildEndTime       				+= BuildFunctions::getBuildingTime($USER, $CPLANET, NULL, $ListIDArray[0]);
                     $ListIDArray[3]						= $BuildEndTime;
                     $NewCurrentQueue[]					= $ListIDArray;				
@@ -81,11 +81,9 @@ class ShowResearchPage extends AbstractGamePage
                 if(!empty($NewCurrentQueue)) {
                     $USER['b_tech']    			= TIMESTAMP;
                     $USER['b_tech_queue'] 		= serialize($NewCurrentQueue);
-                    $this->ecoObj->USER			= $USER;
-                    $this->ecoObj->PLANET		= $PLANET;
+                    $this->ecoObj->setData($USER, $PLANET);
                     $this->ecoObj->SetNextQueueTechOnTop();
-                    $USER						= $this->ecoObj->USER;
-                    $PLANET						= $this->ecoObj->PLANET;
+				list($USER, $PLANET)		= $this->ecoObj->getData();
                 } else {
                     $USER['b_tech']    			= 0;
                     $USER['b_tech_queue'] 		= '';
@@ -111,7 +109,7 @@ class ShowResearchPage extends AbstractGamePage
 	
 	private function CancelBuildingFromQueue()
 	{
-		global $PLANET, $USER, $resource;
+		global $PLANET, $USER, $resource, $resglobal;
 		$CurrentQueue  = unserialize($USER['b_tech_queue']);
 		if (empty($CurrentQueue) || empty($USER['b_tech']))
 		{
@@ -179,16 +177,15 @@ class ShowResearchPage extends AbstractGamePage
 					continue;
 					
 				if($ListIDArray[4] != $PLANET['id']) {
-					$sql = "SELECT :resource6, :resource31, id FROM %%PLANETS%% WHERE id = :id;";
+					$sql = "SELECT :resource, id FROM %%PLANETS%% WHERE id = :id;";
 					$CPLANET = $db->selectSingle($sql, array(
-						':resource6'	=> $resource[6],
-						':resource31'	=> $resource[31],
+						':resource'	    => $resource[$resglobal['tech_speed']],
 						':id'			=> $ListIDArray[4]
 					));
 				} else
 					$CPLANET		= $PLANET;
 				
-				$CPLANET[$resource[31].'_inter']	= $this->ecoObj->getNetworkLevel($USER, $CPLANET);
+				$CPLANET[$resource[$resglobal['tech_speed']].'_inter']	= $this->ecoObj->getNetworkLevel($USER, $CPLANET);
 				$BuildEndTime       				+= BuildFunctions::getBuildingTime($USER, $CPLANET, NULL, $ListIDArray[0]);
 				$ListIDArray[3]						= $BuildEndTime;
 				$NewCurrentQueue[]					= $ListIDArray;				
@@ -211,7 +208,7 @@ class ShowResearchPage extends AbstractGamePage
 
 	private function RemoveBuildingFromQueue($QueueID)
 	{
-		global $USER, $PLANET, $resource;
+		global $USER, $PLANET, $resource, $resglobal;
 		
 		$CurrentQueue  = unserialize($USER['b_tech_queue']);
 		if ($QueueID <= 1 || empty($CurrentQueue))
@@ -245,16 +242,15 @@ class ShowResearchPage extends AbstractGamePage
 				if($ListIDArray[4] != $PLANET['id']) {
 					$db = Database::get();
 
-					$sql = "SELECT :resource6, :resource31 FROM %%PLANETS%% WHERE id = :id;";
+					$sql = "SELECT :resource FROM %%PLANETS%% WHERE id = :id;";
 					$CPLANET = $db->selectSingle($sql, array(
-						':resource6'	=> $resource[6],
-						':resource31'	=> $resource[31],
+						':resource'	    => $resource[$resglobal['tech_speed']],
 						':id'			=> $ListIDArray[4]
 					));
 				} else
 					$CPLANET				= $PLANET;
 				
-				$CPLANET[$resource[31].'_inter']	= $this->ecoObj->getNetworkLevel($USER, $CPLANET);
+				$CPLANET[$resource[$resglobal['tech_speed']].'_inter']	= $this->ecoObj->getNetworkLevel($USER, $CPLANET);
 				
 				$BuildEndTime       += BuildFunctions::getBuildingTime($USER, $CPLANET, NULL, $ListIDArray[0]);
 				$ListIDArray[3]		= $BuildEndTime;
@@ -417,7 +413,7 @@ class ShowResearchPage extends AbstractGamePage
 
 	public function show()
 	{
-		global $PLANET, $USER, $LNG, $resource, $reslist, $pricelist, $requeriments;
+		global $PLANET, $USER, $LNG, $resource, $reslist, $pricelist, $requeriments, $resglobal;
         
 		$TheCommand		= HTTP::_GP('cmd','');
 		$Element     	= HTTP::_GP('tech', 0);
@@ -426,7 +422,7 @@ class ShowResearchPage extends AbstractGamePage
 		$lvlup1      	= HTTP::_GP('lvlup1', 0);
 		$levelToBuildInFo      	= HTTP::_GP('levelToBuildInFo', 0);
 		
-		$PLANET[$resource[31].'_inter']	= ResourceUpdate::getNetworkLevel($USER, $PLANET);	
+		$PLANET[$resource[$resglobal['tech_speed']].'_inter']	= ResourceUpdate::getNetworkLevel($USER, $PLANET);	
 
 		if(!empty($TheCommand) && $_SERVER['REQUEST_METHOD'] === 'POST' && $USER['urlaubs_modus'] == 0)
 		{
@@ -512,7 +508,7 @@ class ShowResearchPage extends AbstractGamePage
 		$this->assign(array(
 			'ResearchList'	=> $ResearchList,
 			'IsLabinBuild'	=> !$bContinue,
-			'IsFullQueue'	=> Config::get()->max_elements_tech == 0 || (Config::get()->max_elements_tech + + $USER['factor']['ResearchSlots']) == count($TechQueue),
+			'IsFullQueue'	=> Config::get()->max_elements_tech == 0 || (Config::get()->max_elements_tech + $USER['factor']['ResearchSlots']) == count($TechQueue),
 			'Queue'			=> $TechQueue,
 			'need_dm'		=> floor(10 + ((800*($USER['b_tech']-TIMESTAMP))/3600)),
 		));

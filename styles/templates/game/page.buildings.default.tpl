@@ -127,7 +127,10 @@
                   <div class="btn_build_border">
                      <span class="btn_build red">{$LNG.bd_maxlevel}</span>
                   </div>
-                  {elseif ($isBusy.research && ($ID == 6 || $ID == 31)) || ($isBusy.shipyard && ($ID == 15 || $ID == 21))}
+                  {elseif 
+                  ($isBusy.research && ($ID == in_array($ID, $lab))) 
+                  || 
+                  ($isBusy.shipyard && ($ID == in_array($ID, $shipyard)))}
                   <div class="btn_build_border">
                      <span class="btn_build red">{$LNG.bd_working}</span>
                   </div>

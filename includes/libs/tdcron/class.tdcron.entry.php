@@ -38,28 +38,11 @@
 	 *
 	 * Usually you won't need to call this class directly.
 	 *
-	 * Copyright (c) 2010 Christian Land / tagdocs.de
-	 *
-	 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
-	 * associated documentation files (the "Software"), to deal in the Software without restriction,
-	 * including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
-	 * and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
-	 * subject to the following conditions:
-	 *
-	 * The above copyright notice and this permission notice shall be included in all copies or substantial
-	 * portions of the Software.
-	 *
-	 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
-	 * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-	 * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-	 * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-	 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-	 *
 	 * @author	Christian Land <devel@tagdocs.de>
-	 * @package	tinyCron
-	 * @subpackage	tinyCronEntry
-	 * @copyright	Copyright (c) 2010, Christian Land / tagdocs.de
-	 * @version	v0.0.1 beta
+	 * @package	tdCron
+	 * @copyright	Copyright (c) 2010-2018, Christian Land / tagdocs.de
+	 * @license	http://opensource.org/licenses/MIT	MIT License
+	 * @version	1.0.0
 	 */
 
 	class tdCronEntry {
@@ -74,41 +57,35 @@
 		 * Ranges.
 		 * @var mixed
 		 */
-		static private $ranges		= array(
-							IDX_MINUTE		=> array( 'min'	=> 0,
-											  'max'	=> 59	),	// Minutes
+		static private $ranges		= array(IDX_MINUTE		=> array( 'min'	=> 0,
+											  'max'	=> 59	),		// Minutes
 							IDX_HOUR		=> array( 'min'	=> 0,
-											  'max'	=> 23	),	// Hours
+											  'max'	=> 23	),		// Hours
 							IDX_DAY			=> array( 'min'	=> 1,
-											  'max'	=> 31	),	// Days
+											  'max'	=> 31	),		// Days
 							IDX_MONTH		=> array( 'min'	=> 1,
-											  'max'	=> 12	),	// Months
+											  'max'	=> 12	),		// Months
 							IDX_WEEKDAY		=> array( 'min'	=> 0,
-											  'max'	=> 7	)	// Weekdays
-						);
+											  'max'	=> 7	)	);	// Weekdays
 
 		/**
 		 * Named intervals.
 		 * @var mixed
 		 */
-		static private $intervals	= array(
-							'@yearly'	=> '0 0 1 1 *',
+		static private $intervals	= array('@yearly'	=> '0 0 1 1 *',
 							'@annualy'	=> '0 0 1 1 *',
 							'@monthly'	=> '0 0 1 * *',
 							'@weekly'	=> '0 0 * * 0',
 							'@midnight'	=> '0 0 * * *',
 							'@daily'	=> '0 0 * * *',
-							'@hourly'	=> '0 * * * *'
-							);
+							'@hourly'	=> '0 * * * *'		);
 
 
 		/**
 		 * Possible keywords for months/weekdays.
 		 * @var mixed
 		 */
-		static private $keywords	= array(
-							IDX_MONTH	=> array(
-										'/(january|januar|jan)/i'			=> 1,
+		static private $keywords	= array(IDX_MONTH	=> array('/(january|januar|jan)/i'			=> 1,
 										'/(february|februar|feb)/i'			=> 2,
 										'/(march|maerz|märz|mar|mae|mär)/i'		=> 3,
 										'/(april|apr)/i'				=> 4,
@@ -119,18 +96,14 @@
 										'/(september|sep)/i'				=> 9,
 										'/(october|oktober|okt|oct)/i'			=> 10,
 										'/(november|nov)/i'				=> 11,
-										'/(december|dezember|dec|dez)/i'		=> 12
-										),
-							IDX_WEEKDAY	=> array(
-										'/(sunday|sonntag|sun|son|su|so)/i'		=> 0,
+										'/(december|dezember|dec|dez)/i'		=> 12		),
+							IDX_WEEKDAY	=> array('/(sunday|sonntag|sun|son|su|so)/i'		=> 0,
 										'/(monday|montag|mon|mo)/i'			=> 1,
 										'/(tuesday|dienstag|die|tue|tu|di)/i'		=> 2,
 										'/(wednesdays|mittwoch|mit|wed|we|mi)/i'	=> 3,
 										'/(thursday|donnerstag|don|thu|th|do)/i'	=> 4,
 										'/(friday|freitag|fre|fri|fr)/i'		=> 5,
-										'/(saturday|samstag|sam|sat|sa)/i'		=> 6
-										)
-							);
+										'/(saturday|samstag|sam|sat|sa)/i'		=> 6		)	);
 
 		/**
 		 * parseExpression() analyses crontab-expressions like "* * 1,2,3 * mon,tue" and returns an array
@@ -209,11 +182,9 @@
 
 	                if (isset(self::$keywords[$idx])) {
 
-	                	$segment	= preg_replace(
-	                					array_keys(self::$keywords[$idx]),
+	                	$segment	= preg_replace( array_keys(self::$keywords[$idx]),
 	                					array_values(self::$keywords[$idx]),
-	                					$segment
-	                					);
+	                					$segment				);
 
 			}
 

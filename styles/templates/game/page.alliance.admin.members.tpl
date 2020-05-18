@@ -61,7 +61,7 @@
 
             $('.rankSelect').on('change', function () {
                 $.post('game.php?page=alliance&mode=admin&action=rank&ajax=1', $(this).serialize(), function (data) {
-                    NotifyBox(data);
+                    //NotifyBox(data);
                 }, 'json');
             });
         });

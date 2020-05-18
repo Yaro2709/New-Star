@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 11 2020 г., 17:40
+-- Время создания: Май 18 2020 г., 16:44
 -- Версия сервера: 5.7.29-log
 -- Версия PHP: 7.3.16
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `newstarnet`
+-- База данных: `new-star`
 --
 
 -- --------------------------------------------------------
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `uni1_aks` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(50) DEFAULT NULL,
-  `target` int(10) UNSIGNED NOT NULL,
+  `target` int(11) UNSIGNED NOT NULL,
   `ankunft` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -41,24 +41,24 @@ CREATE TABLE `uni1_aks` (
 --
 
 CREATE TABLE `uni1_alliance` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `ally_name` varchar(50) DEFAULT '',
   `ally_tag` varchar(20) DEFAULT '',
-  `ally_owner` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `ally_owner` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `ally_register_time` int(11) NOT NULL DEFAULT '0',
   `ally_description` text,
   `ally_web` varchar(255) DEFAULT '',
   `ally_text` text,
   `ally_image` varchar(255) DEFAULT '',
   `ally_request` varchar(1000) DEFAULT NULL,
-  `ally_request_notallow` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
+  `ally_request_notallow` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
   `ally_request_min_points` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `ally_owner_range` varchar(32) DEFAULT '',
   `ally_members` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
-  `ally_stats` tinyint(3) UNSIGNED NOT NULL DEFAULT '1',
-  `ally_diplo` tinyint(3) UNSIGNED NOT NULL DEFAULT '1',
+  `ally_stats` tinyint(1) UNSIGNED NOT NULL DEFAULT '1',
+  `ally_diplo` tinyint(1) UNSIGNED NOT NULL DEFAULT '1',
   `ally_universe` tinyint(3) UNSIGNED NOT NULL,
-  `ally_max_members` int(10) UNSIGNED NOT NULL DEFAULT '20',
+  `ally_max_members` int(5) UNSIGNED NOT NULL DEFAULT '20',
   `ally_events` varchar(55) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -107,7 +107,7 @@ CREATE TABLE `uni1_alliance_request` (
 --
 
 CREATE TABLE `uni1_banned` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `who` varchar(64) NOT NULL DEFAULT '',
   `theme` varchar(500) NOT NULL,
   `time` int(11) NOT NULL DEFAULT '0',
@@ -124,9 +124,9 @@ CREATE TABLE `uni1_banned` (
 --
 
 CREATE TABLE `uni1_buddy` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `sender` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `owner` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `id` int(11) UNSIGNED NOT NULL,
+  `sender` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `owner` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `universe` tinyint(3) UNSIGNED NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -137,7 +137,7 @@ CREATE TABLE `uni1_buddy` (
 --
 
 CREATE TABLE `uni1_buddy_request` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `text` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -176,7 +176,7 @@ CREATE TABLE `uni1_chat_messages` (
   `id` int(11) NOT NULL,
   `userID` int(11) NOT NULL,
   `userName` varchar(64) NOT NULL,
-  `userRole` int(11) NOT NULL,
+  `userRole` int(1) NOT NULL,
   `channel` int(11) NOT NULL,
   `dateTime` datetime NOT NULL,
   `ip` varbinary(16) NOT NULL,
@@ -192,7 +192,7 @@ CREATE TABLE `uni1_chat_messages` (
 CREATE TABLE `uni1_chat_online` (
   `userID` int(11) NOT NULL,
   `userName` varchar(64) NOT NULL,
-  `userRole` int(11) NOT NULL,
+  `userRole` int(1) NOT NULL,
   `channel` int(11) NOT NULL,
   `dateTime` datetime NOT NULL,
   `ip` varbinary(16) NOT NULL
@@ -292,8 +292,8 @@ CREATE TABLE `uni1_config` (
   `chat_allowdelmes` tinyint(1) NOT NULL DEFAULT '1',
   `chat_logmessage` tinyint(1) NOT NULL DEFAULT '1',
   `chat_nickchange` tinyint(1) NOT NULL DEFAULT '1',
-  `chat_botname` varchar(15) NOT NULL DEFAULT '2Moons',
-  `chat_channelname` varchar(15) NOT NULL DEFAULT '2Moons',
+  `chat_botname` varchar(15) NOT NULL DEFAULT 'New-Star',
+  `chat_channelname` varchar(15) NOT NULL DEFAULT 'New-Star',
   `chat_socket_active` tinyint(1) NOT NULL DEFAULT '0',
   `chat_socket_host` varchar(64) NOT NULL DEFAULT '',
   `chat_socket_ip` varchar(40) NOT NULL DEFAULT '',
@@ -352,7 +352,7 @@ CREATE TABLE `uni1_config` (
 --
 
 INSERT INTO `uni1_config` (`uni`, `VERSION`, `sql_revision`, `users_amount`, `game_speed`, `fleet_speed`, `resource_multiplier`, `storage_multiplier`, `message_delete_behavior`, `message_delete_days`, `halt_speed`, `energySpeed`, `Fleet_Cdr`, `Defs_Cdr`, `initial_fields`, `uni_name`, `game_name`, `game_disable`, `close_reason`, `metal_basic_income`, `crystal_basic_income`, `deuterium_basic_income`, `energy_basic_income`, `build_basic_income`, `tech_basic_income`, `fleet_basic_income`, `defense_basic_income`, `missile_basic_income`, `LastSettedGalaxyPos`, `LastSettedSystemPos`, `LastSettedPlanetPos`, `noobprotection`, `noobprotectiontime`, `noobprotectionmulti`, `forum_url`, `adm_attack`, `debug`, `lang`, `stat`, `stat_level`, `stat_last_update`, `stat_settings`, `stat_update_time`, `stat_last_db_update`, `stats_fly_lock`, `cron_lock`, `ts_modon`, `ts_server`, `ts_tcpport`, `ts_udpport`, `ts_timeout`, `ts_version`, `ts_cron_last`, `ts_cron_interval`, `ts_login`, `ts_password`, `reg_closed`, `OverviewNewsFrame`, `OverviewNewsText`, `capaktiv`, `cappublic`, `capprivate`, `min_build_time`, `mail_active`, `mail_use`, `smtp_host`, `smtp_port`, `smtp_user`, `smtp_pass`, `smtp_ssl`, `smtp_sendmail`, `smail_path`, `user_valid`, `fb_on`, `fb_apikey`, `fb_skey`, `ga_active`, `ga_key`, `moduls`, `trade_allowed_ships`, `trade_charge`, `chat_closed`, `chat_allowchan`, `chat_allowmes`, `chat_allowdelmes`, `chat_logmessage`, `chat_nickchange`, `chat_botname`, `chat_channelname`, `chat_socket_active`, `chat_socket_host`, `chat_socket_ip`, `chat_socket_port`, `chat_socket_chatid`, `max_galaxy`, `max_system`, `max_planets`, `planet_factor`, `max_elements_build`, `max_elements_tech`, `max_elements_ships`, `min_player_planets`, `planets_tech`, `planets_officier`, `planets_per_tech`, `max_fleet_per_build`, `deuterium_cost_galaxy`, `max_dm_missions`, `max_overflow`, `moon_factor`, `moon_chance`, `cost_trader`, `ressources_trader`, `factor_university`, `max_fleets_per_acs`, `debris_moon`, `vmode_min_time`, `gate_wait_time`, `metal_start`, `crystal_start`, `deuterium_start`, `darkmatter_start`, `ttf_file`, `ref_active`, `ref_bonus`, `ref_minpoints`, `ref_max_referals`, `del_oldstuff`, `del_user_manually`, `del_user_automatic`, `del_user_sendmail`, `sendmail_inactive`, `silo_factor`, `timezone`, `dst`, `disclamerAddress`, `disclamerPhone`, `disclamerMail`, `disclamerNotice`, `alliance_create_min_points`) VALUES
-(1, '1.0.4.git', 0, 2, 2500, 2500, 10, 1, 0, 7, 1, 1, 30, 0, 163, 'Uni 1', 'New-Star', 1, '', 20, 10, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 0, 5000, 5, 'http://2moons.cc', 0, 0, 'ru', 0, 2, 0, 1000, 25, 0, 0, 0, 0, '', 0, 0, 1, 2, 0, 5, '', '', 0, 1, '', 0, '', '', 1, 0, 0, '', 0, '', '', '', '', '/usr/sbin/sendmail', 0, 0, '', '', '0', '', '1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1', '202,401', '30', 0, 1, 1, 1, 1, 1, 'New-Star', 'New-Star', 0, '', '', 0, 1, 9, 200, 12, 1.0, 5, 2, 10, 9, 11, 5, 0.5, 1000000, 0, 1, 1.0, 1.0, 20, 750, 921, 8, 16, 1, 259200, 3600, 500, 250, 100, 500, 'styles/resource/fonts/DroidSansMono.ttf', 1, 1000, 2000, 5, 3, 7, 30, 21, 0, 1, 'Europe/Moscow', '0', '', '', '', '', 0);
+(1, '1.0.git', 0, 1, 2500, 2500, 1, 1, 0, 7, 1, 1, 30, 0, 163, 'Вселенная 1', 'New-Star', 1, 'Сервер в данный момент недоступен', 20, 10, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 5000, 5, 'http://2moons.cc', 0, 0, 'ru', 0, 2, 0, 1000, 25, 0, 0, 0, 0, '', 0, 0, 1, 2, 0, 5, '', '', 0, 1, 'Добро пожаловать в New-Star v1.0.5.git', 0, '', '', 1, 0, 0, '', 0, '', '', '', '', '/usr/sbin/sendmail', 0, 0, '', '', '0', '', '1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1', '202,401', '30', 0, 1, 1, 1, 1, 1, 'New-Star', 'New-Star', 0, '', '', 0, 1, 9, 400, 15, 1.0, 5, 2, 10, 9, 11, 5, 0.5, 1000000, 10, 1, 1.0, 1.0, 20, 750, 921, 8, 16, 1, 259200, 3600, 500, 500, 0, 0, 'styles/resource/fonts/DroidSansMono.ttf', 0, 1000, 2000, 5, 3, 7, 30, 21, 0, 1, 'Europe/Moscow', '2', '', '', '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -361,7 +361,7 @@ INSERT INTO `uni1_config` (`uni`, `VERSION`, `sql_revision`, `users_amount`, `ga
 --
 
 CREATE TABLE `uni1_cronjobs` (
-  `cronjobID` int(10) UNSIGNED NOT NULL,
+  `cronjobID` int(11) UNSIGNED NOT NULL,
   `name` varchar(32) NOT NULL,
   `isActive` tinyint(1) NOT NULL DEFAULT '1',
   `min` varchar(32) NOT NULL,
@@ -379,14 +379,14 @@ CREATE TABLE `uni1_cronjobs` (
 --
 
 INSERT INTO `uni1_cronjobs` (`cronjobID`, `name`, `isActive`, `min`, `hours`, `dom`, `month`, `dow`, `class`, `nextTime`, `lock`) VALUES
-(1, 'referral', 1, '0,30', '*', '*', '*', '*', 'ReferralCronjob', 1589202000, NULL),
-(2, 'statistic', 1, '0,30', '*', '*', '*', '*', 'StatisticCronjob', 1589202000, NULL),
-(3, 'daily', 1, '25', '2', '*', '*', '*', 'DailyCronjob', 1589239500, NULL),
-(4, 'cleaner', 1, '45', '2', '*', '*', '6', 'CleanerCronjob', 1589586300, 'ac15f537b97f8ab60778e6ef397de2bd'),
-(5, 'inactive', 1, '30', '1', '*', '*', '0,3,6', 'InactiveMailCronjob', 1589322600, NULL),
-(6, 'teamspeak', 0, '*/3', '*', '*', '*', '*', 'TeamSpeakCronjob', 1589200920, NULL),
-(7, 'databasedump', 1, '30', '1', '*', '*', '1', 'DumpCronjob', 1589754600, 'ac15f537b97f8ab60778e6ef397de2bd'),
-(8, 'tracking', 1, '50', '20', '*', '*', '0', 'TrackingCronjob', 1589737800, NULL);
+(1, 'referral', 1, '0,30', '*', '*', '*', '*', 'ReferralCronjob', 1589810400, NULL),
+(2, 'statistic', 1, '0,30', '*', '*', '*', '*', 'StatisticCronjob', 1589810400, NULL),
+(3, 'daily', 1, '25', '2', '*', '*', '*', 'DailyCronjob', 1589844300, NULL),
+(4, 'cleaner', 1, '45', '2', '*', '*', '6', 'CleanerCronjob', 1590191100, 'bfe9de1015c015cb43a62fd3700a2c03'),
+(5, 'inactive', 1, '30', '1', '*', '*', '0,3,6', 'InactiveMailCronjob', 1589927400, NULL),
+(6, 'teamspeak', 0, '*/3', '*', '*', '*', '*', 'TeamSpeakCronjob', 1589809320, NULL),
+(7, 'databasedump', 1, '30', '1', '*', '*', '1', 'DumpCronjob', 1590359400, 'bfe9de1015c015cb43a62fd3700a2c03'),
+(8, 'tracking', 1, '32', '14', '*', '*', '0', 'TrackingCronjob', 1590319920, NULL);
 
 -- --------------------------------------------------------
 
@@ -395,10 +395,20 @@ INSERT INTO `uni1_cronjobs` (`cronjobID`, `name`, `isActive`, `min`, `hours`, `d
 --
 
 CREATE TABLE `uni1_cronjobs_log` (
-  `cronjobId` int(10) UNSIGNED NOT NULL,
+  `cronjobId` int(11) UNSIGNED NOT NULL,
   `executionTime` datetime NOT NULL,
   `lockToken` varchar(32) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `uni1_cronjobs_log`
+--
+
+INSERT INTO `uni1_cronjobs_log` (`cronjobId`, `executionTime`, `lockToken`) VALUES
+(1, '2020-05-18 16:39:13', 'bfe9de1015c015cb43a62fd3700a2c03'),
+(5, '2020-05-18 16:39:13', 'bfe9de1015c015cb43a62fd3700a2c03'),
+(2, '2020-05-18 16:39:13', 'bfe9de1015c015cb43a62fd3700a2c03'),
+(3, '2020-05-18 16:39:13', 'bfe9de1015c015cb43a62fd3700a2c03');
 
 -- --------------------------------------------------------
 
@@ -407,11 +417,11 @@ CREATE TABLE `uni1_cronjobs_log` (
 --
 
 CREATE TABLE `uni1_diplo` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `owner_1` int(10) UNSIGNED NOT NULL,
-  `owner_2` int(10) UNSIGNED NOT NULL,
-  `level` tinyint(3) UNSIGNED NOT NULL,
-  `accept` tinyint(3) UNSIGNED NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
+  `owner_1` int(11) UNSIGNED NOT NULL,
+  `owner_2` int(11) UNSIGNED NOT NULL,
+  `level` tinyint(1) UNSIGNED NOT NULL,
+  `accept` tinyint(1) UNSIGNED NOT NULL,
   `accept_text` varchar(255) NOT NULL,
   `universe` tinyint(3) UNSIGNED NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -423,36 +433,36 @@ CREATE TABLE `uni1_diplo` (
 --
 
 CREATE TABLE `uni1_fleets` (
-  `fleet_id` bigint(20) UNSIGNED NOT NULL,
-  `fleet_owner` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `fleet_id` bigint(11) UNSIGNED NOT NULL,
+  `fleet_owner` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_mission` tinyint(3) UNSIGNED NOT NULL DEFAULT '3',
   `fleet_amount` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_array` text,
   `fleet_universe` tinyint(3) UNSIGNED NOT NULL,
   `fleet_start_time` int(11) NOT NULL DEFAULT '0',
-  `fleet_start_id` int(10) UNSIGNED NOT NULL,
+  `fleet_start_id` int(11) UNSIGNED NOT NULL,
   `fleet_start_galaxy` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_start_system` smallint(5) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_start_planet` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_start_type` tinyint(3) UNSIGNED NOT NULL DEFAULT '1',
   `fleet_end_time` int(11) NOT NULL DEFAULT '0',
   `fleet_end_stay` int(11) NOT NULL DEFAULT '0',
-  `fleet_end_id` int(10) UNSIGNED NOT NULL,
+  `fleet_end_id` int(11) UNSIGNED NOT NULL,
   `fleet_end_galaxy` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_end_system` smallint(5) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_end_planet` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_end_type` tinyint(3) UNSIGNED NOT NULL DEFAULT '1',
-  `fleet_target_obj` smallint(5) UNSIGNED NOT NULL DEFAULT '0',
+  `fleet_target_obj` smallint(3) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_resource_metal` double(50,0) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_resource_crystal` double(50,0) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_resource_deuterium` double(50,0) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_resource_darkmatter` double(50,0) UNSIGNED NOT NULL DEFAULT '0',
-  `fleet_target_owner` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `fleet_target_owner` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_group` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_mess` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
   `start_time` int(11) DEFAULT NULL,
   `fleet_busy` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
-  `hasCanceled` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
+  `hasCanceled` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
   `sector` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -475,13 +485,13 @@ CREATE TABLE `uni1_fleet_event` (
 --
 
 CREATE TABLE `uni1_log` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `mode` tinyint(3) UNSIGNED NOT NULL,
-  `admin` int(10) UNSIGNED NOT NULL,
+  `admin` int(11) UNSIGNED NOT NULL,
   `target` int(11) NOT NULL,
-  `time` int(10) UNSIGNED NOT NULL,
+  `time` int(11) UNSIGNED NOT NULL,
   `data` text NOT NULL,
-  `universe` tinyint(4) NOT NULL
+  `universe` tinyint(3) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -491,31 +501,31 @@ CREATE TABLE `uni1_log` (
 --
 
 CREATE TABLE `uni1_log_fleets` (
-  `fleet_id` bigint(20) UNSIGNED NOT NULL,
-  `fleet_owner` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `fleet_id` bigint(11) UNSIGNED NOT NULL,
+  `fleet_owner` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_mission` tinyint(3) UNSIGNED NOT NULL DEFAULT '3',
   `fleet_amount` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_array` text,
   `fleet_universe` tinyint(3) UNSIGNED NOT NULL,
   `fleet_start_time` int(11) NOT NULL DEFAULT '0',
-  `fleet_start_id` int(10) UNSIGNED NOT NULL,
+  `fleet_start_id` int(11) UNSIGNED NOT NULL,
   `fleet_start_galaxy` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_start_system` smallint(5) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_start_planet` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_start_type` tinyint(3) UNSIGNED NOT NULL DEFAULT '1',
   `fleet_end_time` int(11) NOT NULL DEFAULT '0',
   `fleet_end_stay` int(11) NOT NULL DEFAULT '0',
-  `fleet_end_id` int(10) UNSIGNED NOT NULL,
+  `fleet_end_id` int(11) UNSIGNED NOT NULL,
   `fleet_end_galaxy` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_end_system` smallint(5) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_end_planet` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_end_type` tinyint(3) UNSIGNED NOT NULL DEFAULT '1',
-  `fleet_target_obj` smallint(5) UNSIGNED NOT NULL DEFAULT '0',
+  `fleet_target_obj` smallint(3) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_resource_metal` double(50,0) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_resource_crystal` double(50,0) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_resource_deuterium` double(50,0) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_resource_darkmatter` double(50,0) UNSIGNED NOT NULL DEFAULT '0',
-  `fleet_target_owner` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `fleet_target_owner` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_group` varchar(15) NOT NULL DEFAULT '0',
   `fleet_mess` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
   `start_time` int(11) DEFAULT NULL,
@@ -551,7 +561,7 @@ CREATE TABLE `uni1_market` (
   `lot` text,
   `price` bigint(20) NOT NULL DEFAULT '0',
   `time` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -561,8 +571,8 @@ CREATE TABLE `uni1_market` (
 
 CREATE TABLE `uni1_messages` (
   `message_id` bigint(20) UNSIGNED NOT NULL,
-  `message_owner` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `message_sender` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `message_owner` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `message_sender` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `message_time` int(11) NOT NULL DEFAULT '0',
   `message_type` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
   `message_from` varchar(128) DEFAULT NULL,
@@ -570,7 +580,7 @@ CREATE TABLE `uni1_messages` (
   `message_text` text,
   `message_unread` tinyint(4) NOT NULL DEFAULT '1',
   `message_universe` tinyint(3) UNSIGNED NOT NULL,
-  `message_deleted` int(10) UNSIGNED DEFAULT NULL
+  `message_deleted` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -591,7 +601,7 @@ CREATE TABLE `uni1_multi` (
 --
 
 CREATE TABLE `uni1_news` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `user` varchar(64) NOT NULL,
   `date` int(11) NOT NULL,
   `title` varchar(64) NOT NULL,
@@ -606,9 +616,9 @@ CREATE TABLE `uni1_news` (
 
 CREATE TABLE `uni1_notes` (
   `id` int(11) NOT NULL,
-  `owner` int(10) UNSIGNED DEFAULT NULL,
+  `owner` int(11) UNSIGNED DEFAULT NULL,
   `time` int(11) DEFAULT NULL,
-  `priority` tinyint(3) UNSIGNED DEFAULT '1',
+  `priority` tinyint(1) UNSIGNED DEFAULT '1',
   `title` varchar(32) DEFAULT NULL,
   `text` text,
   `universe` tinyint(3) UNSIGNED NOT NULL
@@ -621,7 +631,7 @@ CREATE TABLE `uni1_notes` (
 --
 
 CREATE TABLE `uni1_planets` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(20) DEFAULT 'Hauptplanet',
   `id_owner` int(10) UNSIGNED DEFAULT NULL,
   `universe` tinyint(3) UNSIGNED NOT NULL,
@@ -738,8 +748,7 @@ CREATE TABLE `uni1_planets` (
 --
 
 INSERT INTO `uni1_planets` (`id`, `name`, `id_owner`, `universe`, `galaxy`, `system`, `planet`, `last_update`, `planet_type`, `destruyed`, `b_building`, `b_building_id`, `b_hangar`, `b_hangar_id`, `b_hangar_plus`, `image`, `diameter`, `field_current`, `field_max`, `temp_min`, `temp_max`, `eco_hash`, `metal`, `metal_perhour`, `metal_max`, `crystal`, `crystal_perhour`, `crystal_max`, `deuterium`, `deuterium_perhour`, `deuterium_max`, `energy_used`, `energy`, `build_used`, `build`, `tech_used`, `tech`, `fleet_used`, `fleet`, `defense_used`, `defense`, `missile_used`, `missile`, `metal_mine`, `crystal_mine`, `deuterium_sintetizer`, `solar_plant`, `fusion_plant`, `robot_factory`, `nano_factory`, `hangar`, `metal_store`, `crystal_store`, `deuterium_store`, `laboratory`, `terraformer`, `university`, `ally_deposit`, `silo`, `mondbasis`, `phalanx`, `sprungtor`, `small_ship_cargo`, `big_ship_cargo`, `light_hunter`, `heavy_hunter`, `crusher`, `battle_ship`, `colonizer`, `recycler`, `spy_sonde`, `bomber_ship`, `solar_satelit`, `destructor`, `dearth_star`, `battleship`, `lune_noir`, `ev_transporter`, `star_crasher`, `giga_recykler`, `dm_ship`, `orbital_station`, `misil_launcher`, `small_laser`, `big_laser`, `gauss_canyon`, `ionic_canyon`, `buster_canyon`, `small_protection_shield`, `planet_protector`, `big_protection_shield`, `graviton_canyon`, `interceptor_misil`, `interplanetary_misil`, `metal_mine_porcent`, `crystal_mine_porcent`, `deuterium_sintetizer_porcent`, `solar_plant_porcent`, `university_porcent`, `fusion_plant_porcent`, `robot_factory_porcent`, `nano_factory_porcent`, `hangar_porcent`, `laboratory_porcent`, `silo_porcent`, `solar_satelit_porcent`, `last_jump_time`, `der_metal`, `der_crystal`, `id_luna`) VALUES
-(5, 'Главная планета', 3, 1, 1, 1, 3, 1589200899, '1', 0, 0, '', 0, '', 0, 'dschjungelplanet09', 12767, 55, 163, 36, 76, 'e33187dea6d4880ba60c4ad03459e6c4', 1175000.000000, 20827.229861, 470000, 632358.066612, 2968.795023, 470000, 317313.000000, 1564.400393, 10000, -699, 644, 0, 90, 0, 45, 0, 120, 0, 150, 0, 10, 12, 5, 5, 9, 1, 4, 1, 3, 6, 6, 0, 3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1219, 0, 0, 1, 0, 0, 90, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', 0, 0, 0, 0),
-(6, 'Главная планета', 4, 1, 1, 2, 9, 1589110058, '1', 0, 0, '', 0, '', 0, 'normaltempplanet07', 12767, 4, 163, -34, 6, '', 10000.000000, 0.000000, 10000, 10000.000000, 0.000000, 10000, 10000.000000, 139.480000, 10000, -33, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', 0, 0, 0, 0);
+(1, 'Главная планета', 1, 1, 1, 1, 2, 1589809148, '1', 0, 0, NULL, 0, '', 0, 'trockenplanet02', 12767, 0, 163, 153, 193, '', 500.088889, 0.000000, 10000, 500.044444, 0.000000, 10000, 0.000000, 0.000000, 10000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -793,7 +802,7 @@ CREATE TABLE `uni1_shortcuts` (
   `galaxy` tinyint(3) UNSIGNED NOT NULL,
   `system` smallint(5) UNSIGNED NOT NULL,
   `planet` tinyint(3) UNSIGNED NOT NULL,
-  `type` tinyint(3) UNSIGNED NOT NULL
+  `type` tinyint(1) UNSIGNED NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -803,28 +812,28 @@ CREATE TABLE `uni1_shortcuts` (
 --
 
 CREATE TABLE `uni1_statpoints` (
-  `id_owner` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `id_ally` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `stat_type` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
+  `id_owner` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `id_ally` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `stat_type` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
   `universe` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
-  `tech_rank` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `tech_old_rank` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `tech_rank` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `tech_old_rank` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `tech_points` double(50,0) UNSIGNED NOT NULL DEFAULT '0',
   `tech_count` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `build_rank` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `build_old_rank` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `build_rank` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `build_old_rank` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `build_points` double(50,0) UNSIGNED NOT NULL DEFAULT '0',
   `build_count` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `defs_rank` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `defs_old_rank` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `defs_rank` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `defs_old_rank` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `defs_points` double(50,0) UNSIGNED NOT NULL DEFAULT '0',
   `defs_count` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `fleet_rank` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `fleet_old_rank` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `fleet_rank` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `fleet_old_rank` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_points` double(50,0) UNSIGNED NOT NULL DEFAULT '0',
   `fleet_count` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `total_rank` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `total_old_rank` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `total_rank` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `total_old_rank` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `total_points` double(50,0) UNSIGNED NOT NULL DEFAULT '0',
   `total_count` bigint(20) UNSIGNED NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -834,8 +843,7 @@ CREATE TABLE `uni1_statpoints` (
 --
 
 INSERT INTO `uni1_statpoints` (`id_owner`, `id_ally`, `stat_type`, `universe`, `tech_rank`, `tech_old_rank`, `tech_points`, `tech_count`, `build_rank`, `build_old_rank`, `build_points`, `build_count`, `defs_rank`, `defs_old_rank`, `defs_points`, `defs_count`, `fleet_rank`, `fleet_old_rank`, `fleet_points`, `fleet_count`, `total_rank`, `total_old_rank`, `total_points`, `total_count`) VALUES
-(3, 0, 1, 1, 1, 1, 228, 11, 1, 1, 4664, 56, 1, 1, 0, 0, 1, 1, 5032, 1312, 1, 1, 9924, 1379),
-(4, 0, 1, 1, 2, 2, 0, 0, 2, 2, 1, 3, 2, 2, 0, 0, 2, 2, 0, 0, 2, 2, 1, 3);
+(1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -844,7 +852,7 @@ INSERT INTO `uni1_statpoints` (`id_owner`, `id_ally`, `stat_type`, `universe`, `
 --
 
 CREATE TABLE `uni1_system` (
-  `dbVersion` int(11) NOT NULL
+  `dbVersion` int(10) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -864,9 +872,9 @@ CREATE TABLE `uni1_ticket` (
   `ticketID` int(10) UNSIGNED NOT NULL,
   `universe` tinyint(3) UNSIGNED NOT NULL,
   `ownerID` int(10) UNSIGNED NOT NULL,
-  `categoryID` tinyint(3) UNSIGNED NOT NULL,
+  `categoryID` tinyint(1) UNSIGNED NOT NULL,
   `subject` varchar(255) NOT NULL,
-  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
+  `status` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
   `time` int(10) UNSIGNED NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -925,7 +933,7 @@ CREATE TABLE `uni1_topkb` (
 --
 
 CREATE TABLE `uni1_users` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `username` varchar(32) NOT NULL DEFAULT '',
   `password` varchar(60) NOT NULL DEFAULT '',
   `email` varchar(64) NOT NULL DEFAULT '',
@@ -1044,8 +1052,7 @@ CREATE TABLE `uni1_users` (
 --
 
 INSERT INTO `uni1_users` (`id`, `username`, `password`, `email`, `email_2`, `lang`, `authattack`, `authlevel`, `rights`, `id_planet`, `universe`, `galaxy`, `system`, `planet`, `darkmatter`, `user_lastip`, `ip_at_reg`, `register_time`, `onlinetime`, `dpath`, `timezone`, `planet_sort`, `planet_sort_order`, `spio_anz`, `settings_fleetactions`, `settings_esp`, `settings_wri`, `settings_bud`, `settings_mis`, `settings_blockPM`, `urlaubs_modus`, `urlaubs_until`, `db_deaktjava`, `b_tech_planet`, `b_tech`, `b_tech_id`, `b_tech_queue`, `spy_tech`, `computer_tech`, `military_tech`, `defence_tech`, `shield_tech`, `energy_tech`, `hyperspace_tech`, `combustion_tech`, `impulse_motor_tech`, `hyperspace_motor_tech`, `laser_tech`, `ionic_tech`, `buster_tech`, `intergalactic_tech`, `expedition_tech`, `metal_proc_tech`, `crystal_proc_tech`, `deuterium_proc_tech`, `graviton_tech`, `ally_id`, `ally_register_time`, `ally_rank_id`, `rpg_geologue`, `rpg_amiral`, `rpg_ingenieur`, `rpg_technocrate`, `rpg_espion`, `rpg_constructeur`, `rpg_scientifique`, `rpg_commandant`, `rpg_stockeur`, `rpg_defenseur`, `rpg_destructeur`, `rpg_general`, `rpg_bunker`, `rpg_raideur`, `rpg_empereur`, `bana`, `banaday`, `hof`, `spyMessagesMode`, `wons`, `loos`, `draws`, `kbmetal`, `kbcrystal`, `lostunits`, `desunits`, `uctime`, `setmail`, `dm_attack`, `dm_defensive`, `dm_buildtime`, `dm_researchtime`, `dm_resource`, `dm_energie`, `dm_fleettime`, `ref_id`, `ref_bonus`, `inactive_mail`, `race`, `race_1501`, `race_1502`, `race_1503`, `race_1504`, `fleet_groop`, `premium_1`, `premium_2`, `premium_3`, `premium_4`, `premium_5`, `premium_6`, `premium_7`, `premium_8`, `bonus_time`) VALUES
-(3, 'admin', '$2a$09$Fm3ALxnS1cCotlI0MwZTB.hcpoxKnHbGZiUNJDNBUNEHPyUFDHaHC', 'admin@admin.com', 'admin@admin.com', 'ru', 0, 3, '3', 5, 1, 1, 1, 3, 71955, '127.0.0.1', '127.0.0.1', 1586727647, 1589201100, 'gow', 'Europe/Moscow', 0, 0, 1, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, '', 5, 0, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1504, 0, 0, 0, 1, NULL, 1587412757, 0, 1589118974, 1588859358, 0, 0, 0, 0, 0),
-(4, 'test', '$2a$09$Fm3ALxnS1cCotlI0MwZTB.tGHXVQnPAycl/C6kLQ7ZhNy4PAaBjPi', 'test@test.com', 'test@test.com', 'ru', 0, 0, NULL, 6, 1, 1, 2, 9, 361, '127.0.0.1', '127.0.0.1', 1587148882, 1589110051, 'gow', 'Europe/Moscow', 0, 0, 1, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1500, 0, 0, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(1, 'admin', '$2a$09$GTmCyiJlHdXNRvIUgcs6ouDEV.MWkNLx7eZMJE.GJj7E7PeiS1ss.', 'admin@admin.com', 'admin@admin.com', 'ru', 0, 3, NULL, 1, 1, 1, 1, 2, 0, '127.0.0.1', '127.0.0.1', 1589809132, 1589809366, 'gow', 'Europe/Moscow', 0, 0, 1, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1500, 0, 0, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1090,7 +1097,7 @@ CREATE TABLE `uni1_users_to_topkb` (
 --
 
 CREATE TABLE `uni1_users_valid` (
-  `validationID` int(10) UNSIGNED NOT NULL,
+  `validationID` int(11) UNSIGNED NOT NULL,
   `userName` varchar(64) NOT NULL,
   `validationKey` varchar(32) NOT NULL,
   `password` varchar(60) NOT NULL,
@@ -1293,11 +1300,11 @@ INSERT INTO `uni1_vars` (`elementID`, `name`, `class`, `onPlanetType`, `onePerPl
 (404, 'gauss_canyon', 400, '1,3', 0, 1.00, NULL, 20000, 15000, 2000, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1100, 200, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (405, 'ionic_canyon', 400, '1,3', 0, 1.00, NULL, 2000, 6000, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 150, 500, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (406, 'buster_canyon', 400, '1,3', 0, 1.00, NULL, 50000, 50000, 30000, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 3000, 300, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(407, 'small_protection_shield', 400, '1,3', 1, 1.00, NULL, 10000, 10000, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 2000, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(408, 'big_protection_shield', 400, '1,3', 1, 1.00, NULL, 50000, 50000, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 10000, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(409, 'planet_protector', 400, '1,3', 1, 1.00, NULL, 10000000, 5000000, 2500000, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 1000000, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(407, 'small_protection_shield', 400, '1,3', 0, 1.00, NULL, 10000, 10000, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 2000, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(408, 'big_protection_shield', 400, '1,3', 0, 1.00, NULL, 50000, 50000, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 10000, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(409, 'planet_protector', 400, '1,3', 0, 1.00, NULL, 10000000, 5000000, 2500000, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 1000000, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (410, 'graviton_canyon', 400, '1,3', 0, 1.00, NULL, 15000000, 15000000, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 500000, 80000, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(411, 'orbital_station', 400, '1,3', 1, 1.00, NULL, 5000000000, 2000000000, 500000000, 1000000, 0, 0, 0, 0, 0, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 400000000, 2000000000, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(411, 'orbital_station', 400, '1,3', 0, 1.00, NULL, 5000000000, 2000000000, 500000000, 1000000, 0, 0, 0, 0, 0, 10000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 400000000, 2000000000, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (502, 'interceptor_misil', 500, '1,3', 0, 1.00, NULL, 8000, 0, 2000, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 1, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (503, 'interplanetary_misil', 500, '1,3', 0, 1.00, NULL, 12500, 2500, 10000, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 12000, 1, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (601, 'rpg_geologue', 600, '1,3', 0, 1.00, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1000, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.05, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -1951,13 +1958,13 @@ ALTER TABLE `uni1_vars_requriements`
 -- AUTO_INCREMENT для таблицы `uni1_aks`
 --
 ALTER TABLE `uni1_aks`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `uni1_alliance`
 --
 ALTER TABLE `uni1_alliance`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `uni1_alliance_ranks`
@@ -1975,13 +1982,13 @@ ALTER TABLE `uni1_alliance_request`
 -- AUTO_INCREMENT для таблицы `uni1_banned`
 --
 ALTER TABLE `uni1_banned`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `uni1_buddy`
 --
 ALTER TABLE `uni1_buddy`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `uni1_chat_messages`
@@ -1999,25 +2006,25 @@ ALTER TABLE `uni1_config`
 -- AUTO_INCREMENT для таблицы `uni1_cronjobs`
 --
 ALTER TABLE `uni1_cronjobs`
-  MODIFY `cronjobID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `cronjobID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблицы `uni1_diplo`
 --
 ALTER TABLE `uni1_diplo`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `uni1_fleets`
 --
 ALTER TABLE `uni1_fleets`
-  MODIFY `fleet_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `fleet_id` bigint(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `uni1_log`
 --
 ALTER TABLE `uni1_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `uni1_market`
@@ -2041,19 +2048,19 @@ ALTER TABLE `uni1_multi`
 -- AUTO_INCREMENT для таблицы `uni1_news`
 --
 ALTER TABLE `uni1_news`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `uni1_notes`
 --
 ALTER TABLE `uni1_notes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `uni1_planets`
 --
 ALTER TABLE `uni1_planets`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `uni1_shortcuts`
@@ -2083,13 +2090,13 @@ ALTER TABLE `uni1_ticket_category`
 -- AUTO_INCREMENT для таблицы `uni1_users`
 --
 ALTER TABLE `uni1_users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `uni1_users_valid`
 --
 ALTER TABLE `uni1_users_valid`
-  MODIFY `validationID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `validationID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

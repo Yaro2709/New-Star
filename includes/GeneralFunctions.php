@@ -51,7 +51,7 @@ function getPlanetsHIDDEN($USER){
 }
 
 function getFactors($USER, $Type = 'basic', $TIME = NULL) {
-	global $resource, $pricelist, $reslist;
+	global $USER, $PLANET, $resource, $pricelist, $reslist;
 	if(empty($TIME))
 		$TIME	= TIMESTAMP;
 	

@@ -223,14 +223,14 @@ class ResourceUpdate
     // $new_code
 	public static function getNetworkLevel($USER, $PLANET)
 	{   
-        global $resource, $reslist;
+        global $resource, $reslist, $resglobal;
         
-        foreach($reslist['lab'] as $laba) //проверка всего масива элементов
-		{   
-            $researchLevelList	= array($PLANET[$resource[$laba]]);
+        //foreach($reslist['lab'] as $laba) //проверка всего масива элементов
+		//{   
+            $researchLevelList	= array($PLANET[$resource[$resglobal['tech_speed']]]);
             if($USER['factor']['ResearchSlotPlanet'] > 0)
             {
-                $sql = 'SELECT '.$resource[$laba].' FROM %%PLANETS%% WHERE id != :planetId AND id_owner = :userId AND destruyed = 0 ORDER BY '.$resource[$laba].' DESC LIMIT :limit;';
+                $sql = 'SELECT '.$resource[$resglobal['tech_speed']].' FROM %%PLANETS%% WHERE id != :planetId AND id_owner = :userId AND destruyed = 0 ORDER BY '.$resource[$resglobal['tech_speed']].' DESC LIMIT :limit;';
                 $researchResult = Database::get()->select($sql, array(
                     ':limit'	=> (int) $USER['factor']['ResearchSlotPlanet'],
                     ':planetId'	=> $PLANET['id'],
@@ -239,10 +239,10 @@ class ResourceUpdate
 
                 foreach($researchResult as $researchRow)
                 {
-                    $researchLevelList[]	+= $researchRow[$resource[$laba]];
+                    $researchLevelList[]	+= $researchRow[$resource[$resglobal['tech_speed']]];
                 }
             }
-        }
+        //}
 
 		return $researchLevelList;
 	}
@@ -274,7 +274,7 @@ class ResourceUpdate
 	public function ReBuildCache()
 	{
         // $new_code
-		global $ProdGrid, $resource, $reslist, $res_stop_product;
+		global $ProdGrid, $resource, $reslist, $resglobal;
         
         foreach($reslist['planet_no_basic'] as $planetNoBasic) 
         {
@@ -374,12 +374,12 @@ class ResourceUpdate
                 $this->PLANET[''.$resource[$resS].'']				= round($temp[$resS]['plus'] * $this->config->energySpeed * (1 + $this->USER['factor']['S'.$resource[$resS].''])); 
                 $this->PLANET[''.$resource[$resS].'_used']		    = $temp[$resS]['minus'] * $this->config->energySpeed;
             
-                if($this->PLANET[''.$resource[$res_stop_product].'_used'] == 0) { 
+                if($this->PLANET[''.$resource[$resglobal['stop_product']].'_used'] == 0) { 
                     $this->PLANET[''.$resource[$resP].'_perhour']		= 0;
                 //} elseif($this->PLANET[''.$resource[$resP].''] == 0 && $this->PLANET[''.$resource[$resP].'_perhour'] <= 0) {
                     //$this->PLANET[''.$resource[$resP].'_perhour']		= 0;
                 } else {
-                    $prodLevel	= min(1, $this->PLANET[''.$resource[$res_stop_product].''] / abs($this->PLANET[''.$resource[$res_stop_product].'_used']));
+                    $prodLevel	= min(1, $this->PLANET[''.$resource[$resglobal['stop_product']].''] / abs($this->PLANET[''.$resource[$resglobal['stop_product']].'_used']));
 			
                     $this->PLANET[''.$resource[$resP].'_perhour']		= ($temp[$resP]['plus'] * (1 + $this->USER['factor']['Resource'] + $this->USER['factor']['P'.$resource[$resP].'']) * $prodLevel + $temp[$resP]['minus']) * $this->config->resource_multiplier;  
                 }
@@ -669,7 +669,7 @@ class ResourceUpdate
 	
 	public function SetNextQueueTechOnTop()
 	{
-		global $resource, $LNG, $reslist;
+		global $resource, $LNG, $reslist, $resglobal;
 
 		if (empty($this->USER['b_tech_queue'])) {
 			$this->USER['b_tech'] 			= 0;
@@ -703,10 +703,10 @@ class ResourceUpdate
 			$PLANET[$resource[31].'_inter']	= self::getNetworkLevel($this->USER, $PLANET);
             $old_code*/
             //$new_code
-            foreach($reslist['lab'] as $laba) //проверка всего масива элементов
-            {   
-                $PLANET[$resource[$laba].'_inter']	= self::getNetworkLevel($this->USER, $PLANET);
-            }
+            //foreach($reslist['lab'] as $laba) //проверка всего масива элементов
+            //{   
+                $PLANET[$resource[$resglobal['tech_speed']].'_inter']	= self::getNetworkLevel($this->USER, $PLANET);
+            //}
 			//$new_code
 			$Element            = $ListIDArray[0];
 			$Level              = $ListIDArray[1];

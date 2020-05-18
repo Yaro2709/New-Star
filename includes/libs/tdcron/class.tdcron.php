@@ -8,30 +8,13 @@
 	define('IDX_YEAR',			5);
 
 	/*
-	 * tdCron v0.0.1 beta - CRON-Parser for PHP
-	 *
-	 * Copyright (c) 2010 Christian Land / tagdocs.de
-	 *
-	 * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
-	 * associated documentation files (the "Software"), to deal in the Software without restriction,
-	 * including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
-	 * and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
-	 * subject to the following conditions:
-	 *
-	 * The above copyright notice and this permission notice shall be included in all copies or substantial
-	 * portions of the Software.
-	 *
-	 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
-	 * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-	 * NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-	 * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-	 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-	 *
 	 * @author	Christian Land <devel@tagdocs.de>
 	 * @package	tdCron
-	 * @copyright	Copyright (c) 2010, Christian Land / tagdocs.de
-	 * @version	v0.0.1 beta
+	 * @copyright	Copyright (c) 2010-2018, Christian Land / tagdocs.de
+	 * @license	http://opensource.org/licenses/MIT	MIT License
+	 * @version	1.0.0
 	 */
+
 	class tdCron {
 
 		/**
@@ -49,6 +32,8 @@
 		 * @param	string		$expression	cron-expression to use
 		 * @param	int		$timestamp	optional reference-time
 		 * @return	int
+		 * @since	0.0.1	Initial Release
+		 * @author	Christian Land
 		 */
 		static public function getNextOccurrence($expression, $timestamp = null) {
 
@@ -82,6 +67,8 @@
 		 * @param	string		$expression	cron-expression to use
 		 * @param	int		$timestamp	optional reference-time
 		 * @return	int
+		 * @since	0.0.1	Initial Release
+		 * @author	Christian Land
 		 */
 
 		static public function getLastOccurrence($expression, $timestamp = null) {
@@ -118,6 +105,8 @@
 		 * @param	mixed		$rtime		reference-time
 		 * @param	bool		$next		true = nextOccurence, false = lastOccurence
 		 * @return	int
+		 * @since	0.0.1	Initial Release
+		 * @author	Christian Land
 		 */
 
 		static private function calculateDateTime($expression, $rtime, $next = true) {
@@ -158,7 +147,7 @@
 
 				// Meh. Such a cruel world. Something has gone awry. Lets see HOW awry it went.
 
-				if (!$nhour) {
+				if ($nhour === false) {
 
 					// Ah, the hour-part went wrong. Thats easy. Wrong hour means that no
 					// matter what we do we'll end up at a different date. Thus we can use
@@ -232,7 +221,7 @@
 
 			// If we have to calculate the date... we'll do so
 
-			if ($calc_date) {
+			if ($calc_date === true) {
 
 				if (in_array($rtime[IDX_DAY], $cron[IDX_DAY]) &&
 				    in_array($rtime[IDX_MONTH], $cron[IDX_MONTH]) &&
@@ -251,7 +240,7 @@
 					// The class has 2 limitations/bugs right now:
 					//
 					//	-> it doesn't work for dates in 2036 or later!
-					//	-> it will most likely fail if you search for a Feburary, 29th with a given weekday
+					//	-> it will most likely fail if you search for a February, 29th with a given weekday
 					//	   (this does happen because the class only searches in the next/last 10 years! And
 					//	   while it usually takes less than 10 years for a "normal" date to iterate through
 					//	   all weekdays, it can take 20+ years for Feb, 29th to iterate through all weekdays!
@@ -317,6 +306,8 @@
 		 * @access	private
 		 * @param	int		$timestamp	If none is given, the current time is used
 		 * @return	mixed
+		 * @since	0.0.1	Initial Release
+		 * @author	Christian Land
 		 */
 
 		static private function getTimestamp($timestamp = null) {
@@ -347,6 +338,8 @@
 		 * @param	mixed		$data
 		 * @param	bool		$next
 		 * @return	mixed
+		 * @since	0.0.1	Initial Release
+		 * @author	Christian Land
 		 */
 
 		static private function findValue($value, $data, $next = true) {
@@ -385,6 +378,8 @@
 		 * @param	string		$value
 		 * @param	bool		$reverse
 		 * @return	mixed
+		 * @since	0.0.1	Initial Release
+		 * @author	Christian Land
 		 */
 
 		 static private function getExpression($expression, $reverse=false) {
@@ -424,6 +419,8 @@
 		 * @access	public
 		 * @param	mixed		$cron
 		 * @return	mixed
+		 * @since	0.0.1	Initial Release
+		 * @author	Christian Land
 		 */
 
  		static private function arrayReverse($cron) {

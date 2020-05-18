@@ -216,6 +216,10 @@ var Dialog	= {
 	info: function(ID){
 		return Dialog.open('game.php?page=information&id='+ID, 590, (ID > 600 && ID < 800) ? 210 : ((ID > 100 && ID < 200) ? 300 : 620));
 	},
+    
+    Galaxy: function() {
+	    return Dialog.open('game.php?page=galaxy', 960, 900);
+	},
 	
 	alert: function(msg, callback){
 		alert(msg);
@@ -245,10 +249,6 @@ var Dialog	= {
 	
 	AllianceChat: function() {
 	    return OpenPopup('game.php?page=chat&action=alliance', "alliance_chat", 960, 900);
-	},
-    
-    galaxy: function() {
-	    return Dialog.open('game.php?page=galaxy', 960, 900);
 	},
     
 	open: function (url, width, height) {

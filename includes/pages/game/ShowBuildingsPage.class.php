@@ -217,7 +217,7 @@ class ShowBuildingsPage extends AbstractGamePage
                 return;
         }
         
-        foreach($reslist['shipyard_no_build'] as $shipyard) {
+        foreach($reslist['shipyard'] as $shipyard) {
             if($Element == $shipyard && !empty($PLANET['b_hangar_id']))
                 return;
         }
@@ -551,6 +551,8 @@ class ShowBuildingsPage extends AbstractGamePage
 
 		$this->tplObj->loadscript('buildlist.js');
 		$this->assign(array(
+            'shipyard'				=> $reslist['shipyard'],
+            'lab'				    => $reslist['lab'],
             'HaveMissiles'		    => (bool) $PLANET[$resource[503]] + $PLANET[$resource[502]],
 			'BuildInfoList'		    => $BuildInfoList,
 			'CanBuildElement'	    => $CanBuildElement,

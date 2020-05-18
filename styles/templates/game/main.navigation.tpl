@@ -3,7 +3,7 @@
     <div id="touchscreenleft_menu">         
             <div class="olistabarrabasso">
             </div>
-            {*<a class="oamlink pulsanti" href="">Купить АМ<span class="oamperc">+100%</span></a>*} 
+            {*<a href="#" onclick="return Dialog.Galaxy();" class="oamlink pulsanti">Купить АМ<span class="oamperc">+100%</span></a>*}
             <a class="big_btn btn_menu btn_menu_big"> <div class="servertime oservertime"></div> </a>
             {if $bonus_time < TIMESTAMP}
             <a class="big_btn blue btn_menu btn_menu_big" href="game.php?page=bonus">{$LNG.lm_bonus}</a>
@@ -37,9 +37,9 @@
             <a class="nuovomenudestra tooltip" href="game.php?page=battleSimulator" id="munu_fleetable" data-tooltip-content="{$LNG.lm_battlesim}"><img src="{$dpath}img/iconav/target.png" class="oimgaltro"></a>	
             {/if}
             <!-- ufficiali governatori -->
-            {if isModuleAvailable($smarty.const.MODULE_OFFICIER) || isModuleAvailable($smarty.const.MODULE_DMEXTRAS)}
-            <a class="nuovomenusinistra" href="game.php?page=officier" id="munu_senat">{$LNG.lm_officiers}</a>
-            <a class="nuovomenudestra tooltip" href="game.php?page=gubernators" data-tooltip-content="Губернаторы"><img src="{$dpath}img/iconav/governatori.png" class="oimgaltro"></a>
+            {if isModuleAvailable($smarty.const.MODULE_BLACKMARKET)}
+            <a class="nuovomenusinistra" href="game.php?page=blackmarket" id="munu_senat">{$LNG.lm_blackmarket}</a>
+            <a class="nuovomenudestra" href="game.php?page=blackmarket"><img src="{$dpath}img/iconav/blackmarket.png" class="imgovernuovo"></a>
             {/if}
             <!-- alleanza-->
             {if isModuleAvailable($smarty.const.MODULE_ALLIANCE)}

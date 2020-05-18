@@ -77,41 +77,7 @@ class BuildFunctions
 
         return $overflow;
     }
-    //code_update
-    public static function getElementPriceCalcu($USER, $PLANET, $Element, $forDestroy = false, $forLevel = NULL) { 
-		global $pricelist, $resource, $reslist;
 
-       	if (in_array($Element, array_merge($reslist['defense'], $reslist['missile'],$reslist['fleet']))) {
-			$elementLevel = $forLevel;
-		} elseif (isset($forLevel)) {
-			$elementLevel = $forLevel;
-		} elseif (isset($PLANET[$resource[$Element]])) {
-			$elementLevel = $PLANET[$resource[$Element]];
-		} elseif (isset($USER[$resource[$Element]])) {
-			$elementLevel = $USER[$resource[$Element]];
-		} else {
-			return array();
-		}
-		
-		$price	= array();
-		foreach ($reslist['ressources'] as $resType)
-		{
-			
-			$ressourceAmount	= $pricelist[$Element]['cost'][$resType];
-			
-			if(in_array($Element, $reslist['fleet'])) {
-				$ressourceAmount	= $ressourceAmount - ($ressourceAmount / 100);
-			}elseif(in_array($Element, $reslist['defense']) || in_array($Element, $reslist['missile'])) {
-				$ressourceAmount	= $ressourceAmount - ($ressourceAmount / 100);
-			}
-
-			$price[$resType]	= $ressourceAmount;
-			$config	= Config::get($USER['universe']);
-		}
-		
-		return $price; 
-	}
-//code_update
     public static function getElementPrice($USER, $PLANET, $Element, $forDestroy = false, $forLevel = NULL) {
         global $pricelist, $resource, $reslist;
 
@@ -178,43 +144,40 @@ class BuildFunctions
 
     public static function getBuildingTime($USER, $PLANET, $Element, $elementPrice = NULL, $forDestroy = false, $forLevel = NULL)
     {
-        global $resource, $reslist, $requeriments;
+        global $resource, $reslist, $requeriments, $resglobal;
 
-        $config	= Config::get($USER['universe']);
-
-        $time   = 0;
-
+        $config	        = Config::get();
+        $time           = 0;
+        $elementCost	= 0;
+        
         if(!isset($elementPrice)) {
             $elementPrice	= self::getElementPrice($USER, $PLANET, $Element, $forDestroy, $forLevel);
         }
-
-        $elementCost	= 0;
-
-        if(isset($elementPrice[901])) {
-            $elementCost	+= $elementPrice[901];
-        }
-
-        if(isset($elementPrice[902])) {
-            $elementCost	+= $elementPrice[902];
+        
+        foreach($reslist['build_speed_res'] as $res) //проверка всего масива элементов
+        {
+            if(isset($elementPrice[$res])) {
+                $elementCost	+= $elementPrice[$res];
+            }
         }
 
         if(in_array($Element, $reslist['build'])) {		
-			$time	= $elementCost/$config->game_speed * pow(0.99, ($PLANET[$resource[912]]));
+			$time	= $elementCost/$config->game_speed * pow(0.99, ($PLANET[$resource[$resglobal['build_speed']]]));
 		}elseif (in_array($Element, $reslist['fleet'])) {			
-			$time	= $elementCost/$config->game_speed * pow(0.99, ($PLANET[$resource[914]]));			
+			$time	= $elementCost/$config->game_speed * pow(0.99, ($PLANET[$resource[$resglobal['fleet_speed']]]));			
 		}elseif (in_array($Element, $reslist['defense'])) {
-			$time	= $elementCost/$config->game_speed * pow(0.99, ($PLANET[$resource[915]]));	
+			$time	= $elementCost/$config->game_speed * pow(0.99, ($PLANET[$resource[$resglobal['defense_speed']]]));	
         }elseif (in_array($Element, $reslist['missile'])) {
-			$time	= $elementCost/$config->game_speed * pow(0.99, ($PLANET[$resource[916]]));	
+			$time	= $elementCost/$config->game_speed * pow(0.99, ($PLANET[$resource[$resglobal['missile_speed']]]));	
 		}elseif (in_array($Element, $reslist['tech'])) {
-            if(is_numeric($PLANET[$resource[31].'_inter']))
+            if(is_numeric($PLANET[$resource[$resglobal['tech_speed']].'_inter']))
             {
-                $Level	= $PLANET[$resource[31]];
+                $Level	= $PLANET[$resource[$resglobal['tech_speed']]];
             } else {
                 $Level = 0;
-                foreach($PLANET[$resource[31].'_inter'] as $Levels)
+                foreach($PLANET[$resource[$resglobal['tech_speed']].'_inter'] as $Levels)
                 {
-                    if(!isset($requeriments[$Element][31]) || $Levels >= $requeriments[$Element][31])
+                    if(!isset($requeriments[$Element][$resglobal['tech_speed']]) || $Levels >= $requeriments[$Element][$resglobal['tech_speed']])
                         $Level += $Levels;
                 }
             }

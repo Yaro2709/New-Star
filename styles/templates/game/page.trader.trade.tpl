@@ -13,14 +13,14 @@
                <tbody>
                   <tr>
                      <td style="text-align:right;">{$LNG.tech.$tradeResourceID}</td>
-                     <td class="tr_table_td_img"><img alt="{$LNG.tech.$tradeResourceID}" title="{$LNG.tech.$tradeResourceID}" src="{$dpath}img/resources/{$tradeResourceID}.gif"></td>
+                     <td class="tr_table_td_img"><img alt="{$LNG.tech.$tradeResourceID}" title="{$LNG.tech.$tradeResourceID}" src="{$dpath}img/resources/{$tradeResourceID}f.png"></td>
                      <td colspan="2"><span style="color:#F63;" id="ress">0</span></td>
                   </tr>
                   {foreach $tradeResources as $tradeResource}
                   <tr>
                      <td style="text-align:right;"><label for="resource{$tradeResource}">{$LNG.tech[$tradeResource]}</label></td>
                      <td class="tr_table_td_img">
-                        <label for="resource{$tradeResource}"><img src="{$dpath}img/resources/{$tradeResource}.gif"></label>
+                        <label for="resource{$tradeResource}"><img src="{$dpath}img/resources/{$tradeResource}f.png"></label>
                      </td>
                      <td>+ <input name="trade[{$tradeResource}]" id="resource{$tradeResource}" class="trade_input" value="0" size="30" type="text" data-resource="{$tradeResource}"></td>
                      <td>{$charge[$tradeResource]}</td>
