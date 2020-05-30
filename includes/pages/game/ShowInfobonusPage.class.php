@@ -18,7 +18,7 @@
 class ShowInfobonusPage extends AbstractGamePage
 {	
 	
-    public static $requireModule = MODULE_INFOBONUS;
+    public static $requireModule = MODULE_INFO_BONUS;
 
 	function __construct() 
 	{

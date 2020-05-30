@@ -10,15 +10,10 @@
 	<link rel="stylesheet" type="text/css" href="styles/resource/css/base/jquery.fancybox.css">
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 	<title>{block name="title"} - {$gameName}{/block}</title>
-	<meta name="generator" content="2Moons {$VERSION}">
-	<!-- 
-		This website is powered by 2Moons {$VERSION}
-		2Moons is a free Space Browsergame initially created by Jan-Otto Kröpke and licensed under MIT.
-		2Moons is copyright 2009-2017 of Jan-Otto Kröpke. Extensions are copyright of their respective owners.
-		Information and contribution at https://github.com/HikeGame/2Moons-1.9/
-	-->
-	<meta name="keywords" content="Weltraum Browsergame, XNova, 2Moons, Space, Private, Server, Speed">
-	<meta name="description" content="New-Star Browsergame powerd by https://github.com/HikeGame/2Moons-2.0/"> <!-- Noob Check :) -->
+	<meta name="generator" content="New-Star {$VERSION}">
+
+	<meta name="keywords" content="New-Star {$VERSION}">
+	<meta name="description" content="New-Star Browsergame powerd by https://github.com/Yaro2709/New-Star"> <!-- Noob Check :) -->
 	<meta name="viewport" content="width=device-width" /> <!-- Responsive -->
 	<!-- New code -->
 	<script src="http://code.jquery.com/jquery.js"></script>

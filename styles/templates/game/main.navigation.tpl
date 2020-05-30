@@ -35,23 +35,38 @@
             <a class="nuovomenusinistra" href="game.php?page=fleetTable" id="munu_orbita">{$LNG.lm_fleet}</a>
             {if isModuleAvailable($smarty.const.MODULE_SIMULATOR)}
             <a class="nuovomenudestra tooltip" href="game.php?page=battleSimulator" id="munu_fleetable" data-tooltip-content="{$LNG.lm_battlesim}"><img src="{$dpath}img/iconav/target.png" class="oimgaltro"></a>	
-            {/if}
-            <!-- ufficiali governatori -->
-            {if isModuleAvailable($smarty.const.MODULE_BLACKMARKET)}
-            <a class="nuovomenusinistra" href="game.php?page=blackmarket" id="munu_senat">{$LNG.lm_blackmarket}</a>
-            <a class="nuovomenudestra" href="game.php?page=blackmarket"><img src="{$dpath}img/iconav/blackmarket.png" class="imgovernuovo"></a>
-            {/if}
+            {/if}            
             <!-- alleanza-->
             {if isModuleAvailable($smarty.const.MODULE_ALLIANCE)}
 			<a class="nuovomenusinistra" href="game.php?page=alliance" id="munu_alliance">{$LNG.lm_alliance}</a>
             <a class="nuovomenudestra" href="game.php?page=alliance"><img src="{$dpath}img/iconav/alliance.png" class="imgovernuovo" id="ciaone"></a>	
             {/if}
+            
+            {if isModuleAvailable($smarty.const.MODULE_GALAXY)}
+			<a class="nuovomenusinistra" href="game.php?page=galaxy" id="munu_alliance">{$LNG.lm_galaxy}</a>
+            <a class="nuovomenudestra" href="game.php?page=galaxy"><img src="{$dpath}img/iconav/g_expedition.png" class="imgovernuovo" id="ciaone"></a>	
+            {/if}
             <!-- mercato-->
             <a class="nuovomenusinistra" href="game.php?page=market">{$LNG.lm_market}</a>
             <a class="nuovomenudestra" href="game.php?page=market"><img src="{$dpath}img/iconav/market.png" class="imgovernuovo"></a>
+            <!-- ufficiali governatori -->
+            {if isModuleAvailable($smarty.const.MODULE_SENAT)}
+            <a class="menu_market" href="game.php?page=senat" id="munu_senat">{$LNG.lm_senat}</a>
+            {/if}
+            {if isModuleAvailable($smarty.const.MODULE_BLACK_MARKET)}
+            <a class="menu_market" href="game.php?page=blackmarket" id="munu_senat">{$LNG.lm_blackmarket}</a>
+            {/if}
+            {if isModuleAvailable($smarty.const.MODULE_DILERS)}
+            <a class="menu_market" href="game.php?page=dilers" id="munu_senat">{$LNG.lm_dilers}</a>
+            {/if}
+            {if isModuleAvailable($smarty.const.MODULE_PIRATE_MARKET)}
+            <a class="menu_market" href="game.php?page=piratemarket" id="munu_senat">{$LNG.lm_piratemarket}</a>
+            {/if}
+            {*
             {if isModuleAvailable($smarty.const.MODULE_GALAXY)}
             <a class="galassiabott" href="game.php?page=galaxy" id="munu_galaxy">{$LNG.lm_galaxy}</a>
-            {/if}        		
+            {/if}   
+            *}     		
             <div class="clear"></div>                
     </div>
     </div><!--/left_menu-->
@@ -78,6 +93,6 @@
 			<a title="{$LNG.lm_options}" href="game.php?page=settings"><span class="seting"></span></a>  
 			<div class="separator_nav"></div>		
 			<a title="{$LNG.lm_logout}" href="game.php?page=logout"> <span class="exit"></span></a>				  
-            </div>
+        </div>
     </div> 
 </div>

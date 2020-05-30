@@ -27,7 +27,7 @@
         </div>
         {/foreach}
         {else}
-        <div class="markett1" style="background:#000813 url({$dpath}img/iconav/market.png) left center no-repeat;background-size: 90px;background-position-x: 10px;">
+        <div class="markett1" style="background:#000813 url({$dpath}img/content/market.png) left center no-repeat;background-size: 90px;background-position-x: 10px;">
             <div class="markett3">{$LNG.market_not_lot}</div>
         </div>
         {/if}
@@ -58,7 +58,7 @@
 			</form>	
         </table>
         {else}
-        <div class="markett1" style="background:#000813 url({$dpath}img/iconav/market.png) left center no-repeat;background-size: 90px;background-position-x: 10px;">
+        <div class="markett1" style="background:#000813 url({$dpath}img/content/market.png) left center no-repeat;background-size: 90px;background-position-x: 10px;">
             <div class="markett3">{$LNG.market_not_res}</div>
         </div>
         {/if}
@@ -80,7 +80,7 @@
         </div>
         {/foreach}
         {else}
-        <div class="markett1" style="background:#000813 url({$dpath}img/iconav/market.png) left center no-repeat;background-size: 90px;background-position-x: 10px;">
+        <div class="markett1" style="background:#000813 url({$dpath}img/content/market.png) left center no-repeat;background-size: 90px;background-position-x: 10px;">
             <div class="markett3">{$LNG.market_not_lot_active}</div>
         </div>
         {/if}

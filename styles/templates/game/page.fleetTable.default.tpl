@@ -12,7 +12,9 @@
         <a href="" class="fleet_reduce ico_reducefleet tooltip" data-tooltip-content=""></a>
         <a href="" class="fleet_reduce ico_deliveryres tooltip" data-tooltip-content=""></a>
         *}
+        {if isModuleAvailable($smarty.const.MODULE_FLEET_TRADER)}
 		<a href="game.php?page=fleetdealer" class="fleet_reduce ico_trader tooltip" data-tooltip-content="{$LNG.lm_fleettrader}"></a>
+        {/if}
 		</div>
      <div class="fleettab8" style="margin-bottom:0"></div>
         <span class="puntiflotta1">{$LNG.fl_fleet_points}</span>
@@ -139,7 +141,7 @@
          {foreach name=FlyingFleets item=FlyingFleetRow from=$FlyingFleetList}
          <tr>
             <td>{$smarty.foreach.FlyingFleets.iteration}</td>
-            <td>{$LNG.type_mission.{$FlyingFleetRow.mission}}
+            <td>{$LNG["type_mission_{$FlyingFleetRow.mission}"]}
                {if $FlyingFleetRow.state == 1}
                <br><a title="{$LNG.fl_returning}">{$LNG.fl_r}</a>
                {else}

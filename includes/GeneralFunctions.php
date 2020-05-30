@@ -51,7 +51,7 @@ function getPlanetsHIDDEN($USER){
 }
 
 function getFactors($USER, $Type = 'basic', $TIME = NULL) {
-	global $USER, $PLANET, $resource, $pricelist, $reslist;
+	global $resource, $pricelist, $reslist;
 	if(empty($TIME))
 		$TIME	= TIMESTAMP;
 	
@@ -69,7 +69,7 @@ function getFactors($USER, $Type = 'basic', $TIME = NULL) {
 			continue;
 		}
 		
-		if(in_array($elementID, array_merge($reslist['dmfunc'], $reslist['premium']))) {
+		if(in_array($elementID, array_merge($reslist['dmfunc'], $reslist['premium'], $reslist['artifact'], $reslist['development']))) {
 			if(DMExtra($elementLevel, $TIME, false, true)) {
 				continue;
 			}
@@ -77,6 +77,11 @@ function getFactors($USER, $Type = 'basic', $TIME = NULL) {
 			foreach($bonusList as $bonusKey)
 			{
 				$factor[$bonusKey]	+= $bonus[$bonusKey][0];
+			}
+        } elseif(in_array($elementID, array_merge($reslist['ars']))) {
+            foreach($bonusList as $bonusKey)
+			{
+				$factor[$bonusKey]	+= sqrt($elementLevel) * $bonus[$bonusKey][0];
 			}
 		} else {
 			foreach($bonusList as $bonusKey)
@@ -87,6 +92,37 @@ function getFactors($USER, $Type = 'basic', $TIME = NULL) {
 	}
 	
 	return $factor;
+}
+
+function userStatus($data, $noobprotection = false)
+{
+	$Array = array();
+
+	if (isset($data['banaday']) && $data['banaday'] > TIMESTAMP) {
+		$Array[] = 'banned';
+	}
+
+	if (isset($data['urlaubs_modus']) && $data['urlaubs_modus'] == 1) {
+		$Array[] = 'vacation';
+	}
+
+	if (isset($data['onlinetime']) && $data['onlinetime'] < TIMESTAMP - INACTIVE_LONG) {
+		$Array[] = 'longinactive';
+	}
+
+	if (isset($data['onlinetime']) && $data['onlinetime'] < TIMESTAMP - INACTIVE) {
+		$Array[] = 'inactive';
+	}
+
+	if ($noobprotection && $noobprotection['NoobPlayer']) {
+		$Array[] = 'noob';
+	}
+
+	if ($noobprotection && $noobprotection['StrongPlayer']) {
+		$Array[] = 'strong';
+	}
+
+	return $Array;
 }
 
 function getPlanets($USER)
@@ -448,8 +484,8 @@ function ClearCache()
 	*/
 
 	$config		= Config::get();
-	$version	= explode('.', $config->VERSION);
-	$config->VERSION	= $version[0].'.'.$version[1].'.'.'git';
+	//$version	= explode('.', $config->VERSION);
+	//$config->VERSION	= $version[0].'.'.$version[1].'.'.'git';
 	$config->save();
 	
 }

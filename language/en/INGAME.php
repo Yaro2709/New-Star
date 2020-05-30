@@ -51,27 +51,27 @@ $LNG['ready']								         = 'Ready';
 $LNG['loading']								         = 'Loading ...';
 $LNG['invalid_action']						         = 'Action Invalidated!!';
 //{IDs_0002} Mission Name
-$LNG['type_mission'][1]  					         = 'Attack';
-$LNG['type_mission'][2]  					         = 'ACS - Attack on cooperation';
-$LNG['type_mission'][3]  					         = 'Transport';
-$LNG['type_mission'][4]  					         = 'Deploy';
-$LNG['type_mission'][5]  					         = 'Transfer';
-$LNG['type_mission'][6]  					         = 'Spying';
-$LNG['type_mission'][7]  					         = 'Colonize';
-$LNG['type_mission'][8]  					         = 'Recycle';
-$LNG['type_mission'][9]  					         = 'Destroy';
-$LNG['type_mission'][10]  					         = 'Missile attack';
-$LNG['type_mission'][11]  					         = 'Research of Dark matter ';
-$LNG['type_mission'][15]					         = 'Expedition';
+$LNG['type_mission_1']  					         = 'Attack';
+$LNG['type_mission_2']  					         = 'ACS - Attack on cooperation';
+$LNG['type_mission_3']  					         = 'Transport';
+$LNG['type_mission_4']  					         = 'Deploy';
+$LNG['type_mission_5']  					         = 'Transfer';
+$LNG['type_mission_6']  					         = 'Spying';
+$LNG['type_mission_7']  					         = 'Colonize';
+$LNG['type_mission_8']  					         = 'Recycle';
+$LNG['type_mission_9']  					         = 'Destroy';
+$LNG['type_mission_10']  					         = 'Missile attack';
+$LNG['type_mission_11']  					         = 'Research of Dark matter ';
+$LNG['type_mission_15'] 					         = 'Expedition';
 //{IDs_0003} Name of the types of planets
-$LNG['type_planet'][1]  					         = 'Planet';
-$LNG['type_planet'][2]  					         = 'Debris Field';
-$LNG['type_planet'][3]  					         = 'Moon';
+$LNG['type_planet_1']  					             = 'Planet';
+$LNG['type_planet_2']  					             = 'Debris Field';
+$LNG['type_planet_3']  					             = 'Moon';
 //{IDs_0004} Rights in the game
-$LNG['user_level'][1]  					             = 'Player';
-$LNG['user_level'][2]  					             = 'Moderator';
-$LNG['user_level'][3]  					             = 'Operator';
-$LNG['user_level'][4]  					             = 'Administrator';
+$LNG['user_level_0']                                 = 'Player';
+$LNG['user_level_1']                                 = 'Moderator';
+$LNG['user_level_2']                                 = 'Operator';
+$LNG['user_level_3']                                 = 'Administrator';
 //{IDs_0005} General
 $LNG['page_doesnt_exist']					         = 'This page does not exist';
 $LNG['bad_forum_url']				    	         = 'The Forum link is incorrect!';

@@ -15,9 +15,9 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
-class ShowBlackmarketPage extends AbstractGamePage
+class ShowBlackMarketPage extends AbstractGamePage
 {
-	public static $requireModule = MODULE_BLACKMARKET;
+	public static $requireModule = MODULE_BLACK_MARKET;
 
 	function __construct() 
 	{
@@ -30,7 +30,7 @@ class ShowBlackmarketPage extends AbstractGamePage
 		
 		$this->tplObj->assign_vars(array());
 		
-		$this->display('page.blackmarket.default.tpl');
+		$this->display('page.blackMarket.default.tpl');
 	}
 }
 ?>

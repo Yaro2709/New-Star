@@ -57,7 +57,7 @@ class MissionCaseFoundDM extends MissionFunctions implements Mission
 		$LNG	= $this->getLanguage(NULL, $this->_fleet['fleet_owner']);
 		if($this->_fleet['fleet_resource_darkmatter'] > 0)
 		{
-			$message	= sprintf($LNG['sys_expe_back_home_with_dm'],
+			$Message	= sprintf($LNG['sys_expe_back_home_with_dm'],
 				$LNG['tech'][921],
 				pretty_number($this->_fleet['fleet_resource_darkmatter']),
 				$LNG['tech'][921]
@@ -67,7 +67,7 @@ class MissionCaseFoundDM extends MissionFunctions implements Mission
 		}
 		else
 		{
-			$message	= $LNG['sys_expe_back_home_without_dm'];
+			$Message	= $LNG['sys_expe_back_home_without_dm'];
 		}
 
         /* $old_code

@@ -7,7 +7,7 @@
     	{$LNG.fl_fleet_sended}
     </div><div class="fleettab11" style="margin-top: 6px;"></div>
 		<div class="fleettab16">
-	  <div class="fleetstep1-3" style="top:41px;"><img src="{$dpath}img/iconav/7-o.png" class="fleetstep1-16">{$LNG.fl_mission} <span class="fleetstep1-10">{$LNG.type_mission.{$targetMission}}</span></div>
+	  <div class="fleetstep1-3" style="top:41px;"><img src="{$dpath}img/iconav/7-o.png" class="fleetstep1-16">{$LNG.fl_mission} <span class="fleetstep1-10">{$LNG["type_mission_{$targetMission}"]}</span></div>
 		  <div class="fleetstep1-4" style="top:71px;"><img src="{$dpath}img/iconav/time-s.png" class="fleetstep1-16">{$LNG.fl_arrival_time}<span class="fleetstep1-10">{$fleetStartTime}</span></div>
 		  <div class="fleetstep1-5" style="top:101px;"><img src="{$dpath}img/iconav/consumption.png" class="fleetstep1-16">{$LNG.fl_fuel_consumption} <span class="fleetstep1-10">{$consumption|number}</span></div>
 		   <div class="fleetstep1-5" style="top:132px"><img src="{$dpath}img/iconav/location.png" class="fleetstep1-16">{$LNG.fl_from} <span class="fleetstep1-10">{$from}</span></div>

@@ -49,7 +49,7 @@ $(function() {
 		tabTemplate: '<li><a href="#{href}">#{label}</a></li>',
 	});
 	
-	$('.rexx20').live('click', function(e) 
+	$('.rexx20').on('click', function(e) 
 	{
 		e.preventDefault();
 				

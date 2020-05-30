@@ -176,6 +176,7 @@ class GalaxyRows
 		global $USER, $LNG;
 
 		$IsNoobProtec		= CheckNoobProtec($USER, $this->galaxyRow, $this->galaxyRow);
+        /*$old_code
 		$Class		 		= array();
 
 		if ($this->galaxyRow['banaday'] > TIMESTAMP && $this->galaxyRow['urlaubs_modus'] == 1)
@@ -206,7 +207,10 @@ class GalaxyRows
 		{
 			$Class		 	= array('strong');
 		}
-		
+		$old_code*/
+        //$new_code
+        $Class		 		= userStatus($this->galaxyRow, $IsNoobProtec);
+        //$new_code
         $this->galaxyData[$this->galaxyRow['planet']]['user']	= array(
 			'id'			=> $this->galaxyRow['userid'],
 			'username'		=> htmlspecialchars($this->galaxyRow['username'], ENT_QUOTES, "UTF-8"),

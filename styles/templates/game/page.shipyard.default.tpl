@@ -75,14 +75,15 @@
                         {/if} 
                     {/if}
                     </div>
-                    {if $NotBuilding && $Element.buyable && $Element.techacc}
+                    {if $NotBuilding && $Element.buyable && $Element.techacc && $Element.maxBuildable}
                     <div class="btn_build_border">  
                         <input id="input_{$ID}" type="text" name="fmenge[{$ID}]" size="7" maxlength="30" value="0" class="text" tabindex="{$smarty.foreach.FleetList.iteration}" onkeyup="counting('{$ID}');">
                         <input class="input_btn" type="button" value="{$LNG.bd_max_ships}" onclick="$('#input_{$ID}').val('{$Element.maxBuildable}'); counting('{$ID}');">
                     </div>
-                    {elseif !$Element.techacc}{else}
+                    {elseif !$Element.techacc}
+                    {else}
                     <div class="btn_build_border">
-                        <span class="btn_build red">Not enough resources</span>
+                        <span class="btn_build red">{$LNG.bd_notres}</span>
                     </div>
                     {/if}
                 </div>

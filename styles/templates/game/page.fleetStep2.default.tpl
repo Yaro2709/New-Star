@@ -19,7 +19,7 @@
                         {foreach $MissionSelector as $MissionID}
                         <div class="fl_mission_selector_row">
                            <input {if $MissionID == 18}onclick="ListSector()"{/if} id="radio_{$MissionID}" {if $mission == $MissionID} checked {/if}type="radio" name="mission" value="{$MissionID}">
-                           <label {if $MissionID == 18}onclick="ListSector()"{/if} class="i-miss{$MissionID}o" for="radio_{$MissionID}">{$LNG.type_mission.{$MissionID}}</label>
+                           <label {if $MissionID == 18}onclick="ListSector()"{/if} class="i-miss{$MissionID}o" for="radio_{$MissionID}">{$LNG["type_mission_{$MissionID}"]}</label>
                         </div>
                         {if $MissionID == 18}
                         <div class="fl_mission_selector_caution">{$LNG.fl_expedition_alert_message}</div>

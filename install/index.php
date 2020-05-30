@@ -486,6 +486,7 @@ switch ($mode) {
 				$installVersion  = file_get_contents('install/VERSION');
 				$installRevision = 0;
 				preg_match('!\$' . 'Id: install.sql ([0-9]+)!', $installSQL, $match);
+                /*
 				$installVersion = explode('.', $installVersion);
 
 				if (isset($match[1]))
@@ -499,6 +500,7 @@ switch ($mode) {
 				}
 
 				$installVersion = implode('.', $installVersion);
+                */
 				try {
 					$db->query(str_replace(array(
 						'%PREFIX%',

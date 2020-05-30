@@ -561,7 +561,7 @@ class ResourceUpdate
 			$Level				= $ListIDArray[1];
 			$BuildMode			= $ListIDArray[4];
 			$ForDestroy			= ($BuildMode == 'destroy') ? true : false;
-			$costResources		= BuildFunctions::getElementPrice($this->USER, $this->PLANET, $Element, $ForDestroy, $Level);
+			$costResources		= BuildFunctions::getElementPrice($this->USER, $this->PLANET, $Element, $ForDestroy);
 			$BuildTime			= BuildFunctions::getBuildingTime($this->USER, $this->PLANET, $Element, $costResources);
 			$HaveResources		= BuildFunctions::isElementBuyable($this->USER, $this->PLANET, $Element, $costResources);
 			$BuildEndTime		= $this->PLANET['b_building'] + $BuildTime;
@@ -710,7 +710,7 @@ class ResourceUpdate
 			//$new_code
 			$Element            = $ListIDArray[0];
 			$Level              = $ListIDArray[1];
-			$costResources		= BuildFunctions::getElementPrice($this->USER, $PLANET, $Element, false, $Level);
+			$costResources		= BuildFunctions::getElementPrice($this->USER, $PLANET, $Element);
 			$BuildTime			= BuildFunctions::getBuildingTime($this->USER, $PLANET, $Element, $costResources);
 			$HaveResources		= BuildFunctions::isElementBuyable($this->USER, $PLANET, $Element, $costResources);
 			$BuildEndTime       = $this->USER['b_tech'] + $BuildTime;
@@ -724,7 +724,7 @@ class ResourceUpdate
 				if(isset($costResources[921])) { $this->USER[$resource[921]]	-= $costResources[921]; }
                 $old_code*/
                 //$new_code
-                require_once('includes/subclasses/subclass.ResThis.php');
+                require_once('includes/subclasses/subclass.ResPlanetThisUser.php');
                 //$new_code
                
 				$this->USER['b_tech_id']		= $Element;

@@ -1,9 +1,19 @@
 /* Маркет */
-@charset "utf-8";@font-face{font-family:Roboto;src:url(/styles/resource/fonts/Roboto-Light.ttf)}#blackMarket .locus{background:0 0}#blackMarket .market_element{display:block;position:relative;float:left;width:340px;height:125px;overflow:hidden;background-color:transparent;background-size:cover;-moz-background-size:cover;-o-background-size:cover;-webkit-background-size:cover;-khtml-background-size:cover}#blackMarket .market_element_big{width:680px}#blackMarket .market_title{width:100%;text-align:center;height:50px;line-height:50px;font-size:25px;font-family:Roboto;display:block;position:absolute;bottom:0;float:left;background:rgba(0,0,0,.7)}#blackMarket .market_title:hover{background:rgba(0,0,0,.5)}#blackMarket .market_element a:hover{color:#fff}
+@charset "utf-8";@font-face{font-family:Roboto;src:url(/styles/resource/fonts/Roboto-Light.ttf)}#market .locus{background:0 0}#market .market_element{display:block;position:relative;float:left;width:340px;height:125px;overflow:hidden;background-color:transparent;background-size:cover;-moz-background-size:cover;-o-background-size:cover;-webkit-background-size:cover;-khtml-background-size:cover}#market .market_element_big{width:680px}#market .market_title{width:100%;text-align:center;height:50px;line-height:50px;font-size:25px;font-family:Roboto;display:block;position:absolute;bottom:0;float:left;background:rgba(0,0,0,.7)}#market .market_title:hover{background:rgba(0,0,0,.5)}#market .market_element a:hover{color:#fff}
+/*Сенат*/
 .locus .img_gubernators{background:url(./img/content/gubernators.jpg) center}
 .locus .img_officer{background:url(./img/content/officer.jpg) center}
 .locus .img_infobonus{background:url(./img/content/infobonus.jpg) center}
+.locus .img_race{background:url(./img/content/race.jpg) center}
+/*Дилеры*/
 .locus .img_resourcetrader{background:url(./img/content/resourcetrader.jpg) center}
+.locus .img_fleettrader{background:url(./img/content/fleettrader.jpg) center}
+/*Черный рынок*/
+.locus .img_arsenal{background:url(./img/content/arsenal.jpg) center}
+.locus .img_conteiner{background:url(./img/content/conteiner.jpg) center}
+/*Рынок пиратов*/
+.locus .img_artifact{background:url(./img/content/artifact.jpg) center}
+.locus .img_development{background:url(./img/content/development.jpg) center}
 
 .locus{
     display:block;
@@ -1247,14 +1257,14 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
     -moz-border-radius: 0px 0px 2px 2px;
     -webkit-border-radius: 0px 0px 2px 2px;
     border-radius: 0px 0px 2px 2px;
-    width: 60%;
+    width: 80%;
     margin: auto;
     border: none;
     background: none;
     position: relative;
     left: 0;
     right: 0;
-    min-width: 700px;
+    min-width: 800px;
     max-width: 1200px;
     top: -3px;
 }
@@ -1269,8 +1279,8 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 	max-width:220px;
 } */
 #res_nav .bloc_res {
-    margin-left: 1%;
-    width: 18.5%;
+    margin-left: 0%;
+    width: 13.5%;
     float: left;
     position: relative;
     z-index: 3;
@@ -1654,23 +1664,32 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 	text-align:left;
 }
 
-/*atm*/
-#res_nav #res_block_atm{
-	width:12%;
-	float:right;
-	max-width:180px;
+/*antimatter*/
+#res_nav #res_block_antimatter .ico_res{
+	background-image:url(./img/resources/922f.png);
+    background-size: 100%;
+	background-position:center;
 }
-#res_nav #res_block_atm .ico_res{
-	background-image:url(../images/atm.gif);
-}
-#res_nav #res_block_atm .stock_res{
-	border:0;
-	background:none;
-	margin-right:0;
-}
-#res_nav #res_block_atm .stock_text{
+#res_nav #res_block_antimatter .stock_text{
 	text-align:left;
-	padding-left:7px;
+}
+/*stardust*/
+#res_nav #res_block_stardust .ico_res{
+	background-image:url(./img/resources/923f.png);
+    background-size: 100%;
+	background-position:center;
+}
+#res_nav #res_block_stardust .stock_text{
+	text-align:left;
+}
+/*container*/
+#res_nav #res_block_container .ico_res{
+	background-image:url(./img/resources/924f.png);
+    background-size: 100%;
+	background-position:center;
+}
+#res_nav #res_block_container .stock_text{
+	text-align:left;
 }
 
 /*left_side*/
@@ -6495,6 +6514,21 @@ span.achiev_mes_head{
     margin-left: 1px !important;
 	    margin-bottom: 0 !important;
 }
+.ars_elements .build_box:nth-child(odd) {
+	    width: 344px !important;
+    float: left !important;
+    height: 100px !important;
+    margin: 7px !important;
+	    margin-bottom: 0 !important;
+}
+.ars_elements .build_box:nth-child(even) {
+	    width: 344px !important;
+    float: left !important;
+    height: 100px !important;
+    margin: 7px !important;
+    margin-left: 1px !important;
+	    margin-bottom: 0 !important;
+}
 .accademy_elements .build_box{
 	width:98% !important;
 	float:none !important;
@@ -10280,7 +10314,85 @@ margin-top:3px !important;border-top: 1px solid #000 !important; height:22px !im
 .shareflottesotto{
 vertical-align: text-top;margin-right: -10px;margin-left: 5px;
 }
-	.nuovomenusinistra {
+
+.menu_market {
+	display: block;
+    width: 102px;
+    padding: 0 7px;
+    float: left;
+    margin: 0px 0px 6px 1px;
+    height: 24px;
+    line-height: 24px;
+    color: #CCC;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px rgba(0,0,0,0.6);
+    border: 1px solid #000;
+    -moz-border-radius: 2px 0px 0px 2px;
+    -webkit-border-radius: 2px 0px 0px 2px;
+    border-radius: 2px 0px 0px 2px;
+    background: #091527;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#0a1629', endColorstr = '#091324');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#0a1629', endColorstr = '#091324')";
+	background-image: -moz-linear-gradient(top, #0a1629, #091324);
+	background-image: -ms-linear-gradient(top, #0a1629, #091324);
+	background-image: -o-linear-gradient(top, #0a1629, #091324);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#0a1629), to(#091324));
+	background-image: -webkit-linear-gradient(top, #0a1629, #091324);
+	background-image: linear-gradient(top, #0a1629, #091324);
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	text-align: left;
+	position: relative;
+	border-right: none;
+	margin-right: 0;
+	box-shadow: inset 1px 1px #142c52, inset -1px -1px #142c52;
+	}
+.menu_market {
+	display: block;
+    width: 103px;
+    padding: 0 7px;
+    float: left;
+    margin: 0px 0px 6px 1px;
+    height: 24px;
+    line-height: 24px;
+    color: #CCC;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px rgba(0,0,0,0.6);
+    border: 1px solid #000;
+    -moz-border-radius: 2px 0px 0px 2px;
+    -webkit-border-radius: 2px 0px 0px 2px;
+    border-radius: 2px 0px 0px 2px;
+    background: #091527;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#0a1629', endColorstr = '#091324');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#0a1629', endColorstr = '#091324')";
+	background-image: -moz-linear-gradient(top, #0a1629, #091324);
+	background-image: -ms-linear-gradient(top, #0a1629, #091324);
+	background-image: -o-linear-gradient(top, #0a1629, #091324);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#0a1629), to(#091324));
+	background-image: -webkit-linear-gradient(top, #0a1629, #091324);
+	background-image: linear-gradient(top, #0a1629, #091324);
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	text-align: left;
+	position: relative;
+	border-right: none;
+	margin-right: 0;
+	box-shadow: inset 1px 1px #142c52, inset -1px -1px #142c52;
+	}
+    .menu_market:hover {
+	background:#0a172b;
+	-moz-transition: all 0.2s ease-in;
+	-webkit-transition: all 0.2s ease-in;
+	-o-transition: all 0.2s ease-in;
+	transition: all 0.2s ease-in;
+	}
+	.menu_market:focus {
+	box-shadow: inset 1px 1px #183461, inset -1px -1px #17335f;
+	}
+
+.nuovomenusinistra {
 	display: block;
     width: 73px;
     padding: 0 7px;
@@ -16845,7 +16957,13 @@ transition: all 0.2s ease-in;
 .colore921{    color:#c262d8 !important;
     text-shadow: 0px 0px 5px hsla(141, 55%, 30%, 0.5) !important;
     font-size: 14px;}
-.colore931{    color: #db374b !important;
+.colore922{    color: #db374b !important;
+    text-shadow: 0px 0px 5px hsla(141, 55%, 30%, 0.5) !important;
+    font-size: 14px;}
+.colore923{    color: #d3d540 !important;
+    text-shadow: 0px 0px 5px hsla(141, 55%, 30%, 0.5) !important;
+    font-size: 14px;}
+.colore924{    color: #b69149 !important;
     text-shadow: 0px 0px 5px hsla(141, 55%, 30%, 0.5) !important;
     font-size: 14px;}
 .colorered{    color: #db374b !important;

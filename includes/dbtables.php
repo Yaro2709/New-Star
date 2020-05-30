@@ -65,7 +65,8 @@ $dbTableNames	= array(
 	'VARS_RAPIDFIRE'	=> DB_PREFIX.'vars_rapidfire',
 	'VARS_REQUIRE'	 	=> DB_PREFIX.'vars_requriements',
     //$new_code
-    'MARKET'		    => DB_PREFIX.'market', 
+    'MARKET'		    => DB_PREFIX.'market',
+    'CONT'				=> DB_PREFIX.'conteiners', 
     //$new_code
 );
 // MOD-TABLES

@@ -97,7 +97,7 @@ function Price923(Element, Price)
 function Price924(Element, Price)
 {
 	var Amount  	= parseInt($('#amount'+Element).val());
-	var contein 	= parseInt($('#current_contein').text().replace(/\./g, ''));
+	var contein 	= parseInt($('#current_container').text().replace(/\./g, ''));
 	var TotalPrice	= Price * Amount;
 	
 	var PriceE		= $('#price'+Element);

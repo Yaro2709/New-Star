@@ -71,44 +71,51 @@
     </div>
 	<div class="overvieew1">
         <div class="gray_latdes overvieew2" style="background: url({$dpath}img/content/control_roompi.png) no-repeat, url({$dpath}img/content/mondpi.jpg) no-repeat ; background-size:cover;">
+        {if isModuleAvailable($smarty.const.MODULE_CREATE_MOON)}
         {if $planet_type == 1}	
         {if $Moon}
-        <div>
-            <a href="game.php?page=overview&amp;cp={$Moon.id}&amp;re=0"><span class="overvieew5">{$Moon.name}</span></a>
-            <a href="game.php?page=overview&amp;cp={$Moon.id}&amp;re=0" class=" ">
-            <img src="{$dpath}img/content/moon.png" class="overvieew4 tooltip" data-tooltip-content="{$Moon.name}" style="opacity:0.8">
-            </a>
-        </div>
+            <div>
+                <a href="game.php?page=overview&amp;cp={$Moon.id}&amp;re=0"><span class="overvieew5">{$Moon.name}</span></a>
+                <a href="game.php?page=overview&amp;cp={$Moon.id}&amp;re=0" class=" ">
+                    <img src="{$dpath}img/content/moon.png" class="overvieew4 tooltip" data-tooltip-content="{$Moon.name}" style="opacity:0.8">
+                </a>
+            </div>
         {else}
-        <div>
-            <a href="game.php?page=createMoon"><span class="overvieew5">{$LNG.ov_create_moon}</span></a>
-            <a href="game.php?page=createMoon" class=" ">
-            <img src="{$dpath}img/content/moon.png" class="overvieew4 tooltip" data-tooltip-content="{$LNG.ov_create_moon}" style="opacity:0.8">
-            </a>
-        </div>
+            <div>
+                <a href="game.php?page=createMoon"><span class="overvieew5">{$LNG.ov_create_moon}</span></a>
+                <a href="game.php?page=createMoon" class=" ">
+                    <img src="{$dpath}img/content/moon.png" class="overvieew4 tooltip" data-tooltip-content="{$LNG.ov_create_moon}" style="opacity:0.8">
+                </a>
+            </div>
         {/if}
         {/if}
-	</div>
-    <div class="gray_latdes overvieew2" style="background: url({$dpath}img/content/control_roompi.png) no-repeat, url({$dpath}gebaeude/race/ov_{$race}.jpg) no-repeat ; background-size:cover;">
-        <div>
-            <a href="game.php?page=race"><span class="overvieew5">{$LNG.tech.$race}</span></a>
-            <a href="game.php?page=race" class=" ">
-            <img style='width: 90px;' src="{$dpath}gebaeude/{$race}.png" class="overvieew4 tooltip" data-tooltip-content="{$LNG.lm_race}" style="opacity:0.8">
-            </a>
+        {/if}
         </div>
-	</div> 
-	<div class="gray_latdes overvieew3">
-	  <div class="ricerche"><img src="{$dpath}img/iconav/tech.png" class="overvieew6"><span class="overvieew9"><a href="game.php?page=research">
-      {if $buildInfo.tech}{$LNG.tech[$buildInfo.tech['id']]} <span class="level">({$buildInfo.tech['level']})</span><span class="timer" data-time="{$buildInfo.tech['timeleft']}">{$buildInfo.tech['starttime']}</span>{else}{$LNG.ov_free}{/if}</a></span></div>
-	</div>
-	<div class="gray_latdes overvieew3">
-	 <div class="costruzioni"><img src="{$dpath}img/iconav/build.png" class="overvieew6"><span class="overvieew9"><a href="game.php?page=buildings">
-     {if $buildInfo.buildings}{$LNG.tech[$buildInfo.buildings['id']]} <span class="level">({$buildInfo.buildings['level']}) - </span><span class="timer" data-time="{$buildInfo.buildings['timeleft']}">{$buildInfo.buildings['starttime']}</span>{else}{$LNG.ov_free}{/if}</a></span></div>
-	</div>
-	<div class="gray_latdes overvieew3">
-	   <div class="flotte"><img src="{$dpath}img/iconav/fleet.png" class="overvieew6"><span class="overvieew9"><a href="game.php?page=shipyard">
-       {if $buildInfo.fleet}{$LNG.tech[$buildInfo.fleet['id']]} <span class="level">({$buildInfo.fleet['level']})</span><br><span class="timer" data-time="{$buildInfo.fleet['timeleft']}">{$buildInfo.fleet['starttime']}</span>{else}{$LNG.ov_free}{/if}</a></span></div>
-	</div>
+        <div class="gray_latdes overvieew2" style="background: url({$dpath}img/content/control_roompi.png) no-repeat, url({$dpath}gebaeude/race/ov_{$race}.jpg) no-repeat ; background-size:cover;">
+        {if isModuleAvailable($smarty.const.MODULE_RACE)}
+            <div>
+                <a href="game.php?page=race"><span class="overvieew5">{$LNG.tech.$race}</span></a>
+                <a href="game.php?page=race" class=" ">
+                    <img style='width: 90px;' src="{$dpath}gebaeude/{$race}.png" class="overvieew4 tooltip" data-tooltip-content="{$LNG.lm_race}" style="opacity:0.8">
+                </a>
+            </div>
+        {/if}
+        </div> 
+        <div class="gray_latdes overvieew3">
+            <div class="ricerche"><img src="{$dpath}img/iconav/tech.png" class="overvieew6"><span class="overvieew9"><a href="game.php?page=research">
+                {if $buildInfo.tech}{$LNG.tech[$buildInfo.tech['id']]} <span class="level">({$buildInfo.tech['level']})</span><span class="timer" data-time="{$buildInfo.tech['timeleft']}">{$buildInfo.tech['starttime']}</span>{else}{$LNG.ov_free}{/if}</a></span>
+            </div>
+        </div>
+        <div class="gray_latdes overvieew3">
+            <div class="costruzioni"><img src="{$dpath}img/iconav/build.png" class="overvieew6"><span class="overvieew9"><a href="game.php?page=buildings">
+                {if $buildInfo.buildings}{$LNG.tech[$buildInfo.buildings['id']]} <span class="level">({$buildInfo.buildings['level']}) - </span><span class="timer" data-time="{$buildInfo.buildings['timeleft']}">{$buildInfo.buildings['starttime']}</span>{else}{$LNG.ov_free}{/if}</a></span>
+            </div>
+        </div>
+        <div class="gray_latdes overvieew3">
+            <div class="flotte"><img src="{$dpath}img/iconav/fleet.png" class="overvieew6"><span class="overvieew9"><a href="game.php?page=shipyard">
+                {if $buildInfo.fleet}{$LNG.tech[$buildInfo.fleet['id']]} <span class="level">({$buildInfo.fleet['level']})</span><br><span class="timer" data-time="{$buildInfo.fleet['timeleft']}">{$buildInfo.fleet['starttime']}</span>{else}{$LNG.ov_free}{/if}</a></span>
+            </div>
+        </div>
 	</div>
     <div class="fleettab11" style="margin-top: 0;"></div>
     <div class="gray_latdes" style="border-left:0;border-right:0;">

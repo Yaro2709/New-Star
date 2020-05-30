@@ -17,7 +17,7 @@
 
 class ShowCreateMoonPage extends AbstractGamePage
 {
-	public static $requireModule = MODULE_CREATEMOON;
+	public static $requireModule = MODULE_CREATE_MOON;
 
 	function __construct() 
 	{

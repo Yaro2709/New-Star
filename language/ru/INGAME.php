@@ -51,27 +51,27 @@ $LNG['ready']                                        = 'Готово';
 $LNG['loading']                                      = 'Загрузка...';
 $LNG['invalid_action']                               = 'Недопустимое действие.';
 //{IDs_0002} Название миссий
-$LNG['type_mission'][1]                              = 'Атака';
-$LNG['type_mission'][2]                              = 'Совместная атака';
-$LNG['type_mission'][3]                              = 'Транспорт';
-$LNG['type_mission'][4]                              = 'Оставить';
-$LNG['type_mission'][5]                              = 'Держаться';
-$LNG['type_mission'][6]                              = 'Шпионаж';
-$LNG['type_mission'][7]                              = 'Колонизировать';
-$LNG['type_mission'][8]                              = 'Переработать';
-$LNG['type_mission'][9]                              = 'Уничтожить';
-$LNG['type_mission'][10]                             = 'Ракетная атака';
-$LNG['type_mission'][11]                             = 'Поиск Тёмной материи';
-$LNG['type_mission'][15] 				             = 'Экспедиция';
+$LNG['type_mission_1']                               = 'Атака';
+$LNG['type_mission_2']                               = 'Совместная атака';
+$LNG['type_mission_3']                               = 'Транспорт';
+$LNG['type_mission_4']                               = 'Оставить';
+$LNG['type_mission_5']                               = 'Держаться';
+$LNG['type_mission_6']                               = 'Шпионаж';
+$LNG['type_mission_7']                               = 'Колонизировать';
+$LNG['type_mission_8']                               = 'Переработать';
+$LNG['type_mission_9']                               = 'Уничтожить';
+$LNG['type_mission_10']                              = 'Ракетная атака';
+$LNG['type_mission_11']                              = 'Поиск Тёмной материи';
+$LNG['type_mission_15']                              = 'Экспедиция';
 //{IDs_0003} Название видов планет
-$LNG['type_planet'][1]                               = 'Планета';
-$LNG['type_planet'][2]                               = 'Поле обломков';
-$LNG['type_planet'][3]                               = 'Луна';
+$LNG['type_planet_1']                                = 'Планета';
+$LNG['type_planet_2']                                = 'Поле обломков';
+$LNG['type_planet_3']                                = 'Луна';
 //{IDs_0004} Права в игре
-$LNG['user_level'][1]                                = 'Игрок';
-$LNG['user_level'][2]                                = 'Модератор';
-$LNG['user_level'][3]                                = 'Оператор';
-$LNG['user_level'][4]                                = 'Администратор';
+$LNG['user_level_0']                                 = 'Игрок';
+$LNG['user_level_1']                                 = 'Модератор';
+$LNG['user_level_2']                                 = 'Оператор';
+$LNG['user_level_3']                                 = 'Администратор';
 //{IDs_0005} Общее
 $LNG['page_doesnt_exist']                            = 'Страница не существует.';
 $LNG['bad_forum_url']                                = 'Адрес форума не задан.';

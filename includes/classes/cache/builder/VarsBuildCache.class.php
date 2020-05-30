@@ -41,6 +41,9 @@ class VarsBuildCache implements BuildCache
 		$reslist['dmfunc']		= array();
         
         $reslist['race']		= array();
+        $reslist['artifact']    = array();
+        $reslist['development'] = array();
+        $reslist['ars']		    = array();
         $reslist['premium']	    = array();
 		
 		$db	= Database::get();
@@ -72,6 +75,9 @@ class VarsBuildCache implements BuildCache
                     915	=> $varsRow['cost915'],
                     916	=> $varsRow['cost916'],
 					921	=> $varsRow['cost921'],
+                    922	=> $varsRow['cost922'],
+                    923	=> $varsRow['cost923'],
+                    924	=> $varsRow['cost924'],             
 				),
 				'factor'		=> $varsRow['factor'],
 				'max'			=> $varsRow['maxLevel'],
@@ -186,8 +192,17 @@ class VarsBuildCache implements BuildCache
 				case 700: 
 					$reslist['dmfunc'][]	= $varsRow['elementID'];
 				break;
+                case 1400: 
+					$reslist['artifact'][]	= $varsRow['elementID'];
+				break;
                 case 1500: 
 					$reslist['race'][]	= $varsRow['elementID'];
+				break;
+                case 1900: 
+					$reslist['development'][]	= $varsRow['elementID'];
+				break;
+                case 2000: 
+					$reslist['ars'][]	= $varsRow['elementID'];
 				break;
                 case 2100: 
 					$reslist['premium'][]	= $varsRow['elementID'];

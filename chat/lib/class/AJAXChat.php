@@ -84,15 +84,17 @@ class AJAXChat {
 		$this->initCustomRequestVars();
 		
 		// Remove slashes which have been added to user input strings if magic_quotes_gpc is On:
-		if(get_magic_quotes_gpc()) {
-			// It is safe to remove the slashes as we escape user data ourself
-			array_walk(
-				$this->_requestVars,
-				create_function(
-					'&$value, $key',
-					'if(is_string($value)) $value = stripslashes($value);'
-				)
-			);
+		if(PHP_VERSION_ID < 70400) {
+			if(get_magic_quotes_gpc()) {
+				// It is safe to remove the slashes as we escape user data ourself
+				array_walk(
+					$this->_requestVars,
+					create_function(
+						'&$value, $key',
+						'if(is_string($value)) $value = stripslashes($value);'
+					)
+				);
+			}
 		}
 	}
 	

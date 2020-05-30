@@ -1112,7 +1112,7 @@ input, select, textarea, #userpic, input, button{
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
-	/*padding:3px;*/
+	padding:3px;
 }
 
 td, th input, .tip {
