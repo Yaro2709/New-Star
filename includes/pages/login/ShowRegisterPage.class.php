@@ -20,7 +20,6 @@ class ShowRegisterPage extends AbstractLoginPage
 	function __construct() 
 	{
 		parent::__construct();
-        $this->setWindow('light');
 	}
 	
 	function show()
@@ -93,7 +92,7 @@ class ShowRegisterPage extends AbstractLoginPage
 			'accountName'		=> $accountName,
 			'externalAuth'		=> $externalAuth,
 			'universeSelect'	=> $universeSelect,
-			'registerRulesDesc'	=> sprintf($LNG['registerRulesDesc'], '<a href="index.php?page=rules">'.$LNG['menu_rules'].'</a>')
+			'registerRulesDesc'	=> sprintf($LNG['registerRulesDesc'], '<a href="index.php?page=rules">'.$LNG['nav_rules'].'</a>')
 		));
 		
 		$this->display('page.register.default.tpl');
@@ -107,7 +106,7 @@ class ShowRegisterPage extends AbstractLoginPage
 		if($config->game_disable == 0 || $config->reg_closed == 1)
 		{
 			$this->printMessage($LNG['registerErrorUniClosed'], array(array(
-				'label'	=> $LNG['registerBack'],
+				'label'	=> $LNG['back'],
 				'url'	=> 'javascript:window.history.back()',
 			)));
 		}
@@ -229,7 +228,7 @@ class ShowRegisterPage extends AbstractLoginPage
 						
 		if (!empty($errors)) {
 			$this->printMessage(implode("<br>\r\n", $errors), array(array(
-				'label'	=> $LNG['registerBack'],
+				'label'	=> $LNG['back'],
 				'url'	=> 'javascript:window.history.back()',
 			)));
 		}

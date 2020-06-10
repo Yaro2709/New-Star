@@ -1,23 +1,28 @@
-{block name="title" prepend}{$LNG.siteTitleNews}{/block}
+{block name="title" prepend}{$LNG.nav_news}{/block}
 {block name="content"}
-    <div class="container" style="margin-top: 80px;">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">{$LNG.siteTitleNews}</div>
-                    {foreach $newsList as $newsRow}
-                        <div class="panel-body">
-                            <h1 class="page-header">{$newsRow.title}</h1>
-                            <div class="info">{$newsRow.from}</div>
-                            <p>{$newsRow.text}</p>
-                        </div>
-                        {foreachelse}
-                        <div class="panel-body">
-                            <h3 class="page-header">{$LNG.news_does_not_exist}</h3>
-                        </div>
-                    {/foreach}
-                </div>
-            </div>
+<main role="main" class="container">
+    <div class="card mb-3">
+        <h5 class="card-header">{$LNG.nav_news}</h5>
+        <div class="card-body">
+            <p class="card-text">{foreach $newsList as $newsRow}<a href="#{$newsRow.id}">{$newsRow.title} </a>{foreachelse}{$LNG.news_does_not_exist}{/foreach}</p>
         </div>
     </div>
+    <div class="album">
+        <div class="row">
+        {foreach $newsList as $newsRow}
+            <div id="{$newsRow.id}" class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="/styles/resource/images/login/news/{$newsRow.id}.jpg" class="card-img img-thumbnail bg-primary border-primary" alt="{$newsRow.title}">
+                    <div class="card-body">
+                        <h5 class="card-title">{$newsRow.title}</h5>
+                        <p class="card-text overflow-auto" style="max-width: 1000px; max-height: 150px;">{$newsRow.text}</p>
+                        <p class="card-text"><small class="text-muted">{$newsRow.from}</small></p>
+                    </div>
+                </div>
+            </div>
+        {foreachelse}
+        {/foreach}
+      </div>
+  </div>
+</main>
 {/block}

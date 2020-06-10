@@ -31,10 +31,9 @@ $mode = HTTP::_GP('mode', '');
 $template = new template();
 $template->setCaching(false);
 $template->assign(array(
+    'languages'	 => Language::getAllowedLangs(false),
 	'lang'       => $LNG->getLanguage(),
-	'Selector'   => $LNG->getAllowedLangs(false),
-	'title'      => $LNG['title_install'] . '',
-	'header'     => $LNG['menu_install'],
+	'title'      => ''.$LNG['title_install'].' | '.$LNG['game_name'].'',
 	'canUpgrade' => file_exists('includes/config.php') && filesize('includes/config.php') !== 0
 ));
 
@@ -57,19 +56,14 @@ if (!is_file($enableInstallToolFile)) {
 
     switch ($mode) {
         case 'upgrade':
-            $message = $LNG->getTemplate('locked_upgrade');
+            $message = $LNG['locked_upgrade'];
         break;
         default:
-            $message = $LNG->getTemplate('locked_install');
+            $message = $LNG['locked_install'];
         break;
     }
     $template->message($message, false, 0, true);
 	exit;
-}
-$language = HTTP::_GP('lang', '');
-
-if (!empty($language) && in_array($language, $LNG->getAllowedLangs())) {
-	setcookie('lang', $language);
 }
 
 switch ($mode) {
@@ -279,43 +273,43 @@ switch ($mode) {
 				$error = false;
 				$ftp   = false;
 				if (version_compare(PHP_VERSION, "5.3.0", ">=")) {
-					$PHP = "<span class=\"yes\">" . $LNG['reg_yes'] . ", v" . PHP_VERSION . "</span>";
+					$PHP = $LNG['reg_yes'] . ", v" . PHP_VERSION;
 				}
 				else {
-					$PHP   = "<span class=\"no\">" . $LNG['reg_no'] . ", v" . PHP_VERSION . "</span>";
+					$PHP   = $LNG['reg_no'] . ", v" . PHP_VERSION;
 					$error = true;
 				}
 
 				if (class_exists('PDO') && in_array('mysql', PDO::getAvailableDrivers())) {
-					$pdo = "<span class=\"yes\">" . $LNG['reg_yes'] . "</span>";
+					$pdo = $LNG['reg_yes'];
 				}
 				else {
-					$pdo   = "<span class=\"no\">" . $LNG['reg_no'] . "</span>";
+					$pdo   = $LNG['reg_no'];
 					$error = true;
 				}
 				if (function_exists('json_encode')) {
-					$json = "<span class=\"yes\">" . $LNG['reg_yes'] . "</span>";
+					$json = $LNG['reg_yes'];
 				}
 				else {
-					$json  = "<span class=\"no\">" . $LNG['reg_no'] . "</span>";
+					$json  = $LNG['reg_no'];
 					$error = true;
 				}
 				if (function_exists('ini_set')) {
-					$iniset = "<span class=\"yes\">" . $LNG['reg_yes'] . "</span>";
+					$iniset = $LNG['reg_yes'];
 				}
 				else {
-					$iniset = "<span class=\"no\">" . $LNG['reg_no'] . "</span>";
+					$iniset = $LNG['reg_no'];
 					$error  = true;
 				}
 				if (!ini_get('register_globals')) {
-					$global = "<span class=\"yes\">" . $LNG['reg_yes'] . "</span>";
+					$global = $LNG['reg_yes'];
 				}
 				else {
-					$global = "<span class=\"no\">" . $LNG['reg_no'] . "</span>";
+					$global = $LNG['reg_no'];
 					$error  = true;
 				}
 				if (!extension_loaded('gd')) {
-					$gdlib = "<span class=\"no\">" . $LNG['reg_no'] . "</span>";
+					$gdlib = $LNG['reg_no'];
 				}
 				else {
 					$gdVerion = '0.0.0';
@@ -329,22 +323,22 @@ switch ($mode) {
 							$gdVerion = $match[1];
 						}
 					}
-					$gdlib = "<span class=\"yes\">" . $LNG['reg_yes'] . ", v" . $gdVerion . "</span>";
+					$gdlib = $LNG['reg_yes'] . ", v" . $gdVerion;
 				}
 				clearstatcache();
 				if (file_exists(ROOT_PATH . "includes/config.php") || @touch(ROOT_PATH . "includes/config.php")) {
 					if (is_writable(ROOT_PATH . "includes/config.php")) {
-						$chmod = "<span class=\"yes\"> - " . $LNG['reg_writable'] . "</span>";
+						$chmod = $LNG['reg_writable'];
 					}
 					else {
-						$chmod = " - <span class=\"no\">" . $LNG['reg_not_writable'] . "</span>";
+						$chmod = $LNG['reg_not_writable'];
 						$error = true;
 						$ftp   = true;
 					}
-					$config = "<tr><td class=\"transparent left\"><p>" . sprintf($LNG['reg_file'], 'includes/config.php') . "</p></td><td class=\"transparent\"><span class=\"yes\">" . $LNG['reg_found'] . "</span>" . $chmod . "</td></tr>";
+					$config = "<tr><td class=\"transparent left\"><p>" . sprintf($LNG['reg_file'], 'includes/config.php') . "</p></td><td class=\"transparent\"><span class=\"yes\">" . $LNG['reg_yes'] . "</span>" . $chmod . "</td></tr>";
 				}
 				else {
-					$config = "<tr><td class=\"transparent left\"><p>" . sprintf($LNG['reg_file'], 'includes/config.php') . "</p></td><td class=\"transparent\"><span class=\"no\">" . $LNG['reg_not_found'] . "</span></td></tr>";
+					$config = "<tr><td class=\"transparent left\"><p>" . sprintf($LNG['reg_file'], 'includes/config.php') . "</p></td><td class=\"transparent\"><span class=\"no\">" . $LNG['reg_no'] . "</span></td></tr>";
 					$error  = true;
 					$ftp    = true;
 				}
@@ -353,20 +347,20 @@ switch ($mode) {
 				foreach ($directories as $dir) {
 					if (file_exists(ROOT_PATH . $dir) || @mkdir(ROOT_PATH . $dir)) {
 						if (is_writable(ROOT_PATH . $dir)) {
-							$chmod = "<span class=\"yes\"> - " . $LNG['reg_writable'] . "</span>";
+							$chmod = $LNG['reg_writable'];
 						} else {
-							$chmod = " - <span class=\"no\">" . $LNG['reg_not_writable'] . "</span>";
+							$chmod = $LNG['reg_not_writable'];
 							$error = true;
 							$ftp = true;
 						}
-						$dirs .= "<tr><td class=\"transparent left\"><p>" . sprintf($LNG['reg_dir'], $dir) . "</p></td><td class=\"transparent\"><span class=\"yes\">" . $LNG['reg_found'] . "</span>" . $chmod . "</td></tr>";
+						$dirs .= "<tr><td class=\"transparent left\"><p>" . sprintf($LNG['reg_dir'], $dir) . "</p></td><td class=\"transparent\"><span class=\"yes\">" . $LNG['reg_yes'] . "</span>" . $chmod . "</td></tr>";
 					}
 					else {
-						$dirs .= "<tr><td class=\"transparent left\"><p>" . sprintf($LNG['reg_dir'], $dir) . "</p></td><td class=\"transparent\"><span class=\"no\">" . $LNG['reg_not_found'] . "</span></td></tr>";
+						$dirs .= "<tr><td class=\"transparent left\"><p>" . sprintf($LNG['reg_dir'], $dir) . "</p></td><td class=\"transparent\"><span class=\"no\">" . $LNG['reg_no'] . "</span></td></tr>";
 					}
 				}
 				if ($error == false) {
-					$done = '<tr class="noborder"><td colspan="2" class="transparent"><a href="index.php?mode=install&step=3"><button style="cursor: pointer;">' . $LNG['continue'] . '</button></a></td></tr>';
+					$done = '<a href="index.php?mode=install&step=3"><button type="button" class="btn btn-primary">'. $LNG['continue'] .'</button></a>';
 				}
 				else {
 					$done = '';
@@ -486,21 +480,7 @@ switch ($mode) {
 				$installVersion  = file_get_contents('install/VERSION');
 				$installRevision = 0;
 				preg_match('!\$' . 'Id: install.sql ([0-9]+)!', $installSQL, $match);
-                /*
-				$installVersion = explode('.', $installVersion);
 
-				if (isset($match[1]))
-				{
-					$installRevision   = (int)$match[1];
-					$installVersion[2] = $installRevision;
-				}
-				else
-				{
-					$installRevision = (int)$installVersion[2];
-				}
-
-				$installVersion = implode('.', $installVersion);
-                */
 				try {
 					$db->query(str_replace(array(
 						'%PREFIX%',

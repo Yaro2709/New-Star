@@ -1,9 +1,9 @@
-<div class="container">
-	<footer>
-		<p class="pull-right"><a href="#">Back to top</a></p>
+<footer>
+    <div class="container">
+		<p class="float-right"><a href="#">{$LNG.footer_up}</a></p>
 		<p>© 2020 {$gameName}, <a href="https://github.com/Yaro2709/New-Star">github</a></p>
-	</footer>
-</div>
+	</div>
+</footer>
 <div id="dialog" style="display:none;"></div>
 <script>
 var LoginConfig = {

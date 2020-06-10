@@ -1,16 +1,11 @@
 {block name="title" prepend}{$LNG.fcm_info}{/block}
 {block name="content"}
-	<div class="container" style="margin-top: 80px;">
-		<div class="panel panel-default">
-			<div class="panel-heading">{$LNG.fcm_info}</div>
-			<div class="panel-body">
-				<table class="table519">
-					<tr>
-						<td><p>{$message}</p>{if !empty($redirectButtons)}<p>{foreach $redirectButtons as $button}<a href="{$button.url}"><button class="btn btn-default">{$button.label}</button></a>{/foreach}</p>{/if}</td>
-					</tr>
-				</table>
-			</div>
-		</div>
-	</div>
-
+<main role="main" class="container">
+    <div class="card mb-3">
+        <h5 class="card-header">{$LNG.fcm_info}</h5>
+        <div class="card-body">
+            <p class="card-text">{$message} {if !empty($redirectButtons)} {foreach $redirectButtons as $button}<a href="{$button.url}"><button class="btn btn-default">{$button.label}</button></a>{/foreach}{/if}</p>
+        </div>
+    </div>
+</main>
 {/block}

@@ -1,9 +1,14 @@
 {include file="ins_header.tpl"}
-<tr>
-	<td colspan="2"><div id="lang" align="right">{$LNG.intro_lang}:&nbsp;<select id="lang" name="lang" onchange="document.location = '?lang='+$(this).val();">{html_options options=$Selector selected=$lang}</select></div>
-	<div id="main" align="left">
-		<h1>{$fcm_info}</h1>
-		{$mes}
-		</div></td>
-</tr>
+{include file="ins_nav.tpl"}
+<main role="main" class="container">
+    <div class="card mb-3">
+        <h5 class="card-header">{$fcm_info}</h5>
+        <div class="card-body">
+            <p class="card-text">{$mes}</p>
+        </div>
+    </div>
+    <div class="album">
+        {include file="ins_carousel.tpl"}
+    </div>
+</main>
 {include file="ins_footer.tpl"}

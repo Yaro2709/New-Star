@@ -210,7 +210,7 @@ elseif(MODE === 'LOGIN')
 {
 	$LNG	= new Language();
 	$LNG->getUserAgentLanguage();
-	$LNG->includeData(array('L18N', 'INGAME', 'PUBLIC', 'CUSTOM'));
+	$LNG->includeData(array('L18N', 'INGAME', 'PUBLIC', 'CUSTOM', 'NEWS'));
 }
 elseif(MODE === 'CHAT')
 {

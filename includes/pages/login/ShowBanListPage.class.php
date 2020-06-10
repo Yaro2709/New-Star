@@ -18,11 +18,10 @@
 class ShowBanListPage extends AbstractLoginPage
 {
 	public static $requireModule = MODULE_BANLIST;
-
-	function __construct() 
+    
+    function __construct() 
 	{
 		parent::__construct();
-        $this->setWindow('light');
 	}
 
 	function show()

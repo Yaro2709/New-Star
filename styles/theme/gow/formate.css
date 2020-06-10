@@ -1,3 +1,4 @@
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
 /* Маркет */
 @charset "utf-8";@font-face{font-family:Roboto;src:url(/styles/resource/fonts/Roboto-Light.ttf)}#market .locus{background:0 0}#market .market_element{display:block;position:relative;float:left;width:340px;height:125px;overflow:hidden;background-color:transparent;background-size:cover;-moz-background-size:cover;-o-background-size:cover;-webkit-background-size:cover;-khtml-background-size:cover}#market .market_element_big{width:680px}#market .market_title{width:100%;text-align:center;height:50px;line-height:50px;font-size:25px;font-family:Roboto;display:block;position:absolute;bottom:0;float:left;background:rgba(0,0,0,.7)}#market .market_title:hover{background:rgba(0,0,0,.5)}#market .market_element a:hover{color:#fff}
 /*Сенат*/

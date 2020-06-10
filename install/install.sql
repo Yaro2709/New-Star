@@ -1072,6 +1072,20 @@ INSERT INTO `%PREFIX%cronjobs` (`cronjobID`, `name`, `isActive`, `min`, `hours`,
 (NULL, 'databasedump', 1, '30', '1', '*', '*', '1', 'DumpCronjob', 0, NULL),
 (NULL, 'tracking', 1, FLOOR(RAND() * 60), FLOOR(RAND() * 24), '*', '*', '0', 'TrackingCronjob', 0, NULL);
 
+INSERT INTO `%PREFIX%news` (`id`, `user`, `date`, `title`, `text`) VALUES
+(0, 'Yaro2709', 1586693532, '', ''),
+(1, 'Yaro2709', 1586870761, '', ''),
+(2, 'Yaro2709', 1587117600, '', ''),
+(3, 'Yaro2709', 1588336983, '', ''),
+(4, 'Yaro2709', 1589206900, '', ''),
+(5, 'Yaro2709', 1589817939, '', ''),
+(6, 'Yaro2709', 1590849786, '', ''),
+(7, 'Yaro2709', 1591796225, '', '');
+
+ALTER TABLE `%PREFIX%news`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+COMMIT;
+
 INSERT INTO `%PREFIX%system` (`dbVersion`) VALUES
 (%DB_VERSION%);
 

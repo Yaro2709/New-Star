@@ -1,0 +1,12 @@
+plugins additional:
+modifiercompiler.json
+modifiercompiler.number
+modifiercompiler.time
+shared.mb_wordwrap
+
+sysplugins additional:
+smarty_internal_extension_clear
+smarty_internal_runtime_hhvm
+smarty_internal_runtime_subtemplate
+smarty_internal_runtime_validatecompiled
+smarty_internal_runtime_var

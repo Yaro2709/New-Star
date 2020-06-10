@@ -1,1 +1,0 @@
-fancybox-content{background:#fff} - заменить.

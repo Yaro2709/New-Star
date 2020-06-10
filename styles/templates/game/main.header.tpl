@@ -6,53 +6,61 @@
 <!--[if IE 9 ]>    <html lang="{$lang}" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="{$lang}" class="no-js"> <!--<![endif]-->
 <head>
+    <!--title-->
 	<title>{block name="title"} - {$uni_name} - {$game_name}{/block}</title>
 	<meta name="generator" content="New-Star {$VERSION}">
-
+	<meta name="keywords" content="New-Star {$VERSION}">
+	<meta name="description" content="New-Star Browsergame powerd by https://github.com/Yaro2709/New-Star">
+    <!--favicon-->
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <!--goto refresh-->
 	{if !empty($goto)}
 	<meta http-equiv="refresh" content="{$gotoinsec};URL={$goto}">
 	{/if}
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" type="text/css" href="./styles/resource/css/base/boilerplate.css?v={$REV}">
-	<link rel="stylesheet" type="text/css" href="./styles/resource/css/ingame/main.css?v={$REV}">
-	<link rel="stylesheet" type="text/css" href="./styles/resource/css/base/jquery.css?v={$REV}">
-	<link rel="stylesheet" type="text/css" href="./styles/resource/css/base/jquery.fancybox.css?v={$REV}">
-	<link rel="stylesheet" type="text/css" href="{$dpath}formate.css?v={$REV}">
-	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-	<script type="text/javascript">
-	var ServerTimezoneOffset = {$Offset};
-	var serverTime 	= new Date({$date.0}, {$date.1 - 1}, {$date.2}, {$date.3}, {$date.4}, {$date.5});
-	var startTime	= serverTime.getTime();
-	var localTime 	= serverTime;
-	var localTS 	= startTime;
-	var Gamename	= document.title;
-	var Ready		= "{$LNG.ready}";
-	var Skin		= "{$dpath}";
-	var Lang		= "{$lang}";
-	var head_info	= "{$LNG.fcm_info}";
-	var auth		= {$authlevel|default:'0'};
-	var days 		= {$LNG.week_day|json|default:'[]'} 
-	var months 		= {$LNG.months|json|default:'[]'} ;
-	var tdformat	= "{$LNG.js_tdformat}";
-	var queryString	= "{$queryString|escape:'javascript'}";
-	var isPlayerCardActive	= "{$isPlayerCardActive|json}";
-
-	setInterval(function() {
-		serverTime.setSeconds(serverTime.getSeconds()+1);
-	}, 1000);
-	</script>
-    
+    <!--content-type-->
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!--style-->
+    <link rel="stylesheet" type="text/css" href="./styles/resource/css/ingame/main.css">
+    <link rel="stylesheet" type="text/css" href="{$dpath}formate.css">
+    <!--keypress-->
     <script type="text/javascript" src="./scripts/base/keypress.js"></script>
+    <!--jquery-->
+    <link rel="stylesheet" type="text/css" href="./styles/resource/css/base/jquery.css">
     <script type="text/javascript" src="./scripts/base/jquery.js"></script>
     <script type="text/javascript" src="./scripts/base/jquery.ui.js"></script>
 	<script type="text/javascript" src="./scripts/base/jquery.cookie.js"></script>
+    <!--fancybox-->
+    <link rel="stylesheet" type="text/css" href="./styles/resource/css/base/jquery.fancybox.css">
     <script type="text/javascript" src="./scripts/base/jquery.fancybox.js"></script>
-    
-    <script type="text/javascript" src="./scripts/base/tooltip.js?v={$REV}"></script>
-	<script type="text/javascript" src="./scripts/game/base.js?v={$REV}"></script>
-    
+    <!--game script-->
+    <script type="text/javascript">
+        var ServerTimezoneOffset = {$Offset};
+        var serverTime 	= new Date({$date.0}, {$date.1 - 1}, {$date.2}, {$date.3}, {$date.4}, {$date.5});
+        var startTime	= serverTime.getTime();
+        var localTime 	= serverTime;
+        var localTS 	= startTime;
+        var Gamename	= document.title;
+        var Ready		= "{$LNG.ready}";
+        var Skin		= "{$dpath}";
+        var Lang		= "{$lang}";
+        var head_info	= "{$LNG.fcm_info}";
+        var auth		= {$authlevel|default:'0'};
+        var days 		= {$LNG.week_day|json|default:'[]'} 
+        var months 		= {$LNG.months|json|default:'[]'} ;
+        var tdformat	= "{$LNG.js_tdformat}";
+        var queryString	= "{$queryString|escape:'javascript'}";
+        var isPlayerCardActive	= "{$isPlayerCardActive|json}";
+
+        setInterval(function() {
+            serverTime.setSeconds(serverTime.getSeconds()+1);
+        }, 1000);
+	</script>
+    <script type="text/javascript" src="./scripts/base/tooltip.js"></script>
+	<script type="text/javascript" src="./scripts/game/base.js"></script>
+    <script type="text/javascript" src="./scripts/game/game.class.js"></script>
+    <!--script-->
 	{foreach item=scriptname from=$scripts}
-	<script type="text/javascript" src="./scripts/game/{$scriptname}.js?v={$REV}"></script>
+	<script type="text/javascript" src="./scripts/game/{$scriptname}.js"></script>
 	{/foreach}
 	{block name="script"}{/block}
 	<script type="text/javascript">
@@ -62,4 +70,4 @@
 	</script>
 </head>
 <body id="{$smarty.get.page|htmlspecialchars|default:'overview'}" class="{$bodyclass}">
-	<div id="tooltip" class="tip"></div>
+<div id="tooltip" class="tip"></div>

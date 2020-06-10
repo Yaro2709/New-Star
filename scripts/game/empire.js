@@ -65,24 +65,6 @@ function filtrsmoon(){
 		$('.imper_table .imper_moon').show();
 	}
 };
-function filtrsbplanet(){
-	if(!$('#filtrsbplanet').hasClass('imper_btn_filtrs_activ'))
-	{
-        $('.imper_btn_filtrs').removeClass('imper_btn_filtrs_activ');	
-        $('#filtrsbplanet').addClass('imper_btn_filtrs_activ');
-		$('.imper_table .imper_f').hide();
-		$('.imper_table .imper_pg2').show();
-	}
-};
-function filtrsaplanet(){
-	if(!$('#filtrsaplanet').hasClass('imper_btn_filtrs_activ'))
-	{
-        $('.imper_btn_filtrs').removeClass('imper_btn_filtrs_activ');	
-        $('#filtrsaplanet').addClass('imper_btn_filtrs_activ');
-		$('.imper_table .imper_f').hide();
-		$('.imper_table .imper_all_planet').show();
-	}
-};
 //---navigation
 function goleft(){
 	$("#ipper_planets").scrollLeft($("#ipper_planets").scrollLeft() + 161);

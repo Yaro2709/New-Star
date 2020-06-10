@@ -72,8 +72,17 @@ class ShowFleetMissilePage extends AbstractGamePage
 			$error = $LNG['ma_no_missiles'];
 		elseif ($anz <= 0)
 			$error = $LNG['ma_add_missile_number'];
-
+        /*$old_code
 		$targetUser	   	= GetUserByID($target['id_owner'], array('onlinetime', 'banaday', 'urlaubs_modus', 'authattack'));
+        $old_code*/
+        //$new_code
+        if(empty($target)) {
+			$target['id_owner'] = 0;
+			$targetUser = array('onlinetime' => 0, 'banaday' => 0, 'urlaubs_modus' => 0, 'authattack' => 0);
+		} else {
+			$targetUser		= GetUserByID($target['id_owner'], array('onlinetime', 'banaday', 'urlaubs_modus', 'authattack'));
+		}
+        //$new_code
 		
 		if (Config::get()->adm_attack == 1 && $targetUser['authattack'] > $USER['authlevel'])
 			$error = $LNG['fl_admin_attack'];	

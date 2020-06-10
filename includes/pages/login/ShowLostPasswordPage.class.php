@@ -22,7 +22,6 @@ class ShowLostPasswordPage extends AbstractLoginPage
 	function __construct() 
 	{
 		parent::__construct();
-        $this->setWindow('light');
 	}
 	
 	function show() 
@@ -54,7 +53,7 @@ class ShowLostPasswordPage extends AbstractLoginPage
 		if(empty($isValid))
 		{
 			$this->printMessage($LNG['passwordValidInValid'], array(array(
-				'label'	=> $LNG['passwordBack'],
+				'label'	=> $LNG['back'],
 				'url'	=> 'index.php',
 			)));
 		}
@@ -99,7 +98,7 @@ class ShowLostPasswordPage extends AbstractLoginPage
 		));
 
 		$this->printMessage($LNG['passwordChangedMailSend'], array(array(
-			'label'	=> $LNG['passwordNext'],
+			'label'	=> $LNG['next'],
 			'url'	=> 'index.php',
 		)));
 	}
@@ -140,7 +139,7 @@ class ShowLostPasswordPage extends AbstractLoginPage
 		{
 			$message	= implode("<br>\r\n", $errorMessages);
 			$this->printMessage($message, array(array(
-				'label'	=> $LNG['passwordBack'],
+				'label'	=> $LNG['back'],
 				'url'	=> 'index.php?page=lostPassword',
 			)));
 		}
@@ -157,7 +156,7 @@ class ShowLostPasswordPage extends AbstractLoginPage
 		if(empty($userID))
 		{
 			$this->printMessage($LNG['passwordErrorUnknown'], array(array(
-				'label'	=> $LNG['passwordBack'],
+				'label'	=> $LNG['back'],
 				'url'	=> 'index.php?page=lostPassword',
 			)));
 		}
@@ -171,7 +170,7 @@ class ShowLostPasswordPage extends AbstractLoginPage
 		if(!empty($hasChanged))
 		{
 			$this->printMessage($LNG['passwordErrorOnePerDay'], array(array(
-				'label'	=> $LNG['passwordBack'],
+				'label'	=> $LNG['back'],
 				'url'	=> 'index.php?page=lostPassword',
 			)));
 		}
@@ -205,7 +204,7 @@ class ShowLostPasswordPage extends AbstractLoginPage
 		));
 
 		$this->printMessage($LNG['passwordValidMailSend'], array(array(
-			'label'	=> $LNG['passwordNext'],
+			'label'	=> $LNG['next'],
 			'url'	=> 'index.php',
 		)));
 	}

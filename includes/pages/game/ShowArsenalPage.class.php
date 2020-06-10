@@ -43,8 +43,9 @@ class ShowArsenalPage extends AbstractGamePage
 				);
 			}
 		}
-		
-		$this->assign(array(	
+        
+		$this->assign(array(
+            //'ars1'		    => array(2001,2002),
 			'arsList'		=> $arsList,
 		));
 		

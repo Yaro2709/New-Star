@@ -1,24 +1,36 @@
 {include file="ins_header.tpl"}
-<tr>
-	<td colspan="2">
-		<div id="lang" align="right">{$LNG.intro_lang}:&nbsp;<select id="lang" name="lang" onchange="document.location = '?lang='+$(this).val();">{html_options options=$Selector selected=$lang}</select></div>
-		<div id="main" align="left">
-			<h2>{$LNG.intro_welcome}</h2>
-			<p>{$LNG.intro_text}</p>
-		</div><br><a href="index.php?mode=install&amp;step=2"><button style="cursor: pointer;">{$LNG.continue}</button></a>
-	</td>
-</tr>
-{if $canUpgrade}
-<tr>
-	<th colspan="3">{$LNG.menu_upgrade}</th>
-</tr>
-<tr>
-	<td colspan="2">
-		<div id="main" align="left">
-			<h2>{$LNG.intro_upgrade_head}</h2>
-			<p>{$LNG.intro_upgrade_text}</p>
-		</div><br><a href="index.php?mode=upgrade"><button style="cursor: pointer;">{$LNG.continueUpgrade}</button></a>
-	</td>
-</tr>
-{/if}
+{include file="ins_nav.tpl"}
+<main role="main" class="container">
+    {if $canUpgrade}      
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-2">
+                <img src="/styles/resource/images/install/poster.jpg" class="card-img img-thumbnail bg-primary border-primary" alt="...">
+            </div>
+            <div class="col-md-10">
+                <div class="card-body">
+                    <h5 class="card-title">{$LNG.upgrade_title}</h5>
+                    <p class="card-text">{$LNG.upgrade_text}</p>
+                    <a href="/index.php?mode=upgrade">
+                        <button type="button" class="btn btn-primary">{$LNG.continue}</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {else}
+    <div class="card mb-3">
+        <h5 class="card-header">{$LNG.intro_welcome}</h5>
+        <div class="card-body">
+            <p class="card-text">{$LNG.intro_text}</p>
+            <a href="index.php?mode=install&amp;step=2">
+                <button type="button" class="btn btn-primary">{$LNG.continue}</button>
+            </a> 
+        </div>
+    </div>
+    {/if}
+    <div class="album">
+        {include file="ins_carousel.tpl"}
+    </div>
+</main>
 {include file="ins_footer.tpl"}

@@ -1,13 +1,11 @@
-{block name="title" prepend}{$LNG.siteTitleRules}{/block}
+{block name="title" prepend}{$LNG.nav_rules}{/block}
 {block name="content"}
-    <div class="container" style="margin-top: 80px;">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">{$LNG.siteTitleRules}</div>
-                    {$rules}
-                </div>
-            </div>
+<main role="main" class="container">
+    <div class="card mb-3">
+        <h5 class="card-header">{$LNG.nav_rules}</h5>
+        <div class="card-body">
+            <p class="card-text">{$rules}</p>
         </div>
     </div>
+</main>
 {/block}

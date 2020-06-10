@@ -108,10 +108,10 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
                     $Size	 	= mt_rand(26, 32) * ($fleetPoints/500000);
                     $Message	= $LNG['sys_expe_found_dm_3_'.mt_rand(1,2)];
                 }
+                
+                $this->UpdateFleet('fleet_resource_darkmatter', $this->_fleet['fleet_resource_darkmatter'] + $Size);
             }
-				
-            $this->UpdateFleet('fleet_resource_darkmatter', $this->_fleet['fleet_resource_darkmatter'] + $Size);
-			
+            
         //3. Арсенал.   
         }elseif($GetEvent > 50000 && $GetEvent <= 55000){ 
 

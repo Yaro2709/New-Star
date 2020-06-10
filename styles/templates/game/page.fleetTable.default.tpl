@@ -1,90 +1,77 @@
 {block name="title" prepend}{$LNG.lm_fleet}{/block}
 {block name="content"}
 <div id="page">
-<div id="content">
-   <div id="ally_content" class="conteinership" style="margin-bottom: 15px;">
-      {if !empty($acsData)}
-      {include file="shared.fleetTable.acsTable.tpl"}
-      {/if}
-    <div class="fleettab7">
-        {*
-    	<a href="" class="fleet_reduce ico_reduceresources tooltip" data-tooltip-content=""></a>
-        <a href="" class="fleet_reduce ico_reducefleet tooltip" data-tooltip-content=""></a>
-        <a href="" class="fleet_reduce ico_deliveryres tooltip" data-tooltip-content=""></a>
-        *}
-        {if isModuleAvailable($smarty.const.MODULE_FLEET_TRADER)}
-		<a href="game.php?page=fleetdealer" class="fleet_reduce ico_trader tooltip" data-tooltip-content="{$LNG.lm_fleettrader}"></a>
+    <div id="content">
+        <div id="ally_content" class="conteinership" style="margin-bottom: 15px;">
+        {if !empty($acsData)}
+        {include file="shared.fleetTable.acsTable.tpl"}
         {/if}
-		</div>
-     <div class="fleettab8" style="margin-bottom:0"></div>
-        <span class="puntiflotta1">{$LNG.fl_fleet_points}</span>
-		<span class="totalFleetPoints puntiflotta2">0</span>
-        
-        <form action="?page=fleetStep1" method="post" name="glav" class="getRead">
-                     <input type="hidden" name="galaxy" value="{$targetGalaxy}">
-                     <input type="hidden" name="system" value="{$targetSystem}">
-                     <input type="hidden" name="planet" value="{$targetPlanet}">
-                     <input type="hidden" name="type" value="{$targetType}">
-                     <div id="build_elements" class="gov2" style=" margin:0">
-                     
-                        <div class="gray_ship1">
+            <div class="fleettab7">
+            {*
+                <a href="" class="fleet_reduce ico_reduceresources tooltip" data-tooltip-content=""></a>
+                <a href="" class="fleet_reduce ico_reducefleet tooltip" data-tooltip-content=""></a>
+                <a href="" class="fleet_reduce ico_deliveryres tooltip" data-tooltip-content=""></a>
+            *}
+                {if isModuleAvailable($smarty.const.MODULE_FLEET_TRADER)}
+                <a href="game.php?page=fleetdealer" class="fleet_reduce ico_trader tooltip" data-tooltip-content="{$LNG.lm_fleettrader}"></a>
+                {/if}
+            </div>
+            <div class="fleettab8" style="margin-bottom:0"></div>
+            <span class="puntiflotta1">{$LNG.fl_fleet_points}</span>
+            <span class="totalFleetPoints puntiflotta2">0</span>
+            <form action="?page=fleetStep1" method="post" name="glav" class="getRead">
+                <input type="hidden" name="galaxy" value="{$targetGalaxy}">
+                <input type="hidden" name="system" value="{$targetSystem}">
+                <input type="hidden" name="planet" value="{$targetPlanet}">
+                <input type="hidden" name="type" value="{$targetType}">
+                <div id="build_elements" class="gov2" style=" margin:0">
+                    <div class="gray_ship1">
                         {foreach $elementListM as $ID => $Element}
                         {if $Element@first}{$Element.name}{/if}
                         {include file="page.fleetTable.item.tpl"}
                         {/foreach}
-                        
                         
                         {foreach $elementListP as $ID => $Element}
                         {if $Element@first}{$Element.name}{/if}
                         {include file="page.fleetTable.item.tpl"}
                         {/foreach}
                         
-                        
                         {foreach $elementListO as $ID => $Element}
                         {if $Element@first}{$Element.name}{/if}
                         {include file="page.fleetTable.item.tpl"}
                         {/foreach}
                         
-                        
                         {foreach $elementListD as $ID => $Element}
                         {if $Element@first}{$Element.name}{/if}
                         {include file="page.fleetTable.item.tpl"}
                         {/foreach}
-                        </div>
-                     
-                     
-                     
-            </div>  
-
-
-            
-            		<div class="alleanza57"></div>
-		<div class="fleettab1" style="    height: 65px;">
-				<div style="display:none;" class="fleettab12" id="save">
-        	<span style="text-align:right; color:#888;font-size: 11px;">{$LNG.fl_new_name_grops}</span>
-            <input name="save_groop" size="15" maxlength="13" style="width:170px;height: 11px;" autofocus="">
-        </div> 
-		
-        <table class="tablesorter ally_ranks">
-		<tbody><tr>     
-        <th class="menubassoshi" style="text-align:left" colspan="2"><a href="javascript:noShips();" class="menubassoshil">{$LNG.fl_remove_all_ships}</a></th>
-			<th class="menubassoshi" style="text-align:center" colspan="2"><a href="javascript:onSave();" class="menubassoshil">{$LNG.fl_new_grops}</a></th>
-			<th class="menubassoshi" colspan="2"><a href="javascript:maxShips();" class="menubassoshil">{$LNG.fl_select_all_ships}</a></th>
-        </tr>
-        
-        
-        {if $maxFleetSlots != $activeFleetSlots}
-        <tr>
-        <td colspan="6" style="padding:0;    border: 0;">
-        <input class="fl_bigbtn_go" type="submit" value="{$LNG.fl_continue}">
-        </td>
-        </tr>
-        {/if} 
-        	
-                
-    </tbody></table>	
-	</div>    
-        </form></div>
+                    </div>
+                </div>  
+                <div class="alleanza57"></div>
+                <div class="fleettab1" style="    height: 65px;">
+                    <div style="display:none;" class="fleettab12" id="save">
+                        <span style="text-align:right; color:#888;font-size: 11px;">{$LNG.fl_new_name_grops}</span>
+                        <input name="save_groop" size="15" maxlength="13" style="width:170px;height: 11px;" autofocus="">
+                    </div> 
+                    <table class="tablesorter ally_ranks">
+                        <tbody>
+                            <tr>     
+                                <th class="menubassoshi" style="text-align:left" colspan="2"><a href="javascript:noShips();" class="menubassoshil">{$LNG.fl_remove_all_ships}</a></th>
+                                <th class="menubassoshi" style="text-align:center" colspan="2"><a href="javascript:onSave();" class="menubassoshil">{$LNG.fl_new_grops}</a></th>
+                                <th class="menubassoshi" colspan="2"><a href="javascript:maxShips();" class="menubassoshil">{$LNG.fl_select_all_ships}</a></th>
+                            </tr>
+                            {if $maxFleetSlots != $activeFleetSlots}
+                            <tr>
+                                <td colspan="6" style="padding:0;    border: 0;">
+                                    <input class="fl_bigbtn_go" type="submit" value="{$LNG.fl_continue}">
+                                </td>
+                            </tr>
+                            {/if} 
+                        </tbody>
+                    </table>	
+                </div>    
+            </form>
+        </div>
 
     <div id="ally_content" class="conteinership" style="margin-bottom: 15px;">
        <div class="fleettab10"></div>
