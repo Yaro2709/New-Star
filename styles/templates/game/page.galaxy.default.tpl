@@ -110,7 +110,15 @@
             {if $currentPlanet.missions.5}<td><a class="gl-actions-i ri i-mis5 tooltip" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=5" data-tooltip-content="{$LNG.type_mission_5}"></a></td>{/if}
             {if $currentPlanet.missions.10}<td><a class="gl-actions-i ri i-mis10 tooltip" href="?page=galaxy&amp;action=sendMissle&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}" data-tooltip-content="{$LNG.type_mission_10}"></a></td>{/if}            
 			{if $currentPlanet.missions.6}<td><a class="gl-actions-i ri i-mis6 tooltip" href='javascript:doit(6,{$currentPlanet.planet.id});' data-tooltip-content="{$LNG.type_mission_6}"></a></td>{/if}
-            {if $currentPlanet.planet.phalanx}<td><a class="gl-actions-i ri i-mis17 tooltip" href='javascript:OpenPopup(&quot;?page=phalanx&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&quot;, &quot;&quot;, 640, 510);' data-tooltip-content="{$LNG.gl_phalanx}"></a></td>{/if}
+            {foreach $currentPlanet.user.class as $class}
+            {if $class != 'vacation' && $currentPlanet.planet.phalanx}
+            <td><a class="gl-actions-i ri i-mis17 tooltip" href='javascript:OpenPopup(&quot;?page=phalanx&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&quot;, &quot;&quot;, 640, 510);' data-tooltip-content="{$LNG.gl_phalanx}"></a></td>
+            {/if}
+            {foreachelse}
+            {if $currentPlanet.planet.phalanx}
+            <td><a class="gl-actions-i ri i-mis17 tooltip" href='javascript:OpenPopup(&quot;?page=phalanx&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&quot;, &quot;&quot;, 640, 510);' data-tooltip-content="{$LNG.gl_phalanx}"></a></td>
+            {/if}
+            {/foreach}
 			</tbody>
 			</table>
 		</div>

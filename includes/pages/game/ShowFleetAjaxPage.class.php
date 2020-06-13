@@ -96,8 +96,9 @@ class ShowFleetAjaxPage extends AbstractGamePage
 
 				foreach($recElementIDs as $elementID)
 				{
-					$shipsNeed 		= min(ceil($totalDebris / $pricelist[$elementID]['capacity']), $PLANET[$resource[$elementID]]);
-					$totalDebris	-= ($shipsNeed * $pricelist[$elementID]['capacity']);
+					$a = $pricelist[$elementID]['capacity'] * (1 + $USER['factor']['ShipStorage']);
+					$shipsNeed 		= min(ceil($totalDebris / $a), $PLANET[$resource[$elementID]]);
+					$totalDebris	-= ($shipsNeed * $a);
 
 					$fleetArray[$elementID]	= $shipsNeed;
 					$this->returnData['ships'][$elementID]	= $PLANET[$resource[$elementID]] - $shipsNeed;
@@ -208,11 +209,12 @@ class ShowFleetAjaxPage extends AbstractGamePage
 		$fleetEndTime		= $fleetStayTime + $Duration;
 
 		$shipID				= array_keys($fleetArray);
+        $PLANET['deuterium'] -= $consumption;
 
 		FleetFunctions::sendFleet($fleetArray, $targetMission, $USER['id'], $PLANET['id'], $PLANET['galaxy'],
 			$PLANET['system'], $PLANET['planet'], $PLANET['planet_type'], $targetData['id_owner'], $planetID,
 			$targetData['galaxy'], $targetData['system'], $targetData['planet'], $targetData['planet_type'],
-			$fleetResource, $fleetStartTime, $fleetStayTime, $fleetEndTime);
+			$fleetResource, $fleetStartTime, $fleetStayTime, $fleetEndTime, 0, 0, $consumption);
 
 		$this->sendData(600, $LNG['fa_sending']." ".array_sum($fleetArray)." ". $LNG['tech'][$shipID[0]] ." ".$LNG['gl_to']." ".$targetData['galaxy'].":".$targetData['system'].":".$targetData['planet']." ...");
 	}

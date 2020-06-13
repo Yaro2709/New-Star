@@ -12,4 +12,3 @@ function FleetTime() {
 		}
 	});
 	window.setTimeout('FleetTime()', 1000);
-}

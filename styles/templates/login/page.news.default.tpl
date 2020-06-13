@@ -12,7 +12,7 @@
         {foreach $newsList as $newsRow}
             <div id="{$newsRow.id}" class="col-md-4">
                 <div class="card mb-4 shadow-sm">
-                    <img src="/styles/resource/images/login/news/{$newsRow.id}.jpg" class="card-img img-thumbnail bg-primary border-primary" alt="{$newsRow.title}">
+                    <img src="./styles/resource/images/login/news/{$newsRow.id}.jpg" class="card-img img-thumbnail bg-primary border-primary" alt="{$newsRow.title}">
                     <div class="card-body">
                         <h5 class="card-title">{$newsRow.title}</h5>
                         <p class="card-text overflow-auto" style="max-width: 1000px; max-height: 150px;">{$newsRow.text}</p>

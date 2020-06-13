@@ -107,6 +107,11 @@ class ShowTraderPage extends AbstractGamePage
 				
 				if($usedResources > $PLANET[$resource[$resourceID]])
 				{
+                    if ($tradeSum > 0)
+					{
+						$USER[$resource[Config::get()->ressources_trader]]	-= Config::get()->darkmatter_cost_trader;
+					}
+                    
 					$this->printMessage(sprintf($LNG['tr_not_enought'], $LNG['tech'][$resourceID]), array(array(
 						'label'	=> $LNG['sys_back'],
 						'url'	=> 'game.php?page=trader'

@@ -148,7 +148,7 @@ class ShowRaportPage extends AbstractGamePage
 		$isAttacker = empty($reportData['attacker']) || in_array($USER['id'], explode(",", $reportData['attacker']));
 		$isDefender = empty($reportData['defender']) || in_array($USER['id'], explode(",", $reportData['defender']));
 		
-		if(empty($reportData) || (!$isAttacker && !$isDefender)) {
+		if(empty($reportData)) {
 			$this->printMessage($LNG['sys_raport_not_found']);
 		}
 

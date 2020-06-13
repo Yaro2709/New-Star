@@ -97,6 +97,11 @@ abstract class AbstractGamePage
 		$config			= Config::get();
         
         //PlanetSelect
+        if($USER['bana']==1) { 
+            echo 'Ты забанен!'; 
+            die(); 
+        }
+        
 		$PlanetSelect	= array();
 		
 		$USER['PLANETSHIDDEN']	= getPlanetsHIDDEN($USER);

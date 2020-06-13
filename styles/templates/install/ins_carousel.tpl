@@ -10,28 +10,28 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="/styles/resource/images/install/carousel/project.jpg" class="d-block w-100" alt="...">
+                        <img src="../styles/resource/images/install/carousel/project.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{$LNG.carousel_project_head}</h5>
                             <p>{$LNG.carousel_project_text}</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="/styles/resource/images/install/carousel/mods.jpg" class="d-block w-100" alt="...">
+                        <img src="../styles/resource/images/install/carousel/mods.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{$LNG.carousel_mods_head}</h5>
                             <p>{$LNG.carousel_mods_text}</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="/styles/resource/images/install/carousel/design.jpg" class="d-block w-100" alt="...">
+                        <img src="../styles/resource/images/install/carousel/design.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{$LNG.carousel_design_head}</h5>
                             <p>{$LNG.carousel_design_text}</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="/styles/resource/images/install/carousel/support.jpg" class="d-block w-100" alt="...">
+                        <img src="../styles/resource/images/install/carousel/support.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{$LNG.carousel_support_head}</h5>
                             <p>{$LNG.carousel_support_text}</p>
@@ -65,10 +65,10 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="/install/VERSION.jpg" class="d-block w-100" alt="...">
+                        <img src="./VERSION.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="/styles/resource/images/install/carousel/version_info.jpg" class="d-block w-100" alt="...">
+                        <img src="../styles/resource/images/install/carousel/version_info.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{$LNG.carousel_version_info_head}</h5>
                             <p>{$LNG.carousel_version_info_text}</p>

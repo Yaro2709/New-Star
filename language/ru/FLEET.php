@@ -46,7 +46,6 @@ $LNG['sys_mess_spy_control']                         = 'Наблюдение';
 $LNG['sys_mess_spy_activity']                        = 'Шпионаж';
 $LNG['sys_mess_spy_ennemyfleet']                     = 'Чужой флот с планеты';
 $LNG['sys_mess_spy_seen_at']                         = 'был обнаружен вблизи от планеты';
-$LNG['sys_mess_spy_seen_at2']                        = '';
 $LNG['sys_mess_spy_destroyed']                       = '<font color="red">Ваши шпионские зонды были уничтожены.</font>';
 $LNG['sys_adress_planet']                            = '[%s:%s:%s]';
 $LNG['sys_colo_mess_from']                           = 'Колонизация';

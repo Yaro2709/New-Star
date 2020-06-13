@@ -25,7 +25,7 @@
 				</select>
 				</div>
 			<div class="fleetstep1-15">{$LNG.fl_fleet_speed}
-				<select id="speed" name="speed" onchange="updateVars()" size="10" class="fleetstep1select">
+				<select id="speed" name="speed" onchange="updateVars(false)" size="10" class="fleetstep1select">
                     {html_options options=$speedSelect selected=10}
 				</select> %</div>
     </div> </div>

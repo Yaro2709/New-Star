@@ -3,6 +3,45 @@
 // All rights reserved from 2020;
 // Company 1367.
 
+$LNG['head'][8] = 'New-Star V1.0.8';
+$LNG['text'][8] = 'Engine:
+✔ The README file is filled (Yaro2709);
+✔ Other small changes (Yaro2709);
+Mods:
+✔ Fixed problems with the path of images in login @ install (Yaro2709);
+✔ Fixed problems with the queue in the shipyard (Yaro2709);
+✔ Fixed problems with styles in the game (Yaro2709);
+✔ Fixed a language bug in the mode of referrals (SteemNova);
+✔ Fixed a bug related to carrying capacity during processing (SteemNova);
+✔ Fixed CleanerCronjob (SteemNova);
+✔ Fixed a bug where it was possible to scan a player in vacation mode (SteemNova);
+✔ Fixed a bug related to carrying capacity for espionage (SteemNova);
+✔ Removed unnecessary LNG variables in the espionage report (SteemNova);
+✔ Fixed removing queues from different planets in explorations (SteemNova);
+✔ Fixed adding garbage after the moon battle (SteemNova);
+✔ Fixed authorization error for PHP 7.4 (SteemNova);
+✔ Added check for there is a request to the alliance (SteemNova);
+✔ Fixed bugs related to a joint attack (SteemNova);
+✔ Fixed a bug related to division by zero when sending the fleet (SteemNova);
+✔ Fixed the use of deuterium to send ships from the galaxy (SteemNova);
+✔ Fixed session detection for PHP7.4 (SteemNova);
+✔ Fixed requests for PHP7.4 (SteemNova);
+✔ Fixed a defect related to retention (SteemNova);
+✔ Fixed bug when switching between planets during an interplanetary attack for PHP7.4 (SteemNova);
+✔ Fixed fleet freezing when destroying satellites (SteemNova);
+✔ Fixed a bug due to which the ships could move between our planets and the moon faster (SteemNova);
+✔ Fixed bug in the trader (SteemNova);
+✔ Fixed the vision of enemy processing missions on the alliance page (SteemNova);
+✔ Fixed bugs with LNG in missions (SteemNova);
+✔ Fixed a bug with the player’s bath (SteemNova);
+✔ Fixed problems with time on the server (SteemNova);
+✔ Fixed bugs when deleting a planet (SteemNova);
+✔ Fixed erroneous display of invitations to a joint attack (SteemNova);
+✔ Fixed a bug where the fleet was visible during espionage, which flew to the planet (SteemNova);
+✔ Fixed bugs when deleting a planet (SteemNova);
+✔ Fixed language problems between friends (SteemNova);
+✔ Other small changes (Yaro2709).';
+
 $LNG['head'][7] = 'New-Star V1.0.7';
 $LNG['text'][7] = 'Mods:
 ✔ Fixed language problems between friends (SteemNova);

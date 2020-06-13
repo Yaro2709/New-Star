@@ -46,7 +46,7 @@ class FlyingFleetsTable
 	private function getFleets($acsID = false) {
 		if($this->IsPhalanx) {
 			$where = '(fleet_start_id = :planetId AND fleet_start_type = 1 AND fleet_mission != 4) OR
-					  (fleet_end_id = :planetId AND fleet_end_type = 1 AND fleet_mess IN (0, 2))';
+					  (fleet_end_id = :planetId AND fleet_end_type = 1 AND fleet_mission != 8 AND fleet_mess IN (0, 2))';
 
 			$param = array(
 				':planetId'	  => $this->planetId
@@ -57,7 +57,7 @@ class FlyingFleetsTable
 				':acsId'	=> $acsID
 			);
 		} elseif($this->missions) {
-			$where = '(fleet_owner = :userId OR fleet_target_owner = :userId) AND fleet_mission IN ('.$this->missions.')';
+			$where = '(fleet_owner = :userId OR (fleet_target_owner = :userId AND fleet_mission != 8)) AND fleet_mission IN ('.$this->missions.')';
 			$param = array(
 				':userId'	=> $this->userId
 			);
@@ -120,7 +120,7 @@ class FlyingFleetsTable
 		$Time	= 0;
 		$Rest	= 0;
 
-		if ($FleetState == 0 && !$this->IsPhalanx && $fleetRow['fleet_group'] != 0)
+		if ($FleetState == 0 && $this->IsPhalanx && $fleetRow['fleet_group'] != 0 && (strpos((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", 'page=phalanx') !== false))
 		{
 			$acsResult		= $this->getFleets($fleetRow['fleet_group']);
 			$EventString	= '';
@@ -245,7 +245,7 @@ class FlyingFleetsTable
 	{
 		global $LNG;
 		$FleetTotalC  = $fleetRow['fleet_resource_metal'] + $fleetRow['fleet_resource_crystal'] + $fleetRow['fleet_resource_deuterium'] + $fleetRow['fleet_resource_darkmatter'];
-		if ($FleetTotalC != 0)
+		if ($FleetTotalC != 0 && !$this->IsPhalanx)
 		{
 			$textForBlind = $LNG['tech'][900].': ';
 			$textForBlind .= floatToString($fleetRow['fleet_resource_metal']).' '.$LNG['tech'][901];

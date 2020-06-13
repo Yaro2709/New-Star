@@ -65,7 +65,7 @@ function ShowNewsPage(){
 	$template->assign_vars(array(	
 		'NewsList'		=> $NewsList,
 		'button_submit'	=> $LNG['button_submit'],
-		'nws_total'		=> $LNG['nws_total'],
+		'nws_total'		=> sprintf($LNG['nws_total'], $NewsList && count($NewsList)),
 		'nws_news'		=> $LNG['nws_news'],
 		'nws_id'		=> $LNG['nws_id'],
 		'nws_title'		=> $LNG['nws_title'],

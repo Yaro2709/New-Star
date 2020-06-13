@@ -395,6 +395,15 @@ HTML;
 						':planetId'	=> $planetID,
 						':moonId'	=> $targetPlanet['id']
 					));
+                    
+                    // Redirect fleets from moon to player's main planet.
+					$db->update("UPDATE %%FLEETS%% SET fleet_start_id = :main_id, fleet_start_galaxy = :main_galaxy, fleet_start_system = :main_system, fleet_start_planet = :main_planet, fleet_start_type = 1 WHERE fleet_start_id = :destroyed", array(
+						':main_id' => $targetUser['id_planet'],
+						':main_galaxy' => $targetUser['galaxy'],
+						':main_system' => $targetUser['system'],
+						':main_planet' => $targetUser['planet'],
+						':destroyed' => $targetPlanet['id'],
+					));
 
 					PlayerUtil::deletePlanet($targetPlanet['id']);
 

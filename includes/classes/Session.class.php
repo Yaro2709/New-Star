@@ -263,11 +263,14 @@ class Session
 
 	public function isValidSession()
 	{
-		if($this->compareIpAddress($this->data['userIpAddress'], self::getClientIp(), COMPARE_IP_BLOCKS) === false)
-		{
-			return false;
-		}
+		//if($this->compareIpAddress($this->data['userIpAddress'], self::getClientIp(), COMPARE_IP_BLOCKS) === false)
+		//{
+		//	return false;
+		//}
 
+        if(isset($_GET['page']) && $_GET['page']=="raport" && isset($_GET['raport']) && count($_GET)==2 && MODE === 'INGAME') {
+		$this->data['lastActivity']=time(); } else { if(!isset($_SESSION["obj"])) { return false; } }
+        
 		if($this->data['lastActivity'] < TIMESTAMP - SESSION_LIFETIME)
 		{
 			return false;

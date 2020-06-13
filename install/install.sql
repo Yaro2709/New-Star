@@ -97,7 +97,7 @@ CREATE TABLE `%PREFIX%banned` (
   `author` varchar(64) NOT NULL DEFAULT '',
   `email` varchar(64) NOT NULL DEFAULT '',
   `universe` tinyint(3) unsigned NOT NULL,
-  KEY `ID` (`id`),
+  PRIMARY KEY `ID` (`id`),
   KEY `universe` (`universe`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -138,7 +138,7 @@ CREATE TABLE `%PREFIX%chat_messages` (
   `channel` int(11) NOT NULL,
   `dateTime` datetime NOT NULL,
   `ip` varbinary(16) NOT NULL,
-  `text` text CHARACTER SET utf8 COLLATE utf8_bin,
+  `text` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
@@ -455,7 +455,7 @@ CREATE TABLE `%PREFIX%messages` (
   `message_type` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `message_from` varchar(128) DEFAULT NULL,
   `message_subject` varchar(255) DEFAULT NULL,
-  `message_text` text,
+  `message_text` text CHARACTER SET utf8mb4,
   `message_unread` tinyint(4) NOT NULL DEFAULT '1',
   `message_universe` tinyint(3) unsigned NOT NULL,
   `message_deleted` int(11) unsigned NULL DEFAULT NULL,
@@ -1080,7 +1080,8 @@ INSERT INTO `%PREFIX%news` (`id`, `user`, `date`, `title`, `text`) VALUES
 (4, 'Yaro2709', 1589206900, '', ''),
 (5, 'Yaro2709', 1589817939, '', ''),
 (6, 'Yaro2709', 1590849786, '', ''),
-(7, 'Yaro2709', 1591796225, '', '');
+(7, 'Yaro2709', 1591796225, '', ''),
+(8, 'Yaro2709', 1592056089, '', '');
 
 ALTER TABLE `%PREFIX%news`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;

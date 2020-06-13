@@ -125,6 +125,19 @@ function userStatus($data, $noobprotection = false)
 	return $Array;
 }
 
+function getLanguage($language = NULL, $userID = NULL)
+{
+	if (is_null($language) && !is_null($userID)) {
+		$language	= Database::get()->selectSingle('SELECT lang FROM %%USERS%% WHERE id = :id;', array(
+			':id' => $userID
+		))['lang'];
+	}
+
+	$LNG		= new Language($language);
+	$LNG->includeData(array('L18N', 'FLEET', 'TECH', 'CUSTOM', 'INGAME'));
+	return $LNG;
+}
+
 function getPlanets($USER)
 {
     global $resource, $pricelist, $reslist;
@@ -624,9 +637,9 @@ function exceptionHandler($exception)
 	var tdformat	= "[M] [D] [d] [H]:[i]:[s]";
 	var queryString	= "";
 
-	setInterval(function() {
-		serverTime.setSeconds(serverTime.getSeconds()+1);
-	}, 1000);
+        setInterval(function() {
+            serverTime.setSeconds(serverTime.getSeconds()+1);
+        }, 1000);
 	</script>
 	<script type="text/javascript" src="'.$DIR.'/scripts/base/jquery.js?v=2123"></script>
 	<script type="text/javascript" src="'.$DIR.'/scripts/base/jquery.ui.js?v=2123"></script>

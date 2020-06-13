@@ -94,14 +94,23 @@ class ShowResearchPage extends AbstractGamePage
 	
 	private function CheckLabSettingsInQueue()
 	{
-		global $PLANET;
-		if ($PLANET['b_building'] == 0)
-			return true;
-			
-		$CurrentQueue		= unserialize($PLANET['b_building_id']);
-		foreach($CurrentQueue as $ListIDArray) {
-			if($ListIDArray[0] == 6 || $ListIDArray[0] == 31)
-				return false;
+		global $USER;
+		$db = Database::get();
+		$sql	= "SELECT * FROM %%PLANETS%% WHERE id_owner = :owner;";
+		$planets	= $db->select($sql, array(
+			':owner'	=> $USER['id'],
+		));
+
+		foreach ($planets as $planet)
+		{
+			if ($planet['b_building'] == 0)
+				continue;
+
+			$CurrentQueue		= unserialize($planet['b_building_id']);
+			foreach($CurrentQueue as $ListIDArray) {
+				if($ListIDArray[0] == 6 || $ListIDArray[0] == 31)
+					return false;
+			}
 		}
 
 		return true;
@@ -242,7 +251,7 @@ class ShowResearchPage extends AbstractGamePage
 				if($ListIDArray[4] != $PLANET['id']) {
 					$db = Database::get();
 
-					$sql = "SELECT :resource FROM %%PLANETS%% WHERE id = :id;";
+					$sql = "SELECT :resource, id FROM %%PLANETS%% WHERE id = :id;";
 					$CPLANET = $db->selectSingle($sql, array(
 						':resource'	    => $resource[$resglobal['tech_speed']],
 						':id'			=> $ListIDArray[4]

@@ -62,6 +62,14 @@ class ShowFleetStep3Page extends AbstractGamePage
 		$fleetArray  	= $formData['fleet'];
 		$fleetStorage	= $formData['fleetRoom'];
 		$fleetSpeed		= $formData['fleetSpeed'];
+        $ownPlanet		= $formData['ownPlanet'];
+	
+		if($ownPlanet != $PLANET['id']){
+			$this->printMessage($LNG['fl_own_planet_error'], array(array(
+			'label'	=> $LNG['sys_back'],
+			'url'	=> 'game.php?page=fleet1'
+		    )));
+		}
 		
 		if($targetMission != 2)
 		{
@@ -313,7 +321,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 
 		if ($targetMission == 5)
 		{	
-			if($targetPlayerData['ally_id'] != $USER['ally_id']) {
+			if($targetPlayerData['ally_id'] != $USER['ally_id'] || $USER['ally_id'] == 0) {
 				$sql = "SELECT COUNT(*) as state FROM %%BUDDY%%
 				WHERE id NOT IN (SELECT id FROM %%BUDDY_REQUEST%% WHERE %%BUDDY_REQUEST%%.id = %%BUDDY%%.id) AND
 				(owner = :ownerID AND sender = :userID) OR (owner = :userID AND sender = :ownerID);";

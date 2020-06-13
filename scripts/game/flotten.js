@@ -1,12 +1,15 @@
 var acstime = 0;
 
-function updateVars() {
-    document.getElementsByName("fleet_group")[0].value = 0;
-    dataFlyDistance = GetDistance();
-    dataFlyTime = GetDuration();
-    dataFlyConsumption = GetConsumption();
-    dataFlyCargoSpace = storage();
-    refreshFormData();
+function updateVars($reset_acs = true)
+{
+	if ($reset_acs) {
+		document.getElementsByName("fleet_group")[0].value = 0;
+	}
+	dataFlyDistance = GetDistance();
+	dataFlyTime = GetDuration();
+	dataFlyConsumption = GetConsumption();
+	dataFlyCargoSpace = storage();
+	refreshFormData();
 }
 
 function GetDistance() {
@@ -38,7 +41,7 @@ function GetConsumption() {
     var basicConsumption = 0;
     var i;
     $.each(data.ships, function(shipid, ship) {
-        spd = 35000 / (dataFlyTime * data.gamespeed - 10) * Math.sqrt(dataFlyDistance * 10 / ship.speed);
+        spd = 35000 / Math.max(dataFlyTime * data.gamespeed - 10, 1) * Math.sqrt(dataFlyDistance * 10 / ship.speed);
         basicConsumption = ship.consumption * ship.amount;
         dataFlyConsumption2 += basicConsumption * dataFlyDistance / 35000 * (spd / 10 + 1) * (spd / 10 + 1);
     });

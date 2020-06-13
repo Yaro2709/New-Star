@@ -19,9 +19,6 @@
 	{/if}
     <!--content-type-->
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <!--style-->
-    <link rel="stylesheet" type="text/css" href="./styles/resource/css/ingame/main.css">
-    <link rel="stylesheet" type="text/css" href="{$dpath}formate.css">
     <!--keypress-->
     <script type="text/javascript" src="./scripts/base/keypress.js"></script>
     <!--jquery-->
@@ -31,7 +28,10 @@
 	<script type="text/javascript" src="./scripts/base/jquery.cookie.js"></script>
     <!--fancybox-->
     <link rel="stylesheet" type="text/css" href="./styles/resource/css/base/jquery.fancybox.css">
-    <script type="text/javascript" src="./scripts/base/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="./scripts/base/jquery.fancybox.js"></script>    
+    <!--style-->
+    <link rel="stylesheet" type="text/css" href="./styles/resource/css/ingame/main.css">
+    <link rel="stylesheet" type="text/css" href="{$dpath}formate.css">
     <!--game script-->
     <script type="text/javascript">
         var ServerTimezoneOffset = {$Offset};

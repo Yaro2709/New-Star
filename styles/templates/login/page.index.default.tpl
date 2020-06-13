@@ -28,7 +28,7 @@
                                 <button type="submit" class="btn btn-primary">{$LNG.loginButton}</button>
                             </div>
                         </form>
-                        {if $facebookEnable}<a href="#" data-href="index.php?page=externalAuth&method=facebook" class="fb_login"><img src="styles/resource/images/facebook/fb-connect-large.png" alt=""></a>{/if}<!-- http://b.static.ak.fbcdn.net/rsrc.php/zB6N8/hash/4li2k73z.gif -->
+                        {if $facebookEnable}<a href="#" data-href="index.php?page=externalAuth&method=facebook" class="fb_login"><img src="./styles/resource/images/facebook/fb-connect-large.png" alt=""></a>{/if}<!-- http://b.static.ak.fbcdn.net/rsrc.php/zB6N8/hash/4li2k73z.gif -->
 						<div style="text-align: center">
 							<a href="index.php?page=register">{$LNG.buttonRegister}</a> {if $mailEnable}- <a href="index.php?page=lostPassword">{$LNG.buttonLostPassword}</a>{/if}
 							<br>
@@ -48,16 +48,16 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="/styles/resource/images/login/carousel/1.jpg" class="d-block w-100" alt="...">
+                                <img src="./styles/resource/images/login/carousel/1.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="/styles/resource/images/login/carousel/2.jpg" class="d-block w-100" alt="...">
+                                <img src="./styles/resource/images/login/carousel/2.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="/styles/resource/images/login/carousel/3.jpg" class="d-block w-100" alt="...">
+                                <img src="./styles/resource/images/login/carousel/3.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="/styles/resource/images/login/carousel/4.jpg" class="d-block w-100" alt="...">
+                                <img src="./styles/resource/images/login/carousel/4.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carousel_1" role="button" data-slide="prev">
@@ -91,16 +91,16 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="/styles/resource/images/login/carousel/5.jpg" class="d-block w-100" alt="...">
+                                <img src="./styles/resource/images/login/carousel/5.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="/styles/resource/images/login/carousel/6.jpg" class="d-block w-100" alt="...">
+                                <img src="./styles/resource/images/login/carousel/6.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="/styles/resource/images/login/carousel/7.jpg" class="d-block w-100" alt="...">
+                                <img src="./styles/resource/images/login/carousel/7.jpg" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="/styles/resource/images/login/carousel/8.jpg" class="d-block w-100" alt="...">
+                                <img src="./styles/resource/images/login/carousel/8.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carousel_2" role="button" data-slide="prev">

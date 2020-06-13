@@ -106,7 +106,7 @@ class ShowFleetTablePage extends AbstractGamePage
 				$this->sendJSON($LNG['fl_acs_newname_alphanum']);
 			}
 			
-			$sql = "UPDATE %%AKS%% SET name = acsName WHERE id = :acsID;";
+			$sql = "UPDATE %%AKS%% SET name = :acsName WHERE id = :acsID;";
             $db->update($sql, array(
                 ':acsName'  => $acsName,
                 ':acsID'    => $acsData['id']
@@ -151,8 +151,10 @@ class ShowFleetTablePage extends AbstractGamePage
 
                 $invitedUsers[$newUserID]	= $newUser;
 				
-				$inviteTitle			= $LNG['fl_acs_invitation_title'];
-				$inviteMessage 			= $LNG['fl_player'] . $USER['username'] . $LNG['fl_acs_invitation_message'];
+				// get target player language while sending ACS invite instead of attack owner.
+				$GetTargetLang			= getLanguage(null, $newUserID);
+				$inviteTitle			= $GetTargetLang['fl_acs_invitation_title'];
+				$inviteMessage 			= $GetTargetLang['fl_player'] . $USER['username'] . $GetTargetLang['fl_acs_invitation_message'];
 				PlayerUtil::sendMessage($newUserID, $USER['id'], $USER['username'], 1, $inviteTitle, $inviteMessage, TIMESTAMP);
 			}
 		}

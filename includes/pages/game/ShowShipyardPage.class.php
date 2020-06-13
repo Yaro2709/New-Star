@@ -60,7 +60,7 @@ class ShowShipyardPage extends AbstractGamePage
             $old_code*/
             //$new_code
             $factor_prices = FACTOR_CANCEL_SHIPYARD;
-            require_once('includes/subclasses/subclass.ResPlusFactor.php');
+            include('includes/subclasses/subclass.ResPlusFactor.php');
             //$new_code
 			
 			unset($ElementQueue[$Auftr]);
@@ -164,7 +164,7 @@ class ShowShipyardPage extends AbstractGamePage
 			if(isset($costResources[921])) { $USER[$resource[921]]		-= $costResources[921]; }
             $old_code*/
             //$new_code
-            require_once('includes/subclasses/subclass.ResMinus.php');
+            include('includes/subclasses/subclass.ResMinus.php');
             //$new_code
 			$BuildArray[]			= array($Element, $Count);
 			$PLANET['b_hangar_id']	= serialize($BuildArray);

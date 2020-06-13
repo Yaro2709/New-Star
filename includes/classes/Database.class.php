@@ -202,7 +202,12 @@ class Database
 
 		$stmt = $this->_query($qry, $params, $type);
 		$res = $stmt->fetch(PDO::FETCH_ASSOC);
-		return ($field === false || is_null($res)) ? $res : $res[$field];
+        
+		if(PHP_VERSION_ID <= 70400) {
+			return ($field === false || is_null($res)) ? $res : $res[$field];
+		} else {
+			return ($field === false || (empty($res))) ? $res : $res[$field];
+		}
 	}
 
 	/**

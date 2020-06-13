@@ -118,7 +118,7 @@ class ShowFleetStep1Page extends AbstractGamePage
 		}
 		
 		$this->tplObj->loadscript('flotten.js');
-		$this->tplObj->execscript('updateVars();FleetTime();window.setInterval("FleetTime()", 1000);');
+        $this->tplObj->execscript('updateVars();FleetTime();var relativeTime3 = Math.floor(Date.now() / 1000);window.setInterval(function() {if(relativeTime3 < Math.floor(Date.now() / 1000)) {FleetTime();relativeTime3++;}}, 25);');
 		$this->assign(array(
 			'token'			=> $token,
 			'mission'		=> $mission,

@@ -110,6 +110,7 @@ class ShowFleetStep2Page extends AbstractGamePage
 		$_SESSION['fleet'][$token]['targetType']	= $targetType;
 		$_SESSION['fleet'][$token]['fleetGroup']	= $fleetGroup;
 		$_SESSION['fleet'][$token]['fleetSpeed']	= $fleetSpeed;
+        $_SESSION['fleet'][$token]['ownPlanet']		= $PLANET['id'];
 		
 		if(!empty($fleet_group))
 			$targetMission	= 2;

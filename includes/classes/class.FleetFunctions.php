@@ -134,11 +134,11 @@ class FleetFunctions
 
 	public static function GetFleetRoom($Fleet)
 	{
-		global $pricelist;
+		global $pricelist, $USER;
 		$FleetRoom 				= 0;
 		foreach ($Fleet as $ShipID => $amount)
 		{
-			$FleetRoom		   += $pricelist[$ShipID]['capacity'] * $amount;
+			$FleetRoom		   += $pricelist[$ShipID]['capacity'] * $amount * (1 + $USER['factor']['ShipStorage']);
 		}
 		return $FleetRoom;
 	}
@@ -168,7 +168,7 @@ class FleetFunctions
 			$ShipSpeed          = self::GetShipSpeed($Ship, $Player);
 			$ShipConsumption    = self::GetShipConsumption($Ship, $Player);
 			
-			$spd                = 35000 / (round($MissionDuration, 0) * $GameSpeed - 10) * sqrt($MissionDistance * 10 / $ShipSpeed);
+			$spd                = 35000 / max($MissionDuration * $GameSpeed - 10, 1) * sqrt($MissionDistance * 10 / $ShipSpeed);
 			$basicConsumption   = $ShipConsumption * $Count;
 			$consumption        += $basicConsumption * $MissionDistance / 35000 * (($spd / 10) + 1) * (($spd / 10) + 1);
 		}
@@ -481,7 +481,7 @@ class FleetFunctions
 		$fleetStartPlanetGalaxy, $fleetStartPlanetSystem, $fleetStartPlanetPlanet, $fleetStartPlanetType,
 		$fleetTargetOwner, $fleetTargetPlanetID, $fleetTargetPlanetGalaxy, $fleetTargetPlanetSystem,
 		$fleetTargetPlanetPlanet, $fleetTargetPlanetType, $fleetResource, $fleetStartTime, $fleetStayTime,
-		$fleetEndTime, $fleetGroup = 0, $missileTarget = 0)
+		$fleetEndTime, $fleetGroup = 0, $missileTarget = 0, $consumption = 0)
 	{
 		global $resource;
 		$fleetShipCount	= array_sum($fleetArray);
@@ -497,6 +497,11 @@ class FleetFunctions
 			$planetQuery[]	= $resource[$ShipID]." = ".$resource[$ShipID]." - :".$resource[$ShipID];
 
 			$params[':'.$resource[$ShipID]]	= floatToString($ShipCount);
+		}
+        
+        if($consumption > 0){
+			$planetQuery[] = $resource[903]." = ".$resource[903]." - :".$resource[903];
+			$params[':'.$resource[903]]	= $consumption;
 		}
 
 		$sql	= 'UPDATE %%PLANETS%% SET '.implode(', ', $planetQuery).' WHERE id = :planetId;';

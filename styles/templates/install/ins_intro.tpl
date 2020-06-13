@@ -5,7 +5,7 @@
     <div class="card mb-3">
         <div class="row no-gutters">
             <div class="col-md-2">
-                <img src="/styles/resource/images/install/poster.jpg" class="card-img img-thumbnail bg-primary border-primary" alt="...">
+                <img src="../styles/resource/images/install/poster.jpg" class="card-img img-thumbnail bg-primary border-primary" alt="...">
             </div>
             <div class="col-md-10">
                 <div class="card-body">
