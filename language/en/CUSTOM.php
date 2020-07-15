@@ -141,21 +141,6 @@ $LNG['cont_open_24']					             = 'Opened in 24 hours.';
 $LNG['cont_msg_limit']                               = 'You cannot open as many containers at a time.';
 $LNG['cont_not_cont_user']                           = 'Not enough containers!';
 $LNG['cont_open']                                    = 'You have opened:';
-//Modul
-$LNG['modul_43']                                     = 'Market';
-$LNG['modul_44']                                     = 'Races';
-$LNG['modul_45']                                     = 'Premium';
-$LNG['modul_46']                                     = 'Button bonus';
-$LNG['modul_47']                                     = 'Empire Bonuses';
-$LNG['modul_48']                                     = 'Black Market';
-$LNG['modul_49']                                     = 'Create the Moon';
-$LNG['modul_50']                                     = 'Arsenal';
-$LNG['modul_51']                                     = 'Сontainers';
-$LNG['modul_52']                                     = 'Artifacts';
-$LNG['modul_53']                                     = 'Innovative Development';
-$LNG['modul_54']                                     = 'Senate';
-$LNG['modul_55']                                     = 'Pirate Market';
-$LNG['modul_56']                                     = 'Dealers';
 //System
 $LNG['sys_expe_found_ars_1']                         = 'We found the battlefield and we were able to create an upgrade';
 $LNG['sys_expe_found_ars_2']                         = 'The new commander has allowed contact with the new race, even though it violates the charter. She turned out to be quite friendly, and we were able to establish trade relations. Having successfully completed the exchange, the expedition received an upgrade ';

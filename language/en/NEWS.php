@@ -3,6 +3,15 @@
 // All rights reserved from 2020;
 // Company 1367.
 
+$LNG['head'][9] = 'New-Star V1.0.9';
+$LNG['text'][9] = 'Engine:
+✔ Fully updated admin panel (Yaro2709);
+✔ Fixed problems with game design (Yaro2709);
+✔ Other small changes (Yaro2709);
+Mods:
+✔ Fixed a problem with transport (Yaro2709);
+✔ Other small changes (Yaro2709). ';
+
 $LNG['head'][8] = 'New-Star V1.0.8';
 $LNG['text'][8] = 'Engine:
 ✔ The README file is filled (Yaro2709);

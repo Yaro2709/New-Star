@@ -66,7 +66,10 @@
             {if isModuleAvailable($smarty.const.MODULE_GALAXY)}
             <a class="galassiabott" href="game.php?page=galaxy" id="munu_galaxy">{$LNG.lm_galaxy}</a>
             {/if}   
-            *}     		
+            *}
+     		{if $authlevel > 0}
+            <a  href="admin.php" class="big_btn green btn_menu btn_menu_big">{$LNG.lm_administration}</a>
+            {/if}
             <div class="clear"></div>                
     </div>
     </div><!--/left_menu-->

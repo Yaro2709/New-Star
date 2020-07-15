@@ -1,0 +1,40 @@
+.gha-header {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 10px;
+    height: 85px;
+    border-bottom: 1px solid #293036;
+    background: rgba(0, 0, 0, 0.5);
+    background: -moz-linear-gradient(top, #ffffff 0%, #f4f4f4 100%);
+    /* background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f4f4f4)); */
+    /* background: -webkit-linear-gradient(top, #ffffff 0%,#f4f4f4 100%); */
+    background: -o-linear-gradient(top, #ffffff 0%,#f4f4f4 100%);
+    background: -ms-linear-gradient(top, #ffffff 0%,#f4f4f4 100%);
+    /* background: linear-gradient(to bottom, #ffffff 0%,#f4f4f4 100%); */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f4f4f4',GradientType=0 );
+}
+.gha-activity {
+    border-bottom: 1px solid #27282a;
+}
+.gha-feed {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #27282a;
+}
+.gha-github-icon {
+    color: #fbfbfc;
+}
+.gha-user-info a {
+    color: #cccccc;
+}
+.gha-gravatar img {
+    border: 1px solid #43474a;
+    box-shadow: 1px 1px 3px #313335;
+}
+.gha-gravatar {
+    margin-right: 0px; 
+    padding-right: 0px;
+}
+.gha-push-small {
+    height: 0px;
+}

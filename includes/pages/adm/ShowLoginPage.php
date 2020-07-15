@@ -46,5 +46,5 @@ function ShowLoginPage()
 		'bodyclass'	=> 'standalone',
 		'username'	=> $USER['username']
 	));
-	$template->show('LoginPage.tpl');
+	$template->show('page.login.default.tpl');
 }

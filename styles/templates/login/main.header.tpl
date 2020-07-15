@@ -24,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="styles/resource/css/base/my_bootstrap.css">
     <!--bootstrap requirements-->
     <script type="text/javascript" src="scripts/base/jquery.js"></script>
+    <script type="text/javascript" src="scripts/base/jquery.ui.js"></script>
     <script type="text/javascript" src="scripts/base/popper.min.js"></script>
     <script type="text/javascript" src="scripts/base/bootstrap.min.js"></script>
     <!--bootstrap adaptation to the device-->

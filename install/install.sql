@@ -231,7 +231,7 @@ CREATE TABLE `%PREFIX%config` (
   `fb_skey` varchar(42) NOT NULL DEFAULT '',
   `ga_active` varchar(42) NOT NULL DEFAULT '0',
   `ga_key` varchar(42) NOT NULL DEFAULT '',
-  `moduls` varchar(100) NOT NULL DEFAULT '',
+  `moduls` varchar(255) NOT NULL DEFAULT '',
   `trade_allowed_ships` varchar(255) NOT NULL DEFAULT '202,401',
   `trade_charge` varchar(5) NOT NULL DEFAULT '30',
   `chat_closed` tinyint(1) NOT NULL DEFAULT '0',
@@ -1081,10 +1081,11 @@ INSERT INTO `%PREFIX%news` (`id`, `user`, `date`, `title`, `text`) VALUES
 (5, 'Yaro2709', 1589817939, '', ''),
 (6, 'Yaro2709', 1590849786, '', ''),
 (7, 'Yaro2709', 1591796225, '', ''),
-(8, 'Yaro2709', 1592056089, '', '');
+(8, 'Yaro2709', 1592056089, '', ''),
+(9, 'Yaro2709', 1594830408, '', '');
 
 ALTER TABLE `%PREFIX%news`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 INSERT INTO `%PREFIX%system` (`dbVersion`) VALUES

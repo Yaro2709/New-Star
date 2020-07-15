@@ -39,7 +39,7 @@ class StatBanner {
 		global $LNG;
 		$image  	= imagecreatefromjpeg($this->source);
 
-		$Font		= $data['ttf_file'];
+		$Font	= ROOT_PATH.''.$data['ttf_file'].'';
 		if(!file_exists($Font))
 			$this->BannerError('TTF Font missing!');
 			

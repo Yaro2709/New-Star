@@ -1,0 +1,27 @@
+body {
+    background: #0B0B0F;
+    color: #fff;
+    position: relative;
+    background: url(../../images/admin/bg.jpg) no-repeat fixed center center #0d0d0d;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    o-background-size: cover;
+    background-size: cover;
+}
+/*scrollbar*/
+::-webkit-scrollbar{
+	width:5px;
+	height:5px;
+}
+::-webkit-scrollbar-track-piece{
+	
+}
+::-webkit-scrollbar-track{
+    background:rgba(115,205,240,0.20);
+} 
+::-webkit-scrollbar-thumb{ 
+	background:rgba(115,205,240,0.90);
+}
+::-webkit-scrollbar-corner {
+	display:none;
+}
