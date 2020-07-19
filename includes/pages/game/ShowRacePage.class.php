@@ -42,29 +42,9 @@ class ShowRacePage extends AbstractGamePage
         $href = 'game.php?page=race'; 
         require_once('includes/subclasses/subclass.UpdateMaxLvl.php');
         require_once('includes/subclasses/subclass.UpdateResAmount.php');
-		
-        foreach($reslist['race'] as $Elements)
-		{ 
-            $sql	= 'UPDATE %%USERS%% SET
-            '.$resource[$Elements].' = 0
-            WHERE
-            id = :userId;';
-
-            Database::get()->update($sql, array(
-                ':userId'	=> $USER['id']
-            ));
-        }
+        $mode = 'race';
+        require_once('includes/subclasses/subclass.UpdateSqlСhoice.php');
         
-        $sql	= 'UPDATE %%USERS%% SET
-                race = '.$Element.',
-                '.$resource[$Element].' = :newPost
-                WHERE
-                id = :userId;';
-
-		Database::get()->update($sql, array(
-            ':newPost'	=> $USER[$resource[$Element]],
-			':userId'	=> $USER['id']
-		));
 		$this->printMessage(''.$LNG['race_yes'].'', true, array("?page=race", 2));	
 	}
 	
@@ -108,7 +88,7 @@ class ShowRacePage extends AbstractGamePage
 		
 		$this->assign(array(	
 			'RaceList'		    => $RaceList,
-            'rac'               => $USER['race'],
+            'name'              => $USER['race'],
 		));
 		
 		$this->display('page.race.default.tpl');

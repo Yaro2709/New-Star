@@ -25,6 +25,7 @@ require 'includes/pages/adm/AbstractAdminPage.class.php';
 require 'includes/pages/adm/ShowErrorPage.class.php';
 require 'includes/common.php';
 require 'includes/classes/class.Log.php';
+/** @var $LNG Language */
 //Если не админ, то обратно в игру.
 if ($USER['authlevel'] == AUTH_USR)
 {

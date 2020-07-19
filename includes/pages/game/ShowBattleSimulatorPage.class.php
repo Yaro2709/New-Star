@@ -26,7 +26,7 @@ class ShowBattleSimulatorPage extends AbstractGamePage
 
 	function send()
 	{
-		global $reslist, $pricelist, $LNG;
+		global $reslist, $pricelist, $LNG, $resource;
 		
 		if(!isset($_REQUEST['battleinput'])) {
 			$this->sendJSON(0);
@@ -56,13 +56,15 @@ class ShowBattleSimulatorPage extends AbstractGamePage
 				$attacker['player']				= array(
 					'id' => (1000 + $BattleSlotID + 1),
 					'username'	=> $LNG['bs_atter'].' Nr.'.($BattleSlotID + 1),
-					'military_tech' => $BattleSlot[0][109],
-					'defence_tech' => $BattleSlot[0][110],
-					'shield_tech' => $BattleSlot[0][111],
-                    'rpg_amiral' => $BattleSlot[0][602],
 					'dm_defensive' => 0,
 					'dm_attack' => 0
 				); 
+                
+                foreach($reslist['battle_bonus'] as $bonus){
+                    $attacker['player']				+= array(
+                        ''.$resource[$bonus].'' => $BattleSlot[0][$bonus],
+                    ); 
+                }
 				
 				$attacker['player']['factor']	= getFactors($attacker['player'], 'attack');
 				
@@ -99,13 +101,15 @@ class ShowBattleSimulatorPage extends AbstractGamePage
 				$defender['player']				= array(
 					'id' => (2000 + $BattleSlotID + 1),
 					'username'	=> $LNG['bs_deffer'].' Nr.'.($BattleSlotID + 1),
-					'military_tech' => $BattleSlot[1][109],
-					'defence_tech' => $BattleSlot[1][110],
-					'shield_tech' => $BattleSlot[1][111],
-                    'rpg_amiral' => $BattleSlot[1][602],
 					'dm_attack' => 0,
 					'dm_defensive' => 0,
 				); 
+                
+                foreach($reslist['battle_bonus'] as $bonus){
+                    $defender['player']				+= array(
+                        ''.$resource[$bonus].'' => $BattleSlot[1][$bonus],
+                    ); 
+                }
 				
 				$defender['player']['factor']	= getFactors($defender['player'], 'attack');
 				
@@ -222,11 +226,9 @@ class ShowBattleSimulatorPage extends AbstractGamePage
 
 		$Slots			= HTTP::_GP('slots', 1);
 
-
-		$BattleArray[0][0][109]	= $USER[$resource[109]];
-		$BattleArray[0][0][110]	= $USER[$resource[110]];
-		$BattleArray[0][0][111]	= $USER[$resource[111]];
-        $BattleArray[0][0][602]	= $USER[$resource[602]];
+        foreach($reslist['battle_bonus'] as $bonus){
+            $BattleArray[0][0][$bonus]	= $USER[$resource[$bonus]];
+        }
 		
 		if(empty($_REQUEST['battleinput']))
 		{
@@ -257,6 +259,7 @@ class ShowBattleSimulatorPage extends AbstractGamePage
 		$this->assign(array(
 			'Slots'			=> $Slots,
 			'battleinput'	=> $BattleArray,
+            'bonusList'		=> $reslist['battle_bonus'],
 			'fleetList'		=> $reslist['fleet'],
 			'defensiveList'	=> $reslist['defense'],
 		));

@@ -1,27 +1,88 @@
 {block name="title" prepend}{$LNG.lm_overview}{/block}
 {block name="script" append}{/block}
 {block name="content"}
-{* онлайн админов, реф. система, тикеты, флот*}
-   <script type="text/javascript">
-      function buildTimeTicker(){ var e=buildEndTime-(serverTime.getTime()-startTime)/1e3;if(e<=0){ window.location.href="game.php?page=overview";return }$("#blc").text(GetRestTimeFormat(e));window.setTimeout("buildTimeTicker()",1e3) }function FleetTime(){ $(".fleets").each(function(){ var e=$(this).data("fleet-time")-(serverTime.getTime()-startTime)/1e3;if(e<=0){ $(this).text("-") }else{ $(this).text(GetRestTimeFormat(e)) } });window.setTimeout("FleetTime()",1e3) } function UhrzeitAnzeigen(){ $(".servertime").text(getFormatedDate(serverTime.getTime(),tdformat)) }$(document).ready(function(){ FleetTime() });UhrzeitAnzeigen();setInterval(UhrzeitAnzeigen,1e3)
-   </script>
-<!--ol-->
+{* онлайн админов, реф. система, тикеты*}
 <div id="page">
-<div id="content">
+    <div id="content">
+        <div id="ally_content" class="conteinership">
+            <div class="fleettab10"></div>   
+            <div class="gray_flettab">
+                <div class="transparent">
+                    {$LNG.fl_fleets} {$activeFleetSlots} / {$maxFleetSlots}
+                    <div class="transparent" style="text-align:right; float:right;color: #b1b1b1;font-size: 13px;">
+                        <span style="color: #8b99b0;font-weight: bold;">{$activeExpedition} / {$maxExpedition} {$LNG.fl_expeditions}</span>
+                    </div> 
+                </div>
+            </div> 
+            <table class="tablesorter ally_ranks">
+                <tr>
+                    <td>{$LNG.fl_number}</td>
+                    <td>{$LNG.fl_mission}</td>
+                    <td>{$LNG.fl_ammount}</td>
+                    <td>{$LNG.fl_beginning}</td>
+                    <td>{$LNG.fl_departure}</td>
+                    <td>{$LNG.fl_destiny}</td>
+                    <td>{$LNG.fl_objective}</td>
+                    <td>{$LNG.fl_arrival}</td>
+                    <td>{$LNG.fl_order}</td>
+                </tr>
+                {foreach name=FlyingFleets item=FlyingFleetRow from=$FlyingFleetList}
+                <tr>
+                    <td>{$smarty.foreach.FlyingFleets.iteration}</td>
+                    <td>{$LNG["type_mission_{$FlyingFleetRow.mission}"]}
+                        {if $FlyingFleetRow.state == 1}
+                            <br><a title="{$LNG.fl_returning}">{$LNG.fl_r}</a>
+                        {else}
+                            <br><a title="{$LNG.fl_onway}">{$LNG.fl_a}</a>
+                        {/if}
+                    </td>
+                    <td><a class="tooltip" data-tooltip-content="<table width='100%'><tr><th colspan='2' style='text-align:center;'>{$LNG.fl_info_detail}</th></tr>{foreach $FlyingFleetRow.FleetList as $shipID => $shipCount}<tr><td class='transparent'>{if $shipID != 260}{$LNG.tech.{$shipID}}{else}{$useri['i_name']}{/if}:</td><td class='transparent'>{$shipCount}</td></tr>{/foreach}</table>">{$FlyingFleetRow.amount}</a></td>
+                    <td><a href="game.php?page=galaxy&amp;galaxy={$FlyingFleetRow.startGalaxy}&amp;system={$FlyingFleetRow.startSystem}">[{$FlyingFleetRow.startGalaxy}:{$FlyingFleetRow.startSystem}:{$FlyingFleetRow.startPlanet}]</a></td>
+                    <td>{$FlyingFleetRow.startTime}</td>
+                    <td><a href="game.php?page=galaxy&amp;galaxy={$FlyingFleetRow.endGalaxy}&amp;system={$FlyingFleetRow.endSystem}">[{$FlyingFleetRow.endGalaxy}:{$FlyingFleetRow.endSystem}:{$FlyingFleetRow.endPlanet}]</a></td>
+                    {if $FlyingFleetRow.mission == 4}
+                    <td>-</td>
+                    <td style="color:lime">-</td>
+                    {else}
+                    <td>{$FlyingFleetRow.endTime}</td>
+                    <td style="color:lime">{$FlyingFleetRow.backin}</td>
+                    {/if}
+                    <td>
+                        {if !$isVacation && $FlyingFleetRow.state != 1}
+                        <form action="game.php?page=fleetTable&amp;action=sendfleetback" method="post">
+                            <input name="fleetID" value="{$FlyingFleetRow.id}" type="hidden">
+                            <input value="{$LNG.fl_send_back}" type="submit">
+                        </form>
+                        {if $FlyingFleetRow.mission == 1}
+                        <form action="game.php?page=fleetTable&amp;action=acs" method="post">
+                            <input name="fleetID" value="{$FlyingFleetRow.id}" type="hidden">
+                            <input value="{$LNG.fl_acs}" type="submit">
+                        </form>
+                    {/if}
+                    {else}-{/if}
+                    </td>
+                </tr>
+                {foreachelse}
+                <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                {/foreach}
+                {if $maxFleetSlots == $activeFleetSlots}
+                <tr>
+                    <td colspan="9">{$LNG.fl_no_more_slots}</td>
+                </tr>
+                {/if}
+             </table>		
+        </div> 
     <div id="owerwiv" class="conteiner">
-            <div class="fleet_log">
-               <div class="separator"></div>
-               {foreach $fleets as $index => $fleet}
-               <div class="fleet_time">
-                  <div id="fleettime_{$index}" class="fleets" data-fleet-end-time="{$fleet.returntime}" data-fleet-time="{$fleet.resttime}">-</div>
-               </div>
-               <div class="fleet_text">
-                  {$fleet.text}
-                  <div class="clear"></div>
-               </div>
-               <div class="separator"></div>
-               {/foreach}
-            </div>
         <div class="gray_flettab">
             <div id="online_user">
             {$LNG.ov_online_users} <span>{$UsersOnline}</span>

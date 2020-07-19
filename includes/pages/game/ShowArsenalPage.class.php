@@ -45,7 +45,8 @@ class ShowArsenalPage extends AbstractGamePage
 		}
         
 		$this->assign(array(
-            //'ars1'		    => array(2001,2002),
+            'ars1'		    => $reslist['spec_ars'][1],
+            'ars2'		    => $reslist['spec_ars'][2],
 			'arsList'		=> $arsList,
 		));
 		

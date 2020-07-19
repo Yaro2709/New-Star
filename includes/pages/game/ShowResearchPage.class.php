@@ -515,6 +515,10 @@ class ShowResearchPage extends AbstractGamePage
 		
 		$this->tplObj->loadscript('research.js');
 		$this->assign(array(
+            'tech1'		    => $reslist['spec_tech'][1],
+            'tech2'		    => $reslist['spec_tech'][2],
+            'tech3'		    => $reslist['spec_tech'][3],
+            'tech4'		    => $reslist['spec_tech'][4],
 			'ResearchList'	=> $ResearchList,
 			'IsLabinBuild'	=> !$bContinue,
 			'IsFullQueue'	=> Config::get()->max_elements_tech == 0 || (Config::get()->max_elements_tech + $USER['factor']['ResearchSlots']) == count($TechQueue),

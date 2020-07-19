@@ -340,6 +340,14 @@ class ShowShipyardPage extends AbstractGamePage
 		
 		$this->tplObj->loadscript('shipyard.js');
 		$this->assign(array(
+            'fleet1'		=> $reslist['spec_fleet'][1],
+            'fleet2'		=> $reslist['spec_fleet'][2],
+            'fleet3'		=> $reslist['spec_fleet'][3],
+            'fleet4'		=> $reslist['spec_fleet'][4],
+            'defense1'		=> $reslist['spec_defense'][1],
+            'defense2'		=> $reslist['spec_defense'][2],
+            'defense3'		=> $reslist['spec_defense'][3],
+            'defense4'		=> $reslist['spec_defense'][4],
 			'elementList'	=> $elementList,
 			'NotBuilding'	=> $NotBuilding,
 			'BuildList'		=> $Buildlist,

@@ -76,6 +76,15 @@
                                 </table>
                             ">
                                 <img alt="" title="" src="{$dpath}gebaeude/{$ShipID}.gif" width="60px" height="60px" />
+                                {if $ShipData[5] != 1}
+                                    <div class="ico_ka"></div>
+                                {/if}
+                                {if $ShipData[6] != 1}
+                                    <div class="ico_kd"></div>
+                                {/if}
+                                {if $ShipData[7] != 1}
+                                    <div class="ico_ks"></div>
+                                {/if}
                             </div>
                             <span class="name_unit">{$LNG.shortNames.{$ShipID}}</span><br/>
                             <span class="tooltip" data-real="{$ShipData[0]|number}" data-tooltip-content="{$ShipData[0]|number}">{pretty_number($ShipData[0])}</span><br/>
@@ -119,6 +128,15 @@
                                 </table>
                             ">
                                 <img alt="" title="" src="{$dpath}gebaeude/{$ShipID}.gif" width="60px" height="60px" />
+                                {if $ShipData[5] != 1}
+                                    <div class="ico_ka"></div>
+                                {/if}
+                                {if $ShipData[6] != 1}
+                                    <div class="ico_kd"></div>
+                                {/if}
+                                {if $ShipData[7] != 1}
+                                    <div class="ico_ks"></div>
+                                {/if}
                             </div>
                             <span class="name_unit">{$LNG.shortNames.{$ShipID}}</span><br/>
                             <span class="tooltip" data-real="{$ShipData[0]|number}" data-tooltip-content="{$ShipData[0]|number}">{pretty_number($ShipData[0])}</span><br/>

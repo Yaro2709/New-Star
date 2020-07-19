@@ -43,11 +43,35 @@ $reslist['resstype'][1]         = array(901, 902, 903);
 $reslist['resstype'][2]         = array(911, 912, 913, 914, 915, 916);
 $reslist['resstype'][3]         = array(921, 922, 923, 924);
 $reslist['res_production']      = array(901 => 0, 902 => 0, 903 => 0, 911 => 0, 912 => 0, 913 => 0, 914 => 0, 915 => 0, 916 => 0);
+//Классофикация арсенала
+$reslist['spec_ars'][1]         = array(2001,2002,2003,2005);
+$reslist['spec_ars'][2]         = array(2004,2006,2007,2008,2009,2010);
+//Классофикация флота
+$reslist['spec_fleet'][1]       = array(208,209,210,212,220);
+$reslist['spec_fleet'][2]       = array(202,203,204,205);
+$reslist['spec_fleet'][3]       = array(206,209,207,211,213,215,217,219,);
+$reslist['spec_fleet'][4]       = array(214,216,218);
+//Классофикация обороны
+$reslist['spec_defense'][1]     = array(407,408,409,411);
+$reslist['spec_defense'][2]     = array(401,402,403);
+$reslist['spec_defense'][3]     = array(405,404,406);
+$reslist['spec_defense'][4]     = array(410);
+//Классофикация исследований
+$reslist['spec_tech'][1]        = array(106,108,109,110,111);
+$reslist['spec_tech'][2]        = array(114,115,117,118);
+$reslist['spec_tech'][3]        = array(120,121,122,199);
+$reslist['spec_tech'][4]        = array(131,132,133,113,123,124);
+//Классофикация построек
+$reslist['spec_build'][1]       = array(1,2,3,4,12,22,23,24,41);
+$reslist['spec_build'][2]       = array(6,31,42);
+$reslist['spec_build'][3]       = array(14,15,21,44);
+$reslist['spec_build'][4]       = array(33,34,43);
 
 $reslist['planet_no_basic']     = array(3); //планеты, у которых нет базовой добычи
 $reslist['shipyard']            = array(14,15,21); //если эти еденицы улучшаются, то верфь не работает
 $reslist['lab']                 = array(6,31);
 
+$reslist['battle_bonus']        = array(109,110,111,120,121,122,199,602); //что учитывается в симмуляторе
 $reslist['build_speed_res']     = array(901,902,903); //Ресусры, которые образуют время создания чего-либо
 $resglobal['stop_product']      = 911; //Ресурс, при недостатке которого вырубает добычу
 $resglobal['build_speed']       = 912; //Ресурс, который влияет на скорость построек

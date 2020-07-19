@@ -2,6 +2,10 @@
 
 New-Star is a web browser game engine. The goal of this work is to completely restart 2Moons: a new design, a new gameplay and much more. The open source browsergame framework is based on [2Moons](https://github.com/jkroepke/2Moons). 
 
+## Gallery New-Star
+
+There is also a [gallery](https://yaro2709.github.io/New-Star-gallery) of the project so that anyone can visually familiarize themselves with the project.
+
 ## Repository structure
 
 - [cache] - temporary cached server .tpl webpages

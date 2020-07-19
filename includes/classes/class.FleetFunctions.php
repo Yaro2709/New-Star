@@ -23,7 +23,7 @@ class FleetFunctions
 	{
 		global $pricelist;
 
-		return (($Player['impulse_motor_tech'] >= 5 && $Ship == 202) || ($Player['hyperspace_motor_tech'] >= 8 && $Ship == 211)) ? $pricelist[$Ship]['consumption2'] : $pricelist[$Ship]['consumption'];
+		return (($Player['impulse_motor_tech'] >= 5 && $Ship == 202) || ($Player['hyperspace_motor_tech'] >= 8 && $Ship == 211)) ? $pricelist[$Ship]['consumption2'] + ($pricelist[$Ship]['consumption2'] * pow(0.99, (($Player['factor']['FuelConsum'] * 100)))) : $pricelist[$Ship]['consumption'] + ($pricelist[$Ship]['consumption'] * pow(0.99, (($Player['factor']['FuelConsum'] * 100))));
 	}
 
 	private static function OnlyShipByID($Ships, $ShipID)

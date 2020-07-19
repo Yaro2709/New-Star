@@ -53,8 +53,15 @@
 
       <div id="build_content" class="conteiner">
          <div id="fildes_band">
-            <a href="game.php" class="palanetarium_linck seting2"></a>
             <div id="fildes_band_proc" style="width:{$field_percent}%;"></div>
+            <div class="gray_stripe" style="height:0px;">
+                <div style="float:left">{$LNG.lm_buildings}</div>
+                <span class="record_btn ico_star record_btn_active" onclick="build();"></span>
+                <span class="record_btn ico_build_1" onclick="build1();"></span>
+                <span class="record_btn ico_build_2" onclick="build2();"></span>
+                <span class="record_btn ico_build_3" onclick="build3();"></span>
+                <span class="record_btn ico_build_4" onclick="build4();"></span>
+            </div>
             <div class="fildes_band_text">
                {$LNG.bd_em_field} <span>{$field_used}</span> {$LNG.bd_of_field} <span>{$field_max}</span>
                {$LNG.bd_free_field} <span>{$field_left}</span>
@@ -62,7 +69,8 @@
          </div>
          <div id="build_elements">
             {foreach $BuildInfoList as $ID => $Element}
-            <div id="build_{$ID}" class="build_box {if !$Element.techacc}required{/if}">
+            <div class="build_elements">
+            <div id="build_{$ID}" class="build_box {if $ID == in_array($ID, $build1)}build1{elseif $ID == in_array($ID, $build2)}build2{elseif $ID == in_array($ID, $build3)}build3{elseif $ID == in_array($ID, $build4)}build4{/if} {if !$Element.techacc}required{/if}">
                <div class="head">
                   <a href="#" onclick="return Dialog.info({$ID})" class="interrogation">?</a>                
                   <a href="#" onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}</a>{if $Element.level > 0} ({$LNG.bd_lvl} {$Element.level}{if $Element.maxLevel != 255}/{$Element.maxLevel}{/if}){/if}
@@ -161,6 +169,7 @@
                   {/if}
                   {/if}    
                </div>
+            </div>
             </div>
             {/foreach}
             <div class="clear"></div>

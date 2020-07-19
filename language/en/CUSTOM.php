@@ -117,8 +117,6 @@ $LNG['all_info']                                     = 'Information';
 $LNG['all_appl']                                     = 'Configure claims';
 $LNG['all_create']                                   = 'Create rank';
 // Races
-$LNG['race_bonus']                                   = 'Race Skills';
-$LNG['race_req']                                     = 'New units';
 $LNG['race_one']                                     = 'Race selection:';
 $LNG['race_stop_choice']                             = 'The race is already selected!';
 $LNG['race_yes']                                     = 'Race selected.';
@@ -141,6 +139,20 @@ $LNG['cont_open_24']					             = 'Opened in 24 hours.';
 $LNG['cont_msg_limit']                               = 'You cannot open as many containers at a time.';
 $LNG['cont_not_cont_user']                           = 'Not enough containers!';
 $LNG['cont_open']                                    = 'You have opened:';
+//Information
+$LNG['in_attack_pt']                                 = 'Standard Attack';
+$LNG['in_attack_laser']                              = 'Laser Attack';
+$LNG['in_attack_ionic']                              = 'Ionic Attack';
+$LNG['in_attack_buster']                             = 'Plasma Attack';
+$LNG['in_attack_graviton']                           = 'Gravity Attack';
+$LNG['in_shield_none']                               = 'There are no shields';
+$LNG['in_shield_light']                              = 'Light Shields';
+$LNG['in_shield_medium']                             = 'Medium Shields';
+$LNG['in_shield_heavy']                              = 'Heavy Shields';
+$LNG['in_armor_light']                               = 'Light Armor';
+$LNG['in_armor_medium']                              = 'Medium Armor';
+$LNG['in_armor_heavy']                               = 'Heavy Armor';
+$LNG['in_number']                                    = 'Quantity';
 //System
 $LNG['sys_expe_found_ars_1']                         = 'We found the battlefield and we were able to create an upgrade';
 $LNG['sys_expe_found_ars_2']                         = 'The new commander has allowed contact with the new race, even though it violates the charter. She turned out to be quite friendly, and we were able to establish trade relations. Having successfully completed the exchange, the expedition received an upgrade ';

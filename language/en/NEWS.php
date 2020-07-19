@@ -3,6 +3,18 @@
 // All rights reserved from 2020;
 // Company 1367.
 
+$LNG['head'][10] = 'New-Star V1.1.0';
+$LNG['text'][10] = 'Engine:
+The combat system has been completely updated (Yaro2709);
+✔ Added new types of bonuses (Yaro2709);
+Ana Subclasses for game objects (Yaro2709);
+✔ Fixed problems with game design (Yaro2709);
+Small Other small changes (Yaro2709);
+Mods:
+✔ Lot Fleet in the views is displayed as in orbit (Yaro2709);
+✔ Yong Changed combat simulator (Yaro2709);
+✔ Small Other small changes (Yaro2709). ';
+
 $LNG['head'][9] = 'New-Star V1.0.9';
 $LNG['text'][9] = 'Engine:
 ✔ Fully updated admin panel (Yaro2709);

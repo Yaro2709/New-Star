@@ -27,11 +27,31 @@
    {/if}
 <form action="game.php?page=shipyard&amp;mode={$mode}" method="post">
 <div id="build_content" class="conteiner ship_build">
-    <div id="fildes_band"></div> 
+    <div id="fildes_band">
+    {if $mode == "defense"}
+        <div class="gray_stripe">
+            <div style="float:left">{$LNG.lm_defenses}</div>
+            <span class="record_btn ico_star record_btn_active" onclick="rank();"></span>
+            <span class="record_btn ico_rank_0" onclick="rank0();"></span>
+            <span class="record_btn ico_rank_1" onclick="rank1();"></span>
+            <span class="record_btn ico_rank_2" onclick="rank2();"></span>
+            <span class="record_btn ico_rank_3" onclick="rank3();"></span>
+        </div>
+    {else}
+        <div class="gray_stripe">
+            <div style="float:left">{$LNG.lm_shipshard}</div>
+            <span class="record_btn ico_star record_btn_active" onclick="rank();"></span>
+            <span class="record_btn ico_rank_0" onclick="rank0();"></span>
+            <span class="record_btn ico_rank_1" onclick="rank1();"></span>
+            <span class="record_btn ico_rank_2" onclick="rank2();"></span>
+            <span class="record_btn ico_rank_3" onclick="rank3();"></span>
+        </div>
+    {/if}
+    </div>
     <div id="build_elements">
     {foreach $elementList as $ID => $Element}
         <div class="build_elements">
-            <div id="s_{$ID}" class="build_box {if !$Element.techacc}required{/if}">
+            <div id="s_{$ID}" class="build_box {if $mode == 'defense'}{if $ID == in_array($ID, $defense1)}rank0{elseif $ID == in_array($ID, $defense2)}rank1{elseif $ID == in_array($ID, $defense3)}rank2{elseif $ID == in_array($ID, $defense4)}rank3{/if}{else}{if $ID == in_array($ID, $fleet1)}rank0{elseif $ID == in_array($ID, $fleet2)}rank1{elseif $ID == in_array($ID, $fleet3)}rank2{elseif $ID == in_array($ID, $fleet4)}rank3{/if}{/if} {if !$Element.techacc}required{/if}">
                 <div class="head">
                     <a href="#" onclick="return Dialog.info({$ID})" class="interrogation">?</a>                
                     <a href="#" onclick="return Dialog.info({$ID})" class="title">{$LNG.tech.{$ID}} </a> 

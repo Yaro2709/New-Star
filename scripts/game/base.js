@@ -253,13 +253,12 @@ var Dialog	= {
     
 	open: function (url, width, height) {
         $.fancybox.open({
-            src: url,
             type: 'iframe',
             opts : {
                 iframe : {
                     css : {
                         width  : width,
-                        height : height, 
+                        /*height : height,*/ 
                         /* 
                         minWidth: width,
                         minHeight: height,
@@ -268,7 +267,8 @@ var Dialog	= {
                         */
                     }
                 },
-            }
+            },
+            src: url
         });
 
         return false;

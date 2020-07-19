@@ -90,6 +90,12 @@ function getFactors($USER, $Type = 'basic', $TIME = NULL) {
 			}
 		}
 	}
+    //Ограничение фактров до 30%
+    foreach(array('CostRbuild', 'CostRfleet', 'CostRtech', 'CostRdefense', 'CostRmissile', 'Debris', 'DefRecovery') as $factor_name){
+        if($factor[$factor_name] > 0.3){
+            $factor[$factor_name] = 0.3;
+        }
+    }
 	
 	return $factor;
 }

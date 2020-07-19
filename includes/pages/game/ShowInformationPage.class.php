@@ -272,6 +272,35 @@ class ShowInformationPage extends AbstractGamePage
 		}
 		elseif(in_array($elementID, $reslist['fleet']))
 		{
+            $FleetGun = '';
+            if($CombatCaps[$elementID]['type_gun'] == 'none')
+			{			
+				$FleetGun = '';
+			}
+			elseif($CombatCaps[$elementID]['type_gun'] == 'notype')
+			{
+				$FleetGun = 'notype';
+			}
+			else
+			{
+				$type_gun			= explode(';', $CombatCaps[$elementID]['type_gun']);
+				$FleetGun        	= array();
+			
+				foreach ($type_gun as $Item => $gun)
+				{
+					if (empty($gun)) continue;	
+					
+					$Class							= explode(',', $gun);
+					$FleetGun[$Class[0]]['attack']	= round($CombatCaps[$elementID]['attack'] * $Class[1] / 100);
+				}									
+			}
+            
+            $Info = array(
+				'class_defend'	=> $CombatCaps[$elementID]['type_defend'],	
+				'class_shield'	=> $CombatCaps[$elementID]['type_shield'],		
+			);
+            
+            
 			$FleetInfo	= array(
 				'structure'		=> $pricelist[$elementID]['cost'][901] + $pricelist[$elementID]['cost'][902],
 				'tech'			=> $pricelist[$elementID]['tech'],
@@ -282,6 +311,8 @@ class ShowInformationPage extends AbstractGamePage
 				'speed2'		=> $pricelist[$elementID]['speed2'],
 				'consumption1'	=> $pricelist[$elementID]['consumption'],
 				'consumption2'	=> $pricelist[$elementID]['consumption2'],
+                'fleetgun'		=> $FleetGun,
+                'info'		    => $Info,
 				'rapidfire'		=> array(
 					'from'	=> array(),
 					'to'	=> array(),
@@ -303,10 +334,40 @@ class ShowInformationPage extends AbstractGamePage
 		}
 		elseif (in_array($elementID, $reslist['defense']))
 		{
+            $FleetGun = '';
+            if($CombatCaps[$elementID]['type_gun'] == 'none')
+			{			
+				$FleetGun = '';
+			}
+			elseif($CombatCaps[$elementID]['type_gun'] == 'notype')
+			{
+				$FleetGun = 'notype';
+			}
+			else
+			{
+				$type_gun			= explode(';', $CombatCaps[$elementID]['type_gun']);
+				$FleetGun        	= array();
+			
+				foreach ($type_gun as $Item => $gun)
+				{
+					if (empty($gun)) continue;	
+					
+					$Class							= explode(',', $gun);
+					$FleetGun[$Class[0]]['attack']	= round($CombatCaps[$elementID]['attack'] * $Class[1] / 100);
+				}									
+			}
+            
+            $Info = array(
+				'class_defend'	=> $CombatCaps[$elementID]['type_defend'],	
+				'class_shield'	=> $CombatCaps[$elementID]['type_shield'],		
+			);
+            
 			$FleetInfo	= array(
 				'structure'		=> $pricelist[$elementID]['cost'][901] + $pricelist[$elementID]['cost'][902],
 				'attack'		=> $CombatCaps[$elementID]['attack'],
 				'shield'		=> $CombatCaps[$elementID]['shield'],
+                'fleetgun'		=> $FleetGun,
+                'info'		    => $Info,
 				'rapidfire'		=> array(
 					'from'	=> array(),
 					'to'	=> array(),

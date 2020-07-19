@@ -5,7 +5,7 @@
       {if $RaceList}
       <div id="ally_content" class="conteiner">
          <div class="gray_stripe" style="color:#6ccdce;">
-            <strong>{$LNG.tech.{$rac}}</strong>                   
+            <strong>{$LNG.tech.{$name}}</strong>                   
          </div>
          <div id="build_elements" class="race_elements" style="padding-top:10px; padding-bottom:5px;">
             {foreach $RaceList as $ID => $Element}
@@ -16,7 +16,7 @@
                <div class="content_box">
                   <img width="150px" height="254px" style="float:right;" src="{$dpath}gebaeude/race/{$ID}.png" />
                   <p style="color:#6ccdce;">
-                     <font style="color:#6ccdce;"><strong>{$LNG.race_bonus}</strong></font><br>
+                     <font style="color:#6ccdce;"><strong>{$LNG.in_bonus}</strong></font><br>
                   <ul>
                      <font color="#6ccdce">
                         {foreach $Element.elementBonus as $BonusName => $Bonus}{if $Bonus@iteration % 1 === 1}

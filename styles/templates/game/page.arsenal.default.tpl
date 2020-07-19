@@ -4,21 +4,16 @@
    <div id="content">
       {if $arsList}
       <div id="ally_content" class="conteiner">
-         <div class="gray_stripe" style="padding-right:0;">
-            {$LNG.lm_ars}              
-         </div>
-         {*
-         <div id="empire_filtrs">
-            <span onclick="ars();" id="ars" class="imper_btn_filtrs imper_btn_filtrs_activ">1 <span></span></span>
-            <span onclick="ars1();" id="ars1" class="imper_btn_filtrs">2 <span></span></span>
-            <div class="clear"></div>
+        <div class="gray_stripe">
+            <div style="float:left">{$LNG.lm_ars}</div>
+            <span class="record_btn ico_star record_btn_active" onclick="ars();"></span>
+            <span class="record_btn ico_fleet" onclick="ars1();"></span>
+            <span class="record_btn ico_shield" onclick="ars2();"></span>
         </div>
-         *}
         <div class="fleettab8" style="margin-bottom: 0;"></div>
          <div id="build_elements" class="ars_elements gov2">
             {foreach $arsList as $ID => $Element}
-            <div id="ars_{$ID}" class="build_box">
-                {*<div id="ars_{$ID}" class="build_box {if $ID == in_array($ID, $ars1)}ars1{else}ars2{/if}">*}
+            <div id="ars_{$ID}" class="build_box {if $ID == in_array($ID, $ars1)}ars1{elseif $ID == in_array($ID, $ars2)}ars2{/if}">
                <div class="head">               
                   {$LNG.tech.{$ID}}
                   <font class="gov6">({$LNG.bd_lvl} {$Element.level|number})</font>

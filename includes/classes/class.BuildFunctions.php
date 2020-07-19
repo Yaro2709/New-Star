@@ -26,8 +26,18 @@ class BuildFunctions
 		'DefensiveD', 
 		'ShieldD',
         'Attack',
+        'AttackSlaser',
+		'AttackSion',
+		'AttackSplasma',
+		'AttackSgravity',
         'Defensive',
+        'DefensiveSlight',
+		'DefensiveSmedium',
+		'DefensiveSheavy',
         'Shield',
+        'ShieldSlight',
+		'ShieldSmedium',
+		'ShieldSheavy',
         'Sbuild',
 		'BuildSlots',	
         'Stech',
@@ -53,6 +63,27 @@ class BuildFunctions
         'Expedition',
         'GateCoolTime',
         'MoreFound',
+        'CostRbuild',
+        'CostRfleet',
+        'CostRtech',
+        'CostRdefense',
+        'CostRmissile',
+        'DoubleAttack',
+	    'DoubleShield',
+        'DoubleDefensive',
+		'DoubleAttackBonus',
+		'DoubleShieldBonus',
+        'DoubleDefensiveBonus',
+        'Debris',
+        'DefRecovery',
+        'Focusing',
+		'AntiFocusing',
+		'AccurateShots',
+		'ChainReaction',
+		'ExpBoost',
+        'FuelConsum',
+        'ShieldDome',
+		'OrbitalBases',
     );
 
     public static function getBonusList()
@@ -100,6 +131,18 @@ class BuildFunctions
                 continue;
             }
             $ressourceAmount	= $pricelist[$Element]['cost'][$resType];
+            
+            if(in_array($Element, $reslist['build'])) {
+                $ressourceAmount	= $ressourceAmount - ($ressourceAmount * $USER['factor']['CostRbuild']);
+			}elseif(in_array($Element, $reslist['fleet'])) {
+                $ressourceAmount	= $ressourceAmount - ($ressourceAmount * $USER['factor']['CostRfleet']);
+			}elseif(in_array($Element, $reslist['tech'])) {
+                $ressourceAmount	= $ressourceAmount - ($ressourceAmount * $USER['factor']['CostRtech']);
+			}elseif(in_array($Element, $reslist['defense'])) {
+                $ressourceAmount	= $ressourceAmount - ($ressourceAmount * $USER['factor']['CostRdefense']);
+			}elseif(in_array($Element, $reslist['missile'])) {
+                $ressourceAmount	= $ressourceAmount - ($ressourceAmount * $USER['factor']['CostRmissile']);
+			}
 
             if ($ressourceAmount == 0) {
                 continue;
@@ -282,7 +325,7 @@ class BuildFunctions
 		}
 		}
 		$BuildArray  	  	= !empty($PLANET['b_hangar_id']) ? unserialize($PLANET['b_hangar_id']) : array();
-		$MaxDomes   		= 25;
+		$MaxDomes   		= 25 + $USER['factor']['ShieldDome'];
 		foreach($BuildArray as $ElementArray) {
 			if(isset($Domes[$ElementArray[0]]))
 				$Domes[$ElementArray[0]] += $ElementArray[1];
@@ -309,7 +352,7 @@ class BuildFunctions
 		}
 		}
 		$BuildArray  	  	= !empty($PLANET['b_hangar_id']) ? unserialize($PLANET['b_hangar_id']) : array();
-		$MaxOrbits   		= 250;
+		$MaxOrbits   		= 250 + $USER['factor']['OrbitalBases'];
 		foreach($BuildArray as $ElementArray) {
 			if(isset($Orbits[$ElementArray[0]]))
 				$Orbits[$ElementArray[0]] += $ElementArray[1];
@@ -331,15 +374,13 @@ class BuildFunctions
         foreach(self::$bonusList as $bonus)
         {
             if (array_key_exists(''.$bonus.'', $pricelist[$Element]['bonus'])) {
-                
-            $temp	= (float) $pricelist[$Element]['bonus'][$bonus][0];
-            if(empty($temp))
-            {
-                continue;
-            }
+                $temp	= (float) $pricelist[$Element]['bonus'][$bonus][0];
+                if(empty($temp))
+                {
+                    continue;
+                }
 
-            $elementBonus[$bonus]	= $pricelist[$Element]['bonus'][$bonus];
-            
+                $elementBonus[$bonus]	= $pricelist[$Element]['bonus'][$bonus];
             }
         }
 
