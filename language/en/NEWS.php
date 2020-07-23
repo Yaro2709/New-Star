@@ -3,11 +3,36 @@
 // All rights reserved from 2020;
 // Company 1367.
 
+$LNG['head'][11] = 'New-Star V1.1.1';
+$LNG['text'][11] = 'Engine:
+✔ Fixed problems with game design (Yaro2709);
+✔ Added subclass subclass.UpdateSqlBonusElement.php (Yaro2709);
+✔ Other small changes (Yaro2709);
+Improvements:
+✔ There are new functions (requirementsList, bonusElementList) in class.BuildFunctions.php (Yaro2709);
+✔ Now you can make progressive requirements (Yaro2709);
+✔ Technology module simplified (Yaro2709);
+✔ Correction of modules: officers, governors, premium, races, artifacts, buildings, shipyard, research (Yaro2709);
+✔ Added highlighting to the empire bonuses module (Yaro2709);
+✔ Improved subclass.UpdateMaxAmount.php (Yaro2709);
+✔ Other small changes (Yaro2709);
+Mods:
+✔ Added achievement mod (Yaro2709);
+✔ Added auction mod (Yaro2709);
+✔ Added mod mercenaries (Yaro2709);
+✔ Added mod containers of the Ancients (Yaro2709);
+✔ Added mod ethics (Yaro2709);
+✔ Added mod fair (Yaro2709);
+✔ Added mod form of government (Yaro2709);
+✔ Added ideology mod (Yaro2709);
+✔ Added party mod (Yaro2709);
+✔ Other small changes (Yaro2709).';
+
 $LNG['head'][10] = 'New-Star V1.1.0';
 $LNG['text'][10] = 'Engine:
-The combat system has been completely updated (Yaro2709);
+✔ The combat system has been completely updated (Yaro2709);
 ✔ Added new types of bonuses (Yaro2709);
-Ana Subclasses for game objects (Yaro2709);
+✔ Ana Subclasses for game objects (Yaro2709);
 ✔ Fixed problems with game design (Yaro2709);
 Small Other small changes (Yaro2709);
 Mods:

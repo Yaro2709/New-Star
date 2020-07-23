@@ -27,9 +27,14 @@ $LNG['res_cl_activate']                              = 'Mining is enabled on all
 $LNG['bd_limit']                                     = 'You cannot buy so much!';
 $LNG['bd_notres']                                    = 'Not enough resources!';
 $LNG['bd_buy']                                       = 'Buy';
+$LNG['bd_support']                                   = 'Support';
 $LNG['bd_time_day']                                  = 'Days:';
+$LNG['bd_time_weeks']                                = 'Weeks:';
 $LNG['bd_lvl_up']                                    = 'Lv.:';
-$LNG['bd_active']						             = 'Active:';
+$LNG['bd_quantity_up']                               = 'Amount:';
+$LNG['bd_active']                                    = 'Active:';
+$LNG['bd_recharge']                                  = 'Recharge:';
+$LNG['bd_restart_no']                                = 'Wait...';
 //Support
 $LNG['ti_category_error']                            = 'Error';
 $LNG['ti_category_bug']                              = 'Bug';
@@ -86,6 +91,15 @@ $LNG['lm_development']                               = 'Innovative Development';
 $LNG['lm_senat']                                     = 'Senate';
 $LNG['lm_piratemarket']                              = 'Pirate Market';
 $LNG['lm_dilers']                                    = 'Dealers';
+$LNG['lm_achievements']					             = 'Achievements';
+$LNG['lm_formgovernment']                            = 'Form of Government';
+$LNG['lm_ethics']                                    = 'Ethics';
+$LNG['lm_party']					                 = 'Party';
+$LNG['lm_ideologies']					             = 'Ideologies';
+$LNG['lm_band']                                      = 'Mercenaries';
+$LNG['lm_bon']                                       = 'Ancient containers';
+$LNG['lm_fair']                                      = 'Fair';
+$LNG['lm_auction']                                   = 'Auction';
 $LNG['PPS']                                          = 'Production per hour';
 $LNG['PPD']                                          = 'Production per day';
 $LNG['PPW']                                          = 'Production per week';
@@ -173,3 +187,18 @@ $LNG['sys_expe_found_so_4']                          = 'The expedition found the
 $LNG['sys_expe_found_so_5']                          = "The expedition got into a strange anomaly, after which we found ourselves near the abandoned pirates' base. One <span style = 'color:#e8ce10'>Stardust</span> was found in the hangar.";
 $LNG['sys_expe_found_so_6']                          = 'The expedition came across an unknown ship. During the negotiations, we exchanged Dark Matter for one <span style = "color:#e8ce10">Stardust</span>. ';
 $LNG['sys_expe_found_so_7']                          = 'The expedition was unsuccessful. But on the way back we found a container in which there was one <span style = "color:#e8ce10">Stardust</span>. ';
+//Achievements
+$LNG['ach_system']					                 = 'System';
+$LNG['ach_reached']					                 = 'Reached:';
+$LNG['ach_bonus']					                 = 'View bonus';
+$LNG['ach_go_achievements']					         = 'Go to achievements';
+//Form of government
+$LNG['fg_one']                                       = 'Select form of government:';
+$LNG['fg_stop_choice']                               = 'The form of government has already been chosen!';
+$LNG['fg_yes']                                       = 'Form of government has been selected.';
+//Ethics
+$LNG['et_one']                                       = 'Ethics selection:';
+$LNG['et_stop_choice']                               = 'Ethics already selected!';
+$LNG['et_yes']                                       = 'Ethics selected.';
+//The consignment
+$LNG['party_stop_time']                              = 'Party has already been selected!';

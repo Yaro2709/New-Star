@@ -69,7 +69,7 @@ function getFactors($USER, $Type = 'basic', $TIME = NULL) {
 			continue;
 		}
 		
-		if(in_array($elementID, array_merge($reslist['dmfunc'], $reslist['premium'], $reslist['artifact'], $reslist['development']))) {
+		if(in_array($elementID, array_merge($reslist['dmfunc'], $reslist['premium'], $reslist['artifact'], $reslist['development'], $reslist['party']))) {
 			if(DMExtra($elementLevel, $TIME, false, true)) {
 				continue;
 			}
@@ -89,6 +89,7 @@ function getFactors($USER, $Type = 'basic', $TIME = NULL) {
 				$factor[$bonusKey]	+= $elementLevel * $bonus[$bonusKey][0];
 			}
 		}
+        
 	}
     //Ограничение фактров до 30%
     foreach(array('CostRbuild', 'CostRfleet', 'CostRtech', 'CostRdefense', 'CostRmissile', 'Debris', 'DefRecovery') as $factor_name){
@@ -96,7 +97,14 @@ function getFactors($USER, $Type = 'basic', $TIME = NULL) {
             $factor[$factor_name] = 0.3;
         }
     }
-	
+	//Ограничение на отрицательный бонус
+    foreach(BuildFunctions::getBonusList() as $factor_name)
+    {
+		if($factor[$factor_name] < -1){
+            $factor[$factor_name] = -0.99;
+        }
+    }
+    
 	return $factor;
 }
 

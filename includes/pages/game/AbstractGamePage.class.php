@@ -92,7 +92,7 @@ abstract class AbstractGamePage
 
 	protected function getNavigationData()
 	{
-		global $PLANET, $LNG, $USER, $THEME, $resource, $reslist;
+		global $PLANET, $LNG, $USER, $THEME, $resource, $reslist, $pricelist;
 
 		$config			= Config::get();
         
@@ -306,6 +306,30 @@ abstract class AbstractGamePage
 		}
         //Стиль
 		$themeSettings	= $THEME->getStyleSettings();
+        //Ачивки
+        foreach($reslist['achievements'] as $Element)
+        {
+            //Блок
+            if(!BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element) || $pricelist[$Element]['max'] <= $USER[$resource[$Element]])
+				continue;
+            //Получаешь награду
+            $amount = 1;
+            $USER[$resource[$Element]]	+= $amount;
+            include('includes/subclasses/subclass.UpdateSqlGeneral.php');
+            //Параметры сообщения
+            $From           = $LNG['ach_system'];
+            $pmSubject      = $LNG['lm_achievements'];
+            $sendMessage    = '
+                <a href="#" onclick="return Dialog.info('.$Element.')">
+                    <img alt="" style="float:left; width:60px; margin-right:6px;" src="'.$THEME->getTheme().'gebaeude/'.$Element.'.gif">
+                </a>
+                '.$LNG['ach_reached'].' <span class="achiev_mes_head">'.$LNG['tech'][$Element].' '.$USER[$resource[$Element]].'</span>
+                <br><a href="#" onclick="return Dialog.info('.$Element.')">'.$LNG['ach_bonus'].'</a>
+                <br><a href="/game.php?page=achievements">'.$LNG['ach_go_achievements'].'</a>
+            ';
+            //Сообщение о награде
+            PlayerUtil::sendMessage($USER['id'], $USER['id'], $From, 4, $pmSubject, $sendMessage, TIMESTAMP, NULL, 1, Universe::current());
+        }
         
 		$this->assign(array(
             //Перменные для PlanetSelect
@@ -314,7 +338,7 @@ abstract class AbstractGamePage
 			'planetGalaxy'		=> $PLANET['galaxy'],
 			'planetSystem'		=> $PLANET['system'],
 			'planetPlanet'		=> $PLANET['planet'],
-            'PlanetListing'			=> $PlanetListing,
+            'PlanetListing'		=> $PlanetListing,
             'current_pid'		=> $PLANET['id'],
 			'current_pids'		=> '?'.$this->getQueryString().'&cp='.$PLANET['id'],
             //Бонус

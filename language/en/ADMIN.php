@@ -399,6 +399,15 @@ $LNG['mod_53']                                       = 'Innovative Development';
 $LNG['mod_54']                                       = 'Senate';
 $LNG['mod_55']                                       = 'Pirate Market';
 $LNG['mod_56']                                       = 'Dealers';
+$LNG['mod_57']                                       = 'Achievements';
+$LNG['mod_58']                                       = 'Form of Government';
+$LNG['mod_59']                                       = 'Ethics';
+$LNG['mod_60']                                       = 'Ideology';
+$LNG['mod_61']                                       = 'Parties';
+$LNG['mod_62']                                       = 'Containers of the Ancients';
+$LNG['mod_63']                                       = 'Mercenaries';
+$LNG['mod_64']                                       = 'Fair';
+$LNG['mod_65']                                       = 'Auction';
 //{IDs_0031} Task Scheduler
 $LNG['cron_name_referral']                           = 'Referral system';
 $LNG['cron_name_statistic']                          = 'Statistics';

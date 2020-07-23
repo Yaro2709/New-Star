@@ -20,6 +20,34 @@
                 </a>
             </div>
             {/if}
+            {if isModuleAvailable($smarty.const.MODULE_BAND)}
+            <div class="market_element img_band">
+                <a href="game.php?page=band">
+                    <div class="market_title">{$LNG.lm_band}</div>
+                </a>
+            </div>
+            {/if}
+            {if isModuleAvailable($smarty.const.MODULE_BON)}
+            <div class="market_element img_bon">
+                <a href="game.php?page=bon">
+                    <div class="market_title">{$LNG.lm_bon}</div>
+                </a>
+            </div>
+            {/if}
+            {if isModuleAvailable($smarty.const.MODULE_FAIR)}
+            <div class="market_element img_fair">
+                <a href="game.php?page=fair">
+                    <div class="market_title">{$LNG.lm_fair}</div>
+                </a>
+            </div>
+            {/if}
+            {if isModuleAvailable($smarty.const.MODULE_AUCTION)}
+            <div class="market_element img_auction">
+                <a href="game.php?page=auction">
+                    <div class="market_title">{$LNG.lm_auction}</div>
+                </a>
+            </div>
+            {/if}
         </div>
     </div>
 </div>

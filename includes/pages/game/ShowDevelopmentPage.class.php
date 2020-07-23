@@ -74,6 +74,7 @@ class ShowDevelopmentPage extends AbstractGamePage
 				$elementBonus		= BuildFunctions::getAvalibleBonus($Element);
 		
 				$developmentList[$Element]	= array(
+                    'maxLevel'			=> $pricelist[$Element]['max'],
 					'timeLeft'			=> max($USER[$resource[$Element]] - TIMESTAMP, 0),
 					'costResources'	    => $costResources,
 					'buyable'			=> $buyable,

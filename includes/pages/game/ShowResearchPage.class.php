@@ -469,21 +469,6 @@ class ShowResearchPage extends AbstractGamePage
 
 		foreach($reslist['tech'] as $ID => $Element)
 		{
-            $techTreeList		 = array();
-            $requirementsList	 = array();
-            if(isset($requeriments[$Element]))
-            {
-                foreach($requeriments[$Element] as $requireID => $RedCount)
-                {
-                    $requirementsList[$requireID]	= array(
-                        'count' => $RedCount,
-                        'own'   => isset($PLANET[$resource[$requireID]]) ? $PLANET[$resource[$requireID]] : $USER[$resource[$requireID]]
-                    );
-                }
-            }
-            
-            $techTreeList[$Element]	= $requirementsList;
-				
 			if(isset($queueData['quickinfo'][$Element]))
 			{
 				$levelToBuild	= $queueData['quickinfo'][$Element];
@@ -493,6 +478,7 @@ class ShowResearchPage extends AbstractGamePage
 				$levelToBuild	= $USER[$resource[$Element]];
 			}
 			
+            $techTreeList		= BuildFunctions::requirementsList($Element);
 			$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element, false, $levelToBuild);
 			$costOverflow		= BuildFunctions::getRestPrice($USER, $PLANET, $Element, $costResources);
 			$elementTime    	= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $costResources);

@@ -65,6 +65,7 @@ $dbTableNames	= array(
 	'VARS_RAPIDFIRE'	=> DB_PREFIX.'vars_rapidfire',
 	'VARS_REQUIRE'	 	=> DB_PREFIX.'vars_requriements',
     //$new_code
+    'VARS_BONUS'	 	=> DB_PREFIX.'vars_bonus',
     'MARKET'		    => DB_PREFIX.'market',
     'CONT'				=> DB_PREFIX.'conteiners', 
     //$new_code

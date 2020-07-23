@@ -21,6 +21,7 @@ class VarsBuildCache implements BuildCache
 	{
 		$resource		= array();
 		$requeriments	= array();
+        $BonusElement	= array();
 		$pricelist		= array();
 		$CombatCaps		= array();
 		$reslist		= array();
@@ -39,11 +40,20 @@ class VarsBuildCache implements BuildCache
 		$reslist['missile']		                = array();
 		$reslist['officier']	                = array();
 		$reslist['dmfunc']		                = array();
+        $reslist['ideologies']	                = array();
+        $reslist['party']	                    = array();
         $reslist['race']		                = array();
+        $reslist['formgovernment']		        = array();
+        $reslist['ethics']		                = array();
         $reslist['artifact']                    = array();
         $reslist['development']                 = array();
+        $reslist['auction']                     = array();
         $reslist['ars']		                    = array();
         $reslist['premium']	                    = array();
+        $reslist['band']	                    = array();
+        $reslist['fair']		                = array();
+        $reslist['bon']		                    = array();
+        $reslist['achievements']	            = array();
 		
 		$db	= Database::get();
 		
@@ -51,6 +61,12 @@ class VarsBuildCache implements BuildCache
 		foreach($reqResult as $reqRow)
 		{
 			$requeriments[$reqRow['elementID']][$reqRow['requireID']]	= $reqRow['requireLevel'];
+		}
+        
+        $bonusResult	= $db->nativeQuery('SELECT * FROM %%VARS_BONUS%%;');
+		foreach($bonusResult as $bonRow)
+		{
+			$BonusElement[$bonRow['elementID']][$bonRow['bonusID']]	= $bonRow['bonusLevel'];
 		}
 
 		$varsResult		= $db->nativeQuery('SELECT * FROM %%VARS%%;');
@@ -81,16 +97,17 @@ class VarsBuildCache implements BuildCache
                     923	=> $varsRow['cost923'],
                     924	=> $varsRow['cost924'],             
 				),
-				'factor'		=> $varsRow['factor'],
-				'max'			=> $varsRow['maxLevel'],
-				'consumption'	=> $varsRow['consumption1'],
-				'consumption2'	=> $varsRow['consumption2'],
-				'speed'			=> $varsRow['speed1'],
-				'speed2'		=> $varsRow['speed2'],
-				'capacity'		=> $varsRow['capacity'],
-				'tech'			=> $varsRow['speedTech'],
-				'time'			=> $varsRow['timeBonus'],
-				'bonus'			=> array(
+				'factor'		     => $varsRow['factor'],
+				'max'			     => $varsRow['maxLevel'],
+				'consumption'	     => $varsRow['consumption1'],
+				'consumption2'	     => $varsRow['consumption2'],
+				'speed'			     => $varsRow['speed1'],
+				'speed2'		     => $varsRow['speed2'],
+				'capacity'		     => $varsRow['capacity'],
+				'tech'			     => $varsRow['speedTech'],
+				'time'			     => $varsRow['timeBonus'],
+                'factorTechnologie'  => $varsRow['factorTechnologie'],
+				'bonus'			     => array(
                     'AttackA'			    => array($varsRow['bonusAttackA'], $varsRow['bonusAttackAUnit']),
 					'DefensiveA'		    => array($varsRow['bonusDefensiveA'], $varsRow['bonusDefensiveAUnit']), 
 					'ShieldA'			    => array($varsRow['bonusShieldA'], $varsRow['bonusShieldAUnit']), 
@@ -231,11 +248,26 @@ class VarsBuildCache implements BuildCache
 				case 700: 
 					$reslist['dmfunc'][]	= $varsRow['elementID'];
 				break;
+                case 1200: 
+					$reslist['party'][]	= $varsRow['elementID'];
+				break;
+                case 1300: 
+					$reslist['ideologies'][]	= $varsRow['elementID'];
+				break;
                 case 1400: 
 					$reslist['artifact'][]	= $varsRow['elementID'];
 				break;
                 case 1500: 
 					$reslist['race'][]	= $varsRow['elementID'];
+				break;
+                case 1600: 
+					$reslist['formgovernment'][]	= $varsRow['elementID'];
+				break;
+                case 1700: 
+					$reslist['ethics'][]	= $varsRow['elementID'];
+				break;
+                case 1800: 
+					$reslist['auction'][]	= $varsRow['elementID'];
 				break;
                 case 1900: 
 					$reslist['development'][]	= $varsRow['elementID'];
@@ -245,6 +277,18 @@ class VarsBuildCache implements BuildCache
 				break;
                 case 2100: 
 					$reslist['premium'][]	= $varsRow['elementID'];
+				break;
+                case 2200: 
+					$reslist['band'][]	= $varsRow['elementID'];
+				break;
+                case 2300: 
+					$reslist['fair'][]	= $varsRow['elementID'];
+				break;
+                case 2400: 
+					$reslist['bon'][]	= $varsRow['elementID'];
+				break;
+                case 5000: 
+					$reslist['achievements'][]	= $varsRow['elementID'];
 				break;
 			}
 		}
@@ -262,6 +306,7 @@ class VarsBuildCache implements BuildCache
 			'resource'		=> $resource,
 			'pricelist'		=> $pricelist,
 			'requeriments'	=> $requeriments,
+            'BonusElement'	=> $BonusElement,
 		);
 	}
 }

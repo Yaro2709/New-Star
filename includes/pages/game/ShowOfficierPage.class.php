@@ -67,22 +67,7 @@ class ShowOfficierPage extends AbstractGamePage
 		{
 			foreach($reslist['officier'] as $Element)
 			{
-   
-                $techTreeList		 = array();
-                $requirementsList	 = array();
-                if(isset($requeriments[$Element]))
-                {
-                    foreach($requeriments[$Element] as $requireID => $RedCount)
-                    {
-                        $requirementsList[$requireID]	= array(
-                            'count' => $RedCount,
-                            'own'   => isset($PLANET[$resource[$requireID]]) ? $PLANET[$resource[$requireID]] : $USER[$resource[$requireID]]
-                        );
-                    }
-                }
-                
-                $techTreeList[$Element]	= $requirementsList;
-                
+                $techTreeList		= BuildFunctions::requirementsList($Element);
 				$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element);
 				$buyable			= BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources);
 				$costOverflow		= BuildFunctions::getRestPrice($USER, $PLANET, $Element, $costResources);

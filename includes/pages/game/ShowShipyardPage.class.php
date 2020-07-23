@@ -287,21 +287,7 @@ class ShowShipyardPage extends AbstractGamePage
         //$code_update
 		foreach($elementIDs as $Element)
 		{
-            $techTreeList		 = array();
-            $requirementsList	 = array();
-            if(isset($requeriments[$Element]))
-            {
-                foreach($requeriments[$Element] as $requireID => $RedCount)
-                {
-                    $requirementsList[$requireID]	= array(
-                        'count' => $RedCount,
-                        'own'   => isset($PLANET[$resource[$requireID]]) ? $PLANET[$resource[$requireID]] : $USER[$resource[$requireID]]
-                    );
-                }
-            }
-            
-            $techTreeList[$Element]	= $requirementsList;
-	
+            $techTreeList		= BuildFunctions::requirementsList($Element);
 			$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element);
 			$costOverflow		= BuildFunctions::getRestPrice($USER, $PLANET, $Element, $costResources);
 			$elementTime    	= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $costResources);

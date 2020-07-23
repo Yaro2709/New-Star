@@ -165,19 +165,23 @@ class BuildFunctions
 
         return $price;
     }
-
+    
     public static function isTechnologieAccessible($USER, $PLANET, $Element)
     {
-        global $requeriments, $resource;
+        global $requeriments, $pricelist, $resource;
 
         if(!isset($requeriments[$Element]))
             return true;
+        
+        $factor = $pricelist[$Element]['factorTechnologie'];
 
         foreach($requeriments[$Element] as $ReqElement => $EleLevel)
         {
             if (
-                (isset($USER[$resource[$ReqElement]]) && $USER[$resource[$ReqElement]] < $EleLevel) ||
-                (isset($PLANET[$resource[$ReqElement]]) && $PLANET[$resource[$ReqElement]] < $EleLevel)
+                (isset($USER[$resource[$ReqElement]]) && isset($USER[$resource[$Element]]) && $USER[$resource[$ReqElement]] < ceil($EleLevel * (eval("return $factor;")))) ||
+                (isset($PLANET[$resource[$ReqElement]]) && isset($USER[$resource[$Element]]) && $PLANET[$resource[$ReqElement]] < ceil($EleLevel * (eval("return $factor;")))) ||
+                (isset($USER[$resource[$ReqElement]]) && isset($PLANET[$resource[$Element]]) && $USER[$resource[$ReqElement]] < ceil($EleLevel * (eval("return $factor;")))) ||
+                (isset($PLANET[$resource[$ReqElement]]) && isset($PLANET[$resource[$Element]]) && $PLANET[$resource[$ReqElement]] < ceil($EleLevel * (eval("return $factor;"))))
             ) {
                 return false;
             }
@@ -363,7 +367,6 @@ class BuildFunctions
 		);
 	}
     //code_update
-    
     //$new_code
     public static function getAvalibleBonus($Element)
     {
@@ -385,6 +388,50 @@ class BuildFunctions
         }
 
         return $elementBonus;
+    }
+    
+    public static function requirementsList($Element)
+    {
+        global $USER, $PLANET, $pricelist, $reslist, $resource, $requeriments;
+        
+        $factor = $pricelist[$Element]['factorTechnologie'];
+
+        $requirementsList	 = array();
+        if(isset($requeriments[$Element]))
+        {
+            foreach($requeriments[$Element] as $requireID => $RedCount)
+            {
+                $requirementsList[$requireID]	= array(
+                    'count' => ceil($RedCount * (eval("return $factor;"))),
+                    'own'   => (isset($PLANET[$resource[$requireID]]) ? $PLANET[$resource[$requireID]] : $USER[$resource[$requireID]])
+                );
+            }
+        }
+        
+        $techTreeList[$Element]	= $requirementsList;
+
+        return $techTreeList;
+    }
+    
+    public static function bonusElementList($Element)
+    {
+        global $USER, $PLANET, $pricelist, $reslist, $resource, $BonusElement;
+
+        $bonusElementList	 = array();
+        if(isset($BonusElement[$Element]))
+        {
+            foreach($BonusElement[$Element] as $ID => $Count)
+            {
+                $bonusElementList[$ID]	= array(
+                    'count' => $Count,
+                    'own'   => (isset($PLANET[$resource[$ID]]) ? $PLANET[$resource[$ID]] : $USER[$resource[$ID]])
+                );
+            }
+        }
+        
+        $bonusIDList[$Element]	= $bonusElementList;
+
+        return $bonusIDList;
     }
     //$new_code
 }

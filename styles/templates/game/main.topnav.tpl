@@ -153,6 +153,10 @@
 			<a title="{$LNG.lm_statistics}" href="game.php?page=statistics"><span class="stats"></span></a>
 			<div class="separator_nav"></div>
             {/if}
+            {if isModuleAvailable($smarty.const.MODULE_ACHIEVEMENTS)}
+			<a title="{$LNG.lm_achievements}" href="game.php?page=achievements"><span class="achievv"></span></a>
+			<div class="separator_nav"></div>
+            {/if}
             {if isModuleAvailable($smarty.const.MODULE_BATTLEHALL)}
 			<a title="{$LNG.lm_topkb}" href="game.php?page=battleHall"><span class="topbk"></span></a>
 			<div class="separator_nav"></div>

@@ -16,8 +16,11 @@
                     </tr>
                     {foreach $bonus as $Element}
                     <tr class="day0 week0 classificabarra">
-                        <td class="classstat1" style="text-align: center;width: 65px;max-width: 65px;min-width: 65px;">+{($USER.factor.$Element * 100)|number}%</td>
-                        <td class="classstat1" style="text-align: center;width: 100px;max-width: 100px;min-width: 100px;">+{($USER.factor.$Element)|number}
+                        <td class="classstat1" style="text-align: center;width: 65px;max-width: 65px;min-width: 65px;">
+                            <font color="{if $USER.factor.$Element < 0}#db374b{else}#096{/if}">{($USER.factor.$Element * 100)|number}%</font>
+                        </td>
+                        <td class="classstat1" style="text-align: center;width: 100px;max-width: 100px;min-width: 100px;">
+                            <font color="{if $USER.factor.$Element < 0}#db374b{else}#096{/if}">{($USER.factor.$Element)|number}</font>
                             <div class="barracla" style="float: left;"></div>
                             <div class="barracla" style=""></div>
                         </td>

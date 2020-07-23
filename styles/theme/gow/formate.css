@@ -6,6 +6,10 @@ img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
 .locus .img_officer{background:url(./img/content/officer.jpg) center}
 .locus .img_infobonus{background:url(./img/content/infobonus.jpg) center}
 .locus .img_race{background:url(./img/content/race.jpg) center}
+.locus .img_formgovernment{background:url(./img/content/formgovernment.jpg) center}
+.locus .img_ethics{background:url(./img/content/ethics.jpg) center}
+.locus .img_party{background:url(./img/content/party.jpg) center}
+.locus .img_ideologies{background:url(./img/content/ideologies.jpg) center}
 /*Дилеры*/
 .locus .img_resourcetrader{background:url(./img/content/resourcetrader.jpg) center}
 .locus .img_fleettrader{background:url(./img/content/fleettrader.jpg) center}
@@ -15,6 +19,10 @@ img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
 /*Рынок пиратов*/
 .locus .img_artifact{background:url(./img/content/artifact.jpg) center}
 .locus .img_development{background:url(./img/content/development.jpg) center}
+.locus .img_band{background:url(./img/content/band.jpg) center}
+.locus .img_bon{background:url(./img/content/bon.jpg) center}
+.locus .img_fair{background:url(./img/content/fair.jpg) center}
+.locus .img_auction{background:url(./img/content/auction.jpg) center}
 
 .locus{
     display:block;
@@ -2836,7 +2844,6 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 }
 #build_elements .build_box{
 	position: relative;
-	width: 298px;
 	height: 164px;
 	overflow: hidden;
 	text-align: left;
@@ -5931,8 +5938,8 @@ margin:0 14px 7px 14px;
 }
 .achievement4{
 	position: absolute;
-    bottom: 10px;
-    right: 7px;
+    bottom: 5px;
+    right: 5px;
     background: #173039;
     padding: 1px;
     border-radius: 3px;
@@ -6213,17 +6220,15 @@ span.achiev_mes_head{
 }
 /*officier_elements*/
 .officier_elements .build_box {
-	    width: 344px !important;
     float: left !important;
     height: 143px !important;
-    margin: 5px !important;
-	    margin-bottom: 0 !important;
+    margin: 4px !important;
+	margin-bottom: 4px !important;
 }
 .ars_elements .build_box {
-	    width: 344px !important;
     float: left !important;
     height: 100px !important;
-    margin: 5px !important;
+    margin: 4px !important;
 	    margin-bottom: 0 !important;
 }
 .accademy_elements .build_box{
@@ -11741,7 +11746,7 @@ color: #a2b1ca;
 
 .gov2{
 	    margin: 0 !important;
-    padding: 0 !important;
+    padding: 5px !important;
 }
 .gov3{
 	height: 20px !important;

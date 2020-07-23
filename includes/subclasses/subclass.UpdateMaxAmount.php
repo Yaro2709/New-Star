@@ -16,7 +16,7 @@
  */
 
 //$new_code
-if($amount > 500){
+if($amount > $pricelist[$Element]['max']){
     $this->printMessage(''.$LNG['bd_limit'].'',true, array($href, 2));	
 }
 //$new_code

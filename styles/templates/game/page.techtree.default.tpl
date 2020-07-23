@@ -12,8 +12,13 @@
             <span class="record_btn ico_shield" title="{$LNG.tech.400}" onclick="defopen();"></span>    
             <span class="record_btn ico_oficer" title="{$LNG.tech.600}" onclick="oficopen();"></span>  
          </div>
-         <div id="u0">
             {foreach $TechTreeList as $elementID => $requireList}
+            <div {if in_array($elementID, $elementID1)}class="u0"
+            {elseif in_array($elementID, $elementID2)}class="u100"
+            {elseif in_array($elementID, $elementID3)}class="u200"
+            {elseif in_array($elementID, $elementID4)}class="u400"
+            {elseif in_array($elementID, $elementID5)}class="u600"
+            {/if}>
             {if !is_array($requireList)}
             <div class="record_header">
                {$LNG.tech.$requireList}
@@ -45,148 +50,8 @@
                </div>
             </div>
             {/if}
+            </div>
             {/foreach}
-         </div>
-         <div id="u100">
-            {foreach $TechTreeList2 as $elementID => $requireList}
-            {if !is_array($requireList)}
-            <div class="record_header">
-               {$LNG.tech.$requireList}
-               <div class="record_header_top_line"></div>
-               <div class="record_header_bottom_line"></div>
-               <div style="color:#999; font-weight:lighter; float:right; width:53%;">{$LNG.tt_requirements}</div>
-            </div>
-            {else}  
-            <div class="record_rows">
-               <div class="record_img_utits">
-                  <a href="#" onclick="return Dialog.info({$elementID})">
-                  <img alt="" src="{$dpath}gebaeude/{$elementID}.{if $elementID >=600 && $elementID <= 699}jpg{else}gif{/if}">
-                  </a>
-               </div>
-               <div class="record_name_utits">
-                  <a href="#" onclick="return Dialog.info({$elementID})">{$LNG.tech.$elementID}</a></td>
-               </div>
-               <div class="required_blocks">
-                  {if $requireList}
-                  {foreach $requireList as $requireID => $NeedLevel}
-                  <div class="required_block required_smal_text">
-                     <a href="#" onclick="return Dialog.info({$requireID})" class="tooltip" data-tooltip-content="<span style='color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};'>{$LNG.tech.$requireID} ({$LNG.tt_lvl} {min($NeedLevel.count, $NeedLevel.own)}/{$NeedLevel.count})</span>">
-                        <img src="{$dpath}gebaeude/{$requireID}.{if $requireID >=600 && $requireID <= 699}jpg{else}gif{/if}" alt="{$LNG.tech.$requireID}" />
-                        <div class="text" style="color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};">{$NeedLevel.count}</div>
-                     </a>
-                  </div>
-                  {/foreach}
-                  {/if}
-               </div>
-            </div>
-            {/if}
-            {/foreach}
-         </div>
-         <div id="u200">
-            {foreach $TechTreeList3 as $elementID => $requireList}
-            {if !is_array($requireList)}
-            <div class="record_header">
-               {$LNG.tech.$requireList}
-               <div class="record_header_top_line"></div>
-               <div class="record_header_bottom_line"></div>
-               <div style="color:#999; font-weight:lighter; float:right; width:53%;">{$LNG.tt_requirements}</div>
-            </div>
-            {else}     
-            <div class="record_rows">
-               <div class="record_img_utits">
-                  <a href="#" onclick="return Dialog.info({$elementID})">
-                  <img alt="" src="{$dpath}gebaeude/{$elementID}.{if $elementID >=600 && $elementID <= 699}jpg{else}gif{/if}">
-                  </a>
-               </div>
-               <div class="record_name_utits">
-                  <a href="#" onclick="return Dialog.info({$elementID})">{$LNG.tech.$elementID}</a></td>
-               </div>
-               <div class="required_blocks">
-                  {if $requireList}
-                  {foreach $requireList as $requireID => $NeedLevel}
-                  <div class="required_block required_smal_text">
-                     <a href="#" onclick="return Dialog.info({$requireID})" class="tooltip" data-tooltip-content="<span style='color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};'>{$LNG.tech.$requireID} ({$LNG.tt_lvl} {min($NeedLevel.count, $NeedLevel.own)}/{$NeedLevel.count})</span>">
-                        <img src="{$dpath}gebaeude/{$requireID}.{if $requireID >=600 && $requireID <= 699}jpg{else}gif{/if}" alt="{$LNG.tech.$requireID}" />
-                        <div class="text" style="color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};">{$NeedLevel.count}</div>
-                     </a>
-                  </div>
-                  {/foreach}
-                  {/if}
-               </div>
-            </div>
-            {/if}
-            {/foreach}
-         </div>
-         <div id="u400">
-            {foreach $TechTreeList4 as $elementID => $requireList}
-            {if !is_array($requireList)}
-            <div class="record_header">
-               {$LNG.tech.$requireList}
-               <div class="record_header_top_line"></div>
-               <div class="record_header_bottom_line"></div>
-               <div style="color:#999; font-weight:lighter; float:right; width:53%;">{$LNG.tt_requirements}</div>
-            </div>
-            {else}     
-            <div class="record_rows">
-               <div class="record_img_utits">
-                  <a href="#" onclick="return Dialog.info({$elementID})">
-                  <img alt="" src="{$dpath}gebaeude/{$elementID}.{if $elementID >=600 && $elementID <= 699}jpg{else}gif{/if}">
-                  </a>
-               </div>
-               <div class="record_name_utits">
-                  <a href="#" onclick="return Dialog.info({$elementID})">{$LNG.tech.$elementID}</a></td>
-               </div>
-               <div class="required_blocks">
-                  {if $requireList}
-                  {foreach $requireList as $requireID => $NeedLevel}
-                  <div class="required_block required_smal_text">
-                     <a href="#" onclick="return Dialog.info({$requireID})" class="tooltip" data-tooltip-content="<span style='color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};'>{$LNG.tech.$requireID} ({$LNG.tt_lvl} {min($NeedLevel.count, $NeedLevel.own)}/{$NeedLevel.count})</span>">
-                        <img src="{$dpath}gebaeude/{$requireID}.{if $requireID >=600 && $requireID <= 699}jpg{else}gif{/if}" alt="{$LNG.tech.$requireID}" />
-                        <div class="text" style="color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};">{$NeedLevel.count}</div>
-                     </a>
-                  </div>
-                  {/foreach}
-                  {/if}
-               </div>
-            </div>
-            {/if}
-            {/foreach}
-         </div>
-         <div id="u600">
-            {foreach $TechTreeList5 as $elementID => $requireList}
-            {if !is_array($requireList)}
-            <div class="record_header">
-               {$LNG.tech.$requireList}
-               <div class="record_header_top_line"></div>
-               <div class="record_header_bottom_line"></div>
-               <div style="color:#999; font-weight:lighter; float:right; width:53%;">{$LNG.tt_requirements}</div>
-            </div>
-            {else}        
-            <div class="record_rows">
-               <div class="record_img_utits">
-                  <a href="#" onclick="return Dialog.info({$elementID})">
-                  <img alt="" src="{$dpath}gebaeude/{$elementID}.{if $elementID >=600 && $elementID <= 699}jpg{else}gif{/if}">
-                  </a>
-               </div>
-               <div class="record_name_utits">
-                  <a href="#" onclick="return Dialog.info({$elementID})">{$LNG.tech.$elementID}</a></td>
-               </div>
-               <div class="required_blocks">
-                  {if $requireList}
-                  {foreach $requireList as $requireID => $NeedLevel}
-                  <div class="required_block required_smal_text">
-                     <a href="#" onclick="return Dialog.info({$requireID})" class="tooltip" data-tooltip-content="<span style='color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};'>{$LNG.tech.$requireID} ({$LNG.tt_lvl} {min($NeedLevel.count, $NeedLevel.own)}/{$NeedLevel.count})</span>">
-                        <img src="{$dpath}gebaeude/{$requireID}.{if $requireID >=600 && $requireID <= 699}jpg{else}gif{/if}" alt="{$LNG.tech.$requireID}" />
-                        <div class="text" style="color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};">{$NeedLevel.count}</div>
-                     </a>
-                  </div>
-                  {/foreach}
-                  {/if} 
-               </div>
-            </div>
-            {/if}
-            {/foreach}  
-         </div>
       </div>
    </div>
    <div class="clear"></div>

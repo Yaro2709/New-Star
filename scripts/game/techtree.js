@@ -3,11 +3,11 @@ function buildsopen(){
 	{
         $('.record_btn').removeClass('record_btn_active');	
         $('.ico_builds').addClass('record_btn_active');
-		$('#u0').show();
-		$('#u100').hide();
-		$('#u200').hide();
-		$('#u400').hide();
-		$('#u600').hide();
+		$('.u0').show();
+		$('.u100').hide();
+		$('.u200').hide();
+		$('.u400').hide();
+		$('.u600').hide();
 	}
 };
 function techopen(){
@@ -15,11 +15,11 @@ function techopen(){
 	{
         $('.record_btn').removeClass('record_btn_active');	
         $('.ico_tech').addClass('record_btn_active');
-		$('#u0').hide();
-		$('#u100').show();
-		$('#u200').hide();
-		$('#u400').hide();
-		$('#u600').hide();
+		$('.u0').hide();
+		$('.u100').show();
+		$('.u200').hide();
+		$('.u400').hide();
+		$('.u600').hide();
 	}
 };
 
@@ -28,11 +28,11 @@ function fleetopen(){
 	{
         $('.record_btn').removeClass('record_btn_active');	
         $('.ico_fleet').addClass('record_btn_active');
-		$('#u0').hide();
-		$('#u100').hide();
-		$('#u200').show();
-		$('#u400').hide();
-		$('#u600').hide();
+		$('.u0').hide();
+		$('.u100').hide();
+		$('.u200').show();
+		$('.u400').hide();
+		$('.u600').hide();
 	}
 };
 function defopen(){
@@ -40,11 +40,11 @@ function defopen(){
 	{
         $('.record_btn').removeClass('record_btn_active');	
         $('.ico_shield').addClass('record_btn_active');
-		$('#u0').hide();
-		$('#u100').hide();
-		$('#u200').hide();
-		$('#u400').show();
-		$('#u600').hide();
+		$('.u0').hide();
+		$('.u100').hide();
+		$('.u200').hide();
+		$('.u400').show();
+		$('.u600').hide();
 	}
 };
 function oficopen(){
@@ -52,11 +52,11 @@ function oficopen(){
 	{
         $('.record_btn').removeClass('record_btn_active');	
         $('.ico_oficer').addClass('record_btn_active');
-		$('#u0').hide();
-		$('#u100').hide();
-		$('#u200').hide();
-		$('#u400').hide();
-		$('#u600').show();
+		$('.u0').hide();
+		$('.u100').hide();
+		$('.u200').hide();
+		$('.u400').hide();
+		$('.u600').show();
 	}
 };
 function allopen(){
@@ -64,10 +64,10 @@ function allopen(){
 	{
         $('.record_btn').removeClass('record_btn_active');	
         $('.ico_star').addClass('record_btn_active');
-		$('#u0').show();
-		$('#u100').show();
-		$('#u200').show();
-		$('#u400').show();
-		$('#u600').show()
+		$('.u0').show();
+		$('.u100').show();
+		$('.u200').show();
+		$('.u400').show();
+		$('.u600').show()
 	}
 };
