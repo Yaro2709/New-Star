@@ -20,6 +20,20 @@
                 </a>
             </div>
             {/if}
+            {if isModuleAvailable($smarty.const.MODULE_MARKET)}
+            <div class="market_element img_market">
+                <a href="game.php?page=market">
+                    <div class="market_title">{$LNG.lm_market}</div>
+                </a>
+            </div>
+            {/if}
+            {if isModuleAvailable($smarty.const.MODULE_PLANET)}
+            <div class="market_element img_planet">
+                <a href="game.php?page=planet">
+                    <div class="market_title">{$LNG.lm_planet}</div>
+                </a>
+            </div>
+            {/if}
         </div>
     </div>
 </div>

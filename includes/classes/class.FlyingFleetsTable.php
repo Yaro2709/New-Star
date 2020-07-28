@@ -119,6 +119,7 @@ class FlyingFleetsTable
 	{
 		$Time	= 0;
 		$Rest	= 0;
+        $Rest1	= 0;
 
 		if ($FleetState == 0 && $this->IsPhalanx && $fleetRow['fleet_group'] != 0 && (strpos((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", 'page=phalanx') !== false))
 		{
@@ -132,19 +133,21 @@ class FlyingFleetsTable
 				$Rest			= $Return[0];
 				$EventString    .= $Return[1].'<br><br>';
 				$Time			= $Return[2];
+                $Rest1			= $Return[3];
 			}
 
 			$EventString	= substr($EventString, 0, -8);
 		}
 		else
 		{
-			list($Rest, $EventString, $Time) = $this->getEventData($fleetRow, $FleetState);
+			list($Rest, $EventString, $Time, $Rest1) = $this->getEventData($fleetRow, $FleetState);
 		}
 		
 		return array(
 			'text'			=> $EventString,
 			'returntime'	=> $Time,
-			'resttime'		=> $Rest
+			'resttime'		=> $Rest,
+            'resttime1'		=> $Rest1
 		);
 	}
 	
@@ -230,9 +233,15 @@ class FlyingFleetsTable
 			$Time = $fleetRow['fleet_end_stay'];
 		else
 			$Time = TIMESTAMP;
+        
+        $sql			= "SELECT * FROM %%USERS%% WHERE id = :userId;";
+		$targetUser 	= database::get()->selectSingle($sql, array(
+			':userId'	=> $this->userId
+		));
 
 		$Rest	= $Time - TIMESTAMP;
-		return array($Rest, $EventString, $Time);
+		$Rest1				= _date('H:i:s', TIMESTAMP + $Rest, $targetUser['timezone']);
+		return array($Rest, $EventString, $Time, $Rest1);
 	}
 
 	private function BuildHostileFleetPlayerLink($fleetRow)

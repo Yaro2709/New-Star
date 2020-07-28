@@ -37,12 +37,11 @@ class ShowTechtreePage extends AbstractGamePage
 
 		foreach($elementID as $Element)
 		{	
-            $factor = $pricelist[$Element]['factorTechnologie'];
-		
 			if(!isset($resource[$Element])) {
 				$TechTreeList[$Element]	= $Element;
 			} else {
 				$RequeriList	= array();
+                $factor = $pricelist[$Element]['factorTechnologie'];
 				if(isset($requeriments[$Element]))
 				{
 					foreach($requeriments[$Element] as $requireID => $RedCount)

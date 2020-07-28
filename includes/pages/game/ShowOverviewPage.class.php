@@ -64,7 +64,7 @@ class ShowOverviewPage extends AbstractGamePage
 			'error'		=> false,
 		);
 	}
-    /* $old_code
+    
 	private function GetFleets() {
 		global $USER, $PLANET;
 		require 'includes/classes/class.FlyingFleetsTable.php';
@@ -73,7 +73,7 @@ class ShowOverviewPage extends AbstractGamePage
 		$fleetTableObj->setPlanet($PLANET['id']);
 		return $fleetTableObj->renderTable();
 	}
-	$old_code*/
+	
 	function savePlanetAction()
 	{
 		global $USER, $PLANET, $LNG;
@@ -145,50 +145,6 @@ class ShowOverviewPage extends AbstractGamePage
 		}else{
 			$activeExpedition 	= 0;
 			$maxExpedition 		= 0;
-		}
-
-        $FlyingFleetList	= array();
-		
-		foreach ($fleetResult as $fleetsRow)
-		{
-			$fleet = explode(";", $fleetsRow['fleet_array']);
-
-            $FleetList  = array();
-
-			foreach ($fleet as $shipDetail)
-			{
-				if (empty($shipDetail))
-					continue;
-
-				$ship = explode(",", $shipDetail);
-				
-				$FleetList[$fleetsRow['fleet_id']][$ship[0]] = $ship[1];
-			}
-			
-			if($fleetsRow['fleet_mission'] == 4 && $fleetsRow['fleet_mess'] == FLEET_OUTWARD){
-				$returnTime	= $fleetsRow['fleet_start_time'];
-			}else{
-				$returnTime	= $fleetsRow['fleet_end_time'];
-			}
-			
-			$FlyingFleetList[]	= array(
-				'id'			=> $fleetsRow['fleet_id'],
-				'mission'		=> $fleetsRow['fleet_mission'],
-				'state'			=> $fleetsRow['fleet_mess'],
-				'startGalaxy'	=> $fleetsRow['fleet_start_galaxy'],
-				'startSystem'	=> $fleetsRow['fleet_start_system'],
-				'startPlanet'	=> $fleetsRow['fleet_start_planet'],
-				'startTime'		=> _date($LNG['php_tdformat'], $fleetsRow['fleet_start_time'], $USER['timezone']),
-				'endGalaxy'		=> $fleetsRow['fleet_end_galaxy'],
-				'endSystem'		=> $fleetsRow['fleet_end_system'],
-				'endPlanet'		=> $fleetsRow['fleet_end_planet'],
-				'endTime'		=> _date($LNG['php_tdformat'], $fleetsRow['fleet_end_time'], $USER['timezone']),
-				'amount'		=> pretty_number($fleetsRow['fleet_amount']),
-				'returntime'	=> $returnTime,
-				'resttime'		=> $returnTime - TIMESTAMP,
-				'backin'		=> pretty_time(floor(($fleetsRow['fleet_mission'] == 4 ? $fleetsRow['fleet_start_time'] : $fleetsRow['fleet_end_time']) - TIMESTAMP)),
-				'FleetList'		=> $FleetList[$fleetsRow['fleet_id']],
-			);
 		}
 		
 		$AdminsOnline 	= array();
@@ -336,7 +292,6 @@ class ShowOverviewPage extends AbstractGamePage
 		$this->assign(array(
             'UsersOnline'				=> $UsersOnline,
             'race'                      => $USER['race'],
-            'FlyingFleetList'		    => $FlyingFleetList,
             'activeExpedition'		    => $activeExpedition,
 			'maxExpedition'			    => $maxExpedition,
 			'activeFleetSlots'		    => $activeFleetSlots,
@@ -356,7 +311,7 @@ class ShowOverviewPage extends AbstractGamePage
 			'userid'					=> $USER['id'],
 			'buildInfo'					=> $buildInfo,
 			'Moon'						=> $Moon,
-			//'fleets'					=> $this->GetFleets(),
+			'fleets'					=> $this->GetFleets(),
 			'AllPlanets'				=> $AllPlanets,
 			'AdminsOnline'				=> $AdminsOnline,
 			'teamspeakData'				=> $this->GetTeamspeakData(),
@@ -375,19 +330,6 @@ class ShowOverviewPage extends AbstractGamePage
 		));
 		
 		$this->display('page.overview.default.tpl');
-	}
-	
-	function actions() 
-	{
-		global $LNG, $PLANET;
-
-		$this->initTemplate();
-		$this->setWindow('popup');
-
-		$this->assign(array(
-			'ov_security_confirm'		=> sprintf($LNG['ov_security_confirm'], $PLANET['name'].' ['.$PLANET['galaxy'].':'.$PLANET['system'].':'.$PLANET['planet'].']'),
-		));
-		$this->display('page.overview.actions.tpl');
 	}
 	
 	function rename() 

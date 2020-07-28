@@ -70,7 +70,7 @@
          <div id="build_elements">
             {foreach $BuildInfoList as $ID => $Element}
             <div class="build_elements">
-            <div id="build_{$ID}" class="build_box {if $ID == in_array($ID, $build1)}build1{elseif $ID == in_array($ID, $build2)}build2{elseif $ID == in_array($ID, $build3)}build3{elseif $ID == in_array($ID, $build4)}build4{/if} {if !$Element.techacc}required{/if}">
+            <div id="build_{$ID}" class="build_box {if $ID == in_array($ID, $reslist.spec_build.1)}build1{elseif $ID == in_array($ID, $reslist.spec_build.2)}build2{elseif $ID == in_array($ID, $reslist.spec_build.3)}build3{elseif $ID == in_array($ID, $reslist.spec_build.4)}build4{/if} {if !$Element.techacc}required{/if}">
                <div class="head">
                   <a href="#" onclick="return Dialog.info({$ID})" class="interrogation">?</a>                
                   <a href="#" onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}</a>{if $Element.level > 0} ({$LNG.bd_lvl} {$Element.level}{if $Element.maxLevel != 255}/{$Element.maxLevel}{/if}){/if}
@@ -136,9 +136,9 @@
                      <span class="btn_build red">{$LNG.bd_maxlevel}</span>
                   </div>
                   {elseif 
-                  ($isBusy.research && ($ID == in_array($ID, $lab))) 
+                  ($isBusy.research && ($ID == in_array($ID, $reslist.lab))) 
                   || 
-                  ($isBusy.shipyard && ($ID == in_array($ID, $shipyard)))}
+                  ($isBusy.shipyard && ($ID == in_array($ID, $reslist.shipyard)))}
                   <div class="btn_build_border">
                      <span class="btn_build red">{$LNG.bd_working}</span>
                   </div>

@@ -70,7 +70,7 @@
          <div id="build_elements">
             {foreach $ResearchList as $ID => $Element} 
             <div class="build_elements">
-            <div id="research_{$ID}" class="build_box {if $ID == in_array($ID, $tech1)}tech1{elseif $ID == in_array($ID, $tech2)}tech2{elseif $ID == in_array($ID, $tech3)}tech3{elseif $ID == in_array($ID, $tech4)}tech4{/if} {if !$Element.techacc}required{/if}">
+            <div id="research_{$ID}" class="build_box {if $ID == in_array($ID, $reslist.spec_tech.1)}tech1{elseif $ID == in_array($ID, $reslist.spec_tech.2)}tech2{elseif $ID == in_array($ID, $reslist.spec_tech.3)}tech3{elseif $ID == in_array($ID, $reslist.spec_tech.4)}tech4{/if} {if !$Element.techacc}required{/if}">
                <div class="head">
                   <a href="#" onclick="return Dialog.info({$ID})" class="interrogation">?</a>                
                   <a href="#" onclick="return Dialog.info({$ID})" class="title">

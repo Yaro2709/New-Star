@@ -259,9 +259,6 @@ class ShowBattleSimulatorPage extends AbstractGamePage
 		$this->assign(array(
 			'Slots'			=> $Slots,
 			'battleinput'	=> $BattleArray,
-            'bonusList'		=> $reslist['battle_bonus'],
-			'fleetList'		=> $reslist['fleet'],
-			'defensiveList'	=> $reslist['defense'],
 		));
 		
 		$this->display('page.battleSimulator.default.tpl');   

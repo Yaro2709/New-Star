@@ -1,3 +1,52 @@
+.conteiner .fleet_log {
+    padding: 0 6px;
+    line-height: 14px;
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.conteiner .fleet_log .fleet_time {
+    width: 76px;
+    float: left;
+    height: 30px;
+    color: #787878;
+    position: relative;
+    z-index: 2;
+}
+
+.conteiner .fleet_log .fleet_static_time {
+    cursor: help;
+    color: #444;
+}
+
+.conteiner .fleet_log .fleet_text {
+    margin: 0 0 0 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.buyres{
+    cursor: pointer;
+    width: 53.4px;
+    height: 53.4px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08)
+}
+.element{
+	opacity: 0.8;
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 80);
+	filter: alpha(opacity = 80);
+}
+.element:hover{
+	opacity: 1;
+	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 100);
+	filter: alpha(opacity = 100);
+}
 img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
 /* Маркет */
 @charset "utf-8";@font-face{font-family:Roboto;src:url(/styles/resource/fonts/Roboto-Light.ttf)}#market .locus{background:0 0}#market .market_element{display:block;position:relative;float:left;width:340px;height:125px;overflow:hidden;background-color:transparent;background-size:cover;-moz-background-size:cover;-o-background-size:cover;-webkit-background-size:cover;-khtml-background-size:cover}#market .market_element_big{width:680px}#market .market_title{width:100%;text-align:center;height:50px;line-height:50px;font-size:25px;font-family:Roboto;display:block;position:absolute;bottom:0;float:left;background:rgba(0,0,0,.7)}#market .market_title:hover{background:rgba(0,0,0,.5)}#market .market_element a:hover{color:#fff}
@@ -13,9 +62,15 @@ img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
 /*Дилеры*/
 .locus .img_resourcetrader{background:url(./img/content/resourcetrader.jpg) center}
 .locus .img_fleettrader{background:url(./img/content/fleettrader.jpg) center}
+.locus .img_market{background:url(./img/content/market.jpg) center}
+.locus .img_planet{background:url(./img/content/planet.jpg) center}
 /*Черный рынок*/
 .locus .img_arsenal{background:url(./img/content/arsenal.jpg) center}
 .locus .img_conteiner{background:url(./img/content/conteiner.jpg) center}
+.locus .img_buybuild{background:url(./img/content/buybuild.jpg) center}
+.locus .img_buytech{background:url(./img/content/buytech.jpg) center}
+.locus .img_buyfleet{background:url(./img/content/buyfleet.jpg) center}
+.locus .img_buydefense{background:url(./img/content/buydefense.jpg) center}
 /*Рынок пиратов*/
 .locus .img_artifact{background:url(./img/content/artifact.jpg) center}
 .locus .img_development{background:url(./img/content/development.jpg) center}
@@ -4469,8 +4524,9 @@ table.ally_ranks td{
 	margin-left:18px;
 }
 table.gray_stripe_th th{
+    height: 25px;
 	    line-height: 14px;
-    background: #030c1b;
+    background: #091d2e;
     border-bottom: 1px solid #000;
     border-left: 1px dashed #2d2d3a;
     text-align: center;
@@ -8965,19 +9021,13 @@ table.tabagg tr:nth-child(even){
 	border-right:0;
 }
 .rd_planet_fleets{
-	cursor: help;
+    cursor: help;
     position: absolute;
     height: 15px;
     width: auto;
-    top: 6px;
-    right: 7px;
-    background: rgba(0, 0, 0, 0.25);
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
-    border: 1px solid #000;
+    top: 0px;
+    right: -45px;
     -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
-    border-radius: 6px;
-    background: #000 url(../images/iconav/hangar.png);
     background-size: 12px;
     background-repeat: no-repeat;
     padding-left: 20px;
@@ -17948,7 +17998,7 @@ background-size: 35px;
 .rd_planet_data_name{
 	float:left;
 	line-height:16px;
-	width:150px;
+	width:115px;
 	margin-left:5px;
 }
 .td_planet_delivery .rd_planet_data_name{
@@ -17956,11 +18006,9 @@ background-size: 35px;
 	overflow:hidden;
 }
 .rd_planet_resours, .rd_planet_fleets{
-	float:left;
 	margin-left:5px;
-	width:245px;
+	width:167px;
 	height:48px;
-	border-right:1px solid #000;
 	border-left:1px solid #000;
 }
 .td_planet_delivery .rd_planet_resours{
@@ -17980,7 +18028,7 @@ background-size: 35px;
 }
 .rd_planet_resours .imper_block_td{
 	border:0;
-	height:15px;
+	height:13.5px;
 	line-height:15px;
 	border-bottom:1px solid #000;
 	text-align:left;

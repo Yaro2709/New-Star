@@ -4,7 +4,8 @@
 {* онлайн админов, реф. система, тикеты*}
 <div id="page">
     <div id="content">
-        <div id="ally_content" class="conteinership">
+        {if !empty($fleets)}
+        <div id="ally_content" class="conteiner conteinership">
             <div class="fleettab10"></div>   
             <div class="gray_flettab">
                 <div class="transparent">
@@ -14,74 +15,21 @@
                     </div> 
                 </div>
             </div> 
-            <table class="tablesorter ally_ranks">
-                <tr>
-                    <td>{$LNG.fl_number}</td>
-                    <td>{$LNG.fl_mission}</td>
-                    <td>{$LNG.fl_ammount}</td>
-                    <td>{$LNG.fl_beginning}</td>
-                    <td>{$LNG.fl_departure}</td>
-                    <td>{$LNG.fl_destiny}</td>
-                    <td>{$LNG.fl_objective}</td>
-                    <td>{$LNG.fl_arrival}</td>
-                    <td>{$LNG.fl_order}</td>
-                </tr>
-                {foreach name=FlyingFleets item=FlyingFleetRow from=$FlyingFleetList}
-                <tr>
-                    <td>{$smarty.foreach.FlyingFleets.iteration}</td>
-                    <td>{$LNG["type_mission_{$FlyingFleetRow.mission}"]}
-                        {if $FlyingFleetRow.state == 1}
-                            <br><a title="{$LNG.fl_returning}">{$LNG.fl_r}</a>
-                        {else}
-                            <br><a title="{$LNG.fl_onway}">{$LNG.fl_a}</a>
-                        {/if}
-                    </td>
-                    <td><a class="tooltip" data-tooltip-content="<table width='100%'><tr><th colspan='2' style='text-align:center;'>{$LNG.fl_info_detail}</th></tr>{foreach $FlyingFleetRow.FleetList as $shipID => $shipCount}<tr><td class='transparent'>{if $shipID != 260}{$LNG.tech.{$shipID}}{else}{$useri['i_name']}{/if}:</td><td class='transparent'>{$shipCount}</td></tr>{/foreach}</table>">{$FlyingFleetRow.amount}</a></td>
-                    <td><a href="game.php?page=galaxy&amp;galaxy={$FlyingFleetRow.startGalaxy}&amp;system={$FlyingFleetRow.startSystem}">[{$FlyingFleetRow.startGalaxy}:{$FlyingFleetRow.startSystem}:{$FlyingFleetRow.startPlanet}]</a></td>
-                    <td>{$FlyingFleetRow.startTime}</td>
-                    <td><a href="game.php?page=galaxy&amp;galaxy={$FlyingFleetRow.endGalaxy}&amp;system={$FlyingFleetRow.endSystem}">[{$FlyingFleetRow.endGalaxy}:{$FlyingFleetRow.endSystem}:{$FlyingFleetRow.endPlanet}]</a></td>
-                    {if $FlyingFleetRow.mission == 4}
-                    <td>-</td>
-                    <td style="color:lime">-</td>
-                    {else}
-                    <td>{$FlyingFleetRow.endTime}</td>
-                    <td style="color:lime">{$FlyingFleetRow.backin}</td>
-                    {/if}
-                    <td>
-                        {if !$isVacation && $FlyingFleetRow.state != 1}
-                        <form action="game.php?page=fleetTable&amp;action=sendfleetback" method="post">
-                            <input name="fleetID" value="{$FlyingFleetRow.id}" type="hidden">
-                            <input value="{$LNG.fl_send_back}" type="submit">
-                        </form>
-                        {if $FlyingFleetRow.mission == 1}
-                        <form action="game.php?page=fleetTable&amp;action=acs" method="post">
-                            <input name="fleetID" value="{$FlyingFleetRow.id}" type="hidden">
-                            <input value="{$LNG.fl_acs}" type="submit">
-                        </form>
-                    {/if}
-                    {else}-{/if}
-                    </td>
-                </tr>
-                {foreachelse}
-                <tr>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                </tr>
-                {/foreach}
-                {if $maxFleetSlots == $activeFleetSlots}
-                <tr>
-                    <td colspan="9">{$LNG.fl_no_more_slots}</td>
-                </tr>
-                {/if}
-             </table>		
-        </div> 
+            <div class="fleet_log">
+                {foreach $fleets as $index => $fleet}
+                <div class="fleet_time">
+                    <div id="fleettime_{$index}" class="fleets" data-fleet-end-time="{$fleet.returntime}" data-fleet-time="{$fleet.resttime}">{pretty_fly_time({$fleet.resttime})}</div>
+                    <div class="tooltip fleet_static_time" data-tooltip-content="{$fleet.resttime1}">{$fleet.resttime1}</div>
+                </div>
+                <div class="fleet_text">
+                    {$fleet.text}
+                    <div class="clear"></div>
+                </div>     
+                <div class="separator"></div>
+                {/foreach}       
+            </div>
+        </div>
+        {/if}
     <div id="owerwiv" class="conteiner">
         <div class="gray_flettab">
             <div id="online_user">
@@ -94,8 +42,8 @@
 	<div class="fleettab9" style="margin-bottom:0"></div>   
     <div id="big_panet" style="background: url({$dpath}img/title/control_room.png) no-repeat, url({$dpath}planeten/{$planetimage}.jpg) top center no-repeat; background-size:cover;">
 		<div class="palnet_pianeta_titoloa palnet_pianeta_titolo">    
-            <a href="game.php?page=overview">
-                <span class="planetname"><a href="#" onclick="return Dialog.PlanetAction();" title="{$LNG.ov_planetmenu}"><span class="planetname">{$planetname}</span></a>
+            <a href="game.php?page=planet">
+                <span class="planetname"><a href="game.php?page=planet" title="{$LNG.ov_planetmenu}"><span class="planetname">{$planetname}</span></a>
                     <img src="{$dpath}img/iconav/pencil-over.png" class="palnet_imgopa">
                 </span>  
             </a>
@@ -106,19 +54,19 @@
 		<marquee behavior="alternate" direction="left" scrollamount="1" onmouseover="this.stop();" onmouseout="this.start();" style="height: 15px;width: 445px;position: absolute;bottom: 1px;font-size: 10px;left: 6px;color: #b2b2b2;text-shadow: 0px 1px 0px rgba(0,0,0,0.6);">Hello my friends!</marquee>
 		<div class="palnet_block_info palnet_big_info"> 
             <div class="left_part">
-                <a href="game.php?page=overview" style="color:#b2b2b2">{$LNG.ov_diameter}</a>
+                <a href="game.php?page=planet" style="color:#b2b2b2">{$LNG.ov_diameter}</a>
             </div>
             <div class="right_part">
                 {$planet_diameter} {$LNG.ov_distance_unit} (<span title="{$LNG.ov_developed_fields}">{$planet_field_current}</span> / <span title="{$LNG.ov_max_developed_fields}">{$planet_field_max}</span> {$LNG.ov_fields})
             </div>
             <div class="left_part" style="top: 20px;">
-                <a href="game.php?page=overview" style="color:#b2b2b2">{$LNG.ov_temperature}</a>
+                <a href="game.php?page=planet" style="color:#b2b2b2">{$LNG.ov_temperature}</a>
             </div>
             <div class="right_part" style="top: 20px;">
                 {$LNG.ov_aprox} {$planet_temp_min}{$LNG.ov_temp_unit} {$LNG.ov_to} {$planet_temp_max}{$LNG.ov_temp_unit}
             </div>
 			<div class="left_part" style="top: 40px;">
-                <a href="game.php?page=overview" style="color:#b2b2b2">{$LNG.ov_position}</a>
+                <a href="game.php?page=planet" style="color:#b2b2b2">{$LNG.ov_position}</a>
             </div>
             <div class="right_part" style="top: 40px;">
                 <a href="game.php?page=galaxy&amp;galaxy={$galaxy}&amp;system={$system}">[{$galaxy}:{$system}:{$planet}]</a>

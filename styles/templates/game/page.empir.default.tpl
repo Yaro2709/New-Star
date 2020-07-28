@@ -18,11 +18,15 @@
 </div>
 <div class="gray_stripe">
    <div class="imper_left_part">
-   {*
-      <a href="game.php?page=reduceresources" class="fleet_reduce1 ico_reduceresources tooltip" data-tooltip-content=""></a>
-      <a href="game.php?page=reducefleet" class="fleet_reduce1 ico_reducefleet tooltip" data-tooltip-content=""></a>
-      <a href="game.php?page=delivery" class="fleet_reduce1 ico_deliveryres tooltip" data-tooltip-content=""></a>
-   *}
+    {if isModuleAvailable($smarty.const.MODULE_REDUCE_RESOURCES)}
+      <a href="game.php?page=reduceresources" class="fleet_reduce1 ico_reduceresources tooltip" data-tooltip-content="{$LNG['lm_reduceresources']}"></a>
+    {/if}
+    {if isModuleAvailable($smarty.const.MODULE_REDUCE_FLEET)}
+      <a href="game.php?page=reducefleet" class="fleet_reduce1 ico_reducefleet tooltip" data-tooltip-content="{$LNG['lm_reducefleet']}"></a>
+    {/if}
+    {if isModuleAvailable($smarty.const.MODULE_DELIVERY)}
+      <a href="game.php?page=delivery" class="fleet_reduce1 ico_deliveryres tooltip" data-tooltip-content="{$LNG['lm_delivery']}"></a>
+    {/if}
    </div>
    <div class="imper_right_part">
       <div onclick="gorightMAX();" class="imper_goleft_2 imper_navigation"></div>

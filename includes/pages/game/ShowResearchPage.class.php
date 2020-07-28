@@ -67,9 +67,13 @@ class ShowResearchPage extends AbstractGamePage
                     if($Element == $ListIDArray[0] || empty($ListIDArray[0]))
                         continue;
 
-                    if($ListIDArray[4] != $PLANET['id'])
-                        $CPLANET		= $GLOBALS['DATABASE']->getFirstRow("SELECT ".$resource[$resglobal['tech_speed']]." FROM ".PLANETS." WHERE `id` = ".$ListIDArray[4].";");
-                    else
+                    if($ListIDArray[4] != $PLANET['id']){
+                        $sql = "SELECT :resource, id FROM %%PLANETS%% WHERE id = :id;";
+                        $CPLANET = $db->selectSingle($sql, array(
+                            ':resource'	    => $resource[$resglobal['tech_speed']],
+                            ':id'			=> $ListIDArray[4]
+                        ));
+                    } else
                         $CPLANET		= $PLANET;
 				
                     $CPLANET[$resource[$resglobal['tech_speed']].'_inter']	= $this->ecoObj->getNetworkLevel($USER, $CPLANET);
@@ -501,10 +505,6 @@ class ShowResearchPage extends AbstractGamePage
 		
 		$this->tplObj->loadscript('research.js');
 		$this->assign(array(
-            'tech1'		    => $reslist['spec_tech'][1],
-            'tech2'		    => $reslist['spec_tech'][2],
-            'tech3'		    => $reslist['spec_tech'][3],
-            'tech4'		    => $reslist['spec_tech'][4],
 			'ResearchList'	=> $ResearchList,
 			'IsLabinBuild'	=> !$bContinue,
 			'IsFullQueue'	=> Config::get()->max_elements_tech == 0 || (Config::get()->max_elements_tech + $USER['factor']['ResearchSlots']) == count($TechQueue),

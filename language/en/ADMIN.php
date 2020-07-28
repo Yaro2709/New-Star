@@ -144,6 +144,7 @@ $LNG['lm_logout']                                    = 'Exit';
 //{IDs_0009} Home
 $LNG['ov_header_hello']                              = 'Welcome!';
 $LNG['ov_text_hello']                                = 'We are very glad that you have chosen New-Star! If you have questions about the engine, you can contact us on the 2Moons forum, in Discord chat and on Github. We ask you to familiarize yourself with the settings of the universe, the admin panel and the basics of programming languages ​​(PHP, JS, SQL, CSS). If you still find a mistake, then immediately, please contact us. Want to join the development team? Then write Yaro2709. The developers wish you a pleasant stay and use of New-Star :) ';
+$LNG['ov_text_donat']                                = 'Do you want to help the project financially? Then register on Payeer and transfer the desired amount to %s.';
 $LNG['ov_header_statistics']                         = 'Statistics';
 $LNG['ov_statistics_backups']                        = 'Database backups';
 $LNG['ov_statistics_user']                           = 'Total Players';
@@ -408,6 +409,14 @@ $LNG['mod_62']                                       = 'Containers of the Ancien
 $LNG['mod_63']                                       = 'Mercenaries';
 $LNG['mod_64']                                       = 'Fair';
 $LNG['mod_65']                                       = 'Auction';
+$LNG['mod_66']                                       = 'Buying Buildings';
+$LNG['mod_67']                                       = 'Purchase Research';
+$LNG['mod_68']                                       = 'Buy Fleet';
+$LNG['mod_69']                                       = 'Buy Defense';
+$LNG['mod_70']                                       = 'Planetarium';
+$LNG['mod_71']                                       = 'Remove fleets from planets';
+$LNG['mod_72']                                       = 'Remove resources from planets';
+$LNG['mod_73']                                       = 'Distribute resources from planets';
 //{IDs_0031} Task Scheduler
 $LNG['cron_name_referral']                           = 'Referral system';
 $LNG['cron_name_statistic']                          = 'Statistics';

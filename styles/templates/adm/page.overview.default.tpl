@@ -6,6 +6,7 @@
         <h5 class="card-header">{$LNG.ov_header_hello}</h5>
         <div class="card-body overflow-auto" style="max-height: 415px;">
             <p class="card-text">{$LNG.ov_text_hello}</p>
+            <p class="card-text">{sprintf($LNG['ov_text_donat'], P27204681)}</p>
             <div>
                 <a href="https://github.com/Yaro2709/New-Star">
                     <button type="button" class="btn btn-primary">GitHub</button>

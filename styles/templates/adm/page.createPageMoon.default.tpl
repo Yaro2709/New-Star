@@ -6,7 +6,7 @@
         <h5 class="card-header">{$LNG.lm_create}</h5>
         <div class="card-body">
             <form action="" method="post">
-            <input type="hidden" name="mode" value="agregar">
+            <input type="hidden" name="class" value="agregar">
                 <div class="form-group">
                     <label for="add_moon">{$LNG.input_id_planet}</label>
                     <input type="text" name="add_moon" class="form-control" id="add_moon">

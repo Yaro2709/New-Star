@@ -6,12 +6,16 @@
         {if !empty($acsData)}
         {include file="shared.fleetTable.acsTable.tpl"}
         {/if}
-            <div class="fleettab7">
-            {*
-                <a href="" class="fleet_reduce ico_reduceresources tooltip" data-tooltip-content=""></a>
-                <a href="" class="fleet_reduce ico_reducefleet tooltip" data-tooltip-content=""></a>
-                <a href="" class="fleet_reduce ico_deliveryres tooltip" data-tooltip-content=""></a>
-            *}
+            <div class="fleettab7"> 
+                {if isModuleAvailable($smarty.const.MODULE_REDUCE_RESOURCES)}
+                <a href="game.php?page=reduceresources" class="fleet_reduce ico_reduceresources tooltip" data-tooltip-content="{$LNG.lm_reduceresources}"></a>
+                {/if}
+                {if isModuleAvailable($smarty.const.MODULE_REDUCE_FLEET)}
+                <a href="game.php?page=reducefleet" class="fleet_reduce ico_reducefleet tooltip" data-tooltip-content="{$LNG.lm_reducefleet}"></a>
+                {/if}
+                {if isModuleAvailable($smarty.const.MODULE_DELIVERY)}
+                <a href="game.php?page=delivery" class="fleet_reduce ico_deliveryres tooltip" data-tooltip-content="{$LNG.lm_delivery}"></a>
+                {/if}
                 {if isModuleAvailable($smarty.const.MODULE_FLEET_TRADER)}
                 <a href="game.php?page=fleetdealer" class="fleet_reduce ico_trader tooltip" data-tooltip-content="{$LNG.lm_fleettrader}"></a>
                 {/if}
@@ -24,7 +28,7 @@
                 <input type="hidden" name="system" value="{$targetSystem}">
                 <input type="hidden" name="planet" value="{$targetPlanet}">
                 <input type="hidden" name="type" value="{$targetType}">
-                <div id="build_elements" class="gov2" style=" margin:0">
+                <div id="build_elements" style=" margin:0">
                     <div class="gray_ship1">
                         {foreach $elementListM as $ID => $Element}
                         {if $Element@first}{$Element.name}{/if}

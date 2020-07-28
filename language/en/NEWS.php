@@ -3,6 +3,28 @@
 // All rights reserved from 2020;
 // Company 1367.
 
+$LNG['head'][12] = 'New-Star V1.1.2';
+$LNG['text'][12] = 'Design:
+✔ Fixed problems with game design (Yaro2709);
+✔ Other small changes (Yaro2709);
+Engine:
+✔ There is a new function (instantPurchasePrice) in class.BuildFunctions.php (Yaro2709);
+✔ Fixed bugs in the admin panel (Yaro2709);
+✔ Other small changes (Yaro2709);
+✔ Globalization $ reslist (Yaro2709);
+Improvements:
+✔ Improved fleet flight in view (Yaro2709);
+✔ Other small changes (Yaro2709);
+Mods:
+✔ Added mod buying buildings (Yaro2709);
+✔ Added research purchase mod (Yaro2709);
+✔ Added mod buy fleet (Yaro2709);
+✔ Added purchase defense mod (Yaro2709);
+✔ Added planetarium mod (Yaro2709);
+✔ Added resource dump mod (Yaro2709);
+✔ Added fleet transport mod (Yaro2709);
+✔ Added resource redistribution mod (Yaro2709).';
+
 $LNG['head'][11] = 'New-Star V1.1.1';
 $LNG['text'][11] = 'Engine:
 ✔ Fixed problems with game design (Yaro2709);

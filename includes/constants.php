@@ -157,7 +157,7 @@ define('AUTH_MOD'					, 1);
 define('AUTH_USR'					, 0);
 
 // Modules
-define('MODULE_AMOUNT'				, 66);//количество модов
+define('MODULE_AMOUNT'				, 74);//количество модов
 define('MODULE_ALLIANCE'			, 0);
 define('MODULE_BANLIST'				, 21);
 define('MODULE_BANNER'				, 37);
@@ -225,6 +225,14 @@ define('MODULE_BON'		            , 62);
 define('MODULE_BAND'		        , 63);
 define('MODULE_FAIR'		        , 64);
 define('MODULE_AUCTION'		        , 65);
+define('MODULE_BUY_BUILD'		    , 66);
+define('MODULE_BUY_TECH'		    , 67);
+define('MODULE_BUY_FLEET'		    , 68);
+define('MODULE_BUY_DEFENSE'		    , 69);
+define('MODULE_PLANET'		        , 70);
+define('MODULE_REDUCE_FLEET'		, 71);
+define('MODULE_REDUCE_RESOURCES'    , 72);
+define('MODULE_DELIVERY'		    , 73);
 //$new_code
 
 // FLEET STATE

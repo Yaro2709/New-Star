@@ -6,6 +6,10 @@ New-Star is a web browser game engine. The goal of this work is to completely re
 
 There is also a [gallery](https://yaro2709.github.io/New-Star-gallery) of the project so that anyone can visually familiarize themselves with the project.
 
+## Discord New-Star
+
+Want to keep abreast of the latest developments? Then come visit us on [Discord](https://discord.gg/pu7faEb)!
+
 ## Repository structure
 
 - [cache] - temporary cached server .tpl webpages

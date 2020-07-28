@@ -41,14 +41,6 @@
 			<a class="nuovomenusinistra" href="game.php?page=alliance" id="munu_alliance">{$LNG.lm_alliance}</a>
             <a class="nuovomenudestra" href="game.php?page=alliance"><img src="{$dpath}img/iconav/alliance.png" class="imgovernuovo" id="ciaone"></a>	
             {/if}
-            
-            {if isModuleAvailable($smarty.const.MODULE_GALAXY)}
-			<a class="nuovomenusinistra" href="game.php?page=galaxy" id="munu_alliance">{$LNG.lm_galaxy}</a>
-            <a class="nuovomenudestra" href="game.php?page=galaxy"><img src="{$dpath}img/iconav/g_expedition.png" class="imgovernuovo" id="ciaone"></a>	
-            {/if}
-            <!-- mercato-->
-            <a class="nuovomenusinistra" href="game.php?page=market">{$LNG.lm_market}</a>
-            <a class="nuovomenudestra" href="game.php?page=market"><img src="{$dpath}img/iconav/market.png" class="imgovernuovo"></a>
             <!-- ufficiali governatori -->
             {if isModuleAvailable($smarty.const.MODULE_SENAT)}
             <a class="menu_market" href="game.php?page=senat" id="munu_senat">{$LNG.lm_senat}</a>
@@ -62,11 +54,9 @@
             {if isModuleAvailable($smarty.const.MODULE_PIRATE_MARKET)}
             <a class="menu_market" href="game.php?page=piratemarket" id="munu_senat">{$LNG.lm_piratemarket}</a>
             {/if}
-            {*
             {if isModuleAvailable($smarty.const.MODULE_GALAXY)}
             <a class="galassiabott" href="game.php?page=galaxy" id="munu_galaxy">{$LNG.lm_galaxy}</a>
             {/if}   
-            *}
      		{if $authlevel > 0}
             <a  href="admin.php" class="big_btn green btn_menu btn_menu_big">{$LNG.lm_administration}</a>
             {/if}

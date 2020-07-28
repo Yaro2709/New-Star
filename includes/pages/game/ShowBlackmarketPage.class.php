@@ -30,7 +30,7 @@ class ShowBlackMarketPage extends AbstractGamePage
 		
 		$this->tplObj->assign_vars(array());
 		
-		$this->display('page.blackMarket.default.tpl');
+		$this->display('page.blackmarket.default.tpl');
 	}
 }
 ?>

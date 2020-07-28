@@ -433,5 +433,29 @@ class BuildFunctions
 
         return $bonusIDList;
     }
+    
+    public static function instantPurchasePrice($Element)
+	{
+		global $PLANET, $USER, $resource, $pricelist, $reslist;
+        
+        $cost               = 0;
+        
+        foreach($reslist['resstype'][1] as $resP)
+        {
+            $cost += ceil($pricelist[$Element]['cost'][$resP] * 0.0005);
+        }
+        
+        foreach($reslist['resstype'][2] as $resS)
+        {
+            $cost += ceil($pricelist[$Element]['cost'][$resS] * 1);
+        }
+        
+        foreach($reslist['resstype'][3] as $resU)
+        {
+            $cost += ceil($pricelist[$Element]['cost'][$resU] * 1);
+        }
+		
+		return($cost);
+	}
     //$new_code
 }

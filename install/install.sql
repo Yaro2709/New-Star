@@ -616,6 +616,9 @@ CREATE TABLE `%PREFIX%planets` (
   `der_metal` double(50,0) UNSIGNED NOT NULL DEFAULT '0',
   `der_crystal` double(50,0) UNSIGNED NOT NULL DEFAULT '0',
   `id_luna` int(11) NOT NULL DEFAULT '0',
+  `last_relocate` int(11) NOT NULL DEFAULT '0',
+  `field_purchased` smallint(5) NOT NULL DEFAULT '0',
+  `diameter_purchased` smallint(5) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `id_luna` (`id_luna`),
   KEY `id_owner` (`id_owner`),
@@ -1236,10 +1239,11 @@ INSERT INTO `%PREFIX%news` (`id`, `user`, `date`, `title`, `text`) VALUES
 (8, 'Yaro2709', 1592056089, '', ''),
 (9, 'Yaro2709', 1594830408, '', ''),
 (10, 'Yaro2709', 1595173781, '', ''),
-(11, 'Yaro2709', 1595519463, '', '');
+(11, 'Yaro2709', 1595519463, '', ''),
+(12, 'Yaro2709', 1595930886, '', '');
 
 ALTER TABLE `%PREFIX%news`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 INSERT INTO `%PREFIX%system` (`dbVersion`) VALUES

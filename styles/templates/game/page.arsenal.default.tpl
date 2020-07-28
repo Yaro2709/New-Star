@@ -12,7 +12,7 @@
             </div>
             <div id="build_elements" class="ars_elements gov2">
                 {foreach $arsList as $ID => $Element}
-                <div id="ars_{$ID}" class="build_box {if $ID == in_array($ID, $ars1)}ars1{elseif $ID == in_array($ID, $ars2)}ars2{/if}">
+                <div id="ars_{$ID}" class="build_box {if $ID == in_array($ID, $reslist.spec_ars.1)}ars1{elseif $ID == in_array($ID, $reslist.spec_ars.2)}ars2{/if}">
                     <div class="head">               
                         {$LNG.tech.{$ID}}
                         <font class="gov6">({$LNG.bd_lvl} {$Element.level|number})</font>

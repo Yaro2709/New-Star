@@ -34,7 +34,7 @@
                         <span class="rexx20">{$LNG.bs_reset}</span>
                         <span class="rexx20">{$LNG.bs_reset}</span>
                     </div>
-                    {foreach $bonusList as $id}
+                    {foreach $reslist.battle_bonus as $id}
                     <div class="rexx16">
                         <a href="#" onclick="return Dialog.info({$id})"><img src="{$dpath}gebaeude/{$id}.{if $id < 600}gif{else}jpg{/if}" alt="{$LNG.tech.$id}" /></a>
                         <span>{$LNG.tech.{$id}}</span>
@@ -51,7 +51,7 @@
                     <span class="rexx20">{$LNG.bs_reset}</span>
                     <span class="rexx20">{$LNG.bs_reset}</span>
                   </div>
-                     {foreach $fleetList as $id}
+                     {foreach $reslist.fleet as $id}
                      <div class="rexx16">
                         <a href="#" onclick="return Dialog.info({$id})"><img src="{$dpath}gebaeude/{$id}.gif" alt="{$LNG.tech.$id}" /></a>
                         <span>{$LNG.tech.$id}</span>
@@ -66,7 +66,7 @@
                         <span class="rexx21">{$LNG.tech.400}</span>
                         <span class="rexx20">{$LNG.bs_reset}</span>
                     </div>
-                     {foreach $defensiveList as $id}
+                     {foreach $reslist.defense as $id}
                      <div class="rexx16">
                         <a href="#" onclick="return Dialog.info({$id})"><img src="{$dpath}gebaeude/{$id}.gif" alt="{$LNG.tech.$id}" /></a>
                         <span>{$LNG.tech.$id}</span>
