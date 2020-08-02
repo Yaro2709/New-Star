@@ -126,16 +126,16 @@
                         <div class="ally_contents" style="padding-bottom:20px;">
                             <div class="content_box">
                                 <div class="clear"></div>
-                                <label class="left_label" style="width: 300px;"><img src="{$dpath}img/e.gif" alt="">{$LNG.op_spy}</label>
+                                <label class="left_label" style="width: 300px;">{$LNG.op_spy}</label>
                                 <input name="galaxySpy" type="checkbox" value="1" {if $galaxySpy == 1}checked="checked"{/if}>
                                 <div class="clear"></div>
-                                <label class="left_label" style="width: 300px;"><img src="{$dpath}img/m.gif" alt="">{$LNG.op_write_message}</label>
+                                <label class="left_label" style="width: 300px;">{$LNG.op_write_message}</label>
                                 <input name="galaxyMessage" type="checkbox" value="1" {if $galaxyMessage == 1}checked="checked"{/if}>
                                 <div class="clear"></div>
-                                <label class="left_label" style="width: 300px;"><img src="{$dpath}img/b.gif" alt="">{$LNG.op_add_to_buddy_list}</label>
+                                <label class="left_label" style="width: 300px;">{$LNG.op_add_to_buddy_list}</label>
                                 <input name="galaxyBuddyList" type="checkbox" value="1" {if $galaxyBuddyList == 1}checked="checked"{/if}>
                                 <div class="clear"></div>
-                                <label class="left_label" style="width: 300px;"><img src="{$dpath}img/r.gif" alt="">{$LNG.op_missile_attack}</label>
+                                <label class="left_label" style="width: 300px;">{$LNG.op_missile_attack}</label>
                                 <input name="galaxyMissle" type="checkbox" value="1" {if $galaxyMissle == 1}checked="checked"{/if}>
                             </div>
                         </div>

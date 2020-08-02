@@ -507,15 +507,6 @@ class PlayerUtil
 			FleetFunctions::SendFleetBack(array('id' => $userId), $fleetId['fleet_id']);
 		}
 
-        /*
-		$sql	= 'UPDATE %%UNIVERSE%% SET userAmount = userAmount - 1 WHERE universe = :universe;';
-		$db->update($sql, array(
-			':universe' => $userData['universe']
-		));
-		
-		Cache::get()->flush('universe');
-        */
-
 		return true;
 	}
 
@@ -563,10 +554,24 @@ class PlayerUtil
 
 		return true;
 	}
+    
+    public static function minPlanetPerTech($USER)
+    {
+        global $resource, $reslist;
+
+        $minPlanetPerTech = 0;
+        foreach($reslist['min_planet_per_tech'] as $tech) 
+        {
+            $minPlanetPerTech += $USER[$resource[$tech]];
+        }
+
+        return $minPlanetPerTech;
+    }
 	
 	static public function maxPlanetCount($USER)
 	{
-		global $resource;
+		global $resource, $reslist;
+        
 		$config	= Config::get($USER['universe']);
 
 		$planetPerTech	= $config->planets_tech;
@@ -581,33 +586,38 @@ class PlayerUtil
 		{
 			$planetPerBonus = 999;
 		}
+        
+        $minPlanetPerTech = PlayerUtil::minPlanetPerTech($USER);
 		
 		// http://owiki.de/index.php/Astrophysik#.C3.9Cbersicht
-		return (int) ceil($config->min_player_planets + min($planetPerTech, $USER[$resource[124]] * $config->planets_per_tech) + min($planetPerBonus, $USER['factor']['Planets']));
+		return (int) ceil($config->min_player_planets + min($planetPerTech, $minPlanetPerTech * $config->planets_per_tech) + min($planetPerBonus, $USER['factor']['Planets']));
 	}
 
 	static public function allowPlanetPosition($position, $USER)
 	{
 		// http://owiki.de/index.php/Astrophysik#.C3.9Cbersicht
 
-		global $resource;
+		global $resource, $reslist;
+        
 		$config	= Config::get($USER['universe']);
+        
+        $minPlanetPerTech = PlayerUtil::minPlanetPerTech($USER);
 
 		switch($position) {
 			case 1:
 			case ($config->max_planets):
-				return $USER[$resource[124]] >= 8;
+				return $minPlanetPerTech >= 8;
 			break;
 			case 2:
 			case ($config->max_planets-1):
-				return $USER[$resource[124]] >= 6;
+				return $minPlanetPerTech >= 6;
 			break;
 			case 3:
 			case ($config->max_planets-2):
-				return $USER[$resource[124]] >= 4;
+				return $minPlanetPerTech >= 4;
 			break;
 			default:
-				return $USER[$resource[124]] >= 1;
+				return $minPlanetPerTech >= 1;
 			break;
 		}
 	}

@@ -22,12 +22,12 @@
             </tr>
             <tr>
                 <td>
-                    {$LNG.bd_the_cost} {$LNG.tech.921}: <span id="price" style="font-weight:bold;"></span> 			
+                    {$LNG.bd_the_cost} {$LNG.tech.$buy_instantly}: <span id="price" style="font-weight:bold;"></span> 			
                 </td>
             </tr>
             <tr>
                 <td>
-                    {$LNG.bd_total} {$LNG.tech.921}: <span id="total_price_count" style="font-weight:bold;"></span>
+                    {$LNG.bd_total} {$LNG.tech.$buy_instantly}: <span id="total_price_count" style="font-weight:bold;"></span>
                 </td>
             </tr>
             <tr>

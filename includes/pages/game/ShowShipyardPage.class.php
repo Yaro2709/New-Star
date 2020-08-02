@@ -28,7 +28,7 @@ class ShowShipyardPage extends AbstractGamePage
 	
 	private function CancelAuftr() 
 	{
-		global $USER, $PLANET, $resource, $reslist; //$new_code
+		global $USER, $PLANET, $resource, $reslist;
 		$ElementQueue = unserialize($PLANET['b_hangar_id']);
 		
 		$CancelArray	= HTTP::_GP('auftr', array());
@@ -52,16 +52,8 @@ class ShowShipyardPage extends AbstractGamePage
 			$Count			= $ElementQueue[$Auftr][1];
 			
 			$costResources	= BuildFunctions::getElementPrice($USER, $PLANET, $Element, false, $Count);
-            /*$old_code
-			if(isset($costResources[901])) { $PLANET[$resource[901]]	+= $costResources[901] * FACTOR_CANCEL_SHIPYARD; }
-			if(isset($costResources[902])) { $PLANET[$resource[902]]	+= $costResources[902] * FACTOR_CANCEL_SHIPYARD; }
-			if(isset($costResources[903])) { $PLANET[$resource[903]]	+= $costResources[903] * FACTOR_CANCEL_SHIPYARD; }
-			if(isset($costResources[921])) { $USER[$resource[921]]		+= $costResources[921] * FACTOR_CANCEL_SHIPYARD; }
-            $old_code*/
-            //$new_code
             $factor_prices = FACTOR_CANCEL_SHIPYARD;
             include('includes/subclasses/subclass.ResPlusFactor.php');
-            //$new_code
 			
 			unset($ElementQueue[$Auftr]);
 		}
@@ -78,33 +70,31 @@ class ShowShipyardPage extends AbstractGamePage
 	private function BuildAuftr($fmenge)
 	{
 		global $USER, $PLANET, $reslist, $resource;
-		/*$old_code
-		$Missiles	= array(
-			502	=> $PLANET[$resource[502]],
-			503	=> $PLANET[$resource[503]],
-		);
-        $old_code*/
-        //$new_code
-        $Missiles	= array();
-        
+
+        $Missiles = array();
         foreach($reslist['missile'] as $elementID)
 		{
             $Missiles	+= array(
                 $elementID	=> $PLANET[$resource[$elementID]],
             );
 		}
-        //$new_code
-		//$code_update
-		$Domes	= array(
-			407	=> $PLANET[$resource[407]],
-			408	=> $PLANET[$resource[408]],
-			409	=> $PLANET[$resource[409]],
-		);
-		
-		$Orbits	= array(
-			411	=> $PLANET[$resource[411]],
-		);
-		//$code_update
+
+        $Domes = array();
+        foreach($reslist['domes'] as $elementID)
+		{
+            $Domes	+= array(
+                $elementID	=> $PLANET[$resource[$elementID]],
+            );
+		}
+        
+        $Orbits = array();
+        foreach($reslist['orbital_bases'] as $elementID)
+		{
+            $Orbits	+= array(
+                $elementID	=> $PLANET[$resource[$elementID]],
+            );
+		}
+
 		foreach($fmenge as $Element => $Count)
 		{
 			if(empty($Count)
@@ -120,23 +110,19 @@ class ShowShipyardPage extends AbstractGamePage
 			$Count 			= min($Count, $MaxElements);
 			
 			$BuildArray    	= !empty($PLANET['b_hangar_id']) ? unserialize($PLANET['b_hangar_id']) : array();
-			if (in_array($Element, $reslist['missile']))
-			{
+            
+			if (in_array($Element, $reslist['missile'])){
 				$MaxMissiles		= BuildFunctions::getMaxConstructibleRockets($USER, $PLANET, $Missiles);
 				$Count 				= min($Count, $MaxMissiles[$Element]);
-
 				$Missiles[$Element] += $Count;
-            //$code_update
-			}elseif ($Element == 407 || $Element == 408 || $Element == 409){
-				$MaxDomes		= BuildFunctions::getMaxConstructibleDomes($USER, $PLANET, $Domes);
+			}elseif (in_array($Element, $reslist['domes'])){
+				$MaxDomes		    = BuildFunctions::getMaxConstructibleDomes($USER, $PLANET, $Domes);
 				$Count 				= min($Count, $MaxDomes[$Element]);
-                
-				$Domes[$Element] += $Count;
-			}elseif ($Element == 411){
-				$MaxOrbits		= BuildFunctions::getMaxConstructibleOrbits($USER, $PLANET, $Orbits);
+				$Domes[$Element]    += $Count;
+			}elseif (in_array($Element, $reslist['orbital_bases'])){
+				$MaxOrbits		    = BuildFunctions::getMaxConstructibleOrbits($USER, $PLANET, $Orbits);
 				$Count 				= min($Count, $MaxOrbits[$Element]);
-				$Orbits[$Element] += $Count;
-            //$code_update
+				$Orbits[$Element]   += $Count;
 			} elseif(in_array($Element, $reslist['one'])) {
 				$InBuild	= false;
 				foreach($BuildArray as $ElementArray) {
@@ -157,15 +143,8 @@ class ShowShipyardPage extends AbstractGamePage
 				continue;
 				
 			$costResources	= BuildFunctions::getElementPrice($USER, $PLANET, $Element, false, $Count);
-            /*$old_code
-			if(isset($costResources[901])) { $PLANET[$resource[901]]	-= $costResources[901]; }
-			if(isset($costResources[902])) { $PLANET[$resource[902]]	-= $costResources[902]; }
-			if(isset($costResources[903])) { $PLANET[$resource[903]]	-= $costResources[903]; }
-			if(isset($costResources[921])) { $USER[$resource[921]]		-= $costResources[921]; }
-            $old_code*/
-            //$new_code
             include('includes/subclasses/subclass.ResMinus.php');
-            //$new_code
+
 			$BuildArray[]			= array($Element, $Count);
 			$PLANET['b_hangar_id']	= serialize($BuildArray);
 		}
@@ -184,21 +163,13 @@ class ShowShipyardPage extends AbstractGamePage
 			$CurrentQueue 	= unserialize($PLANET['b_building_id']);
 			foreach($CurrentQueue as $ElementArray)
 			{
-                //$new_code
-                foreach($reslist['shipyard'] as $elementID) //проверка всего масива элементов
+                foreach($reslist['shipyard'] as $elementID) 
                 {
                     if($ElementArray[0] == $elementID) {
                         $NotBuilding = false;
                         break;
                     }
-                }
-                //$new_code
-                /* $old_code
-                if($ElementArray[0] == 21 || $ElementArray[0] == 15) {
-					$NotBuilding = false;
-					break;
-				}
-                $old_code*/   
+                } 
 			}
 		}
 		
@@ -230,7 +201,6 @@ class ShowShipyardPage extends AbstractGamePage
 		$elementInQueue	= array();
 		$ElementQueue 	= unserialize($PLANET['b_hangar_id']);
 		$Buildlist		= array();
-		//$elementList	= array();
         
 		if(!empty($ElementQueue))
 		{
@@ -254,7 +224,6 @@ class ShowShipyardPage extends AbstractGamePage
 			);
 		}
 		
-		
 		$mode		= HTTP::_GP('mode', 'fleet');
 
 		if($mode == 'defense') {
@@ -264,27 +233,24 @@ class ShowShipyardPage extends AbstractGamePage
 		}
 		
 		$Missiles	= array();
-        //$code_update
-		$Domes	= array();
-		$Orbits	= array();
-        //$code_update
-		
+		$Domes	    = array();
+		$Orbits	    = array();
+
 		foreach($reslist['missile'] as $elementID)
 		{
 			$Missiles[$elementID]	= $PLANET[$resource[$elementID]];
 		}
-		//$code_update
+
 		foreach($reslist['defense'] as $elementID)
 		{
 			$Domes[$elementID]	= $PLANET[$resource[$elementID]];
 			$Orbits[$elementID]	= $PLANET[$resource[$elementID]];
 		}
-		//$code_update
+
 		$MaxMissiles	= BuildFunctions::getMaxConstructibleRockets($USER, $PLANET, $Missiles);
-        //$code_update
-		$MaxDomes	= BuildFunctions::getMaxConstructibleDomes($USER, $PLANET, $Domes);
-		$MaxOrbits	= BuildFunctions::getMaxConstructibleOrbits($USER, $PLANET, $Orbits);
-        //$code_update
+		$MaxDomes	    = BuildFunctions::getMaxConstructibleDomes($USER, $PLANET, $Domes);
+		$MaxOrbits	    = BuildFunctions::getMaxConstructibleOrbits($USER, $PLANET, $Orbits);
+
 		foreach($elementIDs as $Element)
 		{
             $techTreeList		= BuildFunctions::requirementsList($Element);
@@ -297,7 +263,7 @@ class ShowShipyardPage extends AbstractGamePage
 			if(isset($MaxMissiles[$Element])) {
 				$maxBuildable	= min($maxBuildable, $MaxMissiles[$Element]);
 			}
-			//$code_update
+
 			if(isset($MaxDomes[$Element])) {
 				$maxBuildable	= min($maxBuildable, $MaxDomes[$Element]);
 			}
@@ -305,7 +271,7 @@ class ShowShipyardPage extends AbstractGamePage
 			if(isset($MaxOrbits[$Element])) {
 				$maxBuildable	= min($maxBuildable, $MaxOrbits[$Element]);
 			}
-			//$code_update
+
 			$AlreadyBuild		= in_array($Element, $reslist['one']) && (isset($elementInQueue[$Element]) || $PLANET[$resource[$Element]] != 0);
 			
 			$elementList[$Element]	= array(

@@ -51,7 +51,7 @@ class ShowFleetStep1Page extends AbstractGamePage
 			$Fleet[$ShipID]		= $amount;
 			$FleetRoom		   += $pricelist[$ShipID]['capacity'] * $amount;
 		}
-		//code_update
+
 		foreach ($Fleet as $Ship => $Count)
 		{
 			if ($Count > $PLANET[$resource[$Ship]]) {
@@ -88,7 +88,7 @@ class ShowFleetStep1Page extends AbstractGamePage
                 ));
 			}
 		}
-        //code_update
+
 		$FleetData	= array(
 			'fleetroom'			=> floattostring($FleetRoom),
 			'gamespeed'			=> FleetFunctions::GetGameSpeedFactor(),
@@ -304,22 +304,24 @@ class ShowFleetStep1Page extends AbstractGamePage
 				$this->sendJSON($LNG['fl_error_no_moon']);
 			}
 
-			if ($targetPlanetType != 2 && $planetData['urlaubs_modus'])
+			if ($targetPlanetType != 2 && !empty($planetData['urlaubs_modus']))
 			{
 				$this->sendJSON($LNG['fl_in_vacation_player']);
 			}
 
+			if(!empty($planetData))
 			if ($planetData['id'] != $USER['id'] && Config::get()->adm_attack == 1 && $planetData['authattack'] > $USER['authlevel'])
 			{
 				$this->sendJSON($LNG['fl_admin_attack']);
 			}
 
+			if(!empty($planetData))
 			if ($planetData['destruyed'] != 0)
 			{
 				$this->sendJSON($LNG['fl_error_not_avalible']);
 			}
 
-			if($targetPlanetType == 2 && $planetData['der_metal'] == 0 && $planetData['der_crystal'] == 0)
+			if($targetPlanetType == 2 && empty($planetData['der_metal']) && empty($planetData['der_crystal']))
 			{
 				$this->sendJSON($LNG['fl_error_empty_derbis']);
 			}
@@ -329,11 +331,13 @@ class ShowFleetStep1Page extends AbstractGamePage
 				(SELECT COUNT(*) FROM %%MULTI%% WHERE userID = :dataID)
 			) as count;';
 
+			if(!empty($planetData))
 			$multiCount	= $db->selectSingle($sql ,array(
 				':userID' => $USER['id'],
 				':dataID' => $planetData['id']
 			), 'count');
 
+            if(!empty($planetData))
 			if(ENABLE_MULTIALERT && $USER['id'] != $planetData['id'] && $USER['authlevel'] != AUTH_ADM && $USER['user_lastip'] == $planetData['user_lastip'] && $multiCount != 2)
 			{
 				$this->sendJSON($LNG['fl_multi_alarm']);

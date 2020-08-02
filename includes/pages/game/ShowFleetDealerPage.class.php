@@ -85,10 +85,9 @@ class ShowFleetDealerPage extends AbstractGamePage
 				'url'	=> 'game.php?page=fleetDealer'
 			)));
 		}
-        //code_update
+
         $this->tplObj->loadscript('fleettrader.js');
         $this->tplObj->execscript('updateVars();');
-        //code_update
 		$this->assign(array(
 			'shipIDs'	=> $allowedShipIDs,
 			'CostInfos'	=> $Cost,

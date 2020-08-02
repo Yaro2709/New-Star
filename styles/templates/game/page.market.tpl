@@ -36,25 +36,27 @@
         {if !empty($lot)}
         <table style="width:100%;">
             <form action="?page=market&mode=add" method="post">
-			{foreach $lot as $row} 				
-			<tr>				
-				<td>{$LNG.tech.{$row.id}}:</td>
-				<td>{$row.count|number}</td>
-				<td>
-                    <input name="lot{$row.id}" size="10" value="0">
-				</td>
-				</tr>
-				{/foreach}
-				<tr>				
-				<td>{$LNG.market_price}</td>
-				<td>
-					<input name="price" id="price" size="10" value="0">
-				</td>
-				<td>{html_options name=class options=$class_name selected=1}</td>
-				</tr>
-				<tr>
-                    <td colspan="3"><button type="submit">{$LNG.market_proceed}</button>	</td>
-				</tr>
+                {foreach $lot as $row} 	
+                <div class="markett1" style="background:#000813 url({$dpath}gebaeude/{$row.id}.gif) left center no-repeat;background-size: 90px;background-position-x: 10px;">
+                    <div class="markett3">{$LNG.tech.{$row.id}}</div>
+                    <span class="markett4">{$row.count|number}</span>
+                    <span class="markett10">+</span>
+                    <div class="content_box">
+                        <div class="markett60"><input name="lot{$row.id}" size="10" value="0"></div>
+                    </div>
+                </div>
+                {/foreach}
+                <div class="markett1" style="background:#000813 url({$dpath}gebaeude/{$res}.gif) left center no-repeat;background-size: 90px;background-position-x: 10px;">
+                    <div class="markett3">{$LNG.market_price} {$LNG.tech.$res}</div>
+                    <span style="right: 147px; position: absolute; padding: 3px;">{html_options name=class options=$class_name selected=1}</span>
+                    <span class="markett10">=</span>
+                    <div class="content_box">
+                        <div class="markett60"><input name="price" id="price" size="10" value="0"></div>
+                    </div>
+                </div>
+                <div class=" build_band2 ticket_bottom_band" style="height: 100%; position: initial;">    	
+                    <input value="{$LNG.market_proceed}" type="submit" style="width: 98%;">
+                </div>
 			</form>	
         </table>
         {else}
@@ -74,7 +76,7 @@
                 {if $row.time_off > $timestamp}
                 <div class="markett6">-</div>
                 {else}
-                <a href="?page=market&mode=cancel_lot&id={$row.id}"><div class="markett6">{$LNG.market_take}</div></a>
+                <a href="?page=market&mode=cancel_lot&id={$row.id}"><div class="markett61">{$LNG.market_take}</div></a>
                 {/if}
             </div>
         </div>

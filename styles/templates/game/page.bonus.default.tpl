@@ -23,7 +23,7 @@ $(document).ready(function(){
 	{foreach $bonusList as $ID => $Element}
 			<div class="record_rows fade" style="width: 138px;text-align: left;margin: 0px 4px 8px 4px;float: left;border: 1px solid #091d2e;">
                <div class="record_img_utits">
-                  <img alt="" src="{$dpath}img/resources/{$ID}.gif">
+                  <img alt="" src="{$dpath}img/resources/{$ID}f.png">
                </div>
                <div class="record_name_utits">
 			   {$LNG.tech.{$ID}}: {pretty_number($Element.bonus)}

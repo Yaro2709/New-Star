@@ -23,12 +23,28 @@ class ShowBuyBuildPage extends AbstractGamePage
 	{
 		parent::__construct();
 	}
+    
+    private function CheckLabSettingsInQueue($Element)
+	{
+		global $PLANET, $CONF;
+		if ($PLANET['b_building'] == 0)
+			return true;
+			
+		$CurrentQueue		= unserialize($PLANET['b_building_id']);
+		foreach($CurrentQueue as $ListIDArray) {
+			if($ListIDArray[0] == $Element)
+				return false;
+		}
+
+		return true;
+	}
 	
 	public function send()
 	{
-		global $USER, $PLANET, $LNG, $pricelist, $resource, $reslist;
+		global $USER, $PLANET, $LNG, $pricelist, $resource, $reslist, $resglobal;
         
         $Elements = $reslist['allow'][$PLANET['planet_type']];
+        $CurrentMaxFields  	= CalculateMaxPlanetFields($PLANET);
         //Проверка на цену покупки
 		$Element			= HTTP::_GP('Element', 0);
 		if($Element == 0){
@@ -41,18 +57,25 @@ class ShowBuyBuildPage extends AbstractGamePage
         }
         //Цена
 		$cost			= BuildFunctions::instantPurchasePrice($Element) * pow(($pricelist[$Element]['factor']), ($PLANET[$resource[$Element]] + $Count));
+        //Условие блока
+        if (!$this->CheckLabSettingsInQueue($Element) ||  ($PLANET['field_current'] + $Count) > $CurrentMaxFields)
+		{
+			$this->redirectTo('game.php?page=buybuild');
+			return;
+		}
         //Ограничение по технологиям и $reslist
 		if(!empty($Element) && in_array($Element, $Elements) && BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element) && in_array($Element, $Elements) || in_array($Element, $reslist['not_bought']))
 		{ 
             //Нехватка ресурса.
-			if($USER[$resource[921]] < $cost )
+			if($USER[$resource[$resglobal['buy_instantly']]] < $cost )
 			{
 				$this->printMessage("".$LNG['bd_notres']."", true, array("game.php?page=buybuild", 1));
 				return;
 			}
 			//Всего хватает.
-			$USER[$resource[921]]			    -= $cost;
-			
+			$USER[$resource[$resglobal['buy_instantly']]] -= $cost;
+			$PLANET['field_current'] += $Count;
+            
             $sql	= 'UPDATE %%PLANETS%% SET
             '.$resource[$Element].' = '.$resource[$Element].' + '.$Count.'
             WHERE id = :Id;';
@@ -68,7 +91,7 @@ class ShowBuyBuildPage extends AbstractGamePage
 	
 	function show()
 	{
-		global $PLANET, $LNG, $pricelist, $resource, $reslist, $USER;
+		global $PLANET, $LNG, $pricelist, $resource, $reslist, $USER, $resglobal;
         
         //Перебор
         $Elements = $reslist['allow'][$PLANET['planet_type']];
@@ -87,8 +110,9 @@ class ShowBuyBuildPage extends AbstractGamePage
 		}
 		$this->tplObj->loadscript('buy.js');
 		$this->tplObj->assign_vars(array(
-			'Elements'	=> $allowedElements,
-			'CostInfos'	=> $Cost,
+            'buy_instantly'	=> $resglobal['buy_instantly'],
+			'Elements'	    => $allowedElements,
+			'CostInfos'	    => $Cost,
 		));
 		
 		$this->display('page.buyBuild.default.tpl');

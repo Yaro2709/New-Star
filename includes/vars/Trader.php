@@ -15,10 +15,8 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
-//$new_code
 $Charge = array(
 	901	=> array(901 => 1, 902 => 2, 903 => 4),
 	902	=> array(901 => 0.5, 902 => 1, 903 => 2),
 	903	=> array(901 => 0.25, 902 => 0.5, 903 => 1),
 );
-//$new_code

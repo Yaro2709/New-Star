@@ -51,7 +51,7 @@
     <div id="build_elements">
     {foreach $elementList as $ID => $Element}
         <div class="build_elements">
-            <div id="s_{$ID}" class="build_box {if $mode == 'defense'}{if $ID == in_array($ID, $reslist.spec_defense.1)}rank0{elseif $ID == in_array($ID, $reslist.spec_defense.2)}rank1{elseif $ID == in_array($ID, $reslist.spec_defense.3)}rank2{elseif $ID == in_array($ID, $reslist.spec_defense.4)}rank3{/if}{else}{if $ID == in_array($ID, $reslist.spec_fleet.2)}rank0{elseif $ID == in_array($ID, $reslist.spec_fleet.2)}rank1{elseif $ID == in_array($ID, $reslist.spec_fleet.3)}rank2{elseif $ID == in_array($ID, $reslist.spec_fleet.4)}rank3{/if}{/if} {if !$Element.techacc}required{/if}">
+            <div id="s_{$ID}" class="build_box {if $mode == 'defense'}{if $ID == in_array($ID, $reslist.spec_defense.1)}rank0{elseif $ID == in_array($ID, $reslist.spec_defense.2)}rank1{elseif $ID == in_array($ID, $reslist.spec_defense.3)}rank2{elseif $ID == in_array($ID, $reslist.spec_defense.4)}rank3{/if}{else}{if $ID == in_array($ID, $reslist.spec_fleet.1)}rank0{elseif $ID == in_array($ID, $reslist.spec_fleet.2)}rank1{elseif $ID == in_array($ID, $reslist.spec_fleet.3)}rank2{elseif $ID == in_array($ID, $reslist.spec_fleet.4)}rank3{/if}{/if} {if !$Element.techacc}required{/if}">
                 <div class="head">
                     <a href="#" onclick="return Dialog.info({$ID})" class="interrogation">?</a>                
                     <a href="#" onclick="return Dialog.info({$ID})" class="title">{$LNG.tech.{$ID}} </a> 
@@ -68,7 +68,7 @@
                         {foreach $requireList as $requireID => $NeedLevel}
                         <div class="required_block required_smal_text">
                             <a href="#" onclick="return Dialog.info({$requireID})" class="tooltip" data-tooltip-content="<span style='color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};'>{$LNG.tech.$requireID} {$LNG.tt_lvl}  {$NeedLevel.count} ({$NeedLevel.own}/{$NeedLevel.count})</span>">
-                            <img src="{$dpath}gebaeude/{$requireID}.{if $requireID >=600 && $requireID <= 699}jpg{else}gif{/if}" alt="{$LNG.tech.$requireID}" />
+                            <img src="{$dpath}gebaeude/{$requireID}.gif" alt="{$LNG.tech.$requireID}" />
                             <div class="text" style="color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};">{$NeedLevel.own}/{$NeedLevel.count}</div></a>            
                         </div>
                         {/foreach}

@@ -108,6 +108,24 @@ function getFactors($USER, $Type = 'basic', $TIME = NULL) {
 	return $factor;
 }
 
+function getReslist($USER) {
+	global $resource, $pricelist, $reslist;
+    /*
+    if($USER['race'] == 1500) {
+        $reslist['fleet'] = $reslist['fleet_race_0'];
+    }elseif($USER['race'] == 1501) {
+        $reslist['fleet'] = $reslist['fleet_race_1'];
+	}elseif($USER['race'] == 1502) {
+        $reslist['fleet'] = $reslist['fleet_race_2'];
+	}elseif($USER['race'] == 1503) {
+        $reslist['fleet'] = $reslist['fleet_race_3'];
+	}elseif($USER['race'] == 1504) {
+        $reslist['fleet'] = $reslist['fleet_race_4'];
+	}
+    */
+	return $reslist;
+}
+
 function userStatus($data, $noobprotection = false)
 {
 	$Array = array();
@@ -163,17 +181,17 @@ function getPlanets($USER)
     $sql = "SELECT";
 	$sql .= " id, name, galaxy, `system`, id_luna, planet, planet_type, image, b_building, b_building_id, b_hangar_id, b_hangar ";
     
-    foreach($reslist['resstype'][1] as $resP) //проверка всего масива элементов
+    foreach($reslist['resstype'][1] as $resP) 
     {
         $sql .= " ,".$resource[$resP].", ".$resource[$resP]."_perhour, ".$resource[$resP]."_max ";
     }
    
-    foreach($reslist['resstype'][2] as $resS) //проверка всего масива элементов
+    foreach($reslist['resstype'][2] as $resS) 
 	{
         $sql .= " ,".$resource[$resS]."_used, ".$resource[$resS]." ";
     }
     
-    foreach(array_merge($reslist['build'], $reslist['fleet'], $reslist['defense'], $reslist['missile']) as $res) //проверка всего масива элементов
+    foreach(array_merge($reslist['build'], $reslist['fleet'], $reslist['defense'], $reslist['missile']) as $res) 
 	{
         $sql .= " ,".$resource[$res]." ";
     }
@@ -473,7 +491,6 @@ function ClearCache()
 		}
 	}
 
-
 	$template = new template();
 	$template->clearAllCache();
 
@@ -487,34 +504,8 @@ function ClearCache()
 	));
 	clearstatcache();
 
-	/* does no work on git.
-
-	// Find currently Revision
-
-	$REV = 0;
-
-	$iterator = new RecursiveDirectoryIterator(ROOT_PATH);
-	foreach(new RecursiveIteratorIterator($iterator, RecursiveIteratorIterator::CHILD_FIRST) as $file) {
-		if (false == $file->isDir()) {
-			$CONTENT	= file_get_contents($file->getPathname());
-			
-			preg_match('!\$'.'Id: [^ ]+ ([0-9]+)!', $CONTENT, $match);
-			
-			if(isset($match[1]) && is_numeric($match[1]))
-			{
-				$REV	= max($REV, $match[1]);
-			}
-		}
-	}
-	
-	$config->VERSION	= $version[0].'.'.$version[1].'.'.$REV;
-	*/
-
 	$config		= Config::get();
-	//$version	= explode('.', $config->VERSION);
-	//$config->VERSION	= $version[0].'.'.$version[1].'.'.'git';
 	$config->save();
-	
 }
 
 function allowedTo($side)
@@ -676,7 +667,7 @@ function exceptionHandler($exception)
 			<b>URL: </b>'.PROTOCOL.HTTP_HOST.$_SERVER['REQUEST_URI'].'<br>
 			<b>PHP-Version: </b>'.PHP_VERSION.'<br>
 			<b>PHP-API: </b>'.php_sapi_name().'<br>
-			<b>2Moons Version: </b>'.$VERSION.'<br>
+			<b>Version: </b>'.$VERSION.'<br>
 			<b>Debug Backtrace:</b><br>'.makebr(htmlspecialchars($exception->getTraceAsString())).'
 		</td>
 	</tr>

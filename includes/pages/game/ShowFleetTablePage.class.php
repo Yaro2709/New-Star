@@ -346,7 +346,8 @@ class ShowFleetTablePage extends AbstractGamePage
 					'speed'	=> FleetFunctions::GetFleetMaxSpeed($FleetID, $USER),
 					'count'	=> $PLANET[$resource[$FleetID]],
 				);
-            $pointsPrice['ship'.$FleetID] = ($pricelist[$FleetID]['cost'][901]+$pricelist[$FleetID]['cost'][902]) /  Config::get()->stat_settings;
+            $resourcesPoints = BuildFunctions::resourcesPoints($USER, $FleetID);
+            $pointsPrice['ship'.$FleetID] = ($resourcesPoints) /  Config::get()->stat_settings;
 			if(in_array($FleetID, $elem[1]))
 			{
 				$elementListM[$FleetID]	= array(

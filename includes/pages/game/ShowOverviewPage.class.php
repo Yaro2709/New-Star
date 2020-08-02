@@ -154,7 +154,7 @@ class ShowOverviewPage extends AbstractGamePage
 		$RefLinks		= array();
 
         $db = Database::get();
-        //$new_code
+
         $sql	= 'SELECT COUNT(*) as count FROM %%USERS%% WHERE universe = :universe AND onlinetime > :onlineTime';
 		$onlineData	= Database::get()->selectSingle($sql, array(
 			':universe'	=> Universe::current(),
@@ -162,7 +162,7 @@ class ShowOverviewPage extends AbstractGamePage
 		));
 		
 		$UsersOnline = $onlineData['count'];
-		//$new_code
+
 		foreach($USER['PLANETS'] as $ID => $CPLANET)
 		{		
 			if ($ID == $PLANET['id'] || $CPLANET['planet_type'] == 3)
@@ -296,8 +296,7 @@ class ShowOverviewPage extends AbstractGamePage
 			'maxExpedition'			    => $maxExpedition,
 			'activeFleetSlots'		    => $activeFleetSlots,
 			'maxFleetSlots'			    => $maxFleetSlots,
-            'isVacation'			    => IsVacationMode($USER),
-        
+            'isVacation'			    => IsVacationMode($USER),   
 			'rankInfo'					=> $rankInfo,
 			'is_news'					=> $config->OverviewNewsFrame,
 			'news'						=> makebr($config->OverviewNewsText),

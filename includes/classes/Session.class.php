@@ -211,42 +211,43 @@ class Session
 	    }
 
         $userIpAddress = self::getClientIp();
+        if(!(isset($_GET['page']) && $_GET['page']=="raport" && isset($_GET['raport']) && count($_GET)==2 && MODE === 'INGAME')) {
+            $sql	= 'REPLACE INTO %%SESSION%% SET
+            sessionID	= :sessionId,
+            userID		= :userId,
+            lastonline	= :lastActivity,
+            userIP		= :userAddress;';
 
-		$sql	= 'REPLACE INTO %%SESSION%% SET
-		sessionID	= :sessionId,
-		userID		= :userId,
-		lastonline	= :lastActivity,
-		userIP		= :userAddress;';
+            $db		= Database::get();
 
-		$db		= Database::get();
+            $db->replace($sql, array(
+                ':sessionId'	=> session_id(),
+                ':userId'		=> $this->data['userId'],
+                ':lastActivity'	=> TIMESTAMP,
+                ':userAddress'	=> $userIpAddress,
+            ));
 
-		$db->replace($sql, array(
-			':sessionId'	=> session_id(),
-			':userId'		=> $this->data['userId'],
-			':lastActivity'	=> TIMESTAMP,
-			':userAddress'	=> $userIpAddress,
-		));
+            $sql = 'UPDATE %%USERS%% SET
+            onlinetime	= :lastActivity,
+            user_lastip = :userAddress
+            WHERE
+            id = :userId;';
 
-		$sql = 'UPDATE %%USERS%% SET
-		onlinetime	= :lastActivity,
-		user_lastip = :userAddress
-		WHERE
-		id = :userId;';
+            $db->update($sql, array(
+               ':userAddress'	=> $userIpAddress,
+               ':lastActivity'	=> TIMESTAMP,
+               ':userId'		=> $this->data['userId'],
+            ));
 
-		$db->update($sql, array(
-		   ':userAddress'	=> $userIpAddress,
-		   ':lastActivity'	=> TIMESTAMP,
-		   ':userId'		=> $this->data['userId'],
-		));
+            $this->data['lastActivity']  = TIMESTAMP;
+            $this->data['sessionId']	 = session_id();
+            $this->data['userIpAddress'] = $userIpAddress;
+            $this->data['requestPath']	 = $this->getRequestPath();
 
-		$this->data['lastActivity']  = TIMESTAMP;
-		$this->data['sessionId']	 = session_id();
-		$this->data['userIpAddress'] = $userIpAddress;
-		$this->data['requestPath']	 = $this->getRequestPath();
+            $_SESSION['obj']	= serialize($this);
 
-		$_SESSION['obj']	= serialize($this);
-
-		@session_write_close();
+            @session_write_close();
+        }
 	}
 
 	public function delete()

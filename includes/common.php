@@ -118,12 +118,8 @@ if (MODE === 'INGAME' || MODE === 'ADMIN' || MODE === 'CRON')
 	    $session->delete();
 		HTTP::redirectTo('index.php?code=3');
 	}
-    /* $old_code
-	require 'includes/vars.php';
-    $old_code */
-    //$new_code
+
     require 'includes/vars/General.php';
-    //$new_code
 	require 'includes/classes/class.BuildFunctions.php';
 	require 'includes/classes/class.PlanetRessUpdate.php';
 	
@@ -197,6 +193,7 @@ if (MODE === 'INGAME' || MODE === 'ADMIN' || MODE === 'CRON')
 		
 		$USER['factor']		= getFactors($USER);
 		$USER['PLANETS']	= getPlanets($USER);
+        $reslist		    = getReslist($USER);
 	}
 	elseif (MODE === 'ADMIN')
 	{

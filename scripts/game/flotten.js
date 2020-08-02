@@ -1,5 +1,5 @@
 var acstime = 0;
-
+	
 function updateVars($reset_acs = true)
 {
 	if ($reset_acs) {
@@ -13,88 +13,89 @@ function updateVars($reset_acs = true)
 }
 
 function GetDistance() {
-    var thisGalaxy = data.planet.galaxy;
-    var thisSystem = data.planet.system;
-    var thisPlanet = data.planet.planet;
-    var targetGalaxy = document.getElementsByName("galaxy")[0].value;
-    var targetSystem = document.getElementsByName("system")[0].value;
-    var targetPlanet = document.getElementsByName("planet")[0].value;
-    if (targetGalaxy - thisGalaxy != 0) {
-        return Math.abs(targetGalaxy - thisGalaxy) * 20000;
-    } else if (targetSystem - thisSystem != 0) {
-        return Math.abs(targetSystem - thisSystem) * 5 * 19 + 2700;
-    } else if (targetPlanet - thisPlanet != 0) {
-        return Math.abs(targetPlanet - thisPlanet) * 5 + 1000;
-    } else {
-        return 5;
-    }
+	var thisGalaxy = data.planet.galaxy;
+	var thisSystem = data.planet.system;
+	var thisPlanet = data.planet.planet;
+	var targetGalaxy = document.getElementsByName("galaxy")[0].value;
+	var targetSystem = document.getElementsByName("system")[0].value;
+	var targetPlanet = document.getElementsByName("planet")[0].value;
+
+	if (targetGalaxy - thisGalaxy != 0) {
+		return Math.abs(targetGalaxy - thisGalaxy) * 20000;
+	} else if (targetSystem - thisSystem != 0) {
+		return Math.abs(targetSystem - thisSystem) * 5 * 19 + 2700;
+	} else if (targetPlanet - thisPlanet != 0) {
+		return Math.abs(targetPlanet - thisPlanet) * 5 + 1000;
+	} else {
+		return 5;
+	}
 }
 
 function GetDuration() {
-    var sp = document.getElementsByName("speed")[0].value;
-    return Math.max(Math.round((3500 / (sp * 0.1) * Math.pow(dataFlyDistance * 10 / data.maxspeed, 0.5) + 10) / data.gamespeed) * data.fleetspeedfactor, data.fleetMinDuration);
+	var sp = document.getElementsByName("speed")[0].value;
+	return Math.max(Math.round((3500 / (sp * 0.1) * Math.pow(dataFlyDistance * 10 / data.maxspeed, 0.5) + 10) / data.gamespeed) * data.fleetspeedfactor, data.fleetMinDuration);
 }
 
 function GetConsumption() {
-    var dataFlyConsumption = 0;
-    var dataFlyConsumption2 = 0;
-    var basicConsumption = 0;
-    var i;
-    $.each(data.ships, function(shipid, ship) {
-        spd = 35000 / Math.max(dataFlyTime * data.gamespeed - 10, 1) * Math.sqrt(dataFlyDistance * 10 / ship.speed);
-        basicConsumption = ship.consumption * ship.amount;
-        dataFlyConsumption2 += basicConsumption * dataFlyDistance / 35000 * (spd / 10 + 1) * (spd / 10 + 1);
-    });
-    return Math.round(dataFlyConsumption + dataFlyConsumption2) + 1;
+	var dataFlyConsumption = 0;
+	var dataFlyConsumption2 = 0;
+	var basicConsumption = 0;
+	var i;
+	$.each(data.ships, function(shipid, ship){
+		spd = 35000 / Math.max(dataFlyTime * data.gamespeed - 10, 1) * Math.sqrt(dataFlyDistance * 10 / ship.speed);
+		basicConsumption = ship.consumption * ship.amount;
+		dataFlyConsumption2 += basicConsumption * dataFlyDistance / 35000 * (spd / 10 + 1) * (spd / 10 + 1);
+	});
+	return Math.round(dataFlyConsumption + dataFlyConsumption2) + 1;
 }
 
 function storage() {
-    return data.fleetroom - dataFlyConsumption;
+	return data.fleetroom - dataFlyConsumption;
 }
 
 function refreshFormData() {
-    var seconds = dataFlyTime;
-    var hours = Math.floor(seconds / 3600);
-    seconds -= hours * 3600;
-    var minutes = Math.floor(seconds / 60);
-    seconds -= minutes * 60;
-    $("#duration").text(hours + (":" + dezInt(minutes, 2) + ":" + dezInt(seconds, 2) + " h"));
-    $("#distance").text(NumberGetHumanReadable(dataFlyDistance));
-    $("#maxspeed").text(NumberGetHumanReadable(data.maxspeed));
-    if (dataFlyCargoSpace >= 0) {
-        $("#consumption").html("<font color=\"lime\">" + NumberGetHumanReadable(dataFlyConsumption) + "</font>");
-        $("#storage").html("<font color=\"lime\">" + NumberGetHumanReadable(dataFlyCargoSpace) + "</font>");
-    } else {
-        $("#consumption").html("<font color=\"red\">" + NumberGetHumanReadable(dataFlyConsumption) + "</font>");
-        $("#storage").html("<font color=\"red\">" + NumberGetHumanReadable(dataFlyCargoSpace) + "</font>");
-    }
+	var seconds = dataFlyTime;
+	var hours = Math.floor(seconds / 3600);
+	seconds -= hours * 3600;
+	var minutes = Math.floor(seconds / 60);
+	seconds -= minutes * 60;
+	$("#duration").text(hours + (":" + dezInt(minutes, 2) + ":" + dezInt(seconds,2) + " h"));
+	$("#distance").text(NumberGetHumanReadable(dataFlyDistance));
+	$("#maxspeed").text(NumberGetHumanReadable(data.maxspeed));
+	if (dataFlyCargoSpace >= 0) {
+		$("#consumption").html("<font color=\"lime\">" + NumberGetHumanReadable(dataFlyConsumption) + "</font>");
+		$("#storage").html("<font color=\"lime\">" + NumberGetHumanReadable(dataFlyCargoSpace) + "</font>");
+	} else {
+		$("#consumption").html("<font color=\"red\">" + NumberGetHumanReadable(dataFlyConsumption) + "</font>");
+		$("#storage").html("<font color=\"red\">" + NumberGetHumanReadable(dataFlyCargoSpace) + "</font>");
+	}
 }
 
 function setACSTarget(galaxy, solarsystem, planet, type, tacs) {
-    setTarget(galaxy, solarsystem, planet, type);
-    updateVars();
-    document.getElementsByName("fleet_group")[0].value = tacs;
+	setTarget(galaxy, solarsystem, planet, type);
+	updateVars();
+	document.getElementsByName("fleet_group")[0].value = tacs;
 }
 
 function setTarget(galaxy, solarsystem, planet, type) {
-    document.getElementsByName("galaxy")[0].value = galaxy;
-    document.getElementsByName("system")[0].value = solarsystem;
-    document.getElementsByName("planet")[0].value = planet;
-    document.getElementsByName("type")[0].value = type;
+	document.getElementsByName("galaxy")[0].value = galaxy;
+	document.getElementsByName("system")[0].value = solarsystem;
+	document.getElementsByName("planet")[0].value = planet;
+	document.getElementsByName("type")[0].value = type;
 }
 
-function FleetTime() {
-    var sekunden = serverTime.getSeconds();
-    var starttime = dataFlyTime;
-    var endtime = starttime + dataFlyTime;
-    $("#arrival").html(getFormatedDate(serverTime.getTime() + 1000 * starttime, tdformat));
-    $("#return").html(getFormatedDate(serverTime.getTime() + 1000 * endtime, tdformat));
+function FleetTime(){ 
+	var sekunden = serverTime.getSeconds();
+	var starttime = dataFlyTime;
+	var endtime	= starttime + dataFlyTime;
+	$("#arrival").html(getFormatedDate(serverTime.getTime()+1000*starttime, tdformat));
+	$("#return").html(getFormatedDate(serverTime.getTime()+1000*endtime, tdformat));
 }
 
 function setResource(id, val) {
-    if (document.getElementsByName(id)[0]) {
-        document.getElementsByName("resource" + id)[0].value = val;
-    }
+	if (document.getElementsByName(id)[0]) {
+		document.getElementsByName("resource" + id)[0].value = val;
+	}
 }
 
 function maxResource(id) {
@@ -312,16 +313,18 @@ function setNumber(name, number) {
     }
 }
 
-function CheckTarget() {
-    kolo = (typeof data.ships[208] == "object") ? 1 : 0;
-    $.getJSON('game.php?page=fleetStep1&mode=checkTarget&galaxy=' + document.getElementsByName("galaxy")[0].value + '&system=' + document.getElementsByName("system")[0].value + '&planet=' + document.getElementsByName("planet")[0].value + '&planet_type=' + document.getElementsByName("type")[0].value + '&lang=' + Lang + '&kolo=' + kolo, function(data) {
-        if (data == "OK") {
-            document.getElementById('form').submit();
-        } else {
-            NotifyBox(data);
-        }
-    });
-    return false;
+function CheckTarget()
+{
+	kolo	= (typeof data.ships[208] == "object") ? 1 : 0;
+		
+	$.getJSON('game.php?page=fleetStep1&mode=checkTarget&galaxy='+document.getElementsByName("galaxy")[0].value+'&system='+document.getElementsByName("system")[0].value+'&planet='+document.getElementsByName("planet")[0].value+'&planet_type='+document.getElementsByName("type")[0].value+'&lang='+Lang+'&kolo='+kolo, function(data) {
+		if(data == "OK") {
+			document.getElementById('form').submit();
+		} else {
+			NotifyBox(data);
+		}
+	});
+	return false;
 }
 
 function EditShortcuts(autoadd) {
@@ -367,7 +370,7 @@ function SaveShortcuts(reedit) {
 }
 
 $(function() {
-	$('.shortcut-delete').live('click', function() {
+	$('.shortcut-delete').on('click', function() {
 		$(this).prev().val('');
 		$(this).parent().find('input');
 		SaveShortcuts(true);

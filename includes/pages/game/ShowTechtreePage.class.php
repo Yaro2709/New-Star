@@ -23,7 +23,7 @@ class ShowTechtreePage extends AbstractGamePage
     {
         parent::__construct();
     }
-    //code_update
+
 	function show()
 	{
 		global $USER, $PLANET, $resource, $reslist, $LNG, $pricelist, $requeriments;
@@ -67,5 +67,4 @@ class ShowTechtreePage extends AbstractGamePage
 
 		$this->display('page.techtree.default.tpl');
 	}
-    //code_update
 }

@@ -27,6 +27,7 @@ class ShowResourcesPage extends AbstractGamePage
     function AllPlanets()
 	{
 		global $reslist, $resource, $USER, $PLANET, $LNG;
+        
 		$db = Database::get();
 		$action = HTTP::_GP('action','');
 			
@@ -40,7 +41,7 @@ class ShowResourcesPage extends AbstractGamePage
 				':userID'		=> $USER['id']
             ));	
             
-            foreach($reslist['prod'] as $ProdID) //проверка всего масива элементов
+            foreach($reslist['prod'] as $ProdID)
             { 
                 $sql .= "UPDATE %%PLANETS%% SET
                     ".$resource[$ProdID]."_porcent = '11'
@@ -75,7 +76,7 @@ class ShowResourcesPage extends AbstractGamePage
 				':userID'		=> $USER['id']
             ));	
             
-            foreach($reslist['prod'] as $ProdID) //проверка всего масива элементов
+            foreach($reslist['prod'] as $ProdID)
             { 
                 $sql .= "UPDATE %%PLANETS%% SET
                     ".$resource[$ProdID]."_porcent = '0'
@@ -147,7 +148,6 @@ class ShowResourcesPage extends AbstractGamePage
 
 		$config	= Config::get();
 
-        //$new_code
         foreach(array_merge($reslist['resstype'][1], $reslist['resstype'][2]) as $res) {		
             $basicIncome[$res]	= $config->{$resource[$res].'_basic_income'};
         }
@@ -161,68 +161,17 @@ class ShowResourcesPage extends AbstractGamePage
         }
         
         include('includes/subclasses/subclass.Temp.php');
-        //$new_code
-		/* $old_code
-        
-        if($USER['urlaubs_modus'] == 1 || $PLANET['planet_type'] != 1)
-		{
-			$basicIncome[901]	= 0;
-			$basicIncome[902]	= 0;
-			$basicIncome[903]	= 0;
-			$basicIncome[911]	= 0;
-		}
-		else
-		{		
-			$basicIncome[901]	= $config->{$resource[901].'_basic_income'};
-			$basicIncome[902]	= $config->{$resource[902].'_basic_income'};
-			$basicIncome[903]	= $config->{$resource[903].'_basic_income'};
-			$basicIncome[911]	= $config->{$resource[911].'_basic_income'};
-		}
-        
-		$temp	= array(
-			901	=> array(
-				'plus'	=> 0,
-				'minus'	=> 0,
-			),
-			902	=> array(
-				'plus'	=> 0,
-				'minus'	=> 0,
-			),
-			903	=> array(
-				'plus'	=> 0,
-				'minus'	=> 0,
-			),
-			911	=> array(
-				'plus'	=> 0,
-				'minus'	=> 0,
-			)
-		);
-        $old_code */
 		
 		$ressIDs		= array_merge(array(), $reslist['resstype'][1], $reslist['resstype'][2]);
 
 		$productionList	= array();
-        /* $old_code
-		if($PLANET['energy_used'] != 0) {
-			$prodLevel	= min(1, $PLANET['energy'] / abs($PLANET['energy_used']));
-		} else {
-			$prodLevel	= 0;
-		}
-        $old_code */
-        //$new_code
-        //foreach($reslist['resstype'][2] as $resS) {
+
         if($PLANET[''.$resource[$resglobal['stop_product']].'_used'] != 0) {
             $prodLevel	= min(1, $PLANET[''.$resource[$resglobal['stop_product']].''] / abs($PLANET[''.$resource[$resglobal['stop_product']].'_used']));
         } else {
             $prodLevel	= 0;
         }
-        //}
-        //$new_code
 
-		/* Data for eval */
-        /* $old_code
-		$BuildEnergy		= $USER[$resource[113]];
-        $old_code */
 		$BuildTemp          = $PLANET['temp_max'];
         
 		foreach($reslist['prod'] as $ProdID)
@@ -239,7 +188,6 @@ class ShowResourcesPage extends AbstractGamePage
 				'prodLevel'		=> $PLANET[$resource[$ProdID].'_porcent'],
 			);
 
-			/* Data for eval */
 			$BuildLevel			= $PLANET[$resource[$ProdID]];
 			$BuildLevelFactor	= $PLANET[$resource[$ProdID].'_porcent'];
 
@@ -270,7 +218,7 @@ class ShowResourcesPage extends AbstractGamePage
 				}
 			}
 		}
-        //$new_code
+
         $storage	        = array();
 		$basicProduction	= array();
 		$totalProduction	= array();
@@ -278,7 +226,7 @@ class ShowResourcesPage extends AbstractGamePage
 		$dailyProduction	= array();
 		$weeklyProduction	= array();
         
-        foreach($reslist['resstype'][1] as $resP)//проверка всего масива элементов
+        foreach($reslist['resstype'][1] as $resP)
         { 
             $storage	        += array(
 			$resP => ($PLANET[$resource[$resP].'_max']));
@@ -299,7 +247,7 @@ class ShowResourcesPage extends AbstractGamePage
 			$resP => $totalProduction[$resP] * 168);
         }
         
-        foreach($reslist['resstype'][2] as $resS)//проверка всего масива элементов
+        foreach($reslist['resstype'][2] as $resS)
         { 
             $basicProduction	+= array(
 			$resS => $basicIncome[$resS] * $config->resource_multiplier);
@@ -316,50 +264,7 @@ class ShowResourcesPage extends AbstractGamePage
             $weeklyProduction	+= array(
 			$resS => $totalProduction[$resS]);
         }
-        
-        //$new_code
-        /*$old_code
-		$storage	= array(
-			901 => shortly_number($PLANET[$resource[901].'_max']),
-			902 => shortly_number($PLANET[$resource[902].'_max']),
-			903 => shortly_number($PLANET[$resource[903].'_max']),
-		);
-		
-		$basicProduction	= array(
-			901 => $basicIncome[901] * $config->resource_multiplier,
-			902 => $basicIncome[902] * $config->resource_multiplier,
-			903	=> $basicIncome[903] * $config->resource_multiplier,
-			911	=> $basicIncome[911] * $config->energySpeed,
-		);
-		
-		$totalProduction	= array(
-			901 => $PLANET[$resource[901].'_perhour'] + $basicProduction[901],
-			902 => $PLANET[$resource[902].'_perhour'] + $basicProduction[902],
-			903	=> $PLANET[$resource[903].'_perhour'] + $basicProduction[903],
-			911	=> $PLANET[$resource[911]] + $basicProduction[911] + $PLANET[$resource[911].'_used'],
-		);
-		
-		$bonusProduction	= array(
-			901 => $temp[901]['plus'] * ($USER['factor']['Resource'] + $USER['factor']['Pmetal']),
-			902 => $temp[902]['plus'] * ($USER['factor']['Resource'] + $USER['factor']['Pcrystal']),
-			903	=> $temp[903]['plus'] * ($USER['factor']['Resource'] + $USER['factor']['Pdeuterium']),
-			911	=> $temp[911]['plus'] * $USER['factor']['Senergy'],
-		);
-		
-		$dailyProduction	= array(
-			901 => $totalProduction[901] * 24,
-			902 => $totalProduction[902] * 24,
-			903	=> $totalProduction[903] * 24,
-			911	=> $totalProduction[911],
-		);
-		
-		$weeklyProduction	= array(
-			901 => $totalProduction[901] * 168,
-			902 => $totalProduction[902] * 168,
-			903	=> $totalProduction[903] * 168,
-			911	=> $totalProduction[911],
-		);
-		$old_code*/	
+
 		$prodSelector	= array();
 		
 		foreach(range(10, 0) as $percent) {

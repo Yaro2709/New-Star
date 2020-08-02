@@ -15,7 +15,6 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
-//$new_code
 $planetData	= array(
 	1 => array(
         'temp' => mt_rand(220, 260),	
@@ -114,4 +113,3 @@ $planetData	= array(
         'image' => array(
             'eis' => mt_rand(1, 10)))
 );
-//$new_code

@@ -26,7 +26,7 @@ class ShowBuyDefensePage extends AbstractGamePage
 	
 	public function send()
 	{
-		global $USER, $PLANET, $LNG, $pricelist, $resource, $reslist;
+		global $USER, $PLANET, $LNG, $pricelist, $resource, $reslist, $resglobal;
         
         //Проверка на цену покупки
 		$Element			= HTTP::_GP('Element', 0);
@@ -44,13 +44,13 @@ class ShowBuyDefensePage extends AbstractGamePage
 		if(!empty($Element) && in_array($Element, $reslist['defense']) && BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element) && in_array($Element, $reslist['defense']) || in_array($Element, $reslist['not_bought']))
 		{ 
             //Нехватка ресурса.
-			if($USER[$resource[921]] < $cost )
+			if($USER[$resource[$resglobal['buy_instantly']]] < $cost )
 			{
 				$this->printMessage("".$LNG['bd_notres']."", true, array("game.php?page=buydefense", 1));
 				return;
 			}
 			//Всего хватает.
-			$USER[$resource[921]]			    -= $cost;
+			$USER[$resource[$resglobal['buy_instantly']]] -= $cost;
 			
             $sql	= 'UPDATE %%PLANETS%% SET
             '.$resource[$Element].' = '.$resource[$Element].' + '.$Count.'
@@ -67,7 +67,7 @@ class ShowBuyDefensePage extends AbstractGamePage
 	
 	function show()
 	{
-		global $PLANET, $LNG, $pricelist, $resource, $reslist, $USER;
+		global $PLANET, $LNG, $pricelist, $resource, $reslist, $USER, $resglobal;
         
         //Перебор
 		$allowedElements = array();
@@ -85,8 +85,9 @@ class ShowBuyDefensePage extends AbstractGamePage
 		}
 		$this->tplObj->loadscript('buy.js');
 		$this->tplObj->assign_vars(array(
-			'Elements'	=> $allowedElements,
-			'CostInfos'	=> $Cost,
+            'buy_instantly'	=> $resglobal['buy_instantly'],
+			'Elements'	    => $allowedElements,
+			'CostInfos'	    => $Cost,
 		));
 		
 		$this->display('page.buyDefense.default.tpl');

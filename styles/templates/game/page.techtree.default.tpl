@@ -30,7 +30,7 @@
             <div class="record_rows">
                <div class="record_img_utits">
                   <a href="#" onclick="return Dialog.info({$elementID})">
-                  <img alt="" src="{$dpath}gebaeude/{$elementID}.{if $elementID >=600 && $elementID <= 699}jpg{else}gif{/if}">
+                  <img alt="" src="{$dpath}gebaeude/{$elementID}.gif">
                   </a>
                </div>
                <div class="record_name_utits">
@@ -41,7 +41,7 @@
                   {foreach $requireList as $requireID => $NeedLevel}
                   <div class="required_block required_smal_text">
                      <a href="#" onclick="return Dialog.info({$requireID})" class="tooltip" data-tooltip-content="<span style='color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};'>{$LNG.tech.$requireID} ({$LNG.tt_lvl} {min($NeedLevel.count, $NeedLevel.own)}/{$NeedLevel.count})</span>">
-                        <img src="{$dpath}gebaeude/{$requireID}.{if $requireID >=600 && $requireID <= 699}jpg{else}gif{/if}" alt="{$LNG.tech.$requireID}" />
+                        <img src="{$dpath}gebaeude/{$requireID}.gif" alt="{$LNG.tech.$requireID}" />
                         <div class="text" style="color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};">{$NeedLevel.count}</div>
                      </a>
                   </div>

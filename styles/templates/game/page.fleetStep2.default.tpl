@@ -36,21 +36,21 @@
 								
 								
                             <div class="fl_res_rows_input_div">
-                            	<img class="fl_res_rows_ico_img" alt="{$LNG.met}"  title="{$LNG.met}" src="{$dpath}img/resources/metall.gif" />
+                            	<img class="fl_res_rows_ico_img" alt="{$LNG.met}"  title="{$LNG.met}" src="{$dpath}img/resources/901f.png" />
                                  <div onclick="minResource('metal');" class="fl_res_rows_input_min">Min</div>
                                  <div onclick="maxResource('metal');" class="fl_res_rows_input_max">Max</div>
                                  <input class="countdots fl_res_rows_input_countdots" name="metal" onchange="calculateTransportCapacity();" type="text">
                             </div>
                     
                         	<div class="fl_res_rows_input_div">
-                            	<img class="fl_res_rows_ico_img" alt="{$LNG.cry}"  title="{$LNG.cry}" src="{$dpath}img/resources/kristall.gif" />
+                            	<img class="fl_res_rows_ico_img" alt="{$LNG.cry}"  title="{$LNG.cry}" src="{$dpath}img/resources/902f.png" />
                                  <div onclick="minResource('crystal');" class="fl_res_rows_input_min">Min</div>
                                  <div onclick="maxResource('crystal');" class="fl_res_rows_input_max">Max</div>
                                  <input class="countdots fl_res_rows_input_countdots" name="crystal" onchange="calculateTransportCapacity();" type="text">
                             </div>
                        
                         	<div class="fl_res_rows_input_div">
-                            	<img class="fl_res_rows_ico_img" alt="{$LNG.det}"  title="{$LNG.det}" src="{$dpath}img/resources/deuterium.gif" />
+                            	<img class="fl_res_rows_ico_img" alt="{$LNG.det}"  title="{$LNG.det}" src="{$dpath}img/resources/903f.png" />
                                  <div onclick="minResource('deuterium');" class="fl_res_rows_input_min">Min</div>
                                  <div onclick="maxResource('deuterium');" class="fl_res_rows_input_max">Max</div>
                                  <input class="countdots fl_res_rows_input_countdots" name="deuterium" onchange="calculateTransportCapacity();" type="text">

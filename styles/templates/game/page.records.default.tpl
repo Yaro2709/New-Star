@@ -25,7 +25,7 @@
          {/if}
          <div class="record_img_utits">
             <a href="#" onclick="return Dialog.info({$elementID})">
-            <img src="{$dpath}gebaeude/{$elementID}.{if $elementID >=600 && $elementID <= 699}jpg{else}gif{/if}">
+            <img src="{$dpath}gebaeude/{$elementID}.gif">
             </a>
          </div>
          <div class="record_name_utits">
@@ -67,7 +67,7 @@
          {/if}
          <div class="record_img_utits">
             <a href="#" onclick="return Dialog.info({$elementID})">
-            <img src="{$dpath}gebaeude/{$elementID}.{if $elementID >=600 && $elementID <= 699}jpg{else}gif{/if}">
+            <img src="{$dpath}gebaeude/{$elementID}.gif">
             </a>
          </div>
          <div class="record_name_utits">
@@ -109,7 +109,7 @@
          {/if}
          <div class="record_img_utits">
             <a href="#" onclick="return Dialog.info({$elementID})">
-            <img src="{$dpath}gebaeude/{$elementID}.{if $elementID >=600 && $elementID <= 699}jpg{else}gif{/if}">
+            <img src="{$dpath}gebaeude/{$elementID}.gif">
             </a>
          </div>
          <div class="record_name_utits">
@@ -151,7 +151,7 @@
          {/if}
          <div class="record_img_utits">
             <a href="#" onclick="return Dialog.info({$elementID})">
-            <img src="{$dpath}gebaeude/{$elementID}.{if $elementID >=600 && $elementID <= 699}jpg{else}gif{/if}">
+            <img src="{$dpath}gebaeude/{$elementID}.gif">
             </a>
          </div>
          <div class="record_name_utits">

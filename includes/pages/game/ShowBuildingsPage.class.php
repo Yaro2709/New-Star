@@ -99,15 +99,8 @@ class ShowBuildingsPage extends AbstractGamePage
 		$BuildMode          	= $CurrentQueue[0][4];
 		
 		$costResources			= BuildFunctions::getElementPrice($USER, $PLANET, $Element, $BuildMode == 'destroy');
-		/*$old_code
-		if(isset($costResources[901])) { $PLANET[$resource[901]]	+= $costResources[901]; }
-		if(isset($costResources[902])) { $PLANET[$resource[902]]	+= $costResources[902]; }
-		if(isset($costResources[903])) { $PLANET[$resource[903]]	+= $costResources[903]; }
-		if(isset($costResources[921])) { $USER[$resource[921]]		+= $costResources[921]; }
-        $old_code*/
-        //$new_code
         require_once('includes/subclasses/subclass.ResPlus.php');
-        //$new_code
+
 		array_shift($CurrentQueue);
 		if (count($CurrentQueue) == 0) {
 			$PLANET['b_building']    	= 0;
@@ -204,14 +197,10 @@ class ShowBuildingsPage extends AbstractGamePage
 		
 		if(!in_array($Element, $reslist['allow'][$PLANET['planet_type']])
 			|| !BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element) 
-            /*$old_code
-			|| ($Element == 31 && $USER["b_tech_planet"] != 0) 
-			|| (($Element == 15 || $Element == 21) && !empty($PLANET['b_hangar_id']))
-            $old_code*/
 			|| (!$AddMode && $PLANET[$resource[$Element]] == 0)
 		)
 			return;
-        //$new_code
+
         foreach($reslist['lab'] as $lab) {
             if($Element == $lab && $USER["b_tech_planet"] != 0)
                 return;
@@ -221,10 +210,9 @@ class ShowBuildingsPage extends AbstractGamePage
             if($Element == $shipyard && !empty($PLANET['b_hangar_id']))
                 return;
         }
-		//$new_code
-		$CurrentQueue  		= unserialize($PLANET['b_building_id']);
 
-				
+		$CurrentQueue  		= unserialize($PLANET['b_building_id']);
+	
 		if (!empty($CurrentQueue)) {
 			$ActualCount	= count($CurrentQueue);
 		} else {
@@ -254,15 +242,8 @@ class ShowBuildingsPage extends AbstractGamePage
 			
 			if(!BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources))
 				return;
-			/*$old_code
-			if(isset($costResources[901])) { $PLANET[$resource[901]]	-= $costResources[901]; }
-			if(isset($costResources[902])) { $PLANET[$resource[902]]	-= $costResources[902]; }
-			if(isset($costResources[903])) { $PLANET[$resource[903]]	-= $costResources[903]; }
-			if(isset($costResources[921])) { $USER[$resource[921]]		-= $costResources[921]; }
-            $old_code*/
-            //$new_code
+
             require_once('includes/subclasses/subclass.ResMinus.php');
-            //$new_code
             
             $elementTime    			= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $costResources);
 			$BuildEndTime				= TIMESTAMP + $elementTime;
@@ -296,9 +277,8 @@ class ShowBuildingsPage extends AbstractGamePage
 			$CurrentQueue[]				= array($Element, $BuildLevel, $elementTime, $BuildEndTime, $BuildMode);
 			$PLANET['b_building_id']	= serialize($CurrentQueue);		
 		}
-
-	
-}
+    }
+    
 	private function getQueueData()
 	{
 		global $LNG, $PLANET, $USER;
@@ -385,9 +365,6 @@ class ShowBuildingsPage extends AbstractGamePage
 		$CurrentMaxFields   = CalculateMaxPlanetFields($PLANET);
 		
 		$RoomIsOk 			= $PLANET['field_current'] < ($CurrentMaxFields - $QueueCount);	
-		/*$old_code	
-		$BuildEnergy		= $USER[$resource[113]];
-        $old_code */
 		$BuildLevelFactor   = 10;
 		$BuildTemp          = $PLANET['temp_max'];
 
@@ -397,9 +374,6 @@ class ShowBuildingsPage extends AbstractGamePage
 		
 		foreach($Elements as $ID => $Element)
 		{
-			
-			//$infoEnergy	= "";
-			
 			if(isset($queueData['quickinfo'][$Element]))
 			{
 				$levelToBuild	= $queueData['quickinfo'][$Element];
@@ -408,28 +382,7 @@ class ShowBuildingsPage extends AbstractGamePage
 			{
 				$levelToBuild	= $PLANET[$resource[$Element]];
 			}
-			
-			/*$old_code
-			if(in_array($Element, $reslist['prod']))
-			{
-				$BuildLevel	= $PLANET[$resource[$Element]];
-				$Need		= eval(ResourceUpdate::getProd($ProdGrid[$Element]['production'][911]));
-									
-				$BuildLevel	= $levelToBuild + 1;
-				$Prod		= eval(ResourceUpdate::getProd($ProdGrid[$Element]['production'][911]));
-					
-				$requireEnergy	= $Prod - $Need;
-				$requireEnergy	= round($requireEnergy * $config->energySpeed);
 
-				if($requireEnergy < 0) {
-					$infoEnergy	= sprintf($LNG['bd_need_engine'], pretty_number(abs($requireEnergy)), $LNG['tech'][911]);
-				} else {
-					$infoEnergy	= sprintf($LNG['bd_more_engine'], pretty_number(abs($requireEnergy)), $LNG['tech'][911]);
-				}
-			}
-            $old_code*/
-            
-            //$new_code
             foreach(array_merge($reslist['resstype'][1], $reslist['resstype'][2]) as $res)
             { 
                 $info_production[''.$res.'']	= "";
@@ -481,7 +434,7 @@ class ShowBuildingsPage extends AbstractGamePage
                     }
                 }
             }
-			//$new_code
+
 			$techTreeList		= BuildFunctions::requirementsList($Element);
 			$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element, false, $levelToBuild);
 			$costOverflow		= BuildFunctions::getRestPrice($USER, $PLANET, $Element, $costResources);
@@ -509,7 +462,6 @@ class ShowBuildingsPage extends AbstractGamePage
                 'storage'		        => $reslist['resstype'][1],
 			);
             
-            //$new_code
             foreach(array_merge($reslist['resstype'][1], $reslist['resstype'][2]) as $res)
             { 
                 $class_production = 5000;
@@ -531,7 +483,6 @@ class ShowBuildingsPage extends AbstractGamePage
                     'class_storage'	            => $class_storage,
                 );
             }
-            //$new_code
 		}
 
 		$this->tplObj->loadscript('buildlist.js');

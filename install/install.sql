@@ -1240,10 +1240,11 @@ INSERT INTO `%PREFIX%news` (`id`, `user`, `date`, `title`, `text`) VALUES
 (9, 'Yaro2709', 1594830408, '', ''),
 (10, 'Yaro2709', 1595173781, '', ''),
 (11, 'Yaro2709', 1595519463, '', ''),
-(12, 'Yaro2709', 1595930886, '', '');
+(12, 'Yaro2709', 1595930886, '', ''),
+(13, 'Yaro2709', 1596366577, '', '');
 
 ALTER TABLE `%PREFIX%news`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 INSERT INTO `%PREFIX%system` (`dbVersion`) VALUES

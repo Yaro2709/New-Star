@@ -49,7 +49,7 @@ class ShowFleetStep2Page extends AbstractGamePage
 		$fleetArray    				= $_SESSION['fleet'][$token]['fleet'];
 
         $db = Database::get();
-        $sql = "SELECT id, id_owner, der_metal, der_crystal FROM %%PLANETS%% WHERE universe = :universe AND galaxy = :targetGalaxy AND `system` = :targetSystem AND planet = :targetPlanet AND planet_type = '1';";
+        $sql = "SELECT * FROM %%PLANETS%% WHERE universe = :universe AND galaxy = :targetGalaxy AND `system` = :targetSystem AND planet = :targetPlanet AND planet_type = '1';";
         $targetPlanetData = $db->selectSingle($sql, array(
             ':universe' => Universe::current(),
             ':targetGalaxy' => $targetGalaxy,
@@ -132,7 +132,7 @@ class ShowFleetStep2Page extends AbstractGamePage
 			'MissionSelector' 				=> $MissionOutput['MissionSelector'],
 			//'Sector' 						=> $MissionOutput['Sector'],
 			'StaySelector' 					=> $MissionOutput['StayBlock'],
-			'fl_dm_alert_message'			=> sprintf($LNG['fl_dm_alert_message'], $LNG['type_mission'][11], $LNG['tech'][921]),
+			'fl_dm_alert_message'			=> $LNG['fl_dm_alert_message'],
 			'fl_continue'					=> $LNG['fl_continue'],
 			'token' 						=> $token,
 

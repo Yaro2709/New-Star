@@ -3,6 +3,24 @@
 // All rights reserved from 2020;
 // Company 1367.
 
+$LNG['head'][13] = 'New-Star V1.1.3';
+$LNG['text'][13] = 'Design:
+✔ Fixed problems with game design (Yaro2709);
+✔ Other small changes (Yaro2709);
+Engine:
+✔ New feature (resourcesPoints, minPlanetPerTech, getReslist) (Yaro2709);
+✔ General resolution of pictures and their update (Yaro2709);
+✔ Other small changes (Yaro2709);
+Improvements:
+✔ Fixed speed issues (Yaro2709);
+✔ Fixed problems with the market (Yaro2709);
+✔ Fixed a problem with buying buildings (Yaro2709);
+✔ The expedition is delayed at coordinates (Yaro2709);
+✔ Other small changes (Yaro2709);
+Mods:
+✔ Added wreckage search mod (Yaro2709);
+✔ Other small changes (Yaro2709).';
+
 $LNG['head'][12] = 'New-Star V1.1.2';
 $LNG['text'][12] = 'Design:
 ✔ Fixed problems with game design (Yaro2709);

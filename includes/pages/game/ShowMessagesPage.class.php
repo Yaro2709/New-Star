@@ -23,7 +23,7 @@ class ShowMessagesPage extends AbstractGamePage
     {
         parent::__construct();
     }
-    //code_update
+
 	function delonemsg()
     {
         global $USER, $LNG;
@@ -54,7 +54,7 @@ class ShowMessagesPage extends AbstractGamePage
         $sql	= "UPDATE %%MESSAGES%% SET message_type = 200 WHERE message_id = ".$MsgID.";";
 		$db->update($sql, array());
 	}
-    //code_update
+
     function view()
     {
         global $LNG, $USER;
@@ -302,7 +302,6 @@ class ShowMessagesPage extends AbstractGamePage
                     ));
                 }
 			break;
-            //code_update
             case 'archivemarked':
 				if(empty($messageIDs))
 				{
@@ -321,7 +320,6 @@ class ShowMessagesPage extends AbstractGamePage
                     ':userId' => $USER['id'],
                 ));
 			break;
-            //code_update
             case 'deleteunmarked':
                 if(empty($messageIDs) || !is_array($messageIDs))
                 {

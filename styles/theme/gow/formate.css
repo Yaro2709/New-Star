@@ -602,7 +602,8 @@ input[type=checkbox]{
 	
 }
 body {
-	background:url("./img/general/bkd_page.jpg")repeat #0d0d0d;
+	/* background:url("./img/general/bkd_page.jpg")repeat #0d0d0d; */
+    background: url(./img/general/quadrato.png) repeat, url(./img/general/sfondonuovo.jpg);
 }
 
 body,input,select,button,textarea,td,th,tr,table{
@@ -783,7 +784,6 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 	border-left:1px solid #00060f;
 	width:0;
 	float:left;
-	margin-left:3px;
 	height:28px;
 }
 .moon_select{
@@ -1006,7 +1006,7 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
     left: 0;
     right: 0;
     min-width: 800px;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     top: -3px;
 }
 /* #res_nav .bloc_res{
@@ -1021,13 +1021,13 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 } */
 #res_nav .bloc_res {
     margin-left: 0%;
-    width: 13.5%;
+    width: 14.2%;
     float: left;
     position: relative;
     z-index: 3;
     height: 22px;
     overflow: hidden;
-    max-width: 220px;
+    /* max-width: 220px; */
 }
 /*
 #res_nav .bloc_res .ico_res{
@@ -1157,7 +1157,7 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 }
 #res_nav #res_block_metal .stock_percentage{
 	border:1px solid #775e5d;
-	background:#5e4240 url(../images/metall_percentage.gif) repeat-x;
+	background:#5e4240 url(./img/resources/901f.gif) repeat-x;
 }
 /*kristall*/
 #res_nav #res_block_crystal .ico_res{
@@ -1166,7 +1166,7 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 }
 #res_nav #res_block_crystal .stock_percentage{
 	border:1px solid #5892e7;
-	background:#4a78bc url(../images/kristall_percentage.gif) repeat-x;
+	background:#4a78bc url(./img/resources/902f.gif) repeat-x;
 }
 /*deuterium*/
 #res_nav #res_block_deuterium .ico_res{
@@ -1176,7 +1176,7 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 }
 #res_nav #res_block_deuterium .stock_percentage{
 	border:1px solid #33ac5d;
-	background:#268246 url(../images/deuterium_percentage.gif) repeat-x;
+	background:#268246 url(./img/resources/903f.gif) repeat-x;
 }
 /*energie*/
 #res_nav #res_block_energy .ico_res{
@@ -1189,7 +1189,7 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 	right:50%;
 	left:auto;
 	border:1px solid #a4002a;
-	background:#79001d url(../images/energie_percentage_left.gif) repeat-x;
+	background:#79001d url(./img/resources/922f.gif) repeat-x;
 	margin-right:-1px;
 	max-width: 47% !important;
 	-moz-border-radius: 4px 0px 0px 4px;
@@ -1200,7 +1200,7 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 	left: 50%;
     border: 1px solid #fcb057;
     max-width: 47% !important;
-    background: #df9949 url(../images/energie_percentage_right.gif) repeat-x;
+    background: #df9949 url(./img/resources/911f.gif) repeat-x;
     -moz-border-radius: 0 4px 4px 0px;
     -webkit-border-radius: 0 4px 4px 0px;
     border-radius: 0 4px 4px 0px;
@@ -1223,7 +1223,7 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 	right:50%;
 	left:auto;
 	border:1px solid #a4002a;
-	background:#79001d url(../images/energie_percentage_left.gif) repeat-x;
+	background:#79001d url(./img/resources/922f.gif) repeat-x;
 	margin-right:-1px;
 	max-width: 47% !important;
 	-moz-border-radius: 4px 0px 0px 4px;
@@ -1234,7 +1234,7 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
     left: 50%;
     border: 1px solid #d85c09;
     max-width: 47% !important;
-    background: #b14a08 url(../images/energie_percentage_right.gif) repeat-x;
+    background: #b14a08 url(./img/resources/912f.gif) repeat-x;
     moz-border-radius: 0 4px 4px 0px;
     -webkit-border-radius: 0 4px 4px 0px;
     border-radius: 0 4px 4px 0px;
@@ -1257,7 +1257,7 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 	right:50%;
 	left:auto;
 	border:1px solid #a4002a;
-	background:#79001d url(../images/energie_percentage_left.gif) repeat-x;
+	background:#79001d url(./img/resources/922f.gif) repeat-x;
 	margin-right:-1px;
 	max-width: 47% !important;
 	-moz-border-radius: 4px 0px 0px 4px;
@@ -1268,7 +1268,7 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
     left: 50%;
     border: 1px solid #2c54a2;
     max-width: 47% !important;
-    background: #223760 url(../images/energie_percentage_right.gif) repeat-x;
+    background: #223760 url(./img/resources/913f.gif) repeat-x;
     -moz-border-radius: 0 4px 4px 0px;
     -webkit-border-radius: 0 4px 4px 0px;
     border-radius: 0 4px 4px 0px;
@@ -1291,7 +1291,7 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 	right:50%;
 	left:auto;
 	border:1px solid #a4002a;
-	background:#79001d url(../images/energie_percentage_left.gif) repeat-x;
+	background:#79001d url(./img/resources/922f.gif) repeat-x;
 	margin-right:-1px;
 	max-width: 47% !important;
 	-moz-border-radius: 4px 0px 0px 4px;
@@ -1302,7 +1302,7 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
     left: 50%;
     border: 1px solid #a07848;
     max-width: 47% !important;
-    background: #8c750b url(../images/energie_percentage_right.gif) repeat-x;
+    background: #8c750b url(./img/resources/914f.gif) repeat-x;
     -moz-border-radius: 0 4px 4px 0px;
     -webkit-border-radius: 0 4px 4px 0px;
     border-radius: 0 4px 4px 0px;
@@ -1325,7 +1325,7 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 	right:50%;
 	left:auto;
 	border:1px solid #a4002a;
-	background:#79001d url(../images/energie_percentage_left.gif) repeat-x;
+	background:#79001d url(./img/resources/922f.gif) repeat-x;
 	margin-right:-1px;
 	max-width: 47% !important;
 	-moz-border-radius: 4px 0px 0px 4px;
@@ -1334,9 +1334,9 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 }
 #res_nav #res_block_defense .stock_percentage_right{
     left: 50%;
-    border: 1px solid #414760;
+    border: 1px solid #5e65a0;
     max-width: 47% !important;
-    background: #5f6397 url(../images/energie_percentage_right.gif) repeat-x;
+    background: #5f6397 url(./img/resources/915f.gif) repeat-x;
     -moz-border-radius: 0 4px 4px 0px;
     -webkit-border-radius: 0 4px 4px 0px;
     border-radius: 0 4px 4px 0px;
@@ -1359,7 +1359,7 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 	right:50%;
 	left:auto;
 	border:1px solid #a4002a;
-	background:#79001d url(../images/energie_percentage_left.gif) repeat-x;
+	background:#79001d url(./img/resources/922f.gif) repeat-x;
 	margin-right:-1px;
 	max-width: 47% !important;
 	-moz-border-radius: 4px 0px 0px 4px;
@@ -1368,9 +1368,9 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 }
 #res_nav #res_block_missile .stock_percentage_right{
     left: 50%;
-    border: 1px solid #045c1d;
+    border: 1px solid #029407;
     max-width: 47% !important;
-    background: #047e16 url(../images/energie_percentage_right.gif) repeat-x;
+    background: #047e16 url(./img/resources/916f.gif) repeat-x;
     -moz-border-radius: 0 4px 4px 0px;
     -webkit-border-radius: 0 4px 4px 0px;
     border-radius: 0 4px 4px 0px;
@@ -2384,6 +2384,9 @@ body.mceContentBody,input,select,option,textarea, .ui-widget-content{
 }
 .ico_reducefleet{
 	background-image:url(./img/iconav/reducefleet.png);
+}
+.ico_finddebris{
+	background-image:url(./img/iconav/trash_big.png);
 }
 #ally_content .office{padding-left:20px;}
 .storage{
@@ -4205,7 +4208,6 @@ button.btn_build_part_leftamr {}
     -webkit-border-radius: 6px;
     border-radius: 6px;
 	    background-color: #000813;
-	background-image: url(../images/ally_default.png);
 }
 .ally_img .designation{
 	    padding: 0px 0px 7px 7px;
@@ -5395,6 +5397,7 @@ transition: all 0.2s ease-in;}
 .i-miss8o{background-image:url(./img/iconav/8-o.png);}
 .i-miss9o{background-image:url(./img/iconav/9-o.png);}
 .i-miss10o{background-image:url(./img/iconav/10-o.png);}
+.i-miss11o{background-image:url(./img/iconav/11-o.png);}
 .i-miss12o{background-image:url(./img/iconav/12-o.png);}
 .i-miss15o{background-image:url(./img/iconav/15-o.png);}
 .i-miss16o{background-image:url(./img/iconav/16-o.png);}
@@ -5841,7 +5844,7 @@ transition: all 0.8s ease-in;
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
 	width: 714px;
-	background:#000D20 url(../images/ach_menu_bg.gif) left repeat-y;
+	background:#000D20 url(./img/general/ach_menu_bg.gif) left repeat-y;
 	overflow:hidden;
 	    box-shadow: inset 0 1px 1px rgb(20, 44, 82), inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #040f1f;
 }
@@ -6862,13 +6865,13 @@ table.lots tr:nth-child(2n+2) td{
 	top:0;
 }
 .imper_block_td .occupancy_901{
-	background: #5e4240 url(../images/metall_percentage.gif) repeat-x;
+	background: #5e4240 url(./img/resources/901f.gif) repeat-x;
 }
 .imper_block_td .occupancy_902{
-	background: #4a78bc url(../images/kristall_percentage.gif) repeat-x;
+	background: #4a78bc url(./img/resources/902f.gif) repeat-x;
 }
 .imper_block_td .occupancy_903{
-	background: #268246 url(../images/deuterium_percentage.gif) repeat-x;
+	background: #268246 url(./img/resources/903f.gif) repeat-x;
 }
 .imper_block_vertical{
 	width:160px;
@@ -10859,12 +10862,12 @@ vertical-align: text-top;margin-right: -10px;margin-left: 5px;
 	right:1px;
 }
 #top_nav_parte_right .separator_nav, #top_nav_parte_left .separator_nav, #top_nav_parte_sotto .separator_nav{
-	border-right:1px solid #0a1628;
-	border-left:1px solid #000814;
-	width:0;
-	float:left;
-	height:28px;	
-	margin:1px 3px;
+    /* border-right: 1px solid #0a1628; */
+    /* border-left: 1px solid #000814; */
+    width: 0;
+    float: left;
+    height: 28px;
+    margin: 1px 4px;
 }
 /*planet_select*/
 #planeto_select{
@@ -17715,7 +17718,48 @@ span.rexx20 {}
     position: absolute;
     z-index: 1;
     background: #200505 !important;
-    background-image: url(../images/931f.png) !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center right !important;
+    line-height: 22px;
+    bottom: 4px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    transition-duration: 0.5s;
+    right: 4px;
+    font-family: "BicubikRegular", Arial, Geneva, sans-serif;
+}
+.markett60 {
+    text-align: center;
+    height: 23px;
+    font-size: 13px;
+    cursor: pointer;
+    border: 1px solid #6f5225;
+    position: absolute;
+    z-index: 1;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center right !important;
+    line-height: 22px;
+    bottom: 4px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    transition-duration: 0.5s;
+    right: 4px;
+}
+.markett61{
+    text-align: center;
+    width: 100px;
+    height: 21px;
+    color: rgb(0 125 159) !important;
+    font-size: 13px;
+    cursor: pointer;
+    border: 1px solid #09667d;
+    position: absolute;
+    z-index: 1;
+    background: #013140 !important;
     background-size: contain !important;
     background-repeat: no-repeat !important;
     background-position: center right !important;
@@ -17729,6 +17773,8 @@ span.rexx20 {}
     font-family: "BicubikRegular", Arial, Geneva, sans-serif;
 }
 .markett6:hover{border: 1px solid #671f1f;}
+.markett60:hover{border: 1px solid #94661e;}
+.markett61:hover{border: 1px solid #0894b7;}
 .markett7{bottom: 8px;
     right: 215px;
     position: absolute;
@@ -17763,7 +17809,9 @@ span.rexx20 {}
     right: 122px;
     top: 10px;
     font-size: 21px;
-    color: #e6e6e6;}
+    color: #e6e6e6;}  
+    
+    
 .overvire{    margin-left: 4px;
     background: rgba(0, 0, 0, 0.25) url(../images/saturn.png) no-repeat center;
     background-size: 35px;}

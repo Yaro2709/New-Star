@@ -79,15 +79,6 @@ class ShowImperiumPage extends AbstractGamePage
 			
 			$planetList['field'][$Planet['id']]['current']		= $Planet['field_current'];
 			$planetList['field'][$Planet['id']]['max']			= CalculateMaxPlanetFields($Planet);
-            /*$old_code
-			$planetList['energy_used'][$Planet['id']]			= $Planet['energy'] + $Planet['energy_used'];
-
-			$planetList['resource'][901][$Planet['id']]			= $Planet['metal'];
-			$planetList['resource'][902][$Planet['id']]			= $Planet['crystal'];
-			$planetList['resource'][903][$Planet['id']]			= $Planet['deuterium'];
-			$planetList['resource'][911][$Planet['id']]			= $Planet['energy'];
-            $old_code*/
-            //$new_code
             //НЕ ИСПОЛЬЗУЕТСЯ
             foreach($reslist['resstype'][2] as $elementID) {
 				$planetList[''.$resource[$elementID].'_used'][$Planet['id']]	= $Planet[''.$resource[$elementID].''] + $Planet[''.$resource[$elementID].'_used'];
@@ -99,7 +90,6 @@ class ShowImperiumPage extends AbstractGamePage
             foreach($reslist['resstype'][1] as $elementID) {
                 $planetList['res'][$elementID][$Planet['id']]	    = $Planet[$resource[$elementID].'_perhour'];
 			}
-            //$new_code
             
 			foreach($reslist['build'] as $elementID) {
 				$planetList['build'][$elementID][$Planet['id']]	= $Planet[$resource[$elementID]];

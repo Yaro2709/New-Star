@@ -201,6 +201,8 @@ class ShowAlliancePage extends AbstractGamePage
 		$allianceResult = $db->selectSingle($sql, array(
 			':userId'	=> $USER['id_planet']
 		));
+        
+        if(empty($allianceResult['ally_tag'])) { $allianceResult['ally_tag'] = 0; }
 
 		$this->assign(array(
 			'request_text'	=> sprintf($LNG['al_request_wait_message'], $allianceResult['ally_tag']),

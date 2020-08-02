@@ -10,7 +10,7 @@
 	<form action="game.php?page=fleetStep2" method="post" onsubmit="return CheckTarget()" id="form">
 	<input type="hidden" name="token" value="{$token}">
 	<input type="hidden" name="fleet_group" value="0">
-    <input type="hidden" name="mission" value="{$mission}">
+    <input type="hidden" name="target_mission" value="{$mission}">
     
 	
 	<div class="fleetstep1-1">
@@ -93,7 +93,7 @@
                      </div>
                      <div class="shortcut-edit" style="display: none;">
                         <select class="shortcut-input shortcut-input-type" name="shortcut[][type]">
-                        {html_options selected=$shortcutRow.type options=$typeSelect}
+                        {html_options options=$typeSelect}
                         </select>
                      </div>
                   </div>

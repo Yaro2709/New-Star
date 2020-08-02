@@ -19,7 +19,7 @@
                     </div>
                     <div class="content_box">
                         <div class="image_mini" style="height: 105px; width: 105px;">
-                            <img src="{$dpath}gebaeude/{$ID}.png" alt="{$LNG.tech.{$ID}}">
+                            <img src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}">
                         </div>
                         <div class="prices_mini" style="margin-left: 113px; height: 155px;">
                             <font color="#096">{foreach $Element.elementBonus as $BonusName => $Bonus}{if $Bonus[0] < 0}-{else}+{/if}{if $Bonus[1] == 0}{abs($Bonus[0] * 100)}%{else}{floatval($Bonus[0])}{/if} {$LNG.bonus.$BonusName}<br>{/foreach}</font>

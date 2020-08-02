@@ -201,7 +201,7 @@ class BuildFunctions
             $elementPrice	= self::getElementPrice($USER, $PLANET, $Element, $forDestroy, $forLevel);
         }
         
-        foreach($reslist['build_speed_res'] as $res) //проверка всего масива элементов
+        foreach($reslist['build_speed_res'] as $res) 
         {
             if(isset($elementPrice[$res])) {
                 $elementCost	+= $elementPrice[$res];
@@ -209,13 +209,13 @@ class BuildFunctions
         }
 
         if(in_array($Element, $reslist['build'])) {		
-			$time	= $elementCost/$config->game_speed * pow(0.99, ($PLANET[$resource[$resglobal['build_speed']]]));
+			$time	= $elementCost/($config->game_speed * (1 + $PLANET[$resource[$resglobal['build_speed']]]));
 		}elseif (in_array($Element, $reslist['fleet'])) {			
-			$time	= $elementCost/$config->game_speed * pow(0.99, ($PLANET[$resource[$resglobal['fleet_speed']]]));			
+			$time	= $elementCost/($config->game_speed * (1 + $PLANET[$resource[$resglobal['fleet_speed']]]));			
 		}elseif (in_array($Element, $reslist['defense'])) {
-			$time	= $elementCost/$config->game_speed * pow(0.99, ($PLANET[$resource[$resglobal['defense_speed']]]));	
+			$time	= $elementCost/($config->game_speed * (1 + $PLANET[$resource[$resglobal['defense_speed']]]));	
         }elseif (in_array($Element, $reslist['missile'])) {
-			$time	= $elementCost/$config->game_speed * pow(0.99, ($PLANET[$resource[$resglobal['missile_speed']]]));	
+			$time	= $elementCost/($config->game_speed * (1 + $PLANET[$resource[$resglobal['missile_speed']]]));	
 		}elseif (in_array($Element, $reslist['tech'])) {
             if(is_numeric($PLANET[$resource[$resglobal['tech_speed']].'_inter']))
             {
@@ -287,87 +287,111 @@ class BuildFunctions
 
     public static function getMaxConstructibleRockets($USER, $PLANET, $Missiles = NULL)
     {
-        global $resource, $reslist;
+        global $resource, $reslist, $resglobal;
 
-        if(!isset($Missiles))
-        {
+        if(!isset($Missiles)){
             $Missiles	= array();
 
-            foreach($reslist['missile'] as $elementID)
-            {
+            foreach($reslist['missile'] as $elementID){
                 $Missiles[$elementID]	= $PLANET[$resource[$elementID]];
             }
         }
 
         $BuildArray  	  	= !empty($PLANET['b_hangar_id']) ? unserialize($PLANET['b_hangar_id']) : array();
-        $MaxMissiles   		= $PLANET[$resource[44]] * 10 * max(Config::get()->silo_factor, 1);
+        $MaxMissiles   		= $resglobal['missile_speed'] * max(Config::get()->silo_factor, 1);
 
         foreach($BuildArray as $ElementArray) {
             if(isset($Missiles[$ElementArray[0]]))
                 $Missiles[$ElementArray[0]] += $ElementArray[1];
         }
-
-        $ActuMissiles  = $Missiles[502] + (2 * $Missiles[503]);
-        $MissilesSpace = max(0, $MaxMissiles - $ActuMissiles);
-
-        return array(
-            502	=> $MissilesSpace,
-            503	=> floor($MissilesSpace / 2),
-        );
+        
+        $ActuMissiles  = 0;
+        foreach($reslist['missile'] as $elementID) {
+            $ActuMissiles  += $Missiles[$elementID];
+		}
+        
+        foreach($reslist['missile'] as $elementID) {
+            $MissilesElement  = max(0, $MaxMissiles - $ActuMissiles);
+		}
+        
+        $MissilesTotal = array();
+        foreach($reslist['missile'] as $elementID) {
+            $MissilesTotal	+= array(
+                $elementID  => $MissilesElement,
+            );
+		}
+        
+        return $MissilesTotal;
     }
     
-    //code_update
     public static function getMaxConstructibleDomes($USER, $PLANET, $Domes = NULL)
 	{
 		global $resource, $reslist;
-		if(!isset($Domes))
-		{		
-		$Domes	= array();
-		foreach($Domes as $elementID)
-		{
-		$Domes[$elementID]	= $PLANET[$resource[$elementID]];
+        
+		if(!isset($Domes)){		
+            $Domes	= array();
+            
+            foreach($Domes as $elementID){
+                $Domes[$elementID]	= $PLANET[$resource[$elementID]];
+            }
 		}
-		}
-		$BuildArray  	  	= !empty($PLANET['b_hangar_id']) ? unserialize($PLANET['b_hangar_id']) : array();
-		$MaxDomes   		= 25 + $USER['factor']['ShieldDome'];
+        
+		$BuildArray = !empty($PLANET['b_hangar_id']) ? unserialize($PLANET['b_hangar_id']) : array();
+		$MaxDomes = 25 + $USER['factor']['ShieldDome'];
+        
 		foreach($BuildArray as $ElementArray) {
 			if(isset($Domes[$ElementArray[0]]))
 				$Domes[$ElementArray[0]] += $ElementArray[1];
 		}
-		$ActuDomes  = max(0, $MaxDomes - $Domes[407]);
-		$DomesSpace = max(0, $MaxDomes - $Domes[408]);
-		$DomesPlanet = max(0, $MaxDomes - $Domes[409]);
-		return array(
-			407	=> $ActuDomes,
-			408	=> $DomesSpace,
-			409	=> $DomesPlanet,
-		);
+        
+        foreach($reslist['domes'] as $elementID) {
+            $DomesElement[$elementID]  = max(0, $MaxDomes - $Domes[$elementID]);
+		}
+        
+        $DomesTotal = array();
+        foreach($reslist['domes'] as $elementID) {
+            $DomesTotal	+= array(
+                $elementID  => $DomesElement[$elementID],
+            );
+		}
+        
+        return $DomesTotal;
 	}
 	
 	public static function getMaxConstructibleOrbits($USER, $PLANET, $Orbits = NULL)
 	{
 		global $resource, $reslist;
-		if(!isset($Orbits))
-		{		
-		$Orbits	= array();
-		foreach($Orbits as $elementID)
-		{
-		$Orbits[$elementID]	= $PLANET[$resource[$elementID]];
+        
+		if(!isset($Orbits)){	
+            $Orbits	= array();
+            
+            foreach($Orbits as $elementID){
+                $Orbits[$elementID]	= $PLANET[$resource[$elementID]];
+            }
 		}
-		}
+        
 		$BuildArray  	  	= !empty($PLANET['b_hangar_id']) ? unserialize($PLANET['b_hangar_id']) : array();
 		$MaxOrbits   		= 250 + $USER['factor']['OrbitalBases'];
+        
 		foreach($BuildArray as $ElementArray) {
 			if(isset($Orbits[$ElementArray[0]]))
 				$Orbits[$ElementArray[0]] += $ElementArray[1];
 		}
-		$ActuOrbits  = max(0, $MaxOrbits - $Orbits[411]);
-		return array(
-			411	=> $ActuOrbits,
-		);
+        
+        foreach($reslist['orbital_bases'] as $elementID) {
+            $OrbitsElement[$elementID]  = max(0, $MaxOrbits - $Orbits[$elementID]);
+		}
+        
+        $OrbitsTotal = array();
+        foreach($reslist['orbital_bases'] as $elementID) {
+            $OrbitsTotal	+= array(
+                $elementID  => $OrbitsElement[$elementID],
+            );
+		}
+        
+        return $OrbitsTotal;
 	}
-    //code_update
-    //$new_code
+
     public static function getAvalibleBonus($Element)
     {
         global $pricelist;
@@ -457,5 +481,19 @@ class BuildFunctions
 		
 		return($cost);
 	}
-    //$new_code
+    
+    public static function resourcesPoints($USER, $Element)
+    {
+        global $resource, $reslist, $pricelist;
+
+        $resourcesPoints = 0;
+        foreach($reslist['resources_points'] as $res) 
+        {
+            if(isset($pricelist[$Element]['cost'][$res])) {
+                $resourcesPoints += $pricelist[$Element]['cost'][$res];
+            }
+        }
+
+        return $resourcesPoints;
+    }
 }

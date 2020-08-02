@@ -145,9 +145,7 @@ class ShowTicketPage extends AbstractGamePage
 			$answerRow['time']		= _date($LNG['php_tdformat'], $answerRow['time'], $USER['timezone']);
 			$answerRow['message']	= BBCode::parse($answerRow['message']);
 			$answerList[$answerRow['answerID']]	= $answerRow;
-            //code_update
             $answerRow['ownerID']	= $answerRow['ownerID'];
-            //code_update
 			if (empty($ticket_status))
 			{
 				$ticket_status = $answerRow['status'];

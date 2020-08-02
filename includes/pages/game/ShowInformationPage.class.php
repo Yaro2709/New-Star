@@ -214,11 +214,7 @@ class ShowInformationPage extends AbstractGamePage
 
 		if(in_array($elementID, $reslist['prod']) && in_array($elementID, $reslist['build']))
 		{
-
 			/* Data for eval */
-            /* $old_code
-			$BuildEnergy		= $USER[$resource[113]];
-            $old_code */
 			$BuildTemp          = $PLANET['temp_max'];
 			$BuildLevelFactor	= $PLANET[$resource[$elementID].'_porcent'];
 

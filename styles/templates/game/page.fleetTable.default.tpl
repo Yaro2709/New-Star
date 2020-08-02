@@ -19,6 +19,9 @@
                 {if isModuleAvailable($smarty.const.MODULE_FLEET_TRADER)}
                 <a href="game.php?page=fleetdealer" class="fleet_reduce ico_trader tooltip" data-tooltip-content="{$LNG.lm_fleettrader}"></a>
                 {/if}
+                {if isModuleAvailable($smarty.const.MODULE_FIND_DEBRIS)}
+                <a href="game.php?page=finddebris" class="fleet_reduce ico_finddebris tooltip" data-tooltip-content="{$LNG.lm_finddebris}"></a>
+                {/if}
             </div>
             <div class="fleettab8" style="margin-bottom:0"></div>
             <span class="puntiflotta1">{$LNG.fl_fleet_points}</span>
@@ -76,10 +79,9 @@
                 </div>    
             </form>
         </div>
-
+    {if !empty($fleetGroopName)}
     <div id="ally_content" class="conteinership" style="margin-bottom: 15px;">
        <div class="fleettab10"></div>
-      {if !empty($fleetGroopName)}
       <div class="gray_flettab">
      {$LNG.fl_fleet_grops}
         </div> <div class="fleettab9" style="margin-bottom:0"></div>
@@ -101,11 +103,11 @@
       <div class="fl_groop_link_name"  onclick="GroopShips({$i+2});">{$fleetGroopName[$i+2]}</div>
       <a class="fl_groop_link_del" title="{$LNG.fl_dlte_shortcut}" href="?page=fleetTable&amp;mode=delgroop&amp;id={$i+2}">×</a>	
       {/if}
-      {/for}
-      {/if}	
+      {/for} 	
       </div>
     <div class="clear"></div>
 	</div>
+    {/if}
     
     <div id="ally_content" class="conteinership">
  <div class="fleettab10"></div>   

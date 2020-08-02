@@ -417,6 +417,7 @@ $LNG['mod_70']                                       = 'Planetarium';
 $LNG['mod_71']                                       = 'Remove fleets from planets';
 $LNG['mod_72']                                       = 'Remove resources from planets';
 $LNG['mod_73']                                       = 'Distribute resources from planets';
+$LNG['mod_74']                                       = 'Find debris';
 //{IDs_0031} Task Scheduler
 $LNG['cron_name_referral']                           = 'Referral system';
 $LNG['cron_name_statistic']                          = 'Statistics';
@@ -650,7 +651,7 @@ $LNG['gi_homecoordinates']                           = 'Only for the main planet
 $LNG['gi_no_inactives']                              = 'Exclude inactive players';
 //{IDs_0047} Tech. support
 $LNG['sp_answer_message_title']                      = 'Support Ticket %s';
-$LNG['sp_answer_message']                            = 'There is a new response on your support ticket: <a href="?page=ticket&mode=view&id=%d"> %s</a>!';
+$LNG['sp_answer_message']                            = 'There is a new response on your support ticket: <a href=?page=ticket> %s</a>!';
 //{IDs_0048} Activation page
 $LNG['ap_username']						             = 'Name of the user';
 $LNG['ap_datum']					            	 = 'Date';

@@ -67,7 +67,12 @@ $reslist['spec_build'][2]       = array(6,31,42);
 $reslist['spec_build'][3]       = array(14,15,21,44);
 $reslist['spec_build'][4]       = array(33,34,43);
 
+$reslist['domes']               = array(407,408,409); //щиты
+$reslist['orbital_bases']       = array(411); //Орбитальные базы
+
 $reslist['not_bought']          = array(199,407,408,409,411); //не покупается
+$reslist['min_planet_per_tech'] = array(124); //технологии, которые влияют на минимальное колличество планет.
+$reslist['resources_points']    = array(901,902,903); //ресурсы, которые учитывает статистика
 
 $reslist['planet_no_basic']     = array(3); //планеты, у которых нет базовой добычи
 $reslist['shipyard']            = array(14,15,21); //если эти еденицы улучшаются, то верфь не работает
@@ -83,6 +88,10 @@ $resglobal['defense_speed']     = 915; //Ресурс, который влияе
 $resglobal['missile_speed']     = 916; //Ресурс, который влияет на скорость ракет 
 $resglobal['buy_moon_res']      = 921; //Ресурс, за который покупается луна
 $resglobal['buy_moon_price']    = 20000; //Цена этого ресурса
+$resglobal['buy_instantly']     = 921; //Ресурс за который происходит покупка единиц
+
+$resglobal['market_res']        = 922; //Ресурс, который используется при торговле на рынке
+$reslist['not_market_send']     = array(199,407,408,409,411); //не выставляется на продажу
 
 //Классофикация флота на орбите
 //Своз флота

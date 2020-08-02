@@ -158,7 +158,7 @@ class statbuilder
 			Database::get()->nativeQuery($query);
 		}
 	}
-
+    
 	private function GetTechnoPoints($USER) 
 	{
 		global $resource, $reslist, $pricelist;
@@ -171,9 +171,11 @@ class statbuilder
 
             // Points = (All resources / PointsPerCost) * Factor * ( 2 * ( Factor ^ Level ) - Factor) + 1)
             // PointsPerCot == Config::get()->stat_settings
+            $resourcesPoints = BuildFunctions::resourcesPoints($USER, $Techno);
+
 			$TechCounts		+= $USER[$resource[$Techno]];
             $TechPoints     +=
-                ($pricelist[$Techno]['cost'][901] + $pricelist[$Techno]['cost'][902] + $pricelist[$Techno]['cost'][903])
+                ($resourcesPoints)
                 * $pricelist[$Techno]['factor']
                 * (
                     2 * (
@@ -200,8 +202,10 @@ class statbuilder
 
             // Points = (All resources / PointsPerCost) * Factor * ( 2 * ( Factor ^ Level ) - Factor) + 1)
             // PointsPerCot == Config::get()->stat_settings
+            $resourcesPoints = BuildFunctions::resourcesPoints($PLANET, $Build);
+            
             $BuildPoints     +=
-                ($pricelist[$Build]['cost'][901] + $pricelist[$Build]['cost'][902] + $pricelist[$Build]['cost'][903])
+                ($resourcesPoints)
                 * $pricelist[$Build]['factor']
                 * (
                     2 * (
@@ -224,8 +228,10 @@ class statbuilder
 				
 		foreach(array_merge($reslist['defense'], $reslist['missile']) as $Defense) {
 			if($USER[$resource[$Defense]] == 0) continue;
+            
+            $resourcesPoints = BuildFunctions::resourcesPoints($USER, $Defense);
 			
-			$Units			= $pricelist[$Defense]['cost'][901] + $pricelist[$Defense]['cost'][902] + $pricelist[$Defense]['cost'][903];
+			$Units			= $resourcesPoints;
 			$DefensePoints += $Units * $USER[$resource[$Defense]];
 			$DefenseCounts += $USER[$resource[$Defense]];
 		
@@ -243,8 +249,10 @@ class statbuilder
 	
 		foreach($reslist['fleet'] as $Fleet) {	
 			if($USER[$resource[$Fleet]] == 0) continue;
+            
+            $resourcesPoints = BuildFunctions::resourcesPoints($USER, $Fleet);
 			
-			$Units			= $pricelist[$Fleet]['cost'][901] + $pricelist[$Fleet]['cost'][902] + $pricelist[$Fleet]['cost'][903];
+			$Units			= $resourcesPoints;
 			$FleetPoints   += $Units * $USER[$resource[$Fleet]];
 			$FleetCounts   += $USER[$resource[$Fleet]];
 			

@@ -64,11 +64,9 @@ class ShowRecordsPage extends AbstractGamePage
 			'fleetList'		=> $fleetList,
 			'researchList'	=> $researchList,
 			'buildList'		=> $buildList,
-            //code_update
             'PLANET'        => $PLANET,
 			'USER'          => $USER,
 			'resource'      => $resource,
-            //code_update
 			'update'		=> _date($LNG['php_tdformat'], Cronjob::getLastExecutionTime('statistic'), $USER['timezone']),
 		));
 		

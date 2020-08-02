@@ -26,10 +26,13 @@ class ShowMarketPage extends AbstractGamePage
     
 	function show()
 	{
-		global $USER, $db,  $PLANET, $LNG, $resource, $reslist;
+		global $USER, $PLANET, $LNG, $resource, $reslist, $resglobal, $THEME;
         
+        $db			= Database::get();
 		$lot		= array();
-		foreach(array_merge($reslist['resstype'][1], $reslist['fleet'], $reslist['defense']) as $sellID)
+        //Ресурсы, которые принадлежат планете
+        $Planet_list = array_diff(array_merge($reslist['resstype'][1], $reslist['fleet'], $reslist['defense']), $reslist['not_market_send']);
+		foreach($Planet_list as $sellID)
 		{
 			if ($PLANET[$resource[$sellID]] == 0)
 				continue;	
@@ -38,8 +41,9 @@ class ShowMarketPage extends AbstractGamePage
 				'count'	=> $PLANET[$resource[$sellID]],
 			);
 		}
-        
-        foreach(array_merge($reslist['ars']) as $sellID)
+        //Ресусры, которые принадлежат игроку
+        $User_list = array_diff(array_merge($reslist['ars']), $reslist['not_market_send']);
+        foreach($User_list as $sellID)
 		{
 			if ($USER[$resource[$sellID]] == 0)
 				continue;	
@@ -48,16 +52,16 @@ class ShowMarketPage extends AbstractGamePage
 				'count'	=> $USER[$resource[$sellID]],
 			);
 		}
-        
+        //Запрос на все лоты, которые выставлены, кроме тех, которые принадлежат игроку
 		$sql ='SELECT * FROM %%MARKET%%  WHERE id_owner != :userID;';
 		$markets = $db->select($sql, array(
 			':userID'	=> $USER['id']
 		));
-		
+		//Запрос через foreach
 		$market	= array();
 		foreach($markets as $lotID)
 		{	
-			$Popup		= '<a href="#" data-tooltip-content="<table style=\'width:200px\'>';
+			$Popup		= '<a href="#" data-tooltip-content="<table class=\'reducefleet_table\'>';
 			$text	    = '';
 			$Datalot	= array();
 			$lotz		= explode(';', $lotID['lot']);
@@ -65,7 +69,7 @@ class ShowMarketPage extends AbstractGamePage
 			{
 				if (empty($Group))continue;	
 				$res	= explode(',', $Group);
-					$Popup	 .= '<tr><td style=\'width:50%;color:white\'>'.$LNG['tech'][$res[0]].':</td><td style=\'width:50%;color:white\'>'.pretty_number($res[1]).'</td></tr>';
+					$Popup	 .= '<tr><td class=\'reducefleet_img_ship\'><img src=\''.$THEME->getTheme().'gebaeude/'.$res[0].'.gif\'></td><td class=\'reducefleet_name_ship\'>'.$LNG['tech'][$res[0]].': <span class=\'reducefleet_count_ship\'>'.pretty_number($res[1]).'</span></td></tr>';
 					$Datalot[]	= floatToString($res[1]).' '.$LNG['tech'][$res[0]];}
                     $text	.= implode('; ', $Datalot);
                     $Popup  .= '</table>" class="tooltip">'.$LNG['market_lot'].'</a><span class="textForBlind"> ('.$text.')</span>';
@@ -77,16 +81,16 @@ class ShowMarketPage extends AbstractGamePage
                         'time'		 => _date($LNG['php_tdformat'],$lotID['time']),
                     );
 		}	
-		
+		//Показываем лоты, которые принадлежат игроку
 		$sql ='SELECT * FROM %%MARKET%%  WHERE id_owner = :userID; ';
 		$u = $db->select($sql, array(
 			':userID'	=> $USER['id']
 		));		
-        
+        //Запрос через foreach
 		$u_lot	= array();
 		foreach($u as $lotID)
 		{	
-			$Popup		= '<a href="#" data-tooltip-content="<table style=\'width:200px\'>';
+			$Popup		= '<a href="#" data-tooltip-content="<table class=\'reducefleet_table\'>';
 			$text	= '';
 			$Datalot	= array();
 			$lotz		= explode(';', $lotID['lot']);
@@ -94,7 +98,7 @@ class ShowMarketPage extends AbstractGamePage
 			{
 				if (empty($Group))continue;	
 				$res	= explode(',', $Group);
-				$Popup	 .= '<tr><td style=\'width:50%;color:white\'>'.$LNG['tech'][$res[0]].':</td><td style=\'width:50%;color:white\'>'.pretty_number($res[1]).'</td></tr>';
+				$Popup	 .= '<tr><td class=\'reducefleet_img_ship\'><img src=\''.$THEME->getTheme().'gebaeude/'.$res[0].'.gif\'></td><td class=\'reducefleet_name_ship\'>'.$LNG['tech'][$res[0]].': <span class=\'reducefleet_count_ship\'>'.pretty_number($res[1]).'</span></td></tr>';
 				$Datalot[]	= floatToString($res[1]).' '.$LNG['tech'][$res[0]];}
                 $text	.= implode('; ', $Datalot);
                 $Popup  .= '</table>" class="tooltip">'.$LNG['market_lot'].'</a><span class="textForBlind"> ('.$text.')</span>';
@@ -107,10 +111,9 @@ class ShowMarketPage extends AbstractGamePage
                     'time'		 => _date($LNG['php_tdformat'],$lotID['time']),
                 );
 		}	
-        
+        //Конец
         $this->tplObj->loadscript("market.js");
 		$cookie = isset($_COOKIE['open_market']) ? 	$_COOKIE['open_market'] : 1;
-        
 		$this->assign(array(
             'class_name' => array(
 				1 => $LNG['market_all'], 
@@ -123,6 +126,7 @@ class ShowMarketPage extends AbstractGamePage
 			'market'	    => $market,
 			'u_lot'		    => $u_lot,
 			'timestamp'	    => TIMESTAMP,
+            'res'	        => $resglobal['market_res'],
 		));
         
 		$this->display('page.market.tpl');
@@ -137,7 +141,7 @@ class ShowMarketPage extends AbstractGamePage
 		$price          = HTTP::_GP('price',0);
         $class          = HTTP::_GP('class',0);
         
-		$add_lot = array_merge($reslist['resstype'][1], $reslist['fleet'], $reslist['defense']);
+		$add_lot = array_diff(array_merge($reslist['resstype'][1], $reslist['fleet'], $reslist['defense']), $reslist['not_market_send']);
 		
 		foreach ($add_lot as $id => $lotID)
 		{
@@ -157,7 +161,7 @@ class ShowMarketPage extends AbstractGamePage
 			));
 		}
         
-        $add_lot = array_merge($reslist['ars']);
+        $add_lot = array_diff(array_merge($reslist['ars']), $reslist['not_market_send']);
         
         foreach ($add_lot as $id => $lotID)
 		{
@@ -202,26 +206,26 @@ class ShowMarketPage extends AbstractGamePage
 	
 	function sell() 
 	{
-		global  $PLANET,$USER, $LNG,$db, $resource, $reslist;
+		global $PLANET, $USER, $LNG, $resource, $reslist, $resglobal;
         
 		$db				= Database::get();
 		$id	            = HTTP::_GP('id', 0);
 		$selling        = $db->selectSingle("SELECT * FROM %%MARKET%% WHERE id = :ID;", array(':ID' => $id));
 		
-		if($USER[$resource[921]] < $selling['price']){
+		if($USER[$resource[$resglobal['market_res']]] < $selling['price']){
             $this->printMessage($LNG['market_not_enough_money'], array(array( 
                 'label'	=> $LNG['sys_forward'],
                 'url'	=> 'game.php?page=market')
             ));
         }else{		
-            $sell_lot = explode(';', $selling['lot']);
-		
+			$sell_lot = explode(';', $selling['lot']);
+			
             foreach ($sell_lot as $sell => $id)
             {
-                $res	= explode(',', $id);
-                
-                if(in_array($resource[$res[0]], array_merge($reslist['resstype'][1], $reslist['fleet'], $reslist['defense']))){
-                    
+				$res	= explode(',', $id);
+
+                if(in_array($res[0], array_diff(array_merge($reslist['resstype'][1], $reslist['fleet'], $reslist['defense']), $reslist['not_market_send']))){
+
                     $PLANET[$resource[$res[0]]]	+= $res[1];
                     
                     $sql =  "UPDATE %%PLANETS%% SET
@@ -233,10 +237,10 @@ class ShowMarketPage extends AbstractGamePage
                         ':amount'			=> $res[1]
                     ));
                     
-                }else{
+                }elseif(in_array($res[0], array_diff(array_merge($reslist['ars']), $reslist['not_market_send']))){
                     
-                    $USER[$resource[$res[0]]]	+= $res[1];
-                    
+					$USER[$resource[$res[0]]]	+= $res[1];
+					
                     $sql =  "UPDATE %%USERS%% SET
                         ".$resource[$res[0]]."=".$resource[$res[0]]."+:amount 
                         WHERE id = :userId;";
@@ -248,9 +252,9 @@ class ShowMarketPage extends AbstractGamePage
                 }
             }	
             
-            $USER[$resource[921]] -= $selling['price'];
+            $USER[$resource[$resglobal['market_res']]] -= $selling['price'];
         
-            $sql =  "UPDATE %%USERS%% SET ".$resource[921]." = ".$resource[921]." + :amount WHERE id = :userID;";
+            $sql =  "UPDATE %%USERS%% SET ".$resource[$resglobal['market_res']]." = ".$resource[$resglobal['market_res']]." + :amount WHERE id = :userID;";
             $db->update($sql, array(
                 ':userID'=> $selling['id_owner'],
                 ':amount'=> $selling['price']
@@ -270,8 +274,9 @@ class ShowMarketPage extends AbstractGamePage
 	
 	function cancel_lot() 
 	{
-		global  $PLANET,$USER, $LNG,$db, $resource, $reslist;
+		global  $PLANET,$USER, $LNG, $resource, $reslist;
 		
+        $db			= Database::get();
 		$id	        = HTTP::_GP('id', 0);
 		$cancel     = $db->selectSingle("SELECT * FROM %%MARKET%% WHERE id = :ID;", array(':ID' => $id));
 		$cancel_lot = explode(';', $cancel['lot']);
@@ -280,7 +285,7 @@ class ShowMarketPage extends AbstractGamePage
 		{
 			$res	= explode(',', $id);
             
-            if(in_array($resource[$res[0]], array_merge($reslist['resstype'][1], $reslist['fleet'], $reslist['defense']))){
+            if(in_array($res[0], array_diff(array_merge($reslist['resstype'][1], $reslist['fleet'], $reslist['defense']), $reslist['not_market_send']))){
                 
                 $PLANET[$resource[$res[0]]]	+= $res[1];
                 
@@ -293,7 +298,7 @@ class ShowMarketPage extends AbstractGamePage
                     ':amount'			=> $res[1]
                 ));
                 
-            }else{
+            }elseif(in_array($res[0], array_diff(array_merge($reslist['ars']), $reslist['not_market_send']))){
                 
                 $USER[$resource[$res[0]]]	+= $res[1];
                 
