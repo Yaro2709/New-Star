@@ -355,7 +355,7 @@ abstract class AbstractGamePage
 			'closed'			=> !$config->game_disable,
 			'hasBoard'			=> filter_var($config->forum_url, FILTER_VALIDATE_URL),
 			'hasAdminAccess'	=> !empty(Session::load()->adminAccess),
-			'hasGate'			=> $PLANET[$resource[43]] > 0
+			'hasGate'			=> $PLANET[$resource[43]] > 0,
 		));
 	}
 
@@ -380,6 +380,42 @@ abstract class AbstractGamePage
 		}
 
 		$config	= Config::get();
+        
+        $sql	= "SELECT COUNT(*) as count FROM %%FLEETS%% WHERE fleet_start_time > :time AND fleet_mission = :missionId AND fleet_mess = 0 AND fleet_owner <> :userId AND fleet_target_owner = :userId;";
+        $total	= Database::get()->selectSingle($sql, array(
+            ':userId'	    => $USER['id'],
+            ':time'	        => TIMESTAMP,
+            ':missionId'	=> 1
+            
+        ));
+        $AJAX['ataks'] = $total['count'];
+
+        $sql	= "SELECT COUNT(*) as count FROM %%FLEETS%% WHERE fleet_start_time > :time AND fleet_mission = :missionId AND fleet_mess = 0 AND fleet_owner <> :userId AND fleet_target_owner = :userId;";
+        $total	= Database::get()->selectSingle($sql, array(
+            ':userId'	    => $USER['id'],
+            ':time'	        => TIMESTAMP,
+            ':missionId'	=> 6
+            
+        ));
+        $AJAX['spio'] = $total['count'];
+
+        $sql	= "SELECT COUNT(*) as count FROM %%FLEETS%% WHERE fleet_start_time > :time AND fleet_mission = :missionId AND fleet_mess = 0 AND fleet_owner <> :userId AND fleet_target_owner = :userId;";
+        $total	= Database::get()->selectSingle($sql, array(
+            ':userId'	    => $USER['id'],
+            ':time'	        => TIMESTAMP,
+            ':missionId'	=> 9
+            
+        ));
+        $AJAX['unic'] = $total['count'];
+
+        $sql	= "SELECT COUNT(*) as count FROM %%FLEETS%% WHERE fleet_start_time > :time AND fleet_mission = :missionId AND fleet_mess = 0 AND fleet_owner <> :userId AND fleet_target_owner = :userId;";
+        $total	= Database::get()->selectSingle($sql, array(
+            ':userId'	    => $USER['id'],
+            ':time'	        => TIMESTAMP,
+            ':missionId'	=> 10
+            
+        ));
+        $AJAX['rakets'] = $total['count'];
 
 		$this->assign(array(
             //Переменная имени
@@ -401,6 +437,14 @@ abstract class AbstractGamePage
 			'Offset'			=> $dateTimeUser->getOffset() - $dateTimeServer->getOffset(),
 			'queryString'		=> $this->getQueryString(),
 			'themeSettings'		=> $THEME->getStyleSettings(),
+            //Индикаторы
+            'ataks'				=> $AJAX['ataks'],
+			'spio'				=> $AJAX['spio'],
+			'unic'				=> $AJAX['unic'],
+			'rakets'			=> $AJAX['rakets'],
+            //Настройка индикаторов
+            'msgvolume'         => $USER['setting_msg']/10,
+			'volume'            => $USER['sound_ataks']/10,
 		));
 	}
 	protected function printMessage($message, $redirectButtons = NULL, $redirect = NULL, $fullSide = true)

@@ -109,7 +109,7 @@ if(defined('DATABASE_VERSION') && DATABASE_VERSION === 'OLD')
 $config = Config::get();
 date_default_timezone_set($config->timezone);
 
-if (MODE === 'INGAME' || MODE === 'ADMIN' || MODE === 'CRON')
+if (MODE === 'INGAME' || MODE === 'ADMIN' || MODE === 'CRON' || MODE === 'JSON')
 {
 	$session	= Session::load();
 
@@ -159,7 +159,7 @@ if (MODE === 'INGAME' || MODE === 'ADMIN' || MODE === 'CRON')
 		ShowErrorPage::printError("<font size=\"6px\">".$LNG['css_account_banned_message']."</font><br><br>".sprintf($LNG['css_account_banned_expire'], _date($LNG['php_tdformat'], $USER['banaday'], $USER['timezone']))."<br><br>".$LNG['css_goto_homeside'], false);
 	}
 	
-	if (MODE === 'INGAME')
+    if (MODE === 'INGAME')
 	{
 		$universeAmount	= count(Universe::availableUniverses());
 		if(Universe::current() != $USER['universe'] && $universeAmount > 1)
@@ -207,7 +207,7 @@ elseif(MODE === 'LOGIN')
 {
 	$LNG	= new Language();
 	$LNG->getUserAgentLanguage();
-	$LNG->includeData(array('L18N', 'INGAME', 'PUBLIC', 'CUSTOM', 'NEWS'));
+	$LNG->includeData(array('L18N', 'INGAME', 'PUBLIC', 'CUSTOM'));
 }
 elseif(MODE === 'CHAT')
 {

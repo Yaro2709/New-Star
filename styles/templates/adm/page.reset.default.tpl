@@ -149,8 +149,8 @@
                         </tr>
                     </thead>
                 </table>
+                <input class="btn btn-primary" type="submit" value="{$LNG.button_reset}">
             </form>
-            <input class="btn btn-primary" type="submit" value="{$LNG.button_reset}">
         </div>
     </div>
 </main>

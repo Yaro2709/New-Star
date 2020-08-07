@@ -167,12 +167,10 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
 				}						
 				else 
 				{
-					$thisShield	= $amount * ($CombatCaps[$element]['shield'] * (1 + $attacker['player']['factor']['ShieldS'.$CombatCaps[$element]['type_shield']])); 
-				}
+					$thisShield	= $amount * ($CombatCaps[$element]['shield'] * (1 + $attacker['player']['factor']['ShieldS'.$CombatCaps[$element]['type_shield']])) * $shieldTech; 
+				}				
 				
-				$structure = $pricelist[$element]['cost'][901] + $pricelist[$element]['cost'][902];					
-				
-				$thisDef	= $amount * $structure * (1 + $attacker['player']['factor']['DefensiveS'.$CombatCaps[$element]['type_defend']]) *  $defTech; 
+				$thisDef	= $amount * ($CombatCaps[$element]['defend'] * (1 + $attacker['player']['factor']['DefensiveS'.$CombatCaps[$element]['type_defend']])) *  $defTech; 
                 //Удвоение
                 $DK		= 1;
                 $SK		= 1;
@@ -291,12 +289,10 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
 				}						
 				else 
 				{
-					$thisShield	= $amount * ($CombatCaps[$element]['shield']); 
+                    $thisShield	= $amount * ($CombatCaps[$element]['shield'] * (1 + $defender['player']['factor']['ShieldS'.$CombatCaps[$element]['type_shield']])) * $shieldTech; 
 				}
-				
-				$structure = $pricelist[$element]['cost'][901] + $pricelist[$element]['cost'][902];					
-				
-				$thisDef	= $amount * $structure * $defTech; 
+					
+                $thisDef	= $amount * ($CombatCaps[$element]['defend'] * (1 + $defender['player']['factor']['DefensiveS'.$CombatCaps[$element]['type_defend']])) *  $defTech; 
 			
 				if ($element == 407 || $element == 408 || $element == 409) $thisAtt = 0;
                 //Удвоение

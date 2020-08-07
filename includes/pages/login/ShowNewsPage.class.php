@@ -27,8 +27,6 @@ class ShowNewsPage extends AbstractLoginPage
 	function show() 
 	{
 		global $LNG;
-        
-        $NEWS = array(0,1,2,3,4,5,6,7,8,9,10,11,12,13);
 
 		$sql = "SELECT id, date, title, text, user FROM %%NEWS%% ORDER BY id DESC;";
 		$newsResult = Database::get()->select($sql);
@@ -37,13 +35,6 @@ class ShowNewsPage extends AbstractLoginPage
 		
 		foreach ($newsResult as $newsRow)
 		{
-            if(in_array($newsRow['id'], $NEWS)){
-                
-                $newsRow['title'] = $LNG['head'][$newsRow['id']];
-                $newsRow['text']  = $LNG['text'][$newsRow['id']];
-                
-            }
-            
 			$newsList[]	= array(
                 'id'    => $newsRow['id'],
 				'title' => $newsRow['title'],

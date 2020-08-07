@@ -26,7 +26,7 @@ Want to keep abreast of the latest developments? Then come visit us on [Discord]
   - database creation
 - [language] - translations: EN, RU
 - [licenses] - open source license schemes
-- [media] - media files
+- [sound] - media files
 - [mods] - modifications that are devoid of support
 - [scripts] - client-side web browser .js scripts
 - [styles] 

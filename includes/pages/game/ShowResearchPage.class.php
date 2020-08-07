@@ -487,6 +487,7 @@ class ShowResearchPage extends AbstractGamePage
 			$costOverflow		= BuildFunctions::getRestPrice($USER, $PLANET, $Element, $costResources);
 			$elementTime    	= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $costResources);
 			$buyable			= $QueueCount != 0 || BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources);
+            $elementBonus		= BuildFunctions::getAvalibleBonus($Element);
 
 			$ResearchList[$Element]	= array(
 				'id'				    => $Element,
@@ -498,6 +499,7 @@ class ShowResearchPage extends AbstractGamePage
 				'elementTime'    	    => $elementTime,
 				'buyable'			    => $buyable,
 				'levelToBuild'		    => $levelToBuild,
+                'elementBonus'		    => $elementBonus,
 				'AllTech'				=> $techTreeList,
 				'techacc' 				=> BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element),
 			);

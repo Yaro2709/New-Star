@@ -75,7 +75,8 @@ class VarsBuildCache implements BuildCache
 			$resource[$varsRow['elementID']]	= $varsRow['name'];
 			$CombatCaps[$varsRow['elementID']]	= array(
 				'attack'	    => $varsRow['attack'],
-				'shield'	    => $varsRow['defend'],
+				'shield'	    => $varsRow['shield'],
+                'defend'	    => $varsRow['defend'], 
                 'type_gun'		=> $varsRow['type_gun'],
 				'type_shield'	=> $varsRow['type_shield'],
 				'type_defend'	=> $varsRow['type_defend'],

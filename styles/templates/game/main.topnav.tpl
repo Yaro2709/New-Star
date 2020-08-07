@@ -1,10 +1,8 @@
 <div id="header">
-    <div id="top_nav" class="otopnav">
-        <a><img width="45" height="45" src="{$dpath}img/iconav/logo.png" class="logoxterium over"><div  id="alarm"></div></a>   
-        <script>
-            attacken();
-            setInterval(attacken, 10000);
-        </script>
+    <div id="top_nav" class="otopnav"> 
+        <a href="game.php">
+            <img src="{$dpath}img/general/logo.png" class="game_logo">
+        </a>
         <div style="display:none;">					
             <select id="lstPlaneta" name="lstPlaneta" onchange="document.location = $(this).val();">
                 {html_options options=$PlanetSelect selected=$current_pids}
@@ -186,7 +184,12 @@
             </a>
         </div>
 	</div>
-{if !$vmode}
+    <div id="top_cosmonautics">
+        <div class="top_gift_left"></div>
+        <div class="top_gift_mid"></div>
+        <div class="top_gift_right"></div>
+    </div>
+    {if !$vmode}
 		<script type="text/javascript">
 		var viewShortlyNumber	= {$shortlyNumber|json};
 		var vacation			= {$vmode};
@@ -205,7 +208,7 @@
         });
 		</script>
         <script src="scripts/game/topnav.js"></script>
-{/if}
+    {/if}
     <script type="text/javascript">
 		$(document).ready(function(){
 			var flag_planet_menu = false;

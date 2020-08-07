@@ -1,9 +1,30 @@
-<div id="left_side">        
+<script type="text/javascript">
+    	setInterval(function() { AJAX() }, 5000);
+</script>
+<script type="text/javascript" src="./scripts/game/json.js"></script>
+<div id="left_side">  
+	<div id="bottom_top_menu_up">
+        <div class="img"></div>
+    </div>
     <div id="left_menu">
-    <div id="touchscreenleft_menu">         
-            <div class="olistabarrabasso">
+        <div id="touchscreenleft_menu">   
+            <div id="indicators">
+                <div id="attack" class="indicator {if $ataks > 0}active_indicator{/if}">
+                    <div class="icoi"></div>
+                </div>
+                <div id="espionage" class="indicator {if $spio > 0}active_indicator{/if}">
+                    <div class="icoi"></div>
+                </div>
+                <div id="destruction" class="indicator {if $unic > 0}active_indicator{/if}">
+                    <div class="icoi"></div>
+                </div>
+                <div id="rocket" class="indicator {if $rakets > 0}active_indicator{/if}">
+                    <div class="icoi"></div>
+                </div>
             </div>
-            {*<a href="#" onclick="return Dialog.Galaxy();" class="oamlink pulsanti">Купить АМ<span class="oamperc">+100%</span></a>*}
+            {*<div class="olistabarrabasso">
+            </div>
+            <a href="#" onclick="return Dialog.Galaxy();" class="oamlink pulsanti">Купить АМ<span class="oamperc">+100%</span></a>*}
             <a class="big_btn btn_menu btn_menu_big"> <div class="servertime oservertime"></div> </a>
             {if $bonus_time < TIMESTAMP}
             <a class="big_btn blue btn_menu btn_menu_big" href="game.php?page=bonus">{$LNG.lm_bonus}</a>
@@ -87,5 +108,28 @@
 			<div class="separator_nav"></div>		
 			<a title="{$LNG.lm_logout}" href="game.php?page=logout"> <span class="exit"></span></a>				  
         </div>
+        <div id="bottom_top_menu_down">
+            <div class="img"></div>
+        </div>
     </div> 
+    
+</div>
+<div style="height:0; overflow:hidden;" loop="false;" id="music">
+    <audio id="beepataks" preload="auto">
+        <source src="./sound/sirena.mp3"></source>
+        <source src="./sound/sirena.ogg"></source>
+    </audio>
+    <audio id="msgaudio" preload="auto">
+        <source src="./sound/msg.mp3"></source>
+        <source src="./sound/msg.ogg"></source>
+    </audio>
+    <script type="text/javascript">
+		var ataks = "{$ataks}";
+		var spio = "{$spio}";
+        var unic = "{$unic}";
+		var rakets = "{$rakets}";
+		var msg = {$new_message};
+		document.getElementById('msgaudio').volume={$msgvolume};
+		document.getElementById('beepataks').volume={$volume};
+	</script>
 </div>

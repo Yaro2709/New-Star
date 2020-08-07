@@ -1,37 +1,3 @@
-function attacken(){
-	var alarmdiv = document.getElementById("alarm");
-	var xmlhttp = new XMLHttpRequest();
-	var url = "game.php?page=scan";
-    var audio = new Audio();
-	xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-		if (isNaN(xmlhttp.responseText)){
-		alarmdiv.innerHTML = 'disconnected';
-		alarmdiv.style.background = 'red';
-		alarmdiv.setAttribute('class', 'atta');			
-		}else{
-        if(xmlhttp.responseText != '0'){
-		alarmdiv.innerHTML = xmlhttp.responseText;
-		alarmdiv.style.background = 'rgba(255, 0, 0, 0.5)';
-		alarmdiv.setAttribute('class', 'atta');
-        audio.src = '/media/sirenas.mp3'; // Указываем путь к звуку "клика"
-        audio.autoplay = true;          // Автоматически запускаем
-        audio.currentTime = 0;       //возвращает время при перезагрузке
-        audio.volume = 1;          //сила звука 0-1
-        audio.playbackRate = 0.5;    //скорость аудио
-		}else{
-		alarmdiv.innerHTML = xmlhttp.responseText;
-		alarmdiv.setAttribute('class', '');
-		alarmdiv.style.background = 'rgba(0,200,0,0.2)';
-		}
-		}
-	   }
-};
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
-}
-
-
 function msgArchive(MessID, MessType)
 {
 	Message.MessID	= MessType;

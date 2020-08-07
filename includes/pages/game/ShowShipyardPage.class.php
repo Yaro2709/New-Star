@@ -152,7 +152,7 @@ class ShowShipyardPage extends AbstractGamePage
 	
 	public function show()
 	{
-		global $USER, $PLANET, $LNG, $resource, $reslist, $requeriments;
+		global $USER, $PLANET, $LNG, $resource, $reslist, $requeriments, $CombatCaps, $pricelist;
 
 		$buildTodo	= HTTP::_GP('fmenge', array());
 		$action		= HTTP::_GP('action', '');
@@ -259,6 +259,34 @@ class ShowShipyardPage extends AbstractGamePage
 			$elementTime    	= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $costResources);
 			$buyable			= BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources);
 			$maxBuildable		= BuildFunctions::getMaxConstructibleElements($USER, $PLANET, $Element, $costResources);
+            
+            $FleetGun = '';
+            if($CombatCaps[$Element]['type_gun'] == 'none')
+			{			
+				$FleetGun = '';
+			}
+			elseif($CombatCaps[$Element]['type_gun'] == 'notype')
+			{
+				$FleetGun = 'notype';
+			}
+			else
+			{
+				$type_gun			= explode(';', $CombatCaps[$Element]['type_gun']);
+				$FleetGun        	= array();
+			
+				foreach ($type_gun as $Item => $gun)
+				{
+					if (empty($gun)) continue;	
+					
+					$Class							= explode(',', $gun);
+					$FleetGun[$Class[0]]['attack']	= round($CombatCaps[$Element]['attack'] * $Class[1] / 100);
+				}									
+			}
+            
+            $Info = array(
+				'class_defend'	=> $CombatCaps[$Element]['type_defend'],	
+				'class_shield'	=> $CombatCaps[$Element]['type_shield'],		
+			);
 
 			if(isset($MaxMissiles[$Element])) {
 				$maxBuildable	= min($maxBuildable, $MaxMissiles[$Element]);
@@ -287,6 +315,17 @@ class ShowShipyardPage extends AbstractGamePage
 				'AllTech'			=> $techTreeList,
 				'techacc' 			=> BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element),
 				
+                'fleetgun'		    => $FleetGun,
+                'info'		        => $Info,
+                'attack'		    => $CombatCaps[$Element]['attack'],
+				'shield'		    => $CombatCaps[$Element]['shield'],
+                'defend'		    => $CombatCaps[$Element]['defend'],
+                'capacity'		    => $pricelist[$Element]['capacity'],
+				'speed1'		    => $pricelist[$Element]['speed'],
+				'speed2'		    => $pricelist[$Element]['speed2'],
+				'consumption1'	    => $pricelist[$Element]['consumption'],
+				'consumption2'	    => $pricelist[$Element]['consumption2'],
+                'tech'			    => $pricelist[$Element]['tech'],
 			);
 		}
 		

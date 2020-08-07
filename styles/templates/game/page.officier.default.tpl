@@ -22,7 +22,8 @@
                             <a href="#" onclick="return Dialog.info({$ID})"><img src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}" /></a>
                         </div>
                         {if !$Element.techacc}
-                        <div class="prices_mini">
+                        <div class="prices_mini" style="height: 80px;">
+                            <div class="necccos" style="left: 75px;">{$LNG.bd_needed_tech}</div>
                             {foreach $Element.AllTech as $elementID => $requireList}
                             {foreach $requireList as $requireID => $NeedLevel}
                             <div class="required_block required_smal_text">

@@ -60,6 +60,7 @@ function ShipyardList() {
 /*------------------------------------------------------------*/
 function counting(id)
 {
+    DotsToCount();
 	var Data 			= DatatList[id];
 	var	sitem			= '#s_'+(String(id));
 	var Ellimet			= $(sitem);
@@ -242,6 +243,29 @@ function counting(id)
 	if ( h > 0 ) { h = h + short_hour }  else h = '00' + short_hour ;
 	if ( d > 0 ) { d = d + short_day }  else d = '';
 	
-	 Ellimet.find(".time_build_text").text( d + ' ' + h + ' ' + m + ' ' + s);	
+	Ellimet.find(".time_build_edit").text( d + ' ' + h + ' ' + m + ' ' + s);
+
+    countDots();	
 
 };
+
+$(function () {
+    $('.count_ships_dots input[type=text]').keyup(function () {
+        countDots();
+    });
+    $('form').submit(function () {
+        DotsToCount();
+    });
+});
+
+function DotsToCount() {
+    $('.count_ships_dots input[type=text]').val(function (i, old) {
+        return old.replace(/[^[0-9]|\.]/g, '');
+    });
+}
+
+function countDots() {
+    $('.count_ships_dots input[type=text]').val(function (i, old) {
+        return NumberGetHumanReadable(old.replace(/[^[0-9]|\.]/g, ''));
+    });
+}

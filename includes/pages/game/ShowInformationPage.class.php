@@ -298,7 +298,7 @@ class ShowInformationPage extends AbstractGamePage
             
             
 			$FleetInfo	= array(
-				'structure'		=> $pricelist[$elementID]['cost'][901] + $pricelist[$elementID]['cost'][902],
+				'structure'		=> $CombatCaps[$elementID]['defend'],
 				'tech'			=> $pricelist[$elementID]['tech'],
 				'attack'		=> $CombatCaps[$elementID]['attack'],
 				'shield'		=> $CombatCaps[$elementID]['shield'],

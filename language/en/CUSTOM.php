@@ -40,6 +40,7 @@ $LNG['bd_the_initial_cost']                          = 'Initial cost:';
 $LNG['bd_the_cost']                                  = 'Cost:';
 $LNG['bd_buy_yes']                                   = 'Purchased!';
 $LNG['bd_buy_no_tech']                               = 'You have no units open!';
+$LNG['bd_needed_tech']                               = 'To build you need:';
 //Support
 $LNG['ti_category_error']                            = 'Error';
 $LNG['ti_category_bug']                              = 'Bug';
@@ -150,7 +151,7 @@ $LNG['race_stop_choice']                             = 'The race is already sele
 $LNG['race_yes']                                     = 'Race selected.';
 //Conveyor
 $LNG['build_conv']                                   = 'Build';
-$LNG['sec_conv']                                     = 'per second';
+$LNG['sec_conv']                                     = 'per sec.';
 //Info bonus
 $LNG['inb_percent']                                  = 'Percentage';
 $LNG['inb_units']                                    = 'Units';
@@ -181,6 +182,7 @@ $LNG['in_armor_light']                               = 'Light Armor';
 $LNG['in_armor_medium']                              = 'Medium Armor';
 $LNG['in_armor_heavy']                               = 'Heavy Armor';
 $LNG['in_number']                                    = 'Quantity';
+$LNG['in_recovery']                                  = 'Defense is being restored after combat.';
 //System
 $LNG['sys_expe_found_ars_1']                         = 'We found the battlefield and we were able to create an upgrade';
 $LNG['sys_expe_found_ars_2']                         = 'The new commander has allowed contact with the new race, even though it violates the charter. She turned out to be quite friendly, and we were able to establish trade relations. Having successfully completed the exchange, the expedition received an upgrade ';
@@ -267,3 +269,6 @@ $LNG['debris_action_4']					             = 'Debris Metal';
 $LNG['debris_action_5']					             = 'Debris Crystal';
 $LNG['debris_action_6']					             = 'Collect';
 $LNG['debris_action_7']					             = 'There are no debris in your range';
+//Overview
+$LNG['ov_bottom_panel_text']                         = 'Invite your friends and get...';
+$LNG['ov_bottom_panel_head']                         = 'More info...';

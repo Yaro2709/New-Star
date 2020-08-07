@@ -229,5 +229,5 @@ function counting(id)
 	if ( h > 0 ) { h = h + short_hour }  else h = '00' + short_hour ;
 	if ( d > 0 ) { d = d + short_day }  else d = '';
 	
-	Ellimet.find(".time_build_text").text( d + ' ' + h + ' ' + m + ' ' + s);
+	Ellimet.find(".time_build_edit").text( d + ' ' + h + ' ' + m + ' ' + s);
 };

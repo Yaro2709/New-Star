@@ -49,31 +49,31 @@
             </a>
         </div>
         <div class="palnet_block_info palnet_luna_planeto">
-			<img src="{$dpath}planeten/planet2d/{$planetimage}.png" height="110" width="110">
+			<img src="{$dpath}planeten/planet2d/{$planetimage}.png" height="100" width="100">
         </div>
 		<marquee behavior="alternate" direction="left" scrollamount="1" onmouseover="this.stop();" onmouseout="this.start();" style="height: 15px;width: 445px;position: absolute;bottom: 1px;font-size: 10px;left: 6px;color: #b2b2b2;text-shadow: 0px 1px 0px rgba(0,0,0,0.6);">Hello my friends!</marquee>
 		<div class="palnet_block_info palnet_big_info"> 
             <div class="left_part">
-                <a href="game.php?page=planet" style="color:#b2b2b2">{$LNG.ov_diameter}</a>
+                <a href="game.php?page=planet" style="color:#b2b2b2"><img src="{$dpath}img/iconav/diametr.png" class="overvieew6">{$LNG.ov_diameter}</a>
             </div>
             <div class="right_part">
                 {$planet_diameter} {$LNG.ov_distance_unit} (<span title="{$LNG.ov_developed_fields}">{$planet_field_current}</span> / <span title="{$LNG.ov_max_developed_fields}">{$planet_field_max}</span> {$LNG.ov_fields})
             </div>
             <div class="left_part" style="top: 20px;">
-                <a href="game.php?page=planet" style="color:#b2b2b2">{$LNG.ov_temperature}</a>
+                <a href="game.php?page=planet" style="color:#b2b2b2"><img src="{$dpath}img/iconav/temp.png" class="overvieew6">{$LNG.ov_temperature}</a>
             </div>
             <div class="right_part" style="top: 20px;">
                 {$LNG.ov_aprox} {$planet_temp_min}{$LNG.ov_temp_unit} {$LNG.ov_to} {$planet_temp_max}{$LNG.ov_temp_unit}
             </div>
 			<div class="left_part" style="top: 40px;">
-                <a href="game.php?page=planet" style="color:#b2b2b2">{$LNG.ov_position}</a>
+                <a href="game.php?page=planet" style="color:#b2b2b2"><img src="{$dpath}img/iconav/position.png" class="overvieew6">{$LNG.ov_position}</a>
             </div>
             <div class="right_part" style="top: 40px;">
                 <a href="game.php?page=galaxy&amp;galaxy={$galaxy}&amp;system={$system}">[{$galaxy}:{$system}:{$planet}]</a>
             </div>
 			<div class="clear"></div>
 			<div class="left_part" style="top: 60px;">
-                <a href="game.php?page=overview" style="color:#b2b2b2">{$LNG.ov_points}</a>
+                <a href="game.php?page=overview" style="color:#b2b2b2"><img src="{$dpath}img/iconav/stat.png" class="overvieew6">{$LNG.ov_points}</a>
             </div>
             <div class="right_part" style="top: 60px;">{$rankInfo}</div>
         </div>	
@@ -105,23 +105,23 @@
             <div>
                 <a href="game.php?page=race"><span class="overvieew5">{$LNG.tech.$race}</span></a>
                 <a href="game.php?page=race" class=" ">
-                    <img style='width: 90px;' src="{$dpath}gebaeude/{$race}.png" class="overvieew4 tooltip" data-tooltip-content="{$LNG.lm_race}" style="opacity:0.8">
+                    <img style='width: 90px;' src="{$dpath}gebaeude/{$race}.gif" class="overvieew4 tooltip" data-tooltip-content="{$LNG.lm_race}" style="opacity:0.8">
                 </a>
             </div>
         {/if}
         </div> 
         <div class="gray_latdes overvieew3">
-            <div class="ricerche"><img src="{$dpath}img/iconav/tech.png" class="overvieew6"><span class="overvieew9"><a href="game.php?page=research">
+            <div class="ricerche"><img src="{$dpath}img/iconav/ov_tech.png" class="overvieew27"><span class="overvieew9"><a href="game.php?page=research">
                 {if $buildInfo.tech}{$LNG.tech[$buildInfo.tech['id']]} <span class="level">({$buildInfo.tech['level']})</span><span class="timer" data-time="{$buildInfo.tech['timeleft']}">{$buildInfo.tech['starttime']}</span>{else}{$LNG.ov_free}{/if}</a></span>
             </div>
         </div>
         <div class="gray_latdes overvieew3">
-            <div class="costruzioni"><img src="{$dpath}img/iconav/build.png" class="overvieew6"><span class="overvieew9"><a href="game.php?page=buildings">
+            <div class="costruzioni"><img src="{$dpath}img/iconav/ov_build.png" class="overvieew27"><span class="overvieew9"><a href="game.php?page=buildings">
                 {if $buildInfo.buildings}{$LNG.tech[$buildInfo.buildings['id']]} <span class="level">({$buildInfo.buildings['level']}) - </span><span class="timer" data-time="{$buildInfo.buildings['timeleft']}">{$buildInfo.buildings['starttime']}</span>{else}{$LNG.ov_free}{/if}</a></span>
             </div>
         </div>
         <div class="gray_latdes overvieew3">
-            <div class="flotte"><img src="{$dpath}img/iconav/fleet.png" class="overvieew6"><span class="overvieew9"><a href="game.php?page=shipyard">
+            <div class="flotte"><img src="{$dpath}img/iconav/ov_fleet.png" class="overvieew27"><span class="overvieew9"><a href="game.php?page=shipyard">
                 {if $buildInfo.fleet}{$LNG.tech[$buildInfo.fleet['id']]} <span class="level">({$buildInfo.fleet['level']})</span><br><span class="timer" data-time="{$buildInfo.fleet['timeleft']}">{$buildInfo.fleet['starttime']}</span>{else}{$LNG.ov_free}{/if}</a></span>
             </div>
         </div>
@@ -130,13 +130,19 @@
     <div class="gray_latdes" style="border-left:0;border-right:0;">
         <div class="overvieew7" style="height:auto">
         {if $is_news}
-            <div class="overvieew8" style="margin-top: 0;height: 243px;margin-bottom: 0; width: 700px;">
+            <div class="overvieew8">
                 <div class="title">{$LNG.ov_news}</div>
                 <div id="news_ower">{$news}</div>
             </div> 
         {/if}			
         </div>        
-    </div> 
+    </div>
+    {if isModuleAvailable($smarty.const.MODULE_BANNER)}
+    <div class="ref_system">
+        {$LNG.ov_bottom_panel_text}
+        <a href="game.php?page=settings" style="float:right;">{$LNG.ov_bottom_panel_head}</a>
+    </div>
+    {/if}
 </div>
 {/block}
 {block name="script" append}
