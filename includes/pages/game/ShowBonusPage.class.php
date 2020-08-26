@@ -26,20 +26,20 @@ class ShowBonusPage extends AbstractGamePage
 	
 	function show()
 	{		
-		global $USER, $PLANET,  $LNG, $resource;
+		global $USER, $PLANET, $LNG, $resource;
         
 		if($USER['bonus_time'] > TIMESTAMP)		
 			$this->redirectTo('game.php');
         
 		$bonus = array(
-			901	=> rand(100000,200000),
-			902	=> rand(100000,200000),
-			903	=> rand(100000,200000),
+			921	=> rand(100,1000),
+			922	=> rand(15,100),
+			924	=> rand(1,3),
 		);
         
 		foreach($bonus as $id => $key)
 		{
-			$PLANET[$resource[$id]]	+= $bonus[$id];
+			$USER[$resource[$id]]	+= $bonus[$id];
 		}
         
 		$time			 = (TIMESTAMP + 86400);

@@ -84,7 +84,7 @@ $LNG['tn_delete_mode']						         = 'The account at %s will be automatically 
 //{IDs_0007} Menu
 $LNG['lm_overview']							         = 'Overview';
 $LNG['lm_galaxy']							         = 'Galaxy';
-$LNG['lm_empire']							         = 'Empire';
+$LNG['lm_control']							         = 'Сontrol';
 $LNG['lm_fleet']							         = 'Fleet';
 $LNG['lm_buildings']						         = 'Buildings';
 $LNG['lm_research']							         = 'Research';
@@ -198,7 +198,7 @@ $LNG['gl_missil_launch_action']				         = 'Send';
 $LNG['gl_galaxy']							         = 'Galaxy';
 $LNG['gl_solar_system']						         = 'System';
 $LNG['gl_show']								         = 'View';
-$LNG['gl_pos']								         = 'Pos.';
+$LNG['gl_pos']								         = '№';
 $LNG['gl_planet']							         = 'Planet';
 $LNG['gl_name_activity']					         = 'Name (Activity)';
 $LNG['gl_moon']								         = 'Moon';

@@ -8,7 +8,7 @@
     {if $officierList}
         <div id="ally_content" class="conteiner" style="width: 100%;">
             <div class="gray_stripe">
-                {$LNG.lm_officiers}              
+                {$LNG.lm_officiers} 
             </div>
             <div id="build_elements" class="officier_elements gov2">
                 {foreach $officierList as $ID => $Element}

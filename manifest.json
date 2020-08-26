@@ -1,0 +1,46 @@
+{
+  "short_name": "New-Star",
+  "name": "New-Star",
+  "description": "New-Star",
+  "author": "Yaro2709",
+  "categories": ["game"],
+  "icons": [
+    {
+      "src": "/styles/resource/images/icons/192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/styles/resource/images/icons/512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/index.php",
+  "background_color": "#010e16",
+  "display": "fullscreen",
+  "scope": "/",
+  "theme_color": "#010e16",
+  "prefer_related_applications": false,
+  "serviceworker": {
+	  "src": "/manifest.js",
+	  "type": "",
+	  "update_via_cache": "none"
+    },
+  "shortcuts": [
+    {
+      "name": "New-Star",
+      "short_name": "New-Star",
+      "description": "New-Star",
+      "url": "/index.php",
+      "icons": [{ "src": "/styles/resource/images/icons/192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "New-Star",
+      "short_name": "New-Star",
+      "description": "New-Star",
+      "url": "/index.php",
+      "icons": [{ "src": "/styles/resource/images/icons/512.png", "sizes": "512x512" }]
+    }
+  ]
+}

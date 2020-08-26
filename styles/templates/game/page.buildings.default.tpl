@@ -48,16 +48,22 @@
                 </div>
             </div>
         {/if}	
-            <div id="build_content" class="conteiner">
+            <div id="build_content" class="conteiner ship_build">
                 <div id="fildes_band">
                     <div id="fildes_band_proc" style="width:{$field_percent}%;"></div>
-                    <div class="gray_stripe" style="height:0px;">
-                        <div style="float:left">{$LNG.lm_buildings}</div>
+                    <div class="gray_stripe" style="height:0px; padding-right: 0; padding: 0;">
+                        {if isModuleAvailable($smarty.const.MODULE_PLANET)}
+                        <a href="game.php?page=planet" class="palanetarium_linck seting2 tooltip" data-tooltip-content="{$LNG.lm_planet}"></a>
+                        {/if}
+                        <div style="float:left;">{$LNG.lm_buildings}</div>
                         <span class="record_btn ico_star record_btn_active" onclick="build();"></span>
                         <span class="record_btn ico_build_1" onclick="build1();"></span>
                         <span class="record_btn ico_build_2" onclick="build2();"></span>
                         <span class="record_btn ico_build_3" onclick="build3();"></span>
                         <span class="record_btn ico_build_4" onclick="build4();"></span>
+                        {if isModuleAvailable($smarty.const.MODULE_BUY_BUILD)}
+                        <a href="game.php?page=buybuild" class="right_flank button" style="margin-left: 10px;">{$LNG.lm_buybuild}</a>
+                        {/if}	
                     </div>
                     <div class="fildes_band_text">
                         {$LNG.bd_em_field} <span>{$field_used}</span> {$LNG.bd_of_field} <span>{$field_max}</span>

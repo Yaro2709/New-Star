@@ -71,6 +71,11 @@ class ShowStatisticsPage extends AbstractGamePage
 		$db 	= Database::get();
 		$config	= Config::get();
         
+        $sql	= "SELECT user.*, stat.total_points, stat.defs_points, stat.fleet_points FROM %%USERS%% as user LEFT JOIN %%STATPOINTS%% as stat ON stat.id_owner = user.id WHERE user.id = :userId AND stat.stat_type = 1;";
+		$CurrentUserPoints	= $db->selectSingle($sql, array(
+			':userId'	=> $USER['id']
+		));
+        
         $sql =  "SELECT nextTime FROM %%CRONJOBS%% WHERE cronjobID = :cronId;";
 		$nextTime = $db->selectSingle($sql, array(
 			':cronId'			=> 2
@@ -93,7 +98,7 @@ class ShowStatisticsPage extends AbstractGamePage
                 $start = max(floor(($range - 1) / 100) * 100, 0);
 
 				if ($config->stat == 2) {
-					$sql = "SELECT DISTINCT s.*, u.id, u.username, u.ally_id, a.ally_name FROM %%STATPOINTS%% as s
+					$sql = "SELECT DISTINCT s.*, u.id, u.username, u.ally_id, u.banaday, u.onlinetime, u.race, u.formgovernment, u.ethics, a.ally_name FROM %%STATPOINTS%% as s
 					INNER JOIN %%USERS%% as u ON u.id = s.id_owner
 					LEFT JOIN %%ALLIANCE%% as a ON a.id = s.id_ally
 					WHERE s.universe = :universe AND s.stat_type = 1 AND u.authlevel < :authLevel
@@ -105,7 +110,7 @@ class ShowStatisticsPage extends AbstractGamePage
 						':limit'	=> 100,
 					));
 				} else {
-					$sql = "SELECT DISTINCT s.*, u.id, u.username, u.ally_id, a.ally_name FROM %%STATPOINTS%% as s
+					$sql = "SELECT DISTINCT s.*, u.id, u.username, u.ally_id, u.banaday, u.onlinetime, u.race, u.formgovernment, u.ethics, a.ally_name FROM %%STATPOINTS%% as s
 					INNER JOIN %%USERS%% as u ON u.id = s.id_owner
 					LEFT JOIN %%ALLIANCE%% as a ON a.id = s.id_ally
 					WHERE s.universe = :universe AND s.stat_type = 1
@@ -121,14 +126,21 @@ class ShowStatisticsPage extends AbstractGamePage
 
                 foreach ($query as $StatRow)
                 {
+                    $IsNoobProtec		= CheckNoobProtec($CurrentUserPoints, $StatRow, $StatRow);
+                    $Class		 		= userStatus($StatRow, $IsNoobProtec);
+                    
                     $RangeList[]	= array(
-                        'id'		=> $StatRow['id'],
-                        'name'		=> $StatRow['username'],
-                        'points'	=> pretty_number($StatRow[$Points]),
-                        'allyid'	=> $StatRow['ally_id'],
-                        'rank'		=> $StatRow[$Rank],
-                        'allyname'	=> $StatRow['ally_name'],
-                        'ranking'	=> $StatRow[$OldRank] - $StatRow[$Rank],
+                        'id'		        => $StatRow['id'],
+                        'name'		        => $StatRow['username'],
+                        'points'	        => pretty_number($StatRow[$Points]),
+                        'allyid'	        => $StatRow['ally_id'],
+                        'rank'		        => $StatRow[$Rank],
+                        'allyname'      	=> $StatRow['ally_name'],
+                        'ranking'	        => $StatRow[$OldRank] - $StatRow[$Rank],
+                        'class'		        => $Class,
+                        'race'		        => $StatRow['race'],
+                        'formgovernment'	=> $StatRow['formgovernment'],
+                        'ethics'	        => $StatRow['ethics'],
                     );
                 }
 
@@ -192,6 +204,17 @@ class ShowStatisticsPage extends AbstractGamePage
             'CUser_id'				=> $USER['id'],
             'nextStatUpdate' 		=> abs(TIMESTAMP - $nextTime),
             'stat_date'				=> _date($LNG['php_tdformat'], Cronjob::getLastExecutionTime('statistic'), $USER['timezone']),
+            'ShortStatus'			=> array(
+				'vacation'			    => $LNG['gl_short_vacation'],
+				'banned'				=> $LNG['gl_short_ban'],
+				'inactive'				=> $LNG['gl_short_inactive'],
+				'longinactive'			=> $LNG['gl_short_long_inactive'],
+				'noob'					=> $LNG['gl_short_newbie'],
+				'strong'				=> $LNG['gl_short_strong'],
+				'enemy'					=> $LNG['gl_short_enemy'],
+				'friend'				=> $LNG['gl_short_friend'],
+				'member'				=> $LNG['gl_short_member'],
+            ),
         ));
 
         $this->display('page.statistics.default.tpl');

@@ -443,6 +443,7 @@ class ShowFleetTablePage extends AbstractGamePage
 			'fleetGroopName'		=> $fleetGroopName,
 			'isVacation'			=> IsVacationMode($USER),
 			'pointsPrice'           => $pointsPrice,
+            'mission'				=> HTTP::_GP('target_mission', 0),
 		));
 		
 		$this->display('page.fleetTable.default.tpl');

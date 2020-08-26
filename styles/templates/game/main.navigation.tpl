@@ -3,7 +3,7 @@
 </script>
 <script type="text/javascript" src="./scripts/game/json.js"></script>
 <div id="left_side">  
-	<div id="bottom_top_menu_up">
+	<div id="side_menu_up">
         <div class="img"></div>
     </div>
     <div id="left_menu">
@@ -28,6 +28,8 @@
             <a class="big_btn btn_menu btn_menu_big"> <div class="servertime oservertime"></div> </a>
             {if $bonus_time < TIMESTAMP}
             <a class="big_btn blue btn_menu btn_menu_big" href="game.php?page=bonus">{$LNG.lm_bonus}</a>
+            {else}
+            <a class="big_btn blue btn_menu btn_menu_big">{$bonus_time_rest}</a>
             {/if}
             {*<div class="separator"></div>*} 
             <!-- ricerche  tecnologie-->
@@ -62,19 +64,25 @@
 			<a class="nuovomenusinistra" href="game.php?page=alliance" id="munu_alliance">{$LNG.lm_alliance}</a>
             <a class="nuovomenudestra" href="game.php?page=alliance"><img src="{$dpath}img/iconav/alliance.png" class="imgovernuovo" id="ciaone"></a>	
             {/if}
+            {if isModuleAvailable($smarty.const.MODULE_MARKET)}
+            <a class="nuovomenusinistra" href="game.php?page=market">{$LNG.lm_market}</a>
+            <a class="nuovomenudestra" href="game.php?page=market"><img src="{$dpath}img/iconav/market.png" class="imgovernuovo"></a>
+            {/if}
+            {if isModuleAvailable($smarty.const.MODULE_ARSENAL)}
+            <a class="nuovomenusinistra" href="game.php?page=arsenal">{$LNG.lm_ars}</a>
+            {/if}
+            {if isModuleAvailable($smarty.const.MODULE_CONTAINER)}
+            <a class="nuovomenudestra tooltip" href="game.php?page=conteiner" id="munu_fleetable" data-tooltip-content="{$LNG.lm_container}"><img src="{$dpath}img/iconav/arsenal.png" class="oimgaltro"></a>	
+            {/if}
+            {if isModuleAvailable($smarty.const.MODULE_OFFICIER)}
+            <a class="nuovomenusinistra" href="game.php?page=officier" id="munu_senat">{$LNG.lm_officiers}</a>
+            <a class="nuovomenudestra" href="game.php?page=officier"><img src="{$dpath}img/iconav/governatori.png" class="imgovernuovo" id="ciaone"></a>
+            {/if}
+            {if isModuleAvailable($smarty.const.MODULE_PARTY) || isModuleAvailable($smarty.const.MODULE_IDEOLOGIES)}
+            <a class="nuovomenusinistra" href="game.php?page=ideologies" id="munu_senat">{$LNG.lm_ideologies}</a>
+            <a class="nuovomenudestra tooltip" href="game.php?page=party" data-tooltip-content="{$LNG.lm_party}"><img src="{$dpath}img/iconav/blackmarket.png" class="oimgaltro"></a>
+            {/if}
             <!-- ufficiali governatori -->
-            {if isModuleAvailable($smarty.const.MODULE_SENAT)}
-            <a class="menu_market" href="game.php?page=senat" id="munu_senat">{$LNG.lm_senat}</a>
-            {/if}
-            {if isModuleAvailable($smarty.const.MODULE_BLACK_MARKET)}
-            <a class="menu_market" href="game.php?page=blackmarket" id="munu_senat">{$LNG.lm_blackmarket}</a>
-            {/if}
-            {if isModuleAvailable($smarty.const.MODULE_DILERS)}
-            <a class="menu_market" href="game.php?page=dilers" id="munu_senat">{$LNG.lm_dilers}</a>
-            {/if}
-            {if isModuleAvailable($smarty.const.MODULE_PIRATE_MARKET)}
-            <a class="menu_market" href="game.php?page=piratemarket" id="munu_senat">{$LNG.lm_piratemarket}</a>
-            {/if}
             {if isModuleAvailable($smarty.const.MODULE_GALAXY)}
             <a class="galassiabott" href="game.php?page=galaxy" id="munu_galaxy">{$LNG.lm_galaxy}</a>
             {/if}   
@@ -108,11 +116,10 @@
 			<div class="separator_nav"></div>		
 			<a title="{$LNG.lm_logout}" href="game.php?page=logout"> <span class="exit"></span></a>				  
         </div>
-        <div id="bottom_top_menu_down">
+        <div id="side_menu_bottom">
             <div class="img"></div>
         </div>
     </div> 
-    
 </div>
 <div style="height:0; overflow:hidden;" loop="false;" id="music">
     <audio id="beepataks" preload="auto">

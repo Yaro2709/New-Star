@@ -17,9 +17,9 @@
   <div class="gray_ship1"><div class="gray_ship3" style="height:80px">
     	<div class="fleetstep1-14">{$LNG.fl_destiny}
 		
-				<input type="text" id="galaxy" name="galaxy" size="3" maxlength="2" onchange="updateVars()" onkeyup="updateVars()" value="{$galaxy}" class="fleetstep1-2">
-				<input type="text" id="system" name="system" size="3" maxlength="4" onchange="updateVars()" onkeyup="updateVars()" value="{$system}" class="fleetstep1-2">
-				<input type="text" id="planet" name="planet" size="3" maxlength="2" onchange="updateVars()" onkeyup="updateVars()" value="{$planet}" class="fleetstep1-2"> 
+				<input type="text" id="galaxy" name="galaxy" size="3" maxlength="2" onchange="updateVars()" value="{$galaxy}" class="fleetstep1-2">
+				<input type="text" id="system" name="system" size="3" maxlength="4" onchange="updateVars()" value="{$system}" class="fleetstep1-2">
+				<input type="text" id="planet" name="planet" size="3" maxlength="2" onchange="updateVars()" value="{$planet}" class="fleetstep1-2"> 
 				<select id="type" name="type" onchange="updateVars()">
                     {html_options options=$typeSelect selected=$type}
 				</select>

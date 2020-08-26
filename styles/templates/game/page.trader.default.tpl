@@ -3,8 +3,11 @@
 <div id="page">
    <div id="content">
       <div id="ally_content" class="conteiner">
-         <div class="gray_stripe">
-            {$LNG.tr_call_trader}             
+         <div class="gray_stripe" style="padding-right: 0;">
+            {$LNG.tr_call_trader} 
+            {if isModuleAvailable($smarty.const.MODULE_CONTAINER)}
+            <a href="game.php?page=conteiner" class="right_flank button" style="margin-left: 10px;">{$LNG.lm_container}</a>
+            {/if}            
          </div>
          <table class="tablesorter ally_ranks">
             <tr>

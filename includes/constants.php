@@ -157,7 +157,7 @@ define('AUTH_MOD'					, 1);
 define('AUTH_USR'					, 0);
 
 // Modules
-define('MODULE_AMOUNT'				, 75);//количество модов
+define('MODULE_AMOUNT'				, 72);//количество модов
 define('MODULE_ALLIANCE'			, 0);
 define('MODULE_BANLIST'				, 21);
 define('MODULE_BANNER'				, 37);
@@ -170,7 +170,7 @@ define('MODULE_FLEET_EVENTS'		, 10);
 define('MODULE_FLEET_TABLE'			, 9);
 define('MODULE_FLEET_TRADER'		, 38);
 define('MODULE_GALAXY'				, 11);
-define('MODULE_IMPERIUM'			, 15);
+define('MODULE_CONTROL'			    , 15);
 define('MODULE_INFORMATION'			, 14);
 define('MODULE_MESSAGES'			, 16);
 define('MODULE_MISSILEATTACK'		, 40);
@@ -207,33 +207,30 @@ define('MODULE_RACE'				, 44);
 define('MODULE_PREMIUM'			    , 45);
 define('MODULE_BONUS'				, 46);
 define('MODULE_INFO_BONUS'		    , 47);
-define('MODULE_BLACK_MARKET'		, 48);
-define('MODULE_CREATE_MOON'		    , 49);
-define('MODULE_ARSENAL'			    , 50);
-define('MODULE_CONTAINER'			, 51);
-define('MODULE_ARTIFACT'			, 52);
-define('MODULE_DEVELOPMENT'			, 53);
-define('MODULE_SENAT'		        , 54);
-define('MODULE_PIRATE_MARKET'		, 55);
-define('MODULE_DILERS'		        , 56);
-define('MODULE_ACHIEVEMENTS'		, 57);
-define('MODULE_FORMGOVERNMENT'		, 58);
-define('MODULE_ETHICS'		        , 59);
-define('MODULE_IDEOLOGIES'		    , 60);
-define('MODULE_PARTY'		        , 61);
-define('MODULE_BON'		            , 62);
-define('MODULE_BAND'		        , 63);
-define('MODULE_FAIR'		        , 64);
-define('MODULE_AUCTION'		        , 65);
-define('MODULE_BUY_BUILD'		    , 66);
-define('MODULE_BUY_TECH'		    , 67);
-define('MODULE_BUY_FLEET'		    , 68);
-define('MODULE_BUY_DEFENSE'		    , 69);
-define('MODULE_PLANET'		        , 70);
-define('MODULE_REDUCE_FLEET'		, 71);
-define('MODULE_REDUCE_RESOURCES'    , 72);
-define('MODULE_DELIVERY'		    , 73);
-define('MODULE_FIND_DEBRIS'		    , 74);
+define('MODULE_CREATE_MOON'		    , 48);
+define('MODULE_ARSENAL'			    , 49);
+define('MODULE_CONTAINER'			, 50);
+define('MODULE_ARTIFACT'			, 51);
+define('MODULE_DEVELOPMENT'			, 52);
+define('MODULE_ACHIEVEMENTS'		, 53);
+define('MODULE_FORMGOVERNMENT'		, 54);
+define('MODULE_ETHICS'		        , 55);
+define('MODULE_IDEOLOGIES'		    , 56);
+define('MODULE_PARTY'		        , 57);
+define('MODULE_BON'		            , 58);
+define('MODULE_BAND'		        , 59);
+define('MODULE_FAIR'		        , 60);
+define('MODULE_AUCTION'		        , 61);
+define('MODULE_BUY_BUILD'		    , 62);
+define('MODULE_BUY_TECH'		    , 63);
+define('MODULE_BUY_FLEET'		    , 64);
+define('MODULE_BUY_DEFENSE'		    , 65);
+define('MODULE_PLANET'		        , 66);
+define('MODULE_REDUCE_FLEET'		, 67);
+define('MODULE_REDUCE_RESOURCES'    , 68);
+define('MODULE_DELIVERY'		    , 69);
+define('MODULE_FIND_DEBRIS'		    , 70);
+define('MODULE_STORE'		        , 71);
 //$new_code
 
 // FLEET STATE

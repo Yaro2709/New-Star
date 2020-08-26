@@ -26,11 +26,16 @@
             <div class="fleettab8" style="margin-bottom:0"></div>
             <span class="puntiflotta1">{$LNG.fl_fleet_points}</span>
             <span class="totalFleetPoints puntiflotta2">0</span>
+            {if !empty($mission)}
+            <span class="missionefleetta">{$LNG.fl_mission}</span>
+            <span class="missionefleettamiss">{$LNG["type_mission_{$mission}"]}</span>
+            {/if}
             <form action="?page=fleetStep1" method="post" name="glav" class="getRead">
                 <input type="hidden" name="galaxy" value="{$targetGalaxy}">
                 <input type="hidden" name="system" value="{$targetSystem}">
                 <input type="hidden" name="planet" value="{$targetPlanet}">
                 <input type="hidden" name="type" value="{$targetType}">
+                <input type="hidden" name="target_mission" value="{$targetMission}">
                 <div id="build_elements" style=" margin:0">
                     <div class="gray_ship1">
                         {foreach $elementListM as $ID => $Element}

@@ -1,7 +1,6 @@
 {block name="title" prepend}{$LNG.lm_overview}{/block}
 {block name="script" append}{/block}
 {block name="content"}
-{* онлайн админов, реф. система, тикеты*}
 <div id="page">
     <div id="content">
         {if !empty($fleets)}
@@ -100,15 +99,13 @@
         {/if}
         {/if}
         </div>
-        <div class="gray_latdes overvieew2" style="background: url({$dpath}img/content/control_roompi.png) no-repeat, url({$dpath}gebaeude/race/ov_{$race}.jpg) no-repeat ; background-size:cover;">
-        {if isModuleAvailable($smarty.const.MODULE_RACE)}
-            <div>
-                <a href="game.php?page=race"><span class="overvieew5">{$LNG.tech.$race}</span></a>
-                <a href="game.php?page=race" class=" ">
-                    <img style='width: 90px;' src="{$dpath}gebaeude/{$race}.gif" class="overvieew4 tooltip" data-tooltip-content="{$LNG.lm_race}" style="opacity:0.8">
-                </a>
-            </div>
-        {/if}
+        <div class="gray_latdes overvieew2" style="background: url({$dpath}img/content/control_roompi.png) no-repeat, url({$dpath}img/content/control_acc.png) no-repeat ; background-size:cover;">
+        <div>
+            <a href="game.php?page=market"><span class="overvieew5">{$LNG.lm_market}</span></a>
+            <a href="game.php?page=market" class=" ">
+            <img src="{$dpath}img/content/market.png" class="overvieew4 tooltip" data-tooltip-content="{$LNG.lm_market}" style="opacity:0.8">
+            </a>
+        </div>
         </div> 
         <div class="gray_latdes overvieew3">
             <div class="ricerche"><img src="{$dpath}img/iconav/ov_tech.png" class="overvieew27"><span class="overvieew9"><a href="game.php?page=research">
@@ -128,9 +125,33 @@
 	</div>
     <div class="fleettab11" style="margin-top: 0;"></div>
     <div class="gray_latdes" style="border-left:0;border-right:0;">
-        <div class="overvieew7" style="height:auto">
+    <div class="overvieew8">
+		<div class="title">{$LNG.ov_panel_root} </div>
+        {if isModuleAvailable($smarty.const.MODULE_RACE)}
+		<a href="game.php?page=race"><div class="overvieew15 overvire tooltip" style="background: rgba(0, 0, 0, 0.25) url({$dpath}gebaeude/{$race}.gif) no-repeat center; background-size: 50px;" data-tooltip-content="{$LNG.tech.$race}"></div></a>
+        {/if}
+        {if isModuleAvailable($smarty.const.MODULE_FORMGOVERNMENT)}
+        <a href="game.php?page=formgovernment"><div class="overvieew15 overvire tooltip" style="background: rgba(0, 0, 0, 0.25) url({$dpath}gebaeude/{$formgovernment}.png) no-repeat center; background-size: 50px;" data-tooltip-content="{$LNG.tech.$formgovernment}"></div></a>
+        {/if}
+        {if isModuleAvailable($smarty.const.MODULE_ETHICS)}
+		<a href="game.php?page=ethics"><div class="overvieew15 overvire tooltip" style="background: rgba(0, 0, 0, 0.25) url({$dpath}gebaeude/{$ethics}.png) no-repeat center; background-size: 50px;" data-tooltip-content="{$LNG.tech.$ethics}"></div></a>
+        {/if}
+        {if isModuleAvailable($smarty.const.MODULE_INFO_BONUS)}
+		<a href="game.php?page=infobonus"><div class="overvieew15 overvire tooltip" style="background: rgba(0, 0, 0, 0.25) url({$dpath}img/title/infobonus.png) no-repeat center; background-size: 50px;" data-tooltip-content="{$LNG.lm_infobonus}"></div></a>
+        {/if}   
+        {if isModuleAvailable($smarty.const.MODULE_PARTY)}
+		<a href="game.php?page=party"><div class="overvieew15 overvire tooltip" style="background: rgba(0, 0, 0, 0.25) url({$dpath}img/title/party.png) no-repeat center; background-size: 50px;" data-tooltip-content="{$LNG.lm_party}"></div></a>
+        {/if}
+        {if isModuleAvailable($smarty.const.MODULE_IDEOLOGIES)}
+		<a href="game.php?page=ideologies"><div class="overvieew15 overvire tooltip" style="background: rgba(0, 0, 0, 0.25) url({$dpath}img/title/ideologies.png) no-repeat center; background-size: 50px;" data-tooltip-content="{$LNG.lm_ideologies}"></div></a>
+        {/if}        
+        {if isModuleAvailable($smarty.const.MODULE_OFFICIER)}
+		<a href="game.php?page=officier"><div class="overvieew15 overvire tooltip" style="background: rgba(0, 0, 0, 0.25) url({$dpath}img/title/officier.png) no-repeat center; background-size: 50px;" data-tooltip-content="{$LNG.lm_officiers}"></div></a>
+        {/if}
+	</div>
+        <div class="overvieew8" style="height:auto;     margin-top: 0;">
         {if $is_news}
-            <div class="overvieew8">
+            <div class="overvieew7">
                 <div class="title">{$LNG.ov_news}</div>
                 <div id="news_ower">{$news}</div>
             </div> 

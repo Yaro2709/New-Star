@@ -3,8 +3,11 @@
 <div id="page">
 <div id="content">
 <div id="ally_content" class="conteiner">
-    <div class="gray_stripe">
-        <span id="traderHead">{$LNG.lm_buytech}</span>               
+    <div class="gray_stripe" style="padding-right: 0;">
+        <span id="traderHead">{$LNG.lm_buytech}</span>  
+        {if isModuleAvailable($smarty.const.MODULE_RESEARCH)}
+        <a href="game.php?page=buildings" class="right_flank button">{$LNG.lm_research}</a>
+        {/if}
     </div>
     <form action="game.php?page=buytech" method="post">
         <input type="hidden" name="mode" value="send">

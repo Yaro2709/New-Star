@@ -56,15 +56,22 @@
             </table>
             <br><br>
             {/if}
-            <div id="build_content" class="conteiner">
+            <div id="build_content" class="conteiner ship_build">
                 <div id="fildes_band">
-                    <div class="gray_stripe">
+                    <div class="gray_stripe" style="height:0px; padding-right: 0; padding: 0;">
+                        {*<a href="#" id="arrow_question" onclick="return Dialog.manualinfo(3)" class="interrogation manual">?</a>*}
+                        {if isModuleAvailable($smarty.const.MODULE_ARSENAL)}
+                        <a href="game.php?page=arsenal" class="palanetarium_linck ars tooltip" data-tooltip-content="{$LNG.lm_ars}"></a>
+                        {/if}
                         <div style="float:left">{$LNG.lm_research}</div>
                         <span class="record_btn ico_star record_btn_active" onclick="tech();"></span>
                         <span class="record_btn ico_tech_1" onclick="tech1();"></span>
                         <span class="record_btn ico_tech_2" onclick="tech2();"></span>
                         <span class="record_btn ico_tech_3" onclick="tech3();"></span>
                         <span class="record_btn ico_tech_4" onclick="tech4();"></span>
+                        {if isModuleAvailable($smarty.const.MODULE_BUY_TECH)}
+                        <a href="game.php?page=buytech" class="right_flank button" style="margin-left: 10px;">{$LNG.lm_buytech}</a>
+                        {/if}
                     </div>
                 </div>
                 <div id="build_elements">

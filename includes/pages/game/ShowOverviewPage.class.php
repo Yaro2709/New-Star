@@ -292,6 +292,8 @@ class ShowOverviewPage extends AbstractGamePage
 		$this->assign(array(
             'UsersOnline'				=> $UsersOnline,
             'race'                      => $USER['race'],
+            'ethics'                    => $USER['ethics'],
+            'formgovernment'            => $USER['formgovernment'],
             'activeExpedition'		    => $activeExpedition,
 			'maxExpedition'			    => $maxExpedition,
 			'activeFleetSlots'		    => $activeFleetSlots,

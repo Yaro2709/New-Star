@@ -14,22 +14,20 @@ $(document).ready(function(){
 });
 </script>
 <div id="page">
-<div id="content">
-<div id="ally_content" class="conteiner" style="width:500px;"   >
-   <div class="gray_stripe">
-      {$LNG.lm_bonus}                    
-   </div>
-   <div class="ally_contents">
-	{foreach $bonusList as $ID => $Element}
-			<div class="record_rows fade" style="width: 138px;text-align: left;margin: 0px 4px 8px 4px;float: left;border: 1px solid #091d2e;">
-               <div class="record_img_utits">
-                  <img alt="" src="{$dpath}img/resources/{$ID}f.png">
-               </div>
-               <div class="record_name_utits">
-			   {$LNG.tech.{$ID}}: {pretty_number($Element.bonus)}
-               </div>
+    <div id="content">
+        <div id="ally_content" class="conteiner">
+            <div class="gray_stripo">{$LNG.lm_bonus}</div>
+            <div class="bonus1">
+                <span class="bonus5">{$LNG.lm_bonus}</span>
+                {foreach $bonusList as $ID => $Element}
+                <div class="bonus2 fade">
+                    <img src="{$dpath}gebaeude/{$ID}.gif">
+                    <span class="bonus3">{pretty_number($Element.bonus)}</span>
+                    <span class="bonus4">{$LNG.tech.{$ID}}</span>
+                </div>
+                {/foreach}
             </div>
-	{/foreach}		
-   </div>
+        </div>
+    </div>
 </div>
 {/block}

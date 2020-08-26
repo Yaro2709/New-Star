@@ -1,13 +1,13 @@
-{block name="title" prepend}{$LNG.lm_empire}{/block}
+{block name="title" prepend}{$LNG.lm_control}{/block}
 {block name="content"}
 <div id="page">
 <div id="content">
 
 <div id="ally_content" style="width:auto;" class="conteiner">
 <div class="gray_stripe">
-   {$LNG.lv_imperium_title}
+   <div style="float:left">{$LNG.lm_control}</div>
        <span style="float:right;color:#54989d;">{$LNG.lv_max_colon} {$PlanetCount} / {$MaxPlanets} </span>
-</div>
+    </div>
 <div id="empire_filtrs">
 
    <span onclick="filtrsall();" id="filtrsall" class="imper_btn_filtrs imper_btn_filtrs_activ">{$LNG.lv_max} <span>({$AllCount})</span></span>

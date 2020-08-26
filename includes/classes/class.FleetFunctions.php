@@ -105,11 +105,6 @@ class FleetFunctions
 		$SpeedFactor	+= 10;
 		$SpeedFactor	/= $GameSpeed;
 		
-		if(isset($USER['factor']['FlyTime']))
-		{
-			$SpeedFactor	*= max(0, 1 + $USER['factor']['FlyTime']);
-		}
-		
 		return max($SpeedFactor, MIN_FLEET_TIME);
 	}
  

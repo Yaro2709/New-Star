@@ -1,6 +1,6 @@
 <div id="header">
     <div id="top_nav" class="otopnav"> 
-        <a href="game.php">
+        <a title="{$LNG.lm_overview}" href="game.php?page=overview">
             <img src="{$dpath}img/general/logo.png" class="game_logo">
         </a>
         <div style="display:none;">					
@@ -87,7 +87,7 @@
             {/foreach}                       
             </div>
         </div><!--/planet_select-->			
-		<img title="" src="{$dpath}img/iconav/avatar_default.png" class="settingxterium" onclick="return Dialog.Playercard({$userID}, '{$username}');">
+		<img title="" src="{$foto}" class="settingxterium" onclick="return Dialog.Playercard({$userID}, '{$username}');">
         <span class="usernameow" onclick="return Dialog.Playercard({$userID}, '{$username}');">{$username}</span>
 		<span class="usernamepos"></span>        
         <div id="res_nav">
@@ -106,7 +106,11 @@
                 {else}
                     {if !isset($resouceData.current) || !isset($resouceData.max)}
                         <div id="res_block_{$resouceData.name}" class="bloc_res tooltip" data-tooltip-content="<span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span><div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>{$LNG.RE} {pretty_number($resouceData.current)}">
+                            {if isModuleAvailable($smarty.const.MODULE_FAIR)}
+                            <a href="game.php?page=fair"><div class="ico_res"></div></a>
+                            {else}
                             <div class="ico_res"></div>
+                            {/if}
                             <div class="stock_res2">
                                 <div class="stock_percentage" style="width:100%;"></div>
                                 <div class="separator_{$resouceData.name}"></div>
@@ -123,8 +127,12 @@
                             <br/>{$LNG.PPW}: {$resouceData.informationz} 
                             <div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'>
                             </div> <span style='color:#999'>{$resouceData.current|number}/{$resouceData.max|number}</span>">
-                            <div class="ico_res"></div> 
-                            {*<a href="game.php?page=trader&amp;mode=trade&amp;resource=901" class="exchange_res tooltip" data-tooltip-content="Обменять <span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span>"></a>  *}
+                            {if isModuleAvailable($smarty.const.MODULE_TRADER)}
+                            <a href="game.php?page=trader"><div class="ico_res"></div></a>
+                            {else}
+                            <div class="ico_res"></div>
+                            {/if}
+                            {*<a href="game.php?page=trader&amp;mode=trade&amp;resource=901" class="exchange_res tooltip" data-tooltip-content="Обменять <span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span>"></a>*}
                             <div class="stock_res">
                                 <div class="stock_percentage" style="width:{$resouceData.percent}%;"></div>
                                 <div class="stock_text">
@@ -141,10 +149,8 @@
     </div><!--/top_nav-->
     <div id="barrasottoover">
 		<div id="top_nav_parte_left">
-            <a title="{$LNG.lm_overview}" href="game.php?page=overview"><span class="overview"></span></a>
-            <div class="separator_nav"></div>
-            {if isModuleAvailable($smarty.const.MODULE_IMPERIUM)}
-			<a title="{$LNG.lm_empire}" href="game.php?page=imperium"><span class="imperia"></span></a>
+            {if isModuleAvailable($smarty.const.MODULE_CONTROL)}
+			<a title="{$LNG.lm_control}" href="game.php?page=control"><span class="imperia"></span></a>
             <div class="separator_nav"></div>
             {/if}
             {if isModuleAvailable($smarty.const.MODULE_STATISTICS)}
@@ -174,20 +180,22 @@
             </a>                                       
             <div class="separator_nav"></div> 
             {/if}
-        </div>      		
+        </div>    
+        {if isModuleAvailable($smarty.const.MODULE_STORE)}
         <div class="premiumbarra">
 			<img class="premiumimgbarra" src="{$dpath}img/iconav/ico-account-premium.png">
-            <a href="game.php?page=premium">  
+            <a href="game.php?page=store">  
                 <span class="premiumtopbar">
-                    <span class="premiumscrittabar">{$LNG.lm_premium}</span>
+                    <span class="premiumscrittabar">{$LNG.lm_store}</span>
                 </span>
             </a>
         </div>
+        {/if}
 	</div>
-    <div id="top_cosmonautics">
-        <div class="top_gift_left"></div>
-        <div class="top_gift_mid"></div>
-        <div class="top_gift_right"></div>
+    <div id="top_menu_bottom">
+        <div class="left"></div>
+        <div class="mid"></div>
+        <div class="right"></div>
     </div>
     {if !$vmode}
 		<script type="text/javascript">

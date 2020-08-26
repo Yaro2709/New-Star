@@ -15,9 +15,9 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
-class ShowImperiumPage extends AbstractGamePage
+class ShowControlPage extends AbstractGamePage
 {
-	public static $requireModule = MODULE_IMPERIUM;
+	public static $requireModule = MODULE_CONTROL;
 
 	function __construct() 
 	{
@@ -135,6 +135,6 @@ class ShowImperiumPage extends AbstractGamePage
 			'planetList'	=> $planetList,
 		));
 
-		$this->display('page.empir.default.tpl');
+		$this->display('page.control.default.tpl');
 	}
 }

@@ -1,4 +1,4 @@
-{block name="title" prepend}{$LNG.lm_governors}{/block}
+{block name="title" prepend}{$LNG.lm_blueprints}{/block}
 {block name="script"}
 <script type="text/javascript" src="./scripts/game/price.js?v=6"></script>
 {/block}
@@ -8,7 +8,7 @@
     {if !empty($darkmatterList)}
         <div id="ally_content" class="conteiner" style="width: 100%;">
             <div class="gray_stripe">
-                {$LNG.lm_governors}               
+                {$LNG.lm_blueprints}               
             </div>
             <div id="build_elements" class="officier_elements gov2">
                 {foreach $darkmatterList as $ID => $Element}
@@ -25,7 +25,7 @@
                             <font color="#096">{foreach $Element.elementBonus as $BonusName => $Bonus}{if $Bonus[0] < 0}-{else}+{/if}{if $Bonus[1] == 0}{abs($Bonus[0] * 100)}%{else}{floatval($Bonus[0])}{/if} {$LNG.bonus.$BonusName}<br>{/foreach}</font>
                         </div>
                         <div class="clear"></div>
-                        <form action="game.php?page=gubernators" method="post" class="build_form">
+                        <form action="game.php?page=blueprints" method="post" class="build_form">
                             <div class="time_build">
                                 {foreach $Element.costResources as $RessID => $RessAmount}{$LNG.tech.{$RessID}}: 
                                 <b><span id="price{$ID}" style="color:{if $Element.costOverflow[$RessID] == 0}lime{else}red{/if}">{$RessAmount|number}</span></b>
@@ -34,7 +34,7 @@
                             <div class="clear"></div>
                             <div class="btn_build_border">
                             {if $Element.buyable}
-                                <form action="game.php?page=gubernators" method="post" class="build_form">
+                                <form action="game.php?page=blueprints" method="post" class="build_form">
                                     <div class="clear"></div>
                                     <input name="id" value="{$ID}" type="hidden">      
                                     <div class="btn_build_border btn_build_border_left dm_btn_build_border_left">

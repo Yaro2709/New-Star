@@ -343,6 +343,7 @@ abstract class AbstractGamePage
 			'current_pids'		=> '?'.$this->getQueryString().'&cp='.$PLANET['id'],
             //Бонус
             'bonus_time'		=> $USER['bonus_time'],
+            'bonus_time_rest'   => _date('d.m.Y H:i:s', ($USER['bonus_time']), $USER['timezone']),
             //Стандартные перменные
 			'PlanetSelect'		=> $PlanetSelect,
 			'new_message' 		=> $USER['messages'],
@@ -476,7 +477,7 @@ abstract class AbstractGamePage
 	}
 
 	protected function display($file) {
-		global $THEME, $LNG, $reslist;
+		global $THEME, $LNG, $reslist, $USER;
 
 		$this->save();
 
@@ -485,6 +486,10 @@ abstract class AbstractGamePage
 		}
 
 		$this->assign(array(
+            //Аватарки
+            'foto'			=> $USER['foto'],
+            'background'	=> $USER['background'],
+            //Стандартные перменные
 			'lang'    		=> $LNG->getLanguage(),
 			'dpath'			=> $THEME->getTheme(),
 			'scripts'		=> $this->tplObj->jsscript,

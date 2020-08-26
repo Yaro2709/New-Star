@@ -548,6 +548,7 @@ function clearGIF() {
  */
 function exceptionHandler($exception)
 {
+    global $USER;
 	/** @var $exception ErrorException|Exception */
 
 	if(!headers_sent()) {
@@ -654,7 +655,16 @@ function exceptionHandler($exception)
 	<script type="text/javascript" src="'.$DIR.'/scripts/base/tooltip.js?v=2123"></script>
 	<script type="text/javascript" src="'.$DIR.'/scripts/game/base.js?v=2123"></script>
 </head>
-<body id="overview" class="full">
+<body id="overview" class="full" 
+    style="
+        background: #0B0B0F;
+        position: relative;
+        background: url('.$USER['background'].') no-repeat fixed center center #0d0d0d;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        o-background-size: cover;
+        background-size: cover;
+">
 <table width="960">
 	<tr>
 		<th>'.$errorType[$errno].'</th>

@@ -3,8 +3,11 @@
 <div id="page">
 <div id="content">
 <div id="ally_content" class="conteiner">
-    <div class="gray_stripe">
-        <span id="traderHead">{$LNG.lm_buydefense}</span>                  
+    <div class="gray_stripe" style="padding-right: 0;">
+        <span id="traderHead">{$LNG.lm_buydefense}</span>  
+        {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_DEFENSIVE)}
+        <a href="game.php?page=shipyard&mode=defense" class="right_flank button">{$LNG.lm_defenses}</a>
+        {/if}
     </div>
     <form action="game.php?page=buydefense" method="post">
         <input type="hidden" name="mode" value="send">

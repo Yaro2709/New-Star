@@ -38,6 +38,12 @@
                         <div class="ally_contents" style="padding-bottom:20px;">
                             <div class="content_box">
                                 <div class="clear"></div>
+                                <label class="left_label" style="width: 300px;">{$LNG.op_foto}</label>
+                                <input name="foto" maxlength="90" size="20" value="{$foto}" type="text" class="autocomplete">
+                                <div class="clear"></div>
+                                <label class="left_label" style="width: 300px;">{$LNG.op_background}</label>
+                                <input name="background" maxlength="90" size="20" value="{$background}" type="text" class="autocomplete">
+                                <div class="clear"></div>
                                 <label class="left_label" style="width: 300px;">{$LNG.op_username}</label>
                                 {if $changeNickTime < 0}<input name="username" size="20" value="{$username}" type="text">{else}{$username}{/if}
                                 <div class="clear"></div>

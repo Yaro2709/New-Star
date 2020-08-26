@@ -82,7 +82,9 @@ class ShowSettingsPage extends AbstractGamePage
 				'blockPM' 			=> $USER['settings_blockPM'],
 				'userid'		 	=> $USER['id'],
 				'ref_active'		=> Config::get()->ref_active,
-				'SELF_URL'          => PROTOCOL.HTTP_HOST.HTTP_ROOT
+				'SELF_URL'          => PROTOCOL.HTTP_HOST.HTTP_ROOT,
+                'foto'				=> $USER['foto'],
+                'background'		=> $USER['background'],
 			));
 			
 			$this->display('page.settings.default.tpl');
@@ -227,6 +229,9 @@ class ShowSettingsPage extends AbstractGamePage
 		
 		$vacation			= HTTP::_GP('vacation', 0);	
 		$delete				= HTTP::_GP('delete', 0);
+        
+        $foto		        = HTTP::_GP('foto', '');
+        $background		    = HTTP::_GP('background', '');
 		
 		// Vertify
 		
@@ -393,7 +398,9 @@ class ShowSettingsPage extends AbstractGamePage
 		authattack				= :adminProtection,
 		lang					= :language,
 		hof						= :queueMessages,
-		spyMessagesMode			= :spyMessagesMode
+		spyMessagesMode			= :spyMessagesMode,
+        foto					= :foto,
+		background			    = :background
 		WHERE id = :userID;";
 		$db->update($sql, array(
 			':theme'			=> $theme,
@@ -411,6 +418,8 @@ class ShowSettingsPage extends AbstractGamePage
 			':language'			=> $language,
 			':queueMessages'	=> $queueMessages,
 			':spyMessagesMode'	=> $spyMessagesMode,
+            ':foto'	            => $foto,
+			':background'	    => $background,
 			':userID'			=> $USER['id']
 		));
 		

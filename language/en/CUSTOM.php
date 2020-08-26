@@ -14,6 +14,8 @@ $LNG['mg_fre']                                       = 'Invite to make friends';
 // Settings
 $LNG['op_user']                                      = 'User';
 $LNG['op_vacation']                                  = 'Holiday mode';
+$LNG['op_foto']                                      = 'Avatar (add url)';
+$LNG['op_background']                                = 'Background (add url)';
 // Records
 $LNG['rec_you']                                      = 'With you';
 $LNG['rec_record']                                   = 'Record';
@@ -81,22 +83,19 @@ $LNG['cost']                                         = 'Price';
 $LNG['ov_ticket']                                    = 'Tech. support';
 $LNG['ov_online_users']                              = 'Online Players:';
 $LNG['ov_create_moon']                               = 'Create Moon';
+$LNG['ov_panel_root']                                = 'Control Panel';
 //Navigation
 $LNG['lm_market']                                    = 'Market';
-$LNG['lm_governors']                                 = 'Governors';
+$LNG['lm_blueprints']                                = 'Blueprints';
 $LNG['lm_race']                                      = 'Race';
 $LNG['lm_premium']                                   = 'Premium';
 $LNG['lm_bonus']					                 = 'Bonus'; 
-$LNG['lm_infobonus']					             = 'Empire bonuses'; 
+$LNG['lm_infobonus']					             = 'Bonuses'; 
 $LNG['lm_createmoon']					             = 'Сreate moon'; 
-$LNG['lm_blackmarket']					             = 'Black market'; 
 $LNG['lm_ars']					                     = 'Arsenal';
 $LNG['lm_container']					             = 'Сontainers';
 $LNG['lm_artifact']                                  = 'Artifacts';
 $LNG['lm_development']                               = 'Innovative Development';
-$LNG['lm_senat']                                     = 'Senate';
-$LNG['lm_piratemarket']                              = 'Pirate Market';
-$LNG['lm_dilers']                                    = 'Dealers';
 $LNG['lm_achievements']					             = 'Achievements';
 $LNG['lm_formgovernment']                            = 'Form of Government';
 $LNG['lm_ethics']                                    = 'Ethics';
@@ -115,6 +114,7 @@ $LNG['lm_reduceresources']                           = 'Remove resources from pl
 $LNG['lm_reducefleet']                               = 'Remove fleets from planets';
 $LNG['lm_delivery']                                  = 'Distribute resources from planets';
 $LNG['lm_finddebris']                                = 'Find Debris';
+$LNG['lm_store']                                     = 'Store';
 $LNG['PPS']                                          = 'Production per hour';
 $LNG['PPD']                                          = 'Production per day';
 $LNG['PPW']                                          = 'Production per week';
@@ -272,3 +272,8 @@ $LNG['debris_action_7']					             = 'There are no debris in your range';
 //Overview
 $LNG['ov_bottom_panel_text']                         = 'Invite your friends and get...';
 $LNG['ov_bottom_panel_head']                         = 'More info...';
+//Galaxy
+$LNG['gl_sp']                                        = 'Intelligence';
+//Player card
+$LNG['op_user_info']                                 = 'About Player';
+$LNG['op_damage_coef']                               = 'Damage Coefficient';

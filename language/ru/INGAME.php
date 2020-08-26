@@ -84,7 +84,7 @@ $LNG['tn_delete_mode']                               = 'Аккаунт нахо�
 //{IDs_0007} Меню
 $LNG['lm_overview']                                  = 'Обзор';
 $LNG['lm_galaxy']                                    = 'Галактика';
-$LNG['lm_empire']                                    = 'Империя';
+$LNG['lm_control']                                   = 'Управление';
 $LNG['lm_fleet']                                     = 'Флот';
 $LNG['lm_buildings']                                 = 'Постройки';
 $LNG['lm_research']                                  = 'Исследования';
@@ -198,7 +198,7 @@ $LNG['gl_missil_launch_action']                      = 'Атаковать';
 $LNG['gl_galaxy']                                    = 'Галактика';
 $LNG['gl_solar_system']                              = 'Cистема';
 $LNG['gl_show']                                      = 'Показать';
-$LNG['gl_pos']                                       = 'Позиция';
+$LNG['gl_pos']                                       = '№';
 $LNG['gl_planet']                                    = 'Планета';
 $LNG['gl_name_activity']                             = 'Имя (активность)';
 $LNG['gl_moon']                                      = 'Луна';

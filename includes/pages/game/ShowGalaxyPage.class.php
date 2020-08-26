@@ -87,6 +87,7 @@ class ShowGalaxyPage extends AbstractGamePage
 		$galaxyRows->setGalaxy($galaxy);
 		$galaxyRows->setSystem($system);
 		$Result	= $galaxyRows->getGalaxyData();
+        require('includes/vars/PlanetData.php');	
 
         $this->tplObj->loadscript('galaxy.js');
         $this->assign(array(
@@ -112,7 +113,9 @@ class ShowGalaxyPage extends AbstractGamePage
 			'current_planet'			=> $PLANET['planet'],
 			'planet_type' 				=> $PLANET['planet_type'],
             'max_planets'               => $config->max_planets,
+            'planet_factor'             => $config->planet_factor,
 			'missileSelector'			=> $missileSelector,
+            'planetData'				=> $planetData,
 			'ShortStatus'				=> array(
 				'vacation'					=> $LNG['gl_short_vacation'],
 				'banned'					=> $LNG['gl_short_ban'],

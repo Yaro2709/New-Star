@@ -36,7 +36,7 @@
                     </div>
                     {foreach $reslist.battle_bonus as $id}
                     <div class="rexx16">
-                        <a href="#" onclick="return Dialog.info({$id})"><img src="{$dpath}gebaeude/{$id}.{if $id < 600}gif{else}jpg{/if}" alt="{$LNG.tech.$id}" /></a>
+                        <a href="#" onclick="return Dialog.info({$id})"><img src="{$dpath}gebaeude/{$id}.gif" alt="{$LNG.tech.$id}" /></a>
                         <span>{$LNG.tech.{$id}}</span>
                         <input type="text" size="10" value="{if isset($battleinput.{$smarty.section.content.index}.1.{$id})}{$battleinput.{$smarty.section.content.index}.1.{$id}}{else}0{/if}" name="battleinput[{$smarty.section.content.index}][1][{$id}]" class="rexx18">
                         <input type="text" size="10" value="{if isset($battleinput.{$smarty.section.content.index}.0.{$id})}{$battleinput.{$smarty.section.content.index}.0.{$id}}{else}0{/if}" name="battleinput[{$smarty.section.content.index}][0][{$id}]" class="rexx17">

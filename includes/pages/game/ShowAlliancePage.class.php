@@ -210,28 +210,11 @@ class ShowAlliancePage extends AbstractGamePage
 
 		$this->display('page.alliance.applyWait.tpl');
 	}
-    /* $old_code
+
 	private function createSelection()
 	{
 		$this->display('page.alliance.createSelection.tpl');
 	}
-    $old_code */
-    // $new_code
-    private function createSelection()
-	{
-		global $USER, $alliance, $db;
-        
-		$db	= Database::get();
-		
-        $alliancelist = $db->select('select * from %%ALLIANCE%%');
-
-		$this->assign(array(
-			'alliancelist'	=> $alliancelist,
-        ));
-	
-		$this->display('page.alliance.createSelection.tpl');
-	}
-    // $new_code
 
 	function search()
 	{

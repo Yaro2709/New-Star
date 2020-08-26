@@ -51,9 +51,9 @@
                     <div class="batle_mem_header">
                         <span>{$PlayerInfo.name}</span> 
                         {if isset($Info)}([XX:XX:XX]){else}([{$PlayerInfo.koords[0]}:{$PlayerInfo.koords[1]}:{$PlayerInfo.koords[2]}]{if isset($PlayerInfo.koords[3])}{/if}){/if}<br>
-				        {$LNG.sys_ship_weapon} <span>+{$PlayerInfo.tech[0]}%</span> •
-                        {$LNG.sys_ship_shield} <span>+{$PlayerInfo.tech[1]}%</span> • 
-                        {$LNG.sys_ship_armour} <span>+{$PlayerInfo.tech[2]}%</span> 
+				        {$LNG.sys_ship_weapon} <span>+{round($PlayerInfo.tech[0], 2)}%</span> •
+                        {$LNG.sys_ship_shield} <span>+{round($PlayerInfo.tech[1], 2)}%</span> • 
+                        {$LNG.sys_ship_armour} <span>+{round($PlayerInfo.tech[2], 2)}%</span> 
                         <div class="batle_scan {if $RoundInfo@last}batle_scan_active{/if}"></div>
                     </div>
                     <div class="batle_mem_content" {if $RoundInfo@last}style="display:block;"{/if}>
@@ -103,9 +103,9 @@
                     <div class="batle_mem_header">
                         <span>{$PlayerInfo.name}</span> 
                         {if isset($Info)}([XX:XX:XX]){else}([{$PlayerInfo.koords[0]}:{$PlayerInfo.koords[1]}:{$PlayerInfo.koords[2]}]{if isset($PlayerInfo.koords[3])}{/if}){/if}<br>
-				        {$LNG.sys_ship_weapon} <span>+{$PlayerInfo.tech[0]}%</span> •
-                        {$LNG.sys_ship_shield} <span>+{$PlayerInfo.tech[1]}%</span> • 
-                        {$LNG.sys_ship_armour} <span>+{$PlayerInfo.tech[2]}%</span> 
+				        {$LNG.sys_ship_weapon} <span>+{round($PlayerInfo.tech[0], 2)}%</span> •
+                        {$LNG.sys_ship_shield} <span>+{round($PlayerInfo.tech[1], 2)}%</span> • 
+                        {$LNG.sys_ship_armour} <span>+{round($PlayerInfo.tech[2], 2)}%</span> 
                         <div class="batle_scan {if $RoundInfo@last}batle_scan_active{/if}"></div>          
                     </div>
                     <div class="batle_mem_content" {if $RoundInfo@last}style="display:block;"{/if}>

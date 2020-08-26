@@ -38,7 +38,7 @@ class ShowPlayerCardPage extends AbstractGamePage
 		$PlayerID 	= HTTP::_GP('id', 0);
 
 		$sql = "SELECT 
-				u.username, u.galaxy, u.system, u.planet, u.wons, u.loos, u.draws, u.kbmetal, u.kbcrystal, u.lostunits, u.desunits, u.ally_id,
+				u.username, u.galaxy, u.system, u.planet, u.wons, u.loos, u.draws, u.lostunits, u.desunits, u.ally_id, u.timezone, u.foto,
 				p.name,
 				s.tech_rank, s.tech_points, s.build_rank, s.build_points, s.defs_rank, s.defs_points, s.fleet_rank, s.fleet_points, s.total_rank, s.total_points,
 				a.ally_name
@@ -62,6 +62,16 @@ class ShowPlayerCardPage extends AbstractGamePage
 			$siegprozent                = 100 / $totalfights * $query['wons'];
 			$loosprozent                = 100 / $totalfights * $query['loos'];
 			$drawsprozent               = 100 / $totalfights * $query['draws'];
+		}
+        
+        if ($query['lostunits'] == 0 || $query['desunits'] == 0) {
+            $damageCoefficient = 0;
+            $damageDes = 50;
+            $damageLost = 50;
+		} else {
+            $damageCoefficient = $query['desunits']/$query['lostunits'];
+            $damageDes = ($query['desunits']/($query['desunits'] + $query['lostunits'])) * 100;
+            $damageLost = ($query['lostunits']/($query['desunits'] + $query['lostunits'])) * 100;
 		}
 
 		$this->assign(array(
@@ -88,14 +98,17 @@ class ShowPlayerCardPage extends AbstractGamePage
 			'wons'          => pretty_number($query['wons']),
 			'loos'          => pretty_number($query['loos']),
 			'draws'         => pretty_number($query['draws']),
-			'kbmetal'       => pretty_number($query['kbmetal']),
-			'kbcrystal'     => pretty_number($query['kbcrystal']),
 			'lostunits'     => pretty_number($query['lostunits']),
 			'desunits'      => pretty_number($query['desunits']),
 			'totalfights'   => pretty_number($totalfights),
+            'damageCoef'    => round($damageCoefficient, 2),
+            'damageDes'     => $damageDes,
+            'damageLost'    => $damageLost,
 			'siegprozent'   => round($siegprozent, 2),
 			'loosprozent'   => round($loosprozent, 2),
 			'drawsprozent'  => round($drawsprozent, 2),
+            'timezone'		=> $query['timezone'],
+            'foto'		    => $query['foto'],
 		));
 		
 		$this->display('page.playerCard.default.tpl');

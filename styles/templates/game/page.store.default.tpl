@@ -1,10 +1,10 @@
-{block name="title" prepend}{$LNG.lm_piratemarket}{/block}
+{block name="title" prepend}{$LNG.lm_store}{/block}
 {block name="content"}
 <div id="page">
 	<div id="content">
         <div id="market" class="locus">
             <div class="habena">
-                {$LNG.lm_piratemarket}
+                {$LNG.lm_store}
             </div>
             {if isModuleAvailable($smarty.const.MODULE_ARTIFACT)}
             <div class="market_element img_artifact">
@@ -31,6 +31,20 @@
             <div class="market_element img_bon">
                 <a href="game.php?page=bon">
                     <div class="market_title">{$LNG.lm_bon}</div>
+                </a>
+            </div>
+            {/if}           
+            {if isModuleAvailable($smarty.const.MODULE_DMEXTRAS)}
+            <div class="market_element img_blueprints">
+                <a href="game.php?page=blueprints">
+                    <div class="market_title">{$LNG.lm_blueprints}</div>
+                </a>
+            </div>
+            {/if}
+            {if isModuleAvailable($smarty.const.MODULE_PREMIUM)}
+            <div class="market_element img_premium">
+                <a href="game.php?page=premium">
+                    <div class="market_title">{$LNG.lm_premium}</div>
                 </a>
             </div>
             {/if}

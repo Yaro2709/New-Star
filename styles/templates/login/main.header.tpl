@@ -7,6 +7,7 @@
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="{$lang}" class="no-js"> <!--<![endif]-->
 <head>
     <!--title-->
+    <link rel="manifest" href="./manifest.json">
     <title>{block name="title"} - {$gameName}{/block}</title>	
     <meta name="generator" content="New-Star {$VERSION}">
 	<meta name="keywords" content="New-Star {$VERSION}">
@@ -47,6 +48,7 @@
     <!--jquery cookie-->
     <script type="text/javascript" src="scripts/base/jquery.cookie.js"></script>
     <!--script-->
+    <script src="scripts/login/main.js"></script>
 	<script>{if isset($code)}var loginError = {$code|json};{/if}</script>
 	{block name="script"}{/block}	
 </head>

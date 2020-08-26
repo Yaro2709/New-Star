@@ -5,7 +5,9 @@
 <div id="ally_content" class="conteiner">
 
 
-    <div style="overflow:hidden; position:absolute; width:0; height:0;"><form action="game.php?page=fleetStep3" method="post"><input type="hidden" name="tokens" value="tokens"><table class="tablesorter ally_ranks"><tbody><tr style="height:20px;"><td colspan="2"><input value="Дальше" type="submit"></td></tr></tbody></table></form></div><form action="game.php?page=fleetStep3" method="post">
+
+    
+    <form action="game.php?page=fleetStep3" method="post">
 	<input type="hidden" name="token" value="{$token}">  
 
            <div class="gray_stripo">

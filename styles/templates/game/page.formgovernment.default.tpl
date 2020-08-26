@@ -4,8 +4,9 @@
     <div id="content">
     {if $FormgovernmentList}
         <div id="ally_content" class="conteiner">
-            <div class="gray_stripe" style="color:#6ccdce;">
-                <strong>{$LNG.tech.{$name}}</strong>                   
+            <div class="gray_flettab" style="padding-right:0;color:#6ccdce;">
+                <strong>{$LNG.tech.{$name}}</strong>  
+                <a href="game.php?page=overview" class="tornaindietroa">{$LNG.lm_overview}</a> 
             </div>
             <div id="build_elements" class="race_elements">
                 {foreach $FormgovernmentList as $ID => $Element}
@@ -14,13 +15,13 @@
                         <a style="color:#6ccdce;"><strong>{$LNG.tech.{$ID}}</strong></a>
                     </div>
                     <div class="content_box">
-                        <img style="float:right;" src="{$dpath}gebaeude/{$ID}.png" />
-                        <div class="prices_mini" style="margin-left: 7px;">
+                        <img style="float:right;margin-bottom:5px" src="{$dpath}gebaeude/{$ID}.png" />
+                        <div class="prices_mini" style="margin-left: 7px;margin-bottom: 5px;">
                             <font style="color:#6ccdce;"><strong>{$LNG.in_bonus}</strong></font><br>
                             <font color="#6ccdce">{foreach $Element.elementBonus as $BonusName => $Bonus}{if $Bonus[0] < 0}-{else}+{/if}{if $Bonus[1] == 0}{abs($Bonus[0] * 100)}%{else}{floatval($Bonus[0])}{/if} {$LNG.bonus.$BonusName}<br>{/foreach}</font>
                         </div>
                         <div class="clear"></div>
-                        <div class="btn_build_border">
+                        <div class="btn_build_border" style="height:29px;width:101%;">
                         {if $Element.maxLevel <= $Element.level}
                             <span class="btn_build red">{$LNG.fg_yes}</span>
                         {elseif $Element.buyable}

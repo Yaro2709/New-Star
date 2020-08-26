@@ -15,7 +15,7 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
-class ShowGubernatorsPage extends AbstractGamePage
+class ShowBlueprintsPage extends AbstractGamePage
 {
 	public static $requireModule = MODULE_DMEXTRAS;
 
@@ -37,7 +37,7 @@ class ShowGubernatorsPage extends AbstractGamePage
         $amount = HTTP::_GP('amount', 0);
 		$USER[$resource[$Element]]	= max($USER[$resource[$Element]], TIMESTAMP) + ($pricelist[$Element]['time']) * $amount;
         
-        $href = 'game.php?page=gubernators'; 
+        $href = 'game.php?page=blueprints'; 
         require_once('includes/subclasses/subclass.UpdateMaxAmount.php');
         require_once('includes/subclasses/subclass.UpdateResAmount.php');
         require_once('includes/subclasses/subclass.UpdateSqlGeneral.php');
@@ -89,6 +89,6 @@ class ShowGubernatorsPage extends AbstractGamePage
 			'darkmatterList'	=> $darkmatterList,
 		));
 		
-		$this->display('page.gubernators.default.tpl');
+		$this->display('page.blueprints.default.tpl');
 	}
 }

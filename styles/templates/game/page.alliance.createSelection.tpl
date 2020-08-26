@@ -1,21 +1,32 @@
 {block name="title" prepend}{$LNG.lm_alliance}{/block}
 {block name="content"}
 <div id="page">
-   <div id="content">
-      <div id="ally_content" class="conteiner">
-         <div class="gray_stripe">
-            <span style="float:left; display:block; width:140px;">{$LNG.alm_ally}</span>
-            <div class="search_aly">
-               <form action="game.php?page=alliance&amp;mode=search" method="post">
-                  <input type="text" placeholder="{$LNG.al_alliance_search}" name="searchtext" value=""> 
-                  <input type="submit" value="{$LNG.al_find_submit}"> 
-               </form>
+    <div id="content">
+        <div id="ally_content" class="conteiner">
+            <div class="gray_flettab" style="padding-right:0;">{$LNG.lm_alliance}
+                <a href="game.php?page=alliance&amp;mode=create" class="tornaindietroa">{$LNG.al_alliance_make}</a>
             </div>
-            <a href="game.php?page=alliance&amp;mode=create" class="batn_lincks right_flank plus">{$LNG.al_alliance_make}</a>   
-         </div>	
-      </div>
-   </div>
-</div>
-<div class="clear"></div>
+            <div class="ally_img">
+                <table class="no_visible">
+                    <tr>
+                        <td>
+                            <img src="{$dpath}img/title/al.jpg" alt="*" />
+                            <span class="designation">
+                                <span>{$LNG.lm_alliance}</span><br/>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="fleettab1" style="height:21px;">
+                {if isModuleAvailable($smarty.const.MODULE_STATISTICS)}
+                <a href="game.php?page=statistics" class="tornaindietroa" style="left: 0;border-radius: 0px 0px 0px 4px;moz-border-radius: 0px 0px 0px 4px;-webkit-border-radius: 0px 0px 0px 4px;right: auto;">{$LNG.lm_statistics}</a>
+                {/if}
+                {if isModuleAvailable($smarty.const.MODULE_SEARCH)}
+                <a href="game.php?page=search" class="tornaindietroa" style="border-radius: 0px 0px 4px 0px;moz-border-radius: 0px 0px 4px 0px;-webkit-border-radius: 0px 0px 4px 0px">{$LNG.lm_search}</a>
+                {/if}
+            </div>
+        </div>
+    </div>
 </div>
 {/block}

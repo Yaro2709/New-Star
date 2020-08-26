@@ -59,7 +59,7 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
         }
         //Фактор добычи от посланного флота.
         $exp_factor = 0.15; //15%
-        $fleetPoints = $fleetPoints * $exp_factor;
+        $fleetPrize = $fleetPoints * $exp_factor;
         
 		$fleetCapacity  -= $this->_fleet['fleet_resource_metal'] + $this->_fleet['fleet_resource_crystal']
 			+ $this->_fleet['fleet_resource_deuterium'] + $this->_fleet['fleet_resource_darkmatter'];
@@ -74,13 +74,13 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
             $Size       = 0;
 
 			if(10 < $FindSize) {
-				$Size		= mt_rand(6, 7) * ($fleetPoints/10); 
+				$Size		= mt_rand(6, 7) * ($fleetPrize/10); 
 				$Message	= $LNG['sys_expe_found_ress_1_'.mt_rand(1,4)];
 			} elseif(0 < $FindSize && 10 >= $FindSize) {
-				$Size		= mt_rand(8, 12) * ($fleetPoints/10);
+				$Size		= mt_rand(8, 12) * ($fleetPrize/10);
 				$Message	= $LNG['sys_expe_found_ress_2_'.mt_rand(1,3)];
 			} elseif(0 == $FindSize) {
-				$Size	 	= mt_rand(13, 17) * ($fleetPoints/10);
+				$Size	 	= mt_rand(13, 17) * ($fleetPrize/10);
 				$Message	= $LNG['sys_expe_found_ress_3_'.mt_rand(1,2)];
 			}
 				
@@ -99,13 +99,13 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
                 $Size       = 0; 
 
                 if(10 < $FindSize) {
-                    $Size		= mt_rand(12, 14) * ($fleetPoints/500000); 
+                    $Size		= mt_rand(12, 14) * ($fleetPrize/500000); 
                     $Message	= $LNG['sys_expe_found_dm_1_'.mt_rand(1,5)];
                 } elseif(0 < $FindSize && 10 >= $FindSize) {
-                    $Size		= mt_rand(16, 24)* ($fleetPoints/500000); 
+                    $Size		= mt_rand(16, 24)* ($fleetPrize/500000); 
                     $Message	= $LNG['sys_expe_found_dm_2_'.mt_rand(1,3)];
                 } elseif(0 == $FindSize) {
-                    $Size	 	= mt_rand(26, 32) * ($fleetPoints/500000);
+                    $Size	 	= mt_rand(26, 32) * ($fleetPrize/500000);
                     $Message	= $LNG['sys_expe_found_dm_3_'.mt_rand(1,2)];
                 }
                 

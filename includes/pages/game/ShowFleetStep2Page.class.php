@@ -15,8 +15,6 @@
  * @Basis New-Star: 2Moons v1.8.0
  */
 
-require_once('includes/classes/class.FleetFunctions.php');
-
 class ShowFleetStep2Page extends AbstractGamePage
 {
 	public static $requireModule = MODULE_FLEET_TABLE;

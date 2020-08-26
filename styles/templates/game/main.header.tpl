@@ -69,5 +69,14 @@
 	});
 	</script>
 </head>
-<body id="{$smarty.get.page|htmlspecialchars|default:'overview'}" class="{$bodyclass}">
+<body id="{$smarty.get.page|htmlspecialchars|default:'overview'}" class="{$bodyclass}" 
+    style="
+        background: #0B0B0F;
+        position: relative;
+        background: url({$background}) no-repeat fixed center center #0d0d0d;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        o-background-size: cover;
+        background-size: cover;
+">
 <div id="tooltip" class="tip"></div>
