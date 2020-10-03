@@ -100,7 +100,7 @@
                             <div class="stock_percentage stock_percentage_left" style="width:{abs($resouceData.percent/2)}%;{if $resouceData.percent > -0.1}display:none;{/if}"></div>
                             <div class="stock_percentage stock_percentage_right" style="width:{$resouceData.percent/2}%;{if $resouceData.percent < 0.1}display:none;{/if}"></div>
                             <div class="separator_{$resouceData.name}"></div>
-                            <div class="stock_text"><span id="current_{$resouceData.name}" name="{$resouceData.current|number}" data-real="{$resouceData.current}">{$resouceData.used|number}</span>/{$resouceData.max|number}</div>
+                            <div class="stock_text"><span id="current_{$resouceData.name}" name="{$resouceData.current|number}" data-real="{$resouceData.current}">{$resouceData.used|shortly_number}</span>/{$resouceData.max|shortly_number}</div>
                         </div>
                     </div>
                 {else}
@@ -114,7 +114,7 @@
                             <div class="stock_res2">
                                 <div class="stock_percentage" style="width:100%;"></div>
                                 <div class="separator_{$resouceData.name}"></div>
-                                <div class="stock_text"><span class='colore{$resourceID}' id="current_{$resouceData.name}" name="{$resouceData.current|number}" data-real="{$resouceData.current}">{$resouceData.current|number}</span></div>
+                                <div class="stock_text"><span class='colore{$resourceID}' id="current_{$resouceData.name}" name="{$resouceData.current|number}" data-real="{$resouceData.current}">{shortly_number($resouceData.current)}</span></div>
                             </div>
                         </div>
                     {else}
@@ -136,7 +136,7 @@
                             <div class="stock_res">
                                 <div class="stock_percentage" style="width:{$resouceData.percent}%;"></div>
                                 <div class="stock_text">
-                                    <span id="current_{$resouceData.name}" name="{$resouceData.current|number}" data-real="{$resouceData.current}">{pretty_number($resouceData.current)}</span>
+                                    <span id="current_{$resouceData.name}" name="{$resouceData.current|number}" data-real="{$resouceData.current}">{shortly_number($resouceData.current)}</span>
                                     (<span class="pricent">{if $resouceData.percent <= 100}{$resouceData.percent}{else $resouceData.percent > 100}100{/if}</span>%)
                                 </div>
                             </div>	

@@ -69,7 +69,7 @@ class ShowResearchPage extends AbstractGamePage
 
                     if($ListIDArray[4] != $PLANET['id']){
                         $sql = "SELECT :resource, id FROM %%PLANETS%% WHERE id = :id;";
-                        $CPLANET = $db->selectSingle($sql, array(
+                        $CPLANET = Database::get()->selectSingle($sql, array(
                             ':resource'	    => $resource[$resglobal['tech_speed']],
                             ':id'			=> $ListIDArray[4]
                         ));

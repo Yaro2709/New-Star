@@ -42,7 +42,7 @@
     <div id="big_panet" style="background: url({$dpath}img/title/control_room.png) no-repeat, url({$dpath}planeten/{$planetimage}.jpg) top center no-repeat; background-size:cover;">
 		<div class="palnet_pianeta_titoloa palnet_pianeta_titolo">    
             <a href="game.php?page=planet">
-                <span class="planetname"><a href="game.php?page=planet" title="{$LNG.ov_planetmenu}"><span class="planetname">{$planetname}</span></a>
+                <span class="planetname"><a href="game.php?page=planet" title="{$LNG.lm_planet}"><span class="planetname">{$planetname}</span></a>
                     <img src="{$dpath}img/iconav/pencil-over.png" class="palnet_imgopa">
                 </span>  
             </a>

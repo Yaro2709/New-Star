@@ -108,7 +108,7 @@ class ShowPlayerCardPage extends AbstractGamePage
 			'loosprozent'   => round($loosprozent, 2),
 			'drawsprozent'  => round($drawsprozent, 2),
             'timezone'		=> $query['timezone'],
-            'foto'		    => $query['foto'],
+            'ava'		    => $query['foto'],
 		));
 		
 		$this->display('page.playerCard.default.tpl');

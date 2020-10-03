@@ -251,8 +251,6 @@ class ShowOverviewPage extends AbstractGamePage
         foreach ($chatUsers as $chatRow) {
 			$chatOnline[]	= $chatRow['userName'];
 		}
-
-		$Messages		= $USER['messages'];
 		
 		// Fehler: Wenn Spieler gelöscht werden, werden sie nicht mehr in der Tabelle angezeigt.
 		$sql = "SELECT u.id, u.username, s.total_points FROM %%USERS%% as u
@@ -316,7 +314,6 @@ class ShowOverviewPage extends AbstractGamePage
 			'AllPlanets'				=> $AllPlanets,
 			'AdminsOnline'				=> $AdminsOnline,
 			'teamspeakData'				=> $this->GetTeamspeakData(),
-			'messages'					=> ($Messages > 0) ? (($Messages == 1) ? $LNG['ov_have_new_message'] : sprintf($LNG['ov_have_new_messages'], pretty_number($Messages))): false,
 			'planet_diameter'			=> pretty_number($PLANET['diameter']),
 			'planet_field_current' 		=> $PLANET['field_current'],
 			'planet_field_max' 			=> CalculateMaxPlanetFields($PLANET),

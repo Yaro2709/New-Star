@@ -11,7 +11,7 @@
                             {if $allyname}<a href="#" onclick="parent.location = 'game.php?page=alliance&amp;mode=info&amp;id={$allyid}';return false;" class="playercrd17">{$allyname}</a>{else}{/if}
                         </span>
                         <span class=" f-ru playercrd13"></span>
-                        <img src="{$foto}" class="playercrd4 tooltip" data-tooltip-content="{$name}">
+                        <img src="{$ava}" class="playercrd4 tooltip" data-tooltip-content="{$name}">
                         <a href="#" onclick="parent.location = 'game.php?page=galaxy&amp;galaxy={$galaxy}&amp;system={$system}';return false;" class="playercrd5">{$homeplanet} [{$galaxy}:{$system}:{$planet}]</a>
                         <p class="playercrd10">{$LNG.op_timezone} <span style="color: #8b99b0;">{$timezone}</span></p>
                         <div class="clear"></div>

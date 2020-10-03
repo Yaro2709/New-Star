@@ -208,7 +208,7 @@
                                         {/if}
                                         <tr>
                                             <td>
-                                                <a class='tooltip_class_a_bigbtn' href='return Dialog.Playercard({$currentPlanet.user.id});'>{$LNG.gl_playercard}</a>
+                                                <a class='tooltip_class_a_bigbtn' href='#' onclick='return Dialog.Playercard({$currentPlanet.user.id});'>{$LNG.gl_playercard}</a>
                                             </td>
                                         </tr>
                                         {/if}

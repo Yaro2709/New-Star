@@ -126,7 +126,11 @@ class ShowDeliveryPage extends AbstractGamePage
 			$fleetEndTime		= $fleetStayTime + $Duration;
 			
 			$shipID				         = array_keys($fleetArray);
+            
+            if($USER[$resource[922]] < 30)
+				continue;
 			$USER[$resource[922]]       -= 30;
+            
 			$PLANET[$resource[217]]     -=$ev_count;
 			
 			FleetFunctions::sendFleet($fleetArray, 3, $USER['id'], $PLANET['id'], $PLANET['galaxy'], $PLANET['system'], $PLANET['planet'], $PLANET['planet_type'],
