@@ -92,7 +92,7 @@ $LNG['step3_text']                                   = 'Database tables created 
 $LNG['step3_db_error']                               = 'Failed to create the following tables in the database:';
 //{IDs_0008} Create an account
 $LNG['step4_head']				                     = 'Administrator Account';
-$LNG['step4_desc']				                     = 'The installation wizard will now create an administrator account for you. Writes the name of use, your password and your email';
+$LNG['step4_text']				                     = 'The installation wizard will now create an administrator account for you. Writes the name of use, your password and your email';
 $LNG['step4_admin_name']		                     = 'Use name of Administrator:';
 $LNG['step4_admin_name_desc']	                     = 'Type the name to use with the length of 3 to 20 characters';
 $LNG['step4_admin_pass']		                     = 'Password of Administrator:';

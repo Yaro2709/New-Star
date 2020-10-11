@@ -28,7 +28,7 @@ class ShowBonusPage extends AbstractGamePage
 	{		
 		global $USER, $PLANET, $LNG, $resource;
         
-		if($USER['bonus_time'] > TIMESTAMP)		
+		if($USER['bonus_time'] > TIMESTAMP || !$USER['urlaubs_modus'] == 0)		
 			$this->redirectTo('game.php');
         
 		$bonus = array(

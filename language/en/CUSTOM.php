@@ -77,7 +77,6 @@ $LNG['short_hour']                                   = 'h';
 $LNG['short_minute']                                 = 'm';
 $LNG['short_second']                                 = 's';
 //Accelerator
-$LNG['acceleration']                                 = 'acceleration';
 $LNG['cost']                                         = 'Price';
 //Overview
 $LNG['ov_ticket']                                    = 'Tech. support';
@@ -147,10 +146,8 @@ $LNG['all_appl']                                     = 'Configure claims';
 $LNG['all_create']                                   = 'Create rank';
 // Races
 $LNG['race_one']                                     = 'Race selection:';
-$LNG['race_stop_choice']                             = 'The race is already selected!';
 $LNG['race_yes']                                     = 'Race selected.';
 //Conveyor
-$LNG['build_conv']                                   = 'Build';
 $LNG['sec_conv']                                     = 'per sec.';
 //Info bonus
 $LNG['inb_percent']                                  = 'Percentage';
@@ -210,11 +207,9 @@ $LNG['ach_bonus']					                 = 'View bonus';
 $LNG['ach_go_achievements']					         = 'Go to achievements';
 //Form of government
 $LNG['fg_one']                                       = 'Select form of government:';
-$LNG['fg_stop_choice']                               = 'The form of government has already been chosen!';
 $LNG['fg_yes']                                       = 'Form of government has been selected.';
 //Ethics
 $LNG['et_one']                                       = 'Ethics selection:';
-$LNG['et_stop_choice']                               = 'Ethics already selected!';
 $LNG['et_yes']                                       = 'Ethics selected.';
 //The consignment
 $LNG['party_stop_time']                              = 'Party has already been selected!';

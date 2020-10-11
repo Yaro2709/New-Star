@@ -31,6 +31,7 @@ function BuildlistShipyard() {
 				$("#bx").html(Ready);
 				document.getElementById('auftr').options[0] = new Option(Ready);
 				document.location.href	= document.location.href;
+                window.clearInterval(ShipyardInterval);
 				return;
 			}
 			Amount = Amount.reset(Shipyard[0][1]);
