@@ -29,7 +29,7 @@ class MissionCaseMIP extends MissionFunctions implements Mission
 		$db	= Database::get();
 
 		$sqlFields	= array();
-		$elementIDs	= array_merge($reslist['defense'], $reslist['missile']);
+		$elementIDs	= array_merge($reslist['fleet'], $reslist['defense'], $reslist['missile']);
 
 		foreach($elementIDs as $elementID)
 		{
@@ -59,7 +59,7 @@ class MissionCaseMIP extends MissionFunctions implements Mission
 			':userId'	=> $this->_fleet['fleet_owner']
 		));
 
-		if(!in_array($this->_fleet['fleet_target_obj'], array_merge($reslist['defense'], $reslist['missile']))
+		if(!in_array($this->_fleet['fleet_target_obj'], $elementIDs)
 			|| $this->_fleet['fleet_target_obj'] == 502
 			|| $this->_fleet['fleet_target_obj'] == 0)
 		{

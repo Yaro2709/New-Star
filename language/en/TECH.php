@@ -240,6 +240,11 @@ $LNG['tech'] = array(
     41 => 'Moon base',
     42 => 'Phalax Sensor',
     43 => 'Jumpgate',
+    
+    81 => 'Resource module',
+    82 => 'Defensive module',
+    83 => 'Military module',
+    84 => 'Research module',
 
     100 => 'Research',
     106 => 'Spy Technology',
@@ -612,6 +617,10 @@ $LNG['longDescription'] = array(
     42 => 'The sensor array allows you to monitor fleet movements. The higher the stage, the greater is the range of the phalanx.',
     43 => 'Jump gates are huge transmitters that are able to send large fleets without loss of time through the universe.',
     44 => 'missile silos used for storage of rockets.',
+    81 => '',
+    82 => '',
+    83 => '',
+    84 => '',
 
     106 => 'Information about other planets and moons can be gained using this technology.',
     108 => 'More fleets can be commanded by increasing computer capacities. Each level of computer technology increases the maximum number of fleets by one.',

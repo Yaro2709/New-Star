@@ -76,7 +76,7 @@
                         <div id="build_{$ID}" class="build_box {if $ID == in_array($ID, $reslist.spec_build.1)}build1{elseif $ID == in_array($ID, $reslist.spec_build.2)}build2{elseif $ID == in_array($ID, $reslist.spec_build.3)}build3{elseif $ID == in_array($ID, $reslist.spec_build.4)}build4{/if} {if !$Element.techacc}required{/if}">
                             <div class="head">
                                 <a href="#" onclick="return Dialog.info({$ID})" class="interrogation">?</a>                
-                                <a href="#" onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}</a>
+                                <a href="#" onclick="return Dialog.info({$ID})">{if $ID == in_array($ID, $reslist.decline_in_battle)}<span style="color:#cc6510">{$LNG.tech.{$ID}}</span>{else}{$LNG.tech.{$ID}}{/if}</a>
                                 {if $Element.level > 0} ({$LNG.bd_lvl} {$Element.level}{if $Element.maxLevel != 255}/{$Element.maxLevel}{/if}){/if}
                             </div>
                             <div class="content_box">

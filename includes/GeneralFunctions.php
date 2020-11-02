@@ -548,7 +548,6 @@ function clearGIF() {
  */
 function exceptionHandler($exception)
 {
-    global $USER;
 	/** @var $exception ErrorException|Exception */
 
 	if(!headers_sent()) {
@@ -659,7 +658,7 @@ function exceptionHandler($exception)
     style="
         background: #0B0B0F;
         position: relative;
-        background: url('.$USER['background'].') no-repeat fixed center center #0d0d0d;
+        background: url(./styles/resource/images/background_default.jpg) no-repeat fixed center center #0d0d0d;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         o-background-size: cover;

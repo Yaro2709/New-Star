@@ -318,6 +318,16 @@ HTML;
 		{
 			require_once 'includes/classes/missions/functions/calculateSteal.php';
 			$stealResource = calculateSteal($fleetAttack, $targetPlanet);
+            
+            foreach($reslist['decline_in_battle'] as $elementID)
+            {
+                if($targetPlanet[$resource[$elementID]] > 0){
+                    $sql	= 'UPDATE %%PLANETS%% SET '.$resource[$elementID].' = '.$resource[$elementID].' - 1 WHERE id = :planetId;';
+                    Database::get()->update($sql, array(
+                        ':planetId'	=> $targetPlanet['id']
+                    ));
+                }
+            }
 		}
 		
 		if($this->_fleet['fleet_end_type'] == 3)

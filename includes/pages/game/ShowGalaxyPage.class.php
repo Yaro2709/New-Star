@@ -66,11 +66,11 @@ class ShowGalaxyPage extends AbstractGamePage
             }
 		}
 
-        $targetDefensive    = $reslist['defense'];
-        $targetDefensive[]	= 502;
+        $target             = array_merge($reslist['fleet'], $reslist['defense']);
+        $target[]	        = 502;
 		$missileSelector[0]	= $LNG['gl_all_defenses'];
 		
-		foreach($targetDefensive as $Element)
+		foreach($target as $Element)
 		{	
 			$missileSelector[$Element] = $LNG['tech'][$Element];
 		}
