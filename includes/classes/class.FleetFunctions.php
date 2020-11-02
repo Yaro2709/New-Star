@@ -172,28 +172,35 @@ class FleetFunctions
 
 	public static function GetFleetMissions($USER, $MisInfo, $Planet)
 	{
-		global $resource;
+		global $LNG, $resource, $SectorME;
 		$Missions	= self::GetAvailableMissions($USER, $MisInfo, $Planet);
 		$stayBlock	= array();
-
+        $Sector		= array();
 		$haltSpeed	= Config::get($USER['universe'])->halt_speed;
 
-		if (in_array(15, $Missions)) {
+		if ((in_array(15, $Missions)) || in_array(18, $Missions)) {
 			for($i = 1;$i <= $USER[$resource[124]];$i++)
 			{
 				$stayBlock[$i]	= round($i / $haltSpeed, 2);
 			}
+            
+            if(in_array(18, $Missions))
+			{
+				foreach ($SectorME as $ID)
+					$Sector[$ID] = $LNG['fl_enemy'][$ID];
+			}
+            
 		}
 		elseif(in_array(11, $Missions)) 
 		{
-			$stayBlock = array(1 => 1);
+			$stayBlock = array(1 => 2 / $haltSpeed, 2 => 4 / $haltSpeed, 3 => 6 / $haltSpeed, 4 => 8 / $haltSpeed);
 		}
 		elseif(in_array(5, $Missions)) 
 		{
 			$stayBlock = array(1 => 1, 2 => 2, 4 => 4, 8 => 8, 12 => 12, 16 => 16, 32 => 32);
 		}
 		
-		return array('MissionSelector' => $Missions, 'StayBlock' => $stayBlock);
+		return array('MissionSelector' => $Missions, 'StayBlock' => $stayBlock, 'Sector' => $Sector);
 	}
 
 	/*
@@ -412,9 +419,14 @@ class FleetFunctions
 		$YourPlanet				= (!empty($GetInfoPlanet['id_owner']) && $GetInfoPlanet['id_owner'] == $USER['id']) ? true : false;
 		$UsedPlanet				= (!empty($GetInfoPlanet['id_owner'])) ? true : false;
 		$availableMissions		= array();
-		
-		if ($MissionInfo['planet'] == (Config::get($USER['universe'])->max_planets + 1) && isModuleAvailable(MODULE_MISSION_EXPEDITION))
-			$availableMissions[]	= 15;	
+			
+        if ($MissionInfo['planet'] == (Config::get($USER['universe'])->max_planets + 1))
+		{
+			if(isModuleAvailable(MODULE_MISSION_EXPEDITION))
+			$availableMissions[]	= 15;
+		    if(isModuleAvailable(MODULE_MISSION_VAREXP))
+			$availableMissions[]	= 18;
+		}
 		elseif ($MissionInfo['planettype'] == 2) {
 			if ((isset($MissionInfo['Ship'][209]) || isset($MissionInfo['Ship'][219])) && isModuleAvailable(MODULE_MISSION_RECYCLE) && !($GetInfoPlanet['der_metal'] == 0 && $GetInfoPlanet['der_crystal'] == 0))
 				$availableMissions[]	= 8;
@@ -483,7 +495,7 @@ class FleetFunctions
 		$fleetStartPlanetGalaxy, $fleetStartPlanetSystem, $fleetStartPlanetPlanet, $fleetStartPlanetType,
 		$fleetTargetOwner, $fleetTargetPlanetID, $fleetTargetPlanetGalaxy, $fleetTargetPlanetSystem,
 		$fleetTargetPlanetPlanet, $fleetTargetPlanetType, $fleetResource, $fleetStartTime, $fleetStayTime,
-		$fleetEndTime, $fleetGroup = 0, $missileTarget = 0, $consumption = 0)
+		$fleetEndTime, $fleetGroup = 0, $missileTarget = 0, $consumption = 0, $sector = 0)
 	{
 		global $resource;
 		$fleetShipCount	= array_sum($fleetArray);
@@ -535,7 +547,8 @@ class FleetFunctions
 		fleet_resource_deuterium	= :fleetResource903,
 		fleet_group					= :fleetGroup,
 		fleet_target_obj			= :missileTarget,
-		start_time					= :timestamp;';
+		start_time					= :timestamp,
+        sector					    = :sector;';
 
 		$db->insert($sql, array(
 			':fleetStartOwner'			=> $fleetStartOwner,
@@ -563,6 +576,7 @@ class FleetFunctions
 			':missileTarget'			=> $missileTarget,
 			':timestamp'				=> TIMESTAMP,
 			':universe'	   				=> Universe::current(),
+            ':sector'	   				=> $sector,
 		));
 
 		$fleetId	= $db->lastInsertId();

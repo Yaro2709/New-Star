@@ -244,13 +244,6 @@
             </div>    
         </form>
     </div>
-    <script src="scripts/base/bcmath.js"></script>
-    <script src="scripts/game/shipyard.js"></script>
-    <script type="text/javascript">
-    $(function() {
-        ShipyardInit();
-    });
-    </script>
     <script type="text/javascript">
     data			= {$BuildList|json};
     bd_operating	= '{$LNG.bd_operating}';
@@ -278,5 +271,14 @@
    	short_minute 	= '{$LNG.short_minute}';
    	short_second 	= '{$LNG.short_second}';
     </script>
+    <script src="scripts/game/shipyard.js"></script>
+    {if !empty($BuildList)}
+    <script src="scripts/base/bcmath.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        ShipyardInit();
+    });
+    </script>
+    {/if}
 </div>
 {/block}

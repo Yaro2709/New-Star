@@ -256,6 +256,7 @@ class ShowFleetTablePage extends AbstractGamePage
 		if ($techExpedition >= 1)
 		{
 			$activeExpedition   = FleetFunctions::GetCurrentFleets($USER['id'], 15, true);
+            $activeExpedition  += FleetFunctions::GetCurrentFleets($USER['id'], 18, true);
 			$maxExpedition 		= floor(sqrt($techExpedition));
 		}
 		else

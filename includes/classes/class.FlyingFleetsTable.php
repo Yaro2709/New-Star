@@ -100,7 +100,7 @@ class FlyingFleetsTable
 			if ($fleetRow['fleet_end_stay'] != $fleetRow['fleet_start_time'] && $fleetRow['fleet_end_stay'] > TIMESTAMP && ($this->IsPhalanx && $fleetRow['fleet_end_id'] == $this->planetId))
 				$FleetData[$fleetRow['fleet_end_stay'].$fleetRow['fleet_id']] = $this->BuildFleetEventTable($fleetRow, 2);
 			
-			$MissionsOK = array(5,15);
+			$MissionsOK = array(5,11,15,18);
 			if ($fleetRow['fleet_end_stay'] > TIMESTAMP && in_array($fleetRow['fleet_mission'], $MissionsOK))
 			$FleetData[$fleetRow['fleet_end_stay'].$fleetRow['fleet_id']] = $this->BuildFleetEventTable($fleetRow, 2);
 				
@@ -166,8 +166,9 @@ class FlyingFleetsTable
 			8 => 'harvest',
 			9 => 'destroy',
 			10 => 'missile',
-			11 => 'transport',
-			15 => 'transport',
+			11 => 'expdm',
+			15 => 'expedit',
+            18 => 'warexpedit',
 		);
 		
 	    $GoodMissions	= array(3, 5);
@@ -192,7 +193,7 @@ class FlyingFleetsTable
 				$EventString = sprintf($LNG['cff_mission_own_mip'], $fleetRow['fleet_amount'], $StartType, $fleetRow['own_planetname'], GetStartAddressLink($fleetRow, $FleetType), $TargetType, $fleetRow['target_planetname'], GetTargetAddressLink($fleetRow, $FleetType));
 			else
 				$EventString = sprintf($LNG['cff_mission_target_mip'], $fleetRow['fleet_amount'], $this->BuildHostileFleetPlayerLink($fleetRow), $StartType, $fleetRow['own_planetname'], GetStartAddressLink($fleetRow, $FleetType), $TargetType, $fleetRow['target_planetname'], GetTargetAddressLink($fleetRow, $FleetType));
-		} elseif ($MissionType == 11 || $MissionType == 15) {		
+		} elseif ($MissionType == 11 || $MissionType == 15 || $MissionType == 18) {		
 			if ($Status == FLEET_OUTWARD)
 				$EventString = sprintf($LNG['cff_mission_own_expo_0'], $FleetContent, $StartType, $fleetRow['own_planetname'], GetStartAddressLink($fleetRow, $FleetType), GetTargetAddressLink($fleetRow, $FleetType), $FleetCapacity);
 			elseif ($Status == FLEET_HOLD)

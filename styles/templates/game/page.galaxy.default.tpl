@@ -270,7 +270,7 @@
                     {/for}
                     <div id="gal_block_1_footer">
                         <a id="dali" class="dali btn_galassia" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$max_planets + 1}&amp;planettype=1&amp;target_mission=15"><img src="{$dpath}img/iconav/g_expedition.png">{$LNG.gl_out_space}</a>
-                        <a id="expedition" class="expedition btn_galassia1" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$max_planets + 1}&amp;planettype=1&amp;target_mission=15"><img src="{$dpath}img/iconav/g_hostile.png">{$LNG.gl_out_space}</a>
+                        <a id="expedition" class="expedition btn_galassia1" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$max_planets + 1}&amp;planettype=1&amp;target_mission=18"><img src="{$dpath}img/iconav/g_hostile.png">{$LNG.type_mission_18}</a>
                     </div>
                 </div>
                 <div id="send_zond">

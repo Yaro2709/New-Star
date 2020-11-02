@@ -272,3 +272,54 @@ $LNG['gl_sp']                                        = 'Intelligence';
 //Player card
 $LNG['op_user_info']                                 = 'About Player';
 $LNG['op_damage_coef']                               = 'Damage Coefficient';
+// Expeditions
+$LNG['fl_enemy'][1]                                  = 'Pirates';
+$LNG['fl_enemy'][2]                                  = 'Aliens';
+$LNG['fl_enemy'][3]                                  = 'Ancients';
+$LNG['fl_enemy_text'][1]                             = "
+<b> Pirates: </b> <br>
+Chance of finding an upgrade: 10% <br>
+The number of fleets is 60-70% of the fleet launched by the player. <br>
+Pirate Technologies 60-70% of the player's technologies. <br>
+Base chance of finding Dark Matter 30% <br>
+Minimum Fleet Points 2.500 <br>
+The maximum number of fleet points is not limited <br>
+Debris collection percentage from the fleet: 1% <br> ";
+$LNG['fl_enemy_text'][2]                             = "
+<b> Aliens: </b> <br>
+Chance of finding an upgrade: 10% <br>
+The number of the fleet is 70-80% of the fleet launched by the player. <br>
+Alien Technologies 70-80% of the player's technologies. <br>
+Base chance of finding Dark Matter 30% <br>
+Minimum Fleet Points 15,000 <br>
+The maximum number of fleet points is not limited <br>
+Debris collection percentage from the fleet: 2% <br> ";
+$LNG['fl_enemy_text'][3]                             = "
+<b> Ancients: </b> <br>
+Chance of finding an upgrade: 10% <br>
+The number of fleets is 80-90% of the fleet launched by the player. <br>
+Ancient Technologies 80-90% of the player's technologies. <br>
+Base chance of finding Dark Matter 30% <br>
+Minimum Fleet Points 25,000 <br>
+The maximum number of fleet points is not limited <br>
+Debris collection percentage from the fleet: 3% <br> "; 
+$LNG['batl_log_mesage']				                 = '<div class="raportMessage">
+	<table>
+		<tr>
+			<td colspan="2"><a href="CombatReport.php?raport=%s" onclick="starttraining20()" target="_blank"><span %s>%s %s (%s)</span></a></td>
+		</tr>
+		<tr>
+			<td>%s</td><td><span %s>%s: %s</span>&nbsp;<span %s>%s: %s</span></td>
+		</tr>
+		<tr>
+			<td>%s</td><td><span>%s:&nbsp;<span style="color:#a47d7a;">%s</span>&nbsp;</span><span>%s:&nbsp;<span style="color:#5ca6aa;">%s</span>&nbsp;</span><span>%s:&nbsp;<span style="color:#339966;">%s</span></span></td>
+		</tr>
+		<tr>
+			<td>%s</td><td><span>%s:&nbsp;<span style="color:#a47d7a;">%s</font>&nbsp;</span><span>%s:&nbsp;<span style="color:#5ca6aa;">%s</span></span></td>
+		</tr>
+	</table>
+</div>' ;        
+$LNG['host_mission_mesag']                           = 'Nebula sector';
+$LNG['fl_enemy_msg']['main']                         = 'The expedition stumbled upon an enemy unit %s in the Nebula sector.';
+$LNG['fl_enemy_msg']['tm']                           = 'A container with %s Dark Matter was found.';
+$LNG['fl_enemy_msg']['up']                           = 'It was possible to create an Upgrade for %s in the amount of %s pieces';

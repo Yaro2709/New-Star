@@ -155,7 +155,7 @@
         </div><!--/round-->
         <div class="batle_round_info" onclick="RoundScan('#round_{$Round}');">
             <h2>{$Round}</h2>
-            <h3>Round</h3>
+            <h3>{$LNG.sys_attack_round}</h3>
         </div>
         {if !$RoundInfo@last}
         <div class="band_att tooltip" style="cursor:help !important" data-tooltip-content="{$LNG.fleet_attack_1} {$RoundInfo.info[0]|number} {$LNG.fleet_attack_2} {$RoundInfo.info[3]|number} {$LNG.damage}<br> {$LNG.fleet_defs_1} {$RoundInfo.info[2]|number} {$LNG.fleet_defs_2} {$RoundInfo.info[1]|number} {$LNG.damage}">

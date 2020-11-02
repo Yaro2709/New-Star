@@ -351,6 +351,7 @@ class ShowFleetStep1Page extends AbstractGamePage
 			}
 			
 			$activeExpedition	= FleetFunctions::GetCurrentFleets($USER['id'], 15, true);
+            $activeExpedition  += FleetFunctions::GetCurrentFleets($USER['id'], 18, true);
 
 			if ($activeExpedition >= FleetFunctions::getExpeditionLimit($USER))
 			{

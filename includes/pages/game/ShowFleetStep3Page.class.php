@@ -38,6 +38,8 @@ class ShowFleetStep3Page extends AbstractGamePage
 		$TransportDeuterium		= max(0, round(HTTP::_GP('deuterium', 0.0)));
 		$stayTime 				= HTTP::_GP('staytime', 0);
 		$token					= HTTP::_GP('token', '');
+        $maxwave				= HTTP::_GP('maxwave', 1); 
+		$sector                 = HTTP::_GP('sectors',3);
 
 		$config					= Config::get();
 
@@ -157,7 +159,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 			}
 		}
 		
-		if ($targetMission == 7 || $targetMission == 15)
+		if ($targetMission == 7 || $targetMission == 15 || $targetMission == 18)
 		{
 			$targetPlanetData	= array('id' => 0, 'id_owner' => 0, 'planettype' => 1);
 		}
@@ -200,9 +202,10 @@ class ShowFleetStep3Page extends AbstractGamePage
 				)));
 			}
 		}
-		elseif ($targetMission == 15)
+		elseif ($targetMission == 15 || $targetMission == 18)
 		{		
 			$activeExpedition	= FleetFunctions::GetCurrentFleets($USER['id'], 15, true);
+            $activeExpedition  += FleetFunctions::GetCurrentFleets($USER['id'], 18, true);
 			$maxExpedition		= FleetFunctions::getExpeditionLimit($USER);
 			
 			if ($activeExpedition >= $maxExpedition) {
@@ -217,7 +220,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 		$myPlanet	= $usedPlanet && $targetPlanetData['id_owner'] == $USER['id'];
 		$targetPlayerData	= array();
 
-		if($targetMission == 7 || $targetMission == 15) {
+		if($targetMission == 7 || $targetMission == 15 || $targetMission == 18) {
 			$targetPlayerData	= array(
 				'id'				=> 0,
 				'onlinetime'		=> TIMESTAMP,
@@ -353,7 +356,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 		
 		$StayDuration    = 0;
 		
-		if($targetMission == 5 || $targetMission == 11 || $targetMission == 15)
+		if($targetMission == 5 || $targetMission == 11 || $targetMission == 15 || $targetMission == 18)
 		{
 			if(!isset($availableMissions['StayBlock'][$stayTime]))
 			{
@@ -409,7 +412,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 		FleetFunctions::sendFleet($fleetArray, $targetMission, $USER['id'], $PLANET['id'], $PLANET['galaxy'],
 			$PLANET['system'], $PLANET['planet'], $PLANET['planet_type'], $targetPlanetData['id_owner'],
 			$targetPlanetData['id'], $targetGalaxy, $targetSystem, $targetPlanet, $targetType, $fleetResource,
-			$fleetStartTime, $fleetStayTime, $fleetEndTime, $fleetGroup);
+			$fleetStartTime, $fleetStayTime, $fleetEndTime, $fleetGroup, 0, 0, $sector);
 		
 		foreach ($fleetArray as $Ship => $Count)
 		{
@@ -427,6 +430,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 			'fleetEndTime'		=> _date($LNG['php_tdformat'], $fleetEndTime, $USER['timezone']),
 			'MaxFleetSpeed'		=> $fleetMaxSpeed,
 			'FleetList'			=> $fleetArray,
+            'maxwave'			=> $maxwave,
 		));
 		
 		$this->display('page.fleetStep3.default.tpl');

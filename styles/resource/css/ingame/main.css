@@ -1255,6 +1255,10 @@ select {
 	color:#6F0AAA !important
 }
 
+.expdm, .ownexpdm {
+    color: #00b154 !important;
+}
+
 .seizure{
 	color:#FF3500 !important
 }

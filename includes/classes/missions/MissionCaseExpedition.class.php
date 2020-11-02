@@ -54,8 +54,8 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
 		}
         
         //Ограничитель по ресам и очкам. 
-        if($fleetPoints > 50000000 * Config::get()->stat_settings){
-            $fleetPoints = 50000000 * Config::get()->stat_settings;
+        if($fleetPoints > 50000000 * $config->stat_settings){
+            $fleetPoints = 50000000 * $config->stat_settings;
         }
         //Фактор добычи от посланного флота.
         $exp_factor = 0.15; //15%
@@ -92,7 +92,7 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
         //2. Поиск Темной материи. 
         }elseif($GetEvent > 40000 && $GetEvent <= 50000){
 
-            if($fleetPoints < 500000 * Config::get()->stat_settings){
+            if($fleetPoints < 500000 * $config->stat_settings){
                 $Message        = $LNG['sys_expe_nothing_'.mt_rand(1,8)];
             }else{
                 $FindSize   = mt_rand(0, 100);
@@ -115,7 +115,7 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
         //3. Арсенал.   
         }elseif($GetEvent > 50000 && $GetEvent <= 55000){ 
 
-            if($fleetPoints < 500000 * Config::get()->stat_settings){
+            if($fleetPoints < 500000 * $config->stat_settings){
                 $Message        = $LNG['sys_expe_nothing_'.mt_rand(1,8)];
             }else{
                 $input = $reslist['ars'];
@@ -146,7 +146,7 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
         //5. Контейнеры.
         }elseif($GetEvent > 65000 && $GetEvent <= 70000){
 
-            if($fleetPoints < 500000 * Config::get()->stat_settings){
+            if($fleetPoints < 500000 * $config->stat_settings){
                 $Message        = $LNG['sys_expe_nothing_'.mt_rand(1,8)];
             }else{
                 $Size = mt_rand(1,5);
@@ -161,7 +161,7 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
         //6. Поиск звездной руды.
         }elseif($GetEvent > 70000 && $GetEvent <= 72000){ 
 
-            if($fleetPoints < 500000 * Config::get()->stat_settings){
+            if($fleetPoints < 500000 * $config->stat_settings){
                 $Message        = $LNG['sys_expe_nothing_'.mt_rand(1,8)];
             }else{
                 $sql	= "UPDATE %%USERS%% SET stardust = stardust + 1 WHERE id = :userId;";
@@ -202,13 +202,8 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
 			$LNG['tech'][921], pretty_number($this->_fleet['fleet_resource_darkmatter'])
 		);
 
-		/* $old_code
-		PlayerUtil::sendMessage($this->_fleet['fleet_owner'], 0, $LNG['sys_mess_tower'], 4, $LNG['sys_mess_fleetback'],
+		PlayerUtil::sendMessage($this->_fleet['fleet_owner'], 0, $LNG['sys_mess_tower'], 15, $LNG['sys_mess_fleetback'],
 			$Message, $this->_fleet['fleet_end_time'], NULL, 1, $this->_fleet['fleet_universe']);
-        $old_code */
-        // $new_code
-        require_once('includes/subclasses/subclass.SendMessageFleet.php');
-        // $new_code
 
 		$this->RestoreFleet();
 	}

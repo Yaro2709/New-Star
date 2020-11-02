@@ -115,3 +115,5 @@ $reslist['tablefleet_transport'] = array(202,203,217);
 $reslist['tablefleet_recyclers'] = array(209,219);
 //Особые
 $reslist['tablefleet_special'] = array(208,210,220,223);
+//Сектора PvE
+$SectorME = array(1,2,3);

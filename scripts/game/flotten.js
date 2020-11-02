@@ -187,7 +187,7 @@ function setShip(id, count) {
 
 function maxShips() {
     var id;
-    for (i = 200; i < 250; i++) {
+    for (i = 200; i < 299; i++) {
         id = "ship" + i;
         maxShip(id);
     }
@@ -237,7 +237,7 @@ function maxShipsSpecial() {
 
 function GroopShips(idGroop) {
     var id;
-    for (i = 200; i < 250; i++) {
+    for (i = 200; i < 299; i++) {
         id = "ship" + i;
         count = 0;
         if (typeof fleetGroopShip[idGroop][i] !== "undefined")
