@@ -25,8 +25,8 @@ $LNG['back']                                         = 'Назад';
 $LNG['continue']                                     = 'Дальше';
 $LNG['login']                                        = 'Войти в панель администратора';
 $LNG['title_install']                                = 'Установщик';
-$LNG['previous']                                     = 'Предыдущий слайд...';
-$LNG['next']                                         = 'Cледующий слайд...';
+$LNG['previous']                                     = '';
+$LNG['next']                                         = '';
 //{IDs_0002} Вступление
 $LNG['intro_install']                                = 'Установить';
 $LNG['intro_welcome']                                = 'Добро пожаловать в '.$LNG['game_name'].'!';

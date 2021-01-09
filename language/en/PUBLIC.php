@@ -28,8 +28,8 @@ $LNG['nav_password']				                 = 'Lost Password?';
 $LNG['nav_screens']				                     = 'Screenshots';
 $LNG['back']                                         = 'Back';
 $LNG['next']                                         = 'Next'; 
-$LNG['previous_s']                                   = 'Previous slide ...';
-$LNG['next_s']                                       = 'Next slide ...';
+$LNG['previous_s']                                   = '';
+$LNG['next_s']                                       = '';
 $LNG['footer_up']                                    = 'Back to top';
 $LNG['language']			                         = 'Language';
 //{IDs_0002} Universe select

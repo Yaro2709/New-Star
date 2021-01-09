@@ -1,7 +1,7 @@
 <footer>
     <div class="container">
 		<p class="float-right"><a href="#">{$LNG.footer_up}</a></p>
-		<p>© 2020 {$gameName}, <a href="https://github.com/Yaro2709/New-Star">github</a></p>
+		<p>© 2021 {$gameName}, <a href="https://github.com/Yaro2709/New-Star">github</a></p>
 	</div>
 </footer>
 <div id="dialog" style="display:none;"></div>

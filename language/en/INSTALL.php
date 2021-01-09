@@ -25,8 +25,8 @@ $LNG['back']                                         = 'Back';
 $LNG['continue']                                     = 'Next';
 $LNG['login']                                        = 'Login to the admin panel';
 $LNG['title_install']                                = 'Installer';
-$LNG['previous']                                     = 'Previous slide ...';
-$LNG['next']                                         = 'Next slide ...';
+$LNG['previous']                                     = '';
+$LNG['next']                                         = '';
 //{IDs_0002} Introduction
 $LNG['intro_install']                                = 'Install';
 $LNG['intro_welcome']                                = 'Welcome to '.$LNG['game_name'].'!';

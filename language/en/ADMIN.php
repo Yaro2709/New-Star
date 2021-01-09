@@ -416,6 +416,8 @@ $LNG['mod_69']                                       = 'Distribute resources fro
 $LNG['mod_70']                                       = 'Find debris';
 $LNG['mod_71']                                       = 'Store';
 $LNG['mod_72']                                       = 'Mission - Expedition to the Nebula Sector';
+$LNG['mod_73']                                       = 'Minerals';
+$LNG['mod_74']                                       = 'Details';
 //{IDs_0031} Task Scheduler
 $LNG['cron_name_referral']                           = 'Referral system';
 $LNG['cron_name_statistic']                          = 'Statistics';

@@ -112,13 +112,13 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
                 $this->UpdateFleet('fleet_resource_darkmatter', $this->_fleet['fleet_resource_darkmatter'] + $Size);
             }
             
-        //3. Арсенал.   
+        //3. Минералы.   
         }elseif($GetEvent > 50000 && $GetEvent <= 55000){ 
 
             if($fleetPoints < 500000 * $config->stat_settings){
                 $Message        = $LNG['sys_expe_nothing_'.mt_rand(1,8)];
             }else{
-                $input = $reslist['ars'];
+                $input = $reslist['minerals'];
                 $rand_keys = array_rand($input, 1);
                 $Size = 1;
             
@@ -126,7 +126,7 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
                     Database::get()->update($sql, array(
                         ':userId'       => $this->_fleet['fleet_owner'],
                 ));
-                $Message        = ''.$LNG['sys_expe_found_ars_'.mt_rand(1,7)].' <span style="color:#58c552">('.$LNG['tech'][$input[$rand_keys]].': '.pretty_number($Size).')</span>';
+                $Message        = ''.$LNG['sys_expe_found_minerals_'.mt_rand(1,7)].' <span style="color:#58c552">('.$LNG['tech'][$input[$rand_keys]].': '.pretty_number($Size).')</span>';
             }
         
         //4. Замедление и ускорение.

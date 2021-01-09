@@ -157,7 +157,7 @@ define('AUTH_MOD'					, 1);
 define('AUTH_USR'					, 0);
 
 // Modules
-define('MODULE_AMOUNT'				, 73);//количество модов
+define('MODULE_AMOUNT'				, 75);//количество модов
 define('MODULE_ALLIANCE'			, 0);
 define('MODULE_BANLIST'				, 21);
 define('MODULE_BANNER'				, 37);
@@ -232,6 +232,8 @@ define('MODULE_DELIVERY'		    , 69);
 define('MODULE_FIND_DEBRIS'		    , 70);
 define('MODULE_STORE'		        , 71);
 define('MODULE_MISSION_VAREXP'	    , 72);
+define('MODULE_MINERALS'	        , 73);
+define('MODULE_DETAILS'	            , 74);
 //$new_code
 
 // FLEET STATE

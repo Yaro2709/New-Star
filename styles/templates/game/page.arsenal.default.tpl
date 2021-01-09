@@ -22,7 +22,7 @@
                             <img src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}" />
                         </div>
                         <div class="prices_mini">
-                            <font color="#096">{foreach $Element.elementBonus as $BonusName => $Bonus}{if $Bonus[0] < 0}-{else}+{/if}{if $Bonus[1] == 0}{abs($Bonus[0] * 100)}%{else}{floatval($Bonus[0])}{/if} {$LNG.bonus.$BonusName}<br>{/foreach}</font>
+                            <font color="#096">{foreach $Element.elementBonus as $BonusName => $Bonus}{if $Bonus[0] < 0}-{else}+{/if}{if $Bonus[1] == 0}{round(abs($Bonus[0] * 100) * {sqrt($Element.level)}, 2)}%{else}{round(floatval($Bonus[0]) * {sqrt($Element.level)}, 2)}{/if} {$LNG.bonus.$BonusName}<br>{/foreach}</font>
                         </div>
                     </div>
                 </div>

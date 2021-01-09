@@ -28,8 +28,8 @@ $LNG['nav_password']                                 = 'Восстановлен
 $LNG['nav_screens']                                  = 'Скриншоты';
 $LNG['back']                                         = 'Назад';
 $LNG['next']                                         = 'Далее'; 
-$LNG['previous_s']                                   = 'Предыдущий слайд...';
-$LNG['next_s']                                       = 'Cледующий слайд...';
+$LNG['previous_s']                                   = '';
+$LNG['next_s']                                       = '';
 $LNG['footer_up']                                    = 'Наверх';
 $LNG['language']                                     = 'Язык';
 //{IDs_0002} Выбор вселенной

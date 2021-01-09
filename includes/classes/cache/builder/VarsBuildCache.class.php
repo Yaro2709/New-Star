@@ -40,6 +40,8 @@ class VarsBuildCache implements BuildCache
 		$reslist['missile']		                = array();
 		$reslist['officier']	                = array();
 		$reslist['dmfunc']		                = array();
+        $reslist['details']		                = array();
+        $reslist['minerals']		            = array();
         $reslist['ideologies']	                = array();
         $reslist['party']	                    = array();
         $reslist['race']		                = array();
@@ -248,6 +250,12 @@ class VarsBuildCache implements BuildCache
 				break;
 				case 700: 
 					$reslist['dmfunc'][]	= $varsRow['elementID'];
+				break;
+                case 1000: 
+					$reslist['details'][]	= $varsRow['elementID'];
+				break;
+                case 1100: 
+					$reslist['minerals'][]	= $varsRow['elementID'];
 				break;
                 case 1200: 
 					$reslist['party'][]	= $varsRow['elementID'];

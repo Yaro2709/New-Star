@@ -78,9 +78,11 @@
             <a class="nuovomenusinistra" href="game.php?page=officier" id="munu_senat">{$LNG.lm_officiers}</a>
             <a class="nuovomenudestra" href="game.php?page=officier"><img src="{$dpath}img/iconav/governatori.png" class="imgovernuovo" id="ciaone"></a>
             {/if}
-            {if isModuleAvailable($smarty.const.MODULE_PARTY) || isModuleAvailable($smarty.const.MODULE_IDEOLOGIES)}
-            <a class="nuovomenusinistra" href="game.php?page=ideologies" id="munu_senat">{$LNG.lm_ideologies}</a>
-            <a class="nuovomenudestra tooltip" href="game.php?page=party" data-tooltip-content="{$LNG.lm_party}"><img src="{$dpath}img/iconav/blackmarket.png" class="oimgaltro"></a>
+            {if isModuleAvailable($smarty.const.MODULE_MINERALS)}
+            <a class="nuovomenusinistra" href="game.php?page=minerals" id="munu_senat">{$LNG.lm_minerals}</a>
+            {/if}
+            {if isModuleAvailable($smarty.const.MODULE_DETAILS)}
+            <a class="nuovomenudestra tooltip" href="game.php?page=details" id="munu_fleetable" data-tooltip-content="{$LNG.lm_details}"><img src="{$dpath}img/iconav/blackmarket.png" class="oimgaltro"></a>	
             {/if}
             <!-- ufficiali governatori -->
             {if isModuleAvailable($smarty.const.MODULE_GALAXY)}

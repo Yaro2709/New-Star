@@ -78,7 +78,7 @@ function getFactors($USER, $Type = 'basic', $TIME = NULL) {
 			{
 				$factor[$bonusKey]	+= $bonus[$bonusKey][0];
 			}
-        } elseif(in_array($elementID, array_merge($reslist['ars']))) {
+        } elseif(in_array($elementID, array_merge($reslist['ars'], $reslist['details']))) {
             foreach($bonusList as $bonusKey)
 			{
 				$factor[$bonusKey]	+= sqrt($elementLevel) * $bonus[$bonusKey][0];

@@ -49,7 +49,7 @@ function Price903(Element, Price)
 function Price921(Element, Price)
 {
 	var Amount  	= parseInt($('#amount'+Element).val());
-	var darkmatter 	= parseInt($('#current_darkmatter').text().replace(/\./g, ''));
+	var darkmatter 	= parseInt(($('#current_darkmatter').attr('name')).text().replace(/\./g, ''));
 	var TotalPrice	= Price * Amount;
 	
 	var PriceE		= $('#price'+Element);
