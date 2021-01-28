@@ -106,20 +106,53 @@
             <img src="{$dpath}img/content/market.png" class="overvieew4 tooltip" data-tooltip-content="{$LNG.lm_market}" style="opacity:0.8">
             </a>
         </div>
-        </div> 
-        <div class="gray_latdes overvieew3">
-            <div class="ricerche"><img src="{$dpath}img/iconav/ov_tech.png" class="overvieew27"><span class="overvieew9"><a href="game.php?page=research">
-                {if $buildInfo.tech}{$LNG.tech[$buildInfo.tech['id']]} <span class="level">({$buildInfo.tech['level']})</span><span class="timer" data-time="{$buildInfo.tech['timeleft']}">{$buildInfo.tech['starttime']}</span>{else}{$LNG.ov_free}{/if}</a></span>
+        </div>
+		<div class="gray_latdes overvieew3">
+            <div class="ricerche">
+				<img src="{$dpath}img/iconav/ov_tech.png" class="overvieew27">
+				<span class="overvieew9">
+					<a href="game.php?page=research">
+						{if $buildInfo.tech}
+							<span class="timer" data-time="{$buildInfo.tech['timeleft']}">??:??:??</span>
+							- {$LNG.tech[$buildInfo.tech['id']]}
+							<span class="level">({$buildInfo.tech['level']})</span>
+						{else}
+							{$LNG.ov_free}
+						{/if}
+					</a>
+				</span>
             </div>
         </div>
         <div class="gray_latdes overvieew3">
-            <div class="costruzioni"><img src="{$dpath}img/iconav/ov_build.png" class="overvieew27"><span class="overvieew9"><a href="game.php?page=buildings">
-                {if $buildInfo.buildings}{$LNG.tech[$buildInfo.buildings['id']]} <span class="level">({$buildInfo.buildings['level']}) - </span><span class="timer" data-time="{$buildInfo.buildings['timeleft']}">{$buildInfo.buildings['starttime']}</span>{else}{$LNG.ov_free}{/if}</a></span>
+            <div class="costruzioni">
+				<img src="{$dpath}img/iconav/ov_build.png" class="overvieew27">
+				<span class="overvieew9">
+					<a href="game.php?page=buildings">
+						{if $buildInfo.buildings}
+							<span class="timer" data-time="{$buildInfo.buildings['timeleft']}">??:??:??</span>
+							- {$LNG.tech[$buildInfo.buildings['id']]}
+							<span class="level">({$buildInfo.buildings['level']})</span>
+						{else}
+							{$LNG.ov_free}
+						{/if}
+					</a>
+				</span>
             </div>
         </div>
-        <div class="gray_latdes overvieew3">
-            <div class="flotte"><img src="{$dpath}img/iconav/ov_fleet.png" class="overvieew27"><span class="overvieew9"><a href="game.php?page=shipyard">
-                {if $buildInfo.fleet}{$LNG.tech[$buildInfo.fleet['id']]} <span class="level">({$buildInfo.fleet['level']})</span><br><span class="timer" data-time="{$buildInfo.fleet['timeleft']}">{$buildInfo.fleet['starttime']}</span>{else}{$LNG.ov_free}{/if}</a></span>
+		<div class="gray_latdes overvieew3">
+            <div class="flotte">
+				<img src="{$dpath}img/iconav/ov_fleet.png" class="overvieew27">
+				<span class="overvieew9">
+					<a href="game.php?page=shipyard">
+						{if $buildInfo.fleet}
+							<span class="timer" data-time="{$buildInfo.fleet['timeleft']}">??:??:??</span>
+							- {$LNG.tech[$buildInfo.fleet['id']]}
+							<span class="level">({$buildInfo.fleet['level']})</span>
+						{else}
+							{$LNG.ov_free}
+						{/if}
+					</a>
+				</span>
             </div>
         </div>
 	</div>
