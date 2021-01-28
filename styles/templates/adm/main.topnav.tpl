@@ -14,7 +14,7 @@
                     {/if}
                     {if allowedTo('ShowConfigUniPage.class')}
                     <li class="nav-item">
-                        <a class="nav-link" href="admin.php?page=configuni">{$LNG.lm_configuni}</a>
+                        <a class="nav-link" href="admin.php?page=ConfigUni">{$LNG.lm_configuni}</a>
                     </li>
                     {/if}
                     {if allowedTo('ShowModulePage.class')}
@@ -58,7 +58,7 @@
                     {/if}
                     {if allowedTo('ShowAccountEditorPage.class')}
                     <li class="nav-item">
-                        <a class="nav-link" href="admin.php?page=accounteditor">{$LNG.lm_accounteditor}</a>
+                        <a class="nav-link" href="admin.php?page=AccountEditor">{$LNG.lm_accounteditor}</a>
                     </li>
                     {/if}
                     {if allowedTo('ShowBanPage.class')}
@@ -85,7 +85,7 @@
                     {/if}
                     {if allowedTo('ShowFlyingFleetPage.class')}
                     <li class="nav-item">
-                        <a class="nav-link" href="admin.php?page=flyingfleet">{$LNG.lm_flyingfleet}</a>
+                        <a class="nav-link" href="admin.php?page=FlyingFleet">{$LNG.lm_flyingfleet}</a>
                     </li>
                     {/if}
                     {if allowedTo('ShowNewsPage.class')}
@@ -95,7 +95,7 @@
                     {/if}
                     {if allowedTo('ShowMessageListPage.class')}
                     <li class="nav-item">
-                        <a class="nav-link" href="admin.php?page=messagelist">{$LNG.lm_messagelist}</a>
+                        <a class="nav-link" href="admin.php?page=MessageList">{$LNG.lm_messagelist}</a>
                     </li>
                     {/if}
                     {if allowedTo('ShowSearchPage.class')}
@@ -105,14 +105,14 @@
                     {/if}
                     {if allowedTo('ShowMultiIPPage.class')}
                     <li class="nav-item">
-                        <a class="nav-link" href="admin.php?page=multiip">{$LNG.lm_multiip}</a>
+                        <a class="nav-link" href="admin.php?page=MultiIP">{$LNG.lm_multiip}</a>
                     </li>
                     {/if}
                     
                     {*************БЛОК №5*************}
                     {if allowedTo('ShowSendMessagesPage.class')}
                     <li class="nav-item">
-                        <a class="nav-link" href="admin.php?page=sendmessages">{$LNG.lm_sendmessages}</a>
+                        <a class="nav-link" href="admin.php?page=SendMessages">{$LNG.lm_sendmessages}</a>
                     </li>
                     {/if}
                     {if allowedTo('ShowLogPage.class')}
@@ -127,12 +127,12 @@
                     {/if}
                     {if allowedTo('ShowClearCachePage.class')}
                     <li class="nav-item">
-                        <a class="nav-link" href="admin.php?page=clearcache">{$LNG.lm_clearcache}</a>
+                        <a class="nav-link" href="admin.php?page=ClearCache">{$LNG.lm_clearcache}</a>
                     </li>
                     {/if}
                     {if allowedTo('ShowStatUpdatePage.class')}
                     <li class="nav-item">
-                        <a class="nav-link" href="admin.php?page=statupdate">{$LNG.lm_statupdate}</a>
+                        <a class="nav-link" href="admin.php?page=StatUpdate">{$LNG.lm_statupdate}</a>
                     </li>
                     {/if}
                 </ul>
