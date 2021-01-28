@@ -134,7 +134,7 @@ $LNG['market_go_lot']                                = 'Make an offer';
 $LNG['market_you_lot']                               = 'Your offers';
 $LNG['market_not_lot']                               = 'No offers!';
 $LNG['market_not_res']                               = 'You have nothing to offer on the market!';
-$LNG['market_not_lot_active']                        = 'You do not have any offers active!';
+$LNG['market_not_lot_active']                        = 'You do not have any offers made!';
 $LNG['market_take']                                  = 'Remove offer';
 $LNG['market_proceed']                               = 'Continue';
 $LNG['market_price']                                 = 'Price:';
@@ -207,6 +207,8 @@ $LNG['sys_expe_found_so_7']                          = 'The expedition was unsuc
 $LNG['ach_system']					                 = 'System';
 $LNG['ach_reached']					                 = 'Reached:';
 $LNG['ach_bonus']					                 = 'View bonus';
+$LNG['ach_next_upg']					        	 = 'Bonus on the next level:';
+$LNG['ach_remaining']					        	 = 'Remaining upgrades:';
 $LNG['ach_go_achievements']					         = 'Go to achievements';
 //Form of government
 $LNG['fg_one']                                       = 'Select form of government:';
