@@ -24,7 +24,7 @@
             </div>
             {*<div class="olistabarrabasso">
             </div>
-            <a href="#" onclick="return Dialog.Galaxy();" class="oamlink pulsanti">Купить АМ<span class="oamperc">+100%</span></a>*}
+            <a href="#" onclick="return Dialog.Galaxy();" class="oamlink pulsanti">{$LNG.bd_buy} AM<span class="oamperc">+100%</span></a>*}
             <a class="big_btn btn_menu btn_menu_big"> <div class="servertime oservertime"></div> </a>
             {if $bonus_time < TIMESTAMP}
             <a class="big_btn blue btn_menu btn_menu_big" href="game.php?page=bonus">{$LNG.lm_bonus}</a>

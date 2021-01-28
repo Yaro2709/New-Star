@@ -70,7 +70,7 @@
                <label class="left_label">{$LNG.al_web_site}</label>
                <input type="text" class="big_seting_text" name="web" value="{$ally_image}" size="70">
                <div class="clear"></div>
-               <label class="left_label">{$LNG.al_manage_image} (682px на 215px)</label>
+               <label class="left_label">{$LNG.al_manage_image} (682x215px)</label>
                <input type="text" class="big_seting_text" name="image" value="{$ally_image}"" size="70">
                <div class="clear"></div>
                <label class="left_label">{$LNG.all_info}</label>

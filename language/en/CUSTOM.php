@@ -80,6 +80,7 @@ $LNG['short_second']                                 = 's';
 $LNG['cost']                                         = 'Price';
 //Overview
 $LNG['ov_ticket']                                    = 'Tech. support';
+$LNG['ov_ticket_tooltip']                            = 'I will answer your questions';
 $LNG['ov_online_users']                              = 'Online Players:';
 $LNG['ov_create_moon']                               = 'Create Moon';
 $LNG['ov_panel_root']                                = 'Control Panel';
