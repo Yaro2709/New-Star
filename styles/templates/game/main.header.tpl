@@ -10,7 +10,7 @@
 	<title>{block name="title"} - {$uni_name} - {$game_name}{/block}</title>
 	<meta name="generator" content="New-Star {$VERSION}">
 	<meta name="keywords" content="New-Star {$VERSION}">
-	<meta name="description" content="New-Star Browsergame powerd by https://github.com/Yaro2709/New-Star">
+	<meta name="description" content="New-Star Browsergame powered by https://github.com/Yaro2709/New-Star">
     <!--favicon-->
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <!--goto refresh-->

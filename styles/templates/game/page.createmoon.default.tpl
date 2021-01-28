@@ -13,7 +13,7 @@
                         <p class="crem4">{$LNG.crm_value}</p>
                         <div class="crem2">{$LNG.crm_war}</div>
                         {if $buy_moon_res_user < $buy_moon_price}
-                        <div class="gov23 gov24_{$buy_moon_res} tooltip" style="opacity:0.7;cursor: no-drop;" data-tooltip-content="Не хватает ресурсов">
+                        <div class="gov23 gov24_{$buy_moon_res} tooltip" style="opacity:0.7;cursor: no-drop;" data-tooltip-content="{$LNG.bd_notres}">
                             <span class="crem5">{$buy_moon_price|pretty_number}</span>
                         </div>
                         {else}

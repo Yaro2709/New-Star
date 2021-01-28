@@ -20,7 +20,7 @@
 //{IDs_0001} General variables
 $LNG['game_name']                                    = 'New-Star';
 $LNG['nav_lang']                                     = 'Language';
-$LNG['footer_up']                                    = 'Back to top';
+$LNG['footer_up']                                    = 'Back to the top';
 $LNG['back']                                         = 'Back';
 $LNG['continue']                                     = 'Next';
 $LNG['login']                                        = 'Login to the admin panel';

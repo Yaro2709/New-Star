@@ -35,7 +35,7 @@
             {$LNG.ov_online_users} <span>{$UsersOnline}</span>
             </div>
             <div id="gm_linck">
-                <a title="" href="game.php?page=ticket" class="tooltip" data-tooltip-content="Отвечу на ваши вопросы">{$LNG.ov_ticket}</a>  
+                <a title="" href="game.php?page=ticket" class="tooltip" data-tooltip-content="{$LNG.ov_ticket_tooltip}">{$LNG.ov_ticket}</a>  
             </div>
         </div>
 	<div class="fleettab9" style="margin-bottom:0"></div>   
