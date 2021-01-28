@@ -49,7 +49,7 @@ $LNG['shortNames'] = array (
     241 => '<span style="color:#59cac8"> Reaver </span>',
 
     242 => '<span style="color:#65c095"> Phoenix </span>',
-    243 => '<span style="color:#65c095">Hawk </span>',
+    243 => '<span style="color:#65c095"> Hawk </span>',
     244 => '<span style="color:#65c095"> Brig </span>',
     245 => '<span style="color:#65c095"> Defender </span>',
     246 => '<span style="color:#65c095"> Dreadnought </span>',
