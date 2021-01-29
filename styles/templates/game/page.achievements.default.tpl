@@ -27,13 +27,13 @@
                                 {/foreach}
                             {/foreach}
                             <span class="achievement4 tooltip" data-tooltip-content="
-                            <span style='color:#3CF; font-weight:bold;'>Осталось:</span> <br>
+                            <span style='color:#3CF; font-weight:bold;'>{$LNG.ach_remaining}</span> <br>
                             {foreach $Element.AllTech as $elementID => $requireList}
                                 {foreach $requireList as $requireID => $NeedLevel}
                                     {if $NeedLevel.own < $NeedLevel.count}{$LNG.tech.$requireID} {($NeedLevel.count - $NeedLevel.own)|number}<br>{/if}
                                 {/foreach}
                             {/foreach}
-                            <br><span style='color:#F90; font-weight:bold;'>Бонус на следующем уровне:</span><br>
+                            <br><span style='color:#F90; font-weight:bold;'>{$LNG.ach_next_upg}</span><br>
                             {foreach $Element.elementBonus as $BonusName => $Bonus}{if $Bonus[0] < 0}-{else}+{/if}{if $Bonus[1] == 0}{abs($Bonus[0] * 100)}%{else}{floatval($Bonus[0])}{/if} {$LNG.bonus.$BonusName}<br>{/foreach}
                             ">?</span>
                         </div>
