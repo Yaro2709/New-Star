@@ -204,7 +204,7 @@ class BuildFunctions
         foreach($reslist['build_speed_res'] as $res) 
         {
             if(isset($elementPrice[$res])) {
-                $elementCost	+= $elementPrice[$res];
+                $elementCost	+= pow($elementPrice[$res], 0.3)/0.003;
             }
         }
 

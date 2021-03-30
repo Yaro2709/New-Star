@@ -4,7 +4,7 @@
    <div id="content">
       <div id="ally_content" class="conteiner">
          <div class="gray_stripe">
-            {$LNG.alm_ally}      
+            {$LNG.lm_alliance}      
          </div>
          <div class="dis_img">
             <table class="no_visible">
@@ -39,10 +39,12 @@
                      {$LNG.pl_fightstats}
                   </div>
                   <div class="ally_contents">
+                    {if !empty($statisticData)}
                      <p>{$LNG.pl_totalfight}: <span>{$statisticData.totalfight|number}</span></p>
                      <p>{$LNG.pl_fightwon}: <span>{$statisticData.fightwon|number} {if $statisticData.totalfight}({round($statisticData.fightwon / $statisticData.totalfight * 100, 2)}%){/if}</span></p>
                      <p>{$LNG.pl_fightlose}: <span>{$statisticData.fightlose|number} {if $statisticData.totalfight}({round($statisticData.fightlose / $statisticData.totalfight * 100, 2)}%){/if}</span></p>
                      <p>{$LNG.pl_fightdraw}: <span>{$statisticData.fightdraw|number} {if $statisticData.totalfight}({round($statisticData.fightdraw / $statisticData.totalfight * 100, 2)}%){/if}</span></p>
+                    {/if}
                   </div>
                </div>
                {if isset($diplomaticData)}

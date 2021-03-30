@@ -268,7 +268,7 @@ class statbuilder
 		{
 			foreach(array('tech', 'build', 'defs', 'fleet', 'total') as $type)
 			{
-				Database::get()->nativeQuery('SELECT @i := 0;');
+				Database::get()->nativeQuery('SET @i := 0;');
 
 				$sql = 'UPDATE %%STATPOINTS%% SET '.$type.'_rank = (SELECT @i := @i + 1)
 				WHERE universe = :uni AND stat_type = :type
@@ -279,7 +279,7 @@ class statbuilder
 					':type'	=> 1,
 				));
 
-				Database::get()->nativeQuery('SELECT @i := 0;');
+				Database::get()->nativeQuery('SET @i := 0;');
 
 				Database::get()->update($sql, array(
 					':uni'	=> $uni,
