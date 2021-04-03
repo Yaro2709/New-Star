@@ -341,7 +341,7 @@ class PlayerUtil
 		$maxTemperature = $parentPlanet['temp_max'] - mt_rand(10, 45);
 		$minTemperature = $parentPlanet['temp_min'] - mt_rand(10, 45);
 
-		if(empty($moonName))
+		if(isset($moonName))
 		{
 			$moonName		= $LNG['type_planet_3'];
 		}
