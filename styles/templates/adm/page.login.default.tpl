@@ -15,7 +15,7 @@
                     </div>
                     <div class="form-group">
                         <label for="password">{$LNG.ln_password}</label>
-                        <input type="password" name="admin_pw" value="{$password}" class="form-control" id="password">
+                        <input type="password" name="admin_pw" value="" class="form-control" id="password">
                     </div>
                 </div>
                 <button type="submit" name="next" class="btn btn-primary">{$LNG.button_proceed}</button>

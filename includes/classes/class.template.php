@@ -86,7 +86,6 @@ class template extends Smarty
 
 		$this->assign_vars(array(
 			'scripts'			=> $this->script,
-			'title'				=> $config->game_name.' - '.$LNG['adm_cp_title'],
 			'fcm_info'			=> $LNG['fcm_info'],
             'lang'    			=> $LNG->getLanguage(),
 			'REV'				=> substr($config->VERSION, -4),

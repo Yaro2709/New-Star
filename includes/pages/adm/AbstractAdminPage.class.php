@@ -151,7 +151,7 @@ abstract class AbstractAdminPage
 
 	protected function display($file) {
         
-		global $LNG;
+		global $THEME, $LNG, $reslist, $USER;
 
 		$this->save();
 
@@ -161,6 +161,7 @@ abstract class AbstractAdminPage
 
 		$this->assign(array(
 			'lang'    		=> $LNG->getLanguage(),
+            'dpath'			=> $THEME->getTheme(),
 			'scripts'		=> $this->tplObj->jsscript,
 			'execscript'	=> implode("\n", $this->tplObj->script),
 			'basepath'		=> PROTOCOL.HTTP_HOST.HTTP_BASE,

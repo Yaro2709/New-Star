@@ -39,10 +39,13 @@ function ShowLoginPage()
 			HTTP::redirectTo('admin.php');
 		}
 	}
+    
+    $config	= Config::get();
 
 	$template	= new template();
 
 	$template->assign_vars(array(	
+        'game_name'	=> $config->game_name,
 		'bodyclass'	=> 'standalone',
 		'username'	=> $USER['username']
 	));
