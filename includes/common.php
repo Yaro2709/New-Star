@@ -21,6 +21,9 @@ if (isset($_POST['GLOBALS']) || isset($_GET['GLOBALS'])) {
 
 $composerAutoloader = __DIR__.'/../vendor/autoload.php';
 
+//Lib for hook system
+require 'libs/hook/hook.php';
+
 if (file_exists($composerAutoloader)) {
     require $composerAutoloader;
 }
@@ -40,6 +43,7 @@ header('Content-Type: text/html; charset=UTF-8');
 define('TIMESTAMP',	time());
 	
 require 'includes/constants.php';
+
 
 ini_set('log_errors', 'On');
 ini_set('error_log', 'includes/error.log');
@@ -65,6 +69,19 @@ require 'includes/classes/class.template.php';
 // Say Browsers to Allow ThirdParty Cookies (Thanks to morktadela)
 HTTP::sendHeader('P3P', 'CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
 define('AJAX_REQUEST', HTTP::_GP('ajax', 0));
+
+//Start hook system
+$plugins = scandir("plugins");
+foreach ($plugins as $plugin){
+    if($plugin != '.' && $plugin != '..'){
+        if(file_exists('plugins/'.$plugin.'/plugin.json')){
+            $pluginInfos = json_decode(file_get_contents('plugins/'.$plugin.'/plugin.json'),false);
+            require 'plugins/'.$plugin.'/'.$pluginInfos->mainFile;
+        }
+    }
+}
+//Sample call hook action
+do_action( 'after_plugins_loaded' );
 
 $THEME		= new Theme();
 
