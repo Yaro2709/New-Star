@@ -45,7 +45,7 @@
                             <div onclick="maxResource('deuterium');" class="fl_res_rows_input_max">Max</div>
                             <input class="countdots fl_res_rows_input_countdots" name="deuterium" onchange="calculateTransportCapacity();" type="text">
                         </div>
-                        <span class="fleetstep2-4">Остаток: <span id="remainingresources"><font color="lime">-</font></span></span>
+                        <span class="fleetstep2-4">{$LNG.fl_cargo_remainin}: <span id="remainingresources"><font color="lime">-</font></span></span>
                         <span class="fleetstep2-5">{$LNG.fl_fuel_consumption}: 
                             <span style="color:#096;">{pretty_number($consumption)}</span>
                             <span id="consumption" class="consumption" style="display:none;">{pretty_number($consumption)}</span>

@@ -256,6 +256,7 @@ $LNG['fl_flying_return']                             = 'Возвращение �
 $LNG['fl_fuel_consumption']                          = 'Потребление топлива';
 $LNG['fl_max_speed']                                 = 'Максимальная скорость';
 $LNG['fl_cargo_capacity']                            = 'Грузоподъёмность';
+$LNG['fl_cargo_remainin']			                 = 'Остаток';
 $LNG['fl_shortcut']                                  = 'Маршруты';
 $LNG['fl_shortcut_name']                             = 'Название';
 $LNG['fl_my_planets']                                = 'Мои планеты';
