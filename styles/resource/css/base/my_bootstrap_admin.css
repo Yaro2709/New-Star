@@ -1,3 +1,9 @@
+.bg-dark {
+    background-color: rgba(0, 0, 0, 0.95) !important;
+}
+
+
+
 .list-group-item {
     background-color: rgba(0, 0, 0, 0.5);
     border: 1px solid rgb(43, 50, 55);
@@ -103,7 +109,6 @@ body {
 .navbar-brand {
   padding-top: .75rem;
   padding-bottom: .75rem;
-  font-size: 1rem;
   background-color: rgba(0, 0, 0, .25);
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
 }

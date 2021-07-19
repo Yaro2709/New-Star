@@ -446,9 +446,9 @@ a.off:hover{
 }
 
 
-.tooltip, .tooltip_sticky {
+/* .tooltip, .tooltip_sticky {
 	cursor: pointer;
-}
+} */
 
 div#trader {
 	margin:14px auto;

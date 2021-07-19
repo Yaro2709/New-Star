@@ -34,7 +34,7 @@ class ShowAchievementsPage extends AbstractGamePage
 		{
 			foreach($reslist['achievements'] as $Element)
 			{
-                $techTreeList		= BuildFunctions::requirementsList($Element);
+                $techTreeList		= BuildFunctions::requirementsList($USER, $PLANET, $Element);
 				$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element);
 				$buyable			= BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources);
 				$costOverflow		= BuildFunctions::getRestPrice($USER, $PLANET, $Element, $costResources);

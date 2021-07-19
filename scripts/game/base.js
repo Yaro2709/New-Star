@@ -182,10 +182,6 @@ var Dialog	= {
 	info: function(ID){
 		return Dialog.open('game.php?page=information&id='+ID, 590, (ID > 600 && ID < 800) ? 210 : ((ID > 100 && ID < 200) ? 300 : 620));
 	},
-    
-    Galaxy: function() {
-	    return Dialog.open('game.php?page=galaxy', 960, 900);
-	},
 	
 	alert: function(msg, callback){
 		alert(msg);
@@ -198,7 +194,7 @@ var Dialog	= {
 		if(typeof Subject !== 'string')
 			Subject	= '';
 
-		return Dialog.open('game.php?page=messages&mode=write&id='+ID+'&subject='+encodeURIComponent(Subject)+'&message='+encodeURIComponent(Subject), 650, 350);
+		return Dialog.open('game.php?page=messages&mode=write&id='+ID+'&subject='+encodeURIComponent(Subject)+'&message='+encodeURIComponent(Subject), 665, 360);
 	},
 	
 	Playercard: function(ID) {
@@ -217,6 +213,10 @@ var Dialog	= {
 	    return OpenPopup('game.php?page=chat&action=alliance', "alliance_chat", 960, 900);
 	},
     
+    Galaxy: function() {
+	    return Dialog.open('game.php?page=galaxy', 960, 900);
+	},
+    
 	open: function (url, width, height) {
         $.fancybox.open({
             type: 'iframe',
@@ -224,7 +224,7 @@ var Dialog	= {
                 iframe : {
                     css : {
                         width  : width,
-                        /*height : height,*/ 
+                        /*height : height,*/
                         /* 
                         minWidth: width,
                         minHeight: height,
@@ -234,7 +234,9 @@ var Dialog	= {
                     }
                 },
             },
-            src: url
+            src: url,
+            transitionDuration: 0,
+            animationDuration: 0,
         });
 
         return false;

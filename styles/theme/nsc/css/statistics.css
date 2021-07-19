@@ -1,0 +1,271 @@
+.classstat1 {
+    width: 40px;
+    min-width: 40px;
+    max-width: 40px;
+    border-right: none;
+    color: #a9a9a9;
+    text-align: left;
+    padding-left: 10px;
+    border-color: #000000;
+    width: 25px;
+    font-family: 'BicubikRegular', Arial, Geneva, sans-serif;
+}
+
+.classstat2 {
+    width: 55px;
+    min-width: 55px;
+    max-width: 55px;
+    font-family: 'BicubikRegular', Arial, Geneva, sans-serif;
+}
+
+.classstat3 {
+    border-right: none;
+    border-left: none;
+    border-color: #000000;
+    width: 165px;
+    max-width: 165px;
+    min-width: 165px;
+}
+
+.classstat3 a {
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    float: left;
+    width: 100%
+}
+
+.classstat4 {
+    float: left;
+    margin-left: -6px;
+}
+
+.classstat5 {
+    padding-left: 25px;
+    background-position: left;
+    background-position-y: 4px;
+    background-size: 10%;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+}
+
+.classstat5 span {
+    overflow: hidden;
+}
+
+.classstat6 {
+    padding: 0px 2px 0px 2px;
+    background: #000917;
+    border-radius: 4px;
+    float: right;
+    border: 1px solid black;
+    font-size: 11px;
+    margin-top: 4px;
+    height: 14px;
+    margin-right: 0px;
+    line-height: 15px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.classstat7 {
+    border-right: none;
+    border-left: none;
+    border-color: #000000;
+    width: 20px;
+    max-width: 20px;
+    min-width: 20px;
+    text-align: left;
+}
+
+.classstat8 {
+    border-right: none;
+    border-left: none;
+    border-color: #000000;
+    width: 200px;
+    max-width: 200px;
+    min-width: 200px;
+    text-align: left;
+    word-break: break-all;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 0 !important;
+}
+
+.classstat8 a {
+    word-break: break-all;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 24px;
+    display: block;
+    width: 195px;
+    float: left;
+    text-overflow: ellipsis
+}
+
+/* .classstat9 {
+    height: 24px;
+    width: 24px;
+    float: left;
+} */
+
+.classstat10 {
+    border-right: none;
+    border-left: none;
+    border-color: #000000;
+    width: 105px;
+    max-width: 105px;
+    min-width: 105px;
+    padding-right: 0 !important;
+    text-align: right;
+}
+/* .classstat11{    height: 14px;
+    border: 1px solid #000;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.54), 0 1px rgba(255, 255, 255, 0.08);
+    line-height: 14px;
+    padding: 1px;
+    font-size: 11px;
+    width: 684px;
+    float: left;
+    margin: 4px 0px 8px 7px;
+    text-decoration: none;
+    text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #162e3c;
+    vertical-align: unset;
+    padding-left: 7px;
+    padding-right: 7px;}
+.classstat12{
+color:#ccc;
+} */
+.classificabarra{
+	width: 690px;
+    padding: 2px 4px 4px 4px;
+    float: left;
+    margin: 0px 0px 3px 7px;
+    height: 20px;
+    color: #CCC;
+	font-size:12px;
+    text-decoration: none;
+    text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #162e3c;
+    border: 1px solid #000;
+    -moz-border-radius: 2px 0px 0px 2px;
+    -webkit-border-radius: 2px 0px 0px 2px;
+    border-radius: 3px;
+    background: #091527;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#0a1629', endColorstr = '#091324');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#0a1629', endColorstr = '#091324')";
+    background-image: -moz-linear-gradient(top, #061225, #020c1d);
+    background-image: -ms-linear-gradient(top, #061225, #020c1d);
+    background-image: -o-linear-gradient(top, #061225, #020c1d);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#061225), to(#020c1d));
+    background-image: linear-gradient(#061225, #020c1d);
+    background-image: linear-gradient(top, #061225, #020c1d);
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    box-shadow: inset 0 1px 1px rgb(10, 32, 69), inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.42), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #041022;
+}
+
+.classificabarra:hover {
+	background:#0a172b;
+	-moz-transition: all 0.2s ease-in;
+	-webkit-transition: all 0.2s ease-in;
+	-o-transition: all 0.2s ease-in;
+	transition: all 0.2s ease-in;
+	}
+.barracla{
+	border-right: 1px solid #0a1628;
+    border-left: 1px solid #000814;
+    height: 19px;
+    float: right;    margin-top:1px;
+}
+.statbarsup1 {
+    border: 1px solid #000;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+    line-height: 4px;
+    padding: 1px;
+    font-size: 11px;
+    width: 695px;
+    float: left;
+    margin: 7px 0px 0px 7px;
+    text-decoration: none;
+    text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #162e3c;
+}
+.barraclass{
+	    height: 12px;
+	    border: 1px solid #000;
+	    -moz-border-radius: 3px;
+	    -webkit-border-radius: 3px;
+	    border-radius: 3px;
+	    text-align: center;
+	    position: relative;
+	    overflow: hidden;
+	    z-index: 2;
+	    background: rgba(0, 0, 0, 0.25);
+	    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+	    line-height: 4px;
+	    padding: 1px;
+	    font-size: 11px;
+	    width: 695px;
+	    float: left;
+	    margin: 7px 0px 7px 7px;
+	    text-decoration: none;
+	    text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #162e3c;
+	    vertical-align: unset;
+}
+
+.barraclass th{
+	       color: #ccc;
+    background: none;
+}
+.barraclass th:nth-child(1){
+	 width: 105px;
+    min-width: 105px;
+}
+.barraclass th:nth-child(2){
+	width: 170px;
+    min-width: 170px;
+    text-align: center;
+}
+.barraclass th:nth-child(4){
+	    width: 190px;
+    min-width: 190px;
+    text-align: right;
+}
+.barraclass th:nth-child(5){
+	width: 165px;
+    min-width: 165px;
+    text-align: right;
+}
+.fbox-s-name, .fbox-g-name {
+    display: block;
+    text-align: left;
+    padding-left: 5px;
+    background-position: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.tabstatistica td{
+	border: none;
+    color: #a9a9a9;
+    text-align: center;
+    padding: 0px 10px;
+    border-color: #000000;
+    line-height: 23px;
+}

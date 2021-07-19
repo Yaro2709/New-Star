@@ -4,7 +4,7 @@ function open_market(IDblock, IDopen)
 	{
         $('.gr_btn_top a').removeClass('active');	
         $('.gr_btn_top a.'+ IDblock).addClass('active');
-		$('.markett2').hide();
+		$('.markett_conteiner').hide();
 		$('#' + IDblock).show();
 		
 		if(IDopen != 'no')

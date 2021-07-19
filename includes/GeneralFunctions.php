@@ -623,7 +623,7 @@ function exceptionHandler($exception)
 	<link rel="stylesheet" type="text/css" href="'.$DIR.'/styles/resource/css/base/boilerplate.css?v='.$VERSION.'">
 	<link rel="stylesheet" type="text/css" href="'.$DIR.'/styles/resource/css/ingame/main.css?v='.$VERSION.'">
 	<link rel="stylesheet" type="text/css" href="'.$DIR.'/styles/resource/css/base/jquery.css?v='.$VERSION.'">
-	<link rel="stylesheet" type="text/css" href="'.$DIR.'/styles/theme/gow/formate.css?v='.$VERSION.'">
+	<link rel="stylesheet" type="text/css" href="'.$DIR.'/styles/theme/nsc/css/general.css?v='.$VERSION.'">
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 	<script type="text/javascript">
 	var ServerTimezoneOffset = -3600;
@@ -633,7 +633,7 @@ function exceptionHandler($exception)
 	var localTS 	= startTime;
 	var Gamename	= document.title;
 	var Ready		= "Fertig";
-	var Skin		= "'.$DIR.'/styles/theme/gow/";
+	var Skin		= "'.$DIR.'/styles/theme/nsc/";
 	var Lang		= "de";
 	var head_info	= "Information";
 	var auth		= 3;

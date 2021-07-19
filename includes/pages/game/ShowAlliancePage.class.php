@@ -36,7 +36,8 @@ class ShowAlliancePage extends AbstractGamePage
 		'DIPLOMATIC',
 		'RANKS',
 		'MANAGEUSERS',
-		'EVENTS'
+		'EVENTS',
+        'BANK'
 	);
 
 	function __construct()
@@ -128,6 +129,16 @@ class ShowAlliancePage extends AbstractGamePage
 			$statisticResult = Database::get()->selectSingle($sql, array(
 				':allyID'	=> $this->allianceData['id']
 			));
+            
+            if (($statisticResult['lostunits']) == 0 || $statisticResult['desunits'] == 0) {
+                $damageCoefficient = 0;
+                $damageDes = 50;
+                $damageLost = 50;
+            } else {
+                $damageCoefficient = $statisticResult['desunits']/$statisticResult['lostunits'];
+                $damageDes = ($statisticResult['desunits']/($statisticResult['desunits'] + $statisticResult['lostunits'])) * 100;
+                $damageLost = ($statisticResult['lostunits']/($statisticResult['desunits'] + $statisticResult['lostunits'])) * 100;
+            }
 
 			$statisticData	= array(
 				'totalfight'	=> $statisticResult['wons'] + $statisticResult['loos'] + $statisticResult['draws'],
@@ -138,6 +149,11 @@ class ShowAlliancePage extends AbstractGamePage
 				'unitslose'		=> pretty_number($statisticResult['lostunits']),
 				'dermetal'		=> pretty_number($statisticResult['kbmetal']),
 				'dercrystal'	=> pretty_number($statisticResult['kbcrystal']),
+                'damageCoef'    => round($damageCoefficient, 2),
+                'damageDes'     => $damageDes,
+                'damageLost'    => $damageLost,
+                'lostunits'     => pretty_number($statisticResult['lostunits']),
+                'desunits'      => pretty_number($statisticResult['desunits']),
 			);
 		}
 
@@ -205,7 +221,7 @@ class ShowAlliancePage extends AbstractGamePage
         if(empty($allianceResult['ally_tag'])) { $allianceResult['ally_tag'] = 0; }
 
 		$this->assign(array(
-			'request_text'	=> sprintf($LNG['al_request_wait_message'], $allianceResult['ally_tag']),
+			'request_text'	=> sprintf($LNG['al_request_wait_message_step_1'], $allianceResult['ally_tag']),
 		));
 
 		$this->display('page.alliance.applyWait.tpl');
@@ -214,51 +230,6 @@ class ShowAlliancePage extends AbstractGamePage
 	private function createSelection()
 	{
 		$this->display('page.alliance.createSelection.tpl');
-	}
-
-	function search()
-	{
-
-		if($this->hasApply) {
-			$this->redirectToHome();
-		}
-
-		$searchText	= HTTP::_GP('searchtext', '', UTF8_SUPPORT);
-		$searchList	= array();
-
-		if (!empty($searchText))
-		{
-			$db	= Database::get();
-			$sql	= "SELECT id, ally_name, ally_tag, ally_members
-			FROM %%ALLIANCE%%
-			WHERE ally_universe = :universe AND ally_name LIKE :searchTextEqual
-			ORDER BY (
-			  IF(ally_name = :searchTextEqual, 1, 0) + IF(ally_name LIKE :searchTextLike, 1, 0)
-			) DESC,ally_name ASC LIMIT 25;";
-
-			$searchResult	= $db->select($sql, array(
-				':universe'         => Universe::current(),
-				':searchTextLike'   => '%'.$searchText.'%',
-				':searchTextEqual'  => $searchText
-			));
-
-			foreach($searchResult as $searchRow)
-			{
-				$searchList[]	= array(
-					'id'		=> $searchRow['id'],
-					'tag'		=> $searchRow['ally_tag'],
-					'members'	=> $searchRow['ally_members'],
-					'name'		=> $searchRow['ally_name'],
-				);
-			}
-		}
-
-		$this->assign(array(
-			'searchText'	=> $searchText,
-			'searchList'	=> $searchList,
-		));
-
-		$this->display('page.alliance.search.tpl');
 	}
     
 	function apply()
@@ -550,6 +521,16 @@ class ShowAlliancePage extends AbstractGamePage
 
 			$ally_events = array_filter($ally_events);
 		}
+        
+        if (($statisticResult['lostunits']) == 0 || $statisticResult['desunits'] == 0) {
+            $damageCoefficient = 0;
+            $damageDes = 50;
+            $damageLost = 50;
+        } else {
+            $damageCoefficient = $statisticResult['desunits']/$statisticResult['lostunits'];
+            $damageDes = ($statisticResult['desunits']/($statisticResult['desunits'] + $statisticResult['lostunits'])) * 100;
+            $damageLost = ($statisticResult['lostunits']/($statisticResult['desunits'] + $statisticResult['lostunits'])) * 100;
+        }
 
 		$this->assign(array(
 			'DiploInfo'					=> $this->getDiplomatic(),
@@ -573,7 +554,12 @@ class ShowAlliancePage extends AbstractGamePage
 			'dermetal'					=> pretty_number($statisticResult['kbmetal']),
 			'dercrystal'				=> pretty_number($statisticResult['kbcrystal']),
 			'isOwner'					=> $this->allianceData['ally_owner'] == $USER['id'],
-			'ally_events'				=> $ally_events
+			'ally_events'				=> $ally_events,
+            'damageCoef'                => round($damageCoefficient, 2),
+            'damageDes'                 => $damageDes,
+            'damageLost'                => $damageLost,
+            'lostunits'                 => pretty_number($statisticResult['lostunits']),
+            'desunits'                  => pretty_number($statisticResult['desunits']),
 		));
 
 		$this->display('page.alliance.home.tpl');
@@ -722,6 +708,500 @@ class ShowAlliancePage extends AbstractGamePage
 
 		$this->display('page.alliance.circular.tpl');
 	}
+    /******************************************************************************************************/
+    /*Функция прокачки альянса*/
+    public function Update($Element)
+	{
+		global $PLANET, $USER, $reslist, $resource, $pricelist, $LNG;
+        
+        if (!$this->rights['ADMIN']) {
+			$this->redirectToHome();
+		}
+		
+		$costResources		= BuildFunctions::getElementPrice($this->allianceData, $this->allianceData, $Element);
+			
+		if (!BuildFunctions::isTechnologieAccessible($this->allianceData, $this->allianceData, $Element) 
+			|| !BuildFunctions::isElementBuyable($this->allianceData, $this->allianceData, $Element, $costResources) 
+			|| $pricelist[$Element]['max'] <= $this->allianceData[$resource[$Element]]) {
+			return;
+		}
+        
+        $amount = HTTP::_GP('amount', 0);
+		$this->allianceData[$resource[$Element]]	+= $amount;
+        
+        $href = 'game.php?page=alliance&mode=development'; 
+        
+        if (($pricelist[$Element]['max']) < $this->allianceData[$resource[$Element]]){
+            $this->printMessage("".$LNG['bd_maxlevel']."", true, array($href, 2));
+        }
+        
+        if($amount > $pricelist[$Element]['max']){
+            $this->printMessage(''.$LNG['bd_limit'].'',true, array($href, 2));	
+        }
+        
+        foreach(array_merge($reslist['resstype'][1],$reslist['resstype'][3]) as $resPM)
+        {
+            if(isset($costResources[$resPM])) {
+                if($this->allianceData[$resource[$resPM]] < $costResources[$resPM]* $amount){
+                    $this->printMessage("".$LNG['bd_notres']."", true, array($href, 2));
+                }
+            }
+        }
+            
+        foreach(array_merge($reslist['resstype'][1],$reslist['resstype'][3]) as $resP)
+        {
+            if(isset($costResources[$resP])) { 
+                $sql	= 'UPDATE %%ALLIANCE%% SET
+                '.$resource[$resP].' = '.$this->allianceData[$resource[$resP]].' - '.$costResources[$resP]* $amount.'
+                WHERE
+                id = :userId;';
+
+                Database::get()->update($sql, array(
+                    ':userId'	=> $this->allianceData['id']
+                ));
+            }
+        }
+        
+        $sql	= 'UPDATE %%ALLIANCE%% SET
+        '.$resource[$Element].' = :newPost
+        WHERE
+        id = :userId;';
+
+        Database::get()->update($sql, array(
+            ':newPost'	=> $this->allianceData[$resource[$Element]],
+            ':userId'	=> $this->allianceData['id']
+        ));
+        
+        $sql	= 'UPDATE %%USERS%% SET
+        '.$resource[$Element].' = :newPost
+        WHERE
+        ally_id = :id;';
+
+        Database::get()->update($sql, array(
+            ':newPost'	=> $this->allianceData[$resource[$Element]],
+            ':id'	    => $this->allianceData["id"]
+        ));
+	}
+    /*Вывод, основа прокачки*/
+    public function development()
+	{
+        global $USER, $PLANET, $resource, $reslist, $LNG, $pricelist, $requeriments;
+        
+        $resourceStorage	= array();
+        $working_array = array_merge($reslist['resstype'][1],$reslist['resstype'][3]);
+        
+        foreach($working_array as $resourceID)
+        {
+            $resourceStorage[$resourceID]['name']			    = $resource[$resourceID];
+            $resourceStorage[$resourceID]['current']		    = $this->allianceData[$resource[$resourceID]];
+        }
+		
+		$updateID	  = HTTP::_GP('id', 0);
+        
+		if(in_array($updateID, $reslist['alliance'])) {
+			$this->Update($updateID);
+		}
+		
+		$this->tplObj->loadscript('officier.js');		
+		
+		$allianceList	= array();
+		
+		if(isModuleAvailable(MODULE_OFFICIER))
+		{
+			foreach($reslist['alliance'] as $Element)
+			{
+                $techTreeList		= BuildFunctions::requirementsList($this->allianceData, $this->allianceData, $Element);
+				$costResources		= BuildFunctions::getElementPrice($this->allianceData, $this->allianceData, $Element);
+				$buyable			= BuildFunctions::isElementBuyable($this->allianceData, $this->allianceData, $Element, $costResources);
+				$costOverflow		= BuildFunctions::getRestPrice($this->allianceData, $this->allianceData, $Element, $costResources);
+				$elementBonus		= BuildFunctions::getAvalibleBonus($Element);
+				
+				$allianceList[$Element]	= array(
+					'level'				=> $this->allianceData[$resource[$Element]],
+					'maxLevel'			=> $pricelist[$Element]['max'],
+                    'factor'		    => $pricelist[$Element]['factor'],
+					'costResources'	    => $costResources,
+					'buyable'			=> $buyable,
+					'costOverflow'		=> $costOverflow,
+					'elementBonus'		=> $elementBonus,
+					'AllTech'			=> $techTreeList,
+					'techacc'			=> BuildFunctions::isTechnologieAccessible($this->allianceData, $this->allianceData, $Element),
+				);
+			}
+		}
+		
+		$this->assign(array(	
+			'allianceList'		        => $allianceList,
+            'resourceStorage'		    => $resourceStorage,
+		));
+		
+		$this->display('page.alliance.development.tpl');
+	}
+    /******************************************************************************************************/
+    /*Начало хранилища*/
+    function storage()
+	{
+		global $USER, $PLANET, $LNG, $reslist, $resource;
+        
+        $resourceStorage	= array();
+        $working_array = array_merge($reslist['resstype'][1],$reslist['resstype'][3]);
+        
+        foreach($working_array as $resourceID)
+        {
+            $resourceStorage[$resourceID]['name']			    = $resource[$resourceID];
+            $resourceStorage[$resourceID]['current']		    = $this->allianceData[$resource[$resourceID]];
+        }
+		
+		$this->assign(array(
+            'resourceStorage'		    => $resourceStorage,
+			'time_put'					=> $USER['ally_put'] - TIMESTAMP,
+			'time_vlyat'				=> $USER['ally_vlyat'] - TIMESTAMP,			
+		));
+		
+		$this->display('page.alliance.storage.tpl');
+	}
+    /*Отдать ресурсы клану*/
+    function put()
+	{
+		global $USER, $PLANET, $LNG, $reslist, $resource;	
+
+        $resourceStorage	= array();
+        $working_array = array_merge($reslist['resstype'][1],$reslist['resstype'][3]);
+        
+        foreach($working_array as $resourceID)
+        {
+            $resourceStorage[$resourceID]['name']			    = $resource[$resourceID];
+            $resourceStorage[$resourceID]['current']		    = $this->allianceData[$resource[$resourceID]];
+        }        
+        
+        $max_res = 1000;
+		
+		$this->tplObj->loadscript("trader_all.js");
+		$this->tplObj->assign_vars(array(
+            'resourceStorage'		    => $resourceStorage,
+			'max_res'                   => $max_res,
+		));
+		
+		$this->display('page.alliance.put.tpl');
+	}
+    
+    function putsend()
+	{
+		global $USER, $PLANET, $LNG, $reslist, $resource;
+		
+		if ($USER['ally_put'] > TIMESTAMP) {
+			$this->redirectToHome();
+		}
+        
+        $working_array = array_merge($reslist['resstype'][1],$reslist['resstype'][3]);
+        $res           = array();
+        $total         = 0;
+        $max_res       = 1000;
+        
+        foreach($working_array as $resourceID)
+        {
+            $res[$resourceID]	= max(0, HTTP::_GP(''.$resourceID.'', 0));
+            $total += $res[$resourceID];
+        }  
+		
+		if(($total == 0) || ($total < 0)){
+			$this->printMessage(''.$LNG['al_storage_msg_enter'].'', true, array("?page=alliance&amp;mode=storage", 2));
+        }
+
+        if($total > $max_res){
+			$this->printMessage(''.$LNG['al_storage_msg_much'].'', true, array("?page=alliance&amp;mode=storage", 2));
+        }
+        
+        foreach($working_array as $resourceID)
+        {
+            if(isset($PLANET[$resource[$resourceID]])){
+                if($PLANET[$resource[$resourceID]] < $res[$resourceID]) {
+                    $this->printMessage(''.$LNG['al_storage_msg_not'].'', true, array("?page=alliance&amp;mode=storage", 2));
+                }
+            }else{
+                if($USER[$resource[$resourceID]] < $res[$resourceID]) {
+                    $this->printMessage(''.$LNG['al_storage_msg_not'].'', true, array("?page=alliance&amp;mode=storage", 2));
+                }
+            }
+        } 
+        
+        foreach($working_array as $resourceID)
+        {
+            if(isset($PLANET[$resource[$resourceID]])){
+                $sql	= 'UPDATE %%PLANETS%% SET
+                '.$resource[$resourceID].' = '.$resource[$resourceID].' - '.$res[$resourceID].'
+                WHERE id = :Id;';
+                    
+                Database::get()->update($sql, array(
+                    ':Id'	=> $PLANET['id']
+                ));  
+                $PLANET[''.$resource[$resourceID].''] -= $res[$resourceID];
+            }else{
+                $sql	= 'UPDATE %%USERS%% SET
+                '.$resource[$resourceID].' = '.$resource[$resourceID].' - '.$res[$resourceID].'
+                WHERE id = :Id;';
+                    
+                Database::get()->update($sql, array(
+                    ':Id'	=> $USER['id']
+                ));
+                $USER[''.$resource[$resourceID].''] -= $res[$resourceID];
+            }
+        }
+		
+        $time = TIMESTAMP + 1;
+        
+        $sql	= 'UPDATE %%USERS%% SET
+        ally_put = :newPost
+        WHERE
+        id = :userId;';
+
+        Database::get()->update($sql, array(
+            ':newPost'	=> $time,
+            ':userId'	=> $this->allianceData['id']
+        ));
+
+        foreach($working_array as $resourceID)
+        {
+            $sql	= 'UPDATE %%ALLIANCE%% SET
+            '.$resource[$resourceID].' = '.$resource[$resourceID].' + :newPost
+            WHERE
+            id = :userId;';
+
+            Database::get()->update($sql, array(
+                ':newPost'	=> $res[$resourceID],
+                ':userId'	=> $this->allianceData['id']
+            ));                                    
+		}
+        
+		$this->printMessage(''.$LNG['al_storage_msg_success'].'', true, array("?page=alliance&amp;mode=storage", 2));		
+	}
+    /*Забрать ресурсы из клана*/
+    function vlyat()
+	{
+		global $USER, $PLANET, $LNG, $reslist, $resource;
+        
+		if (!$this->rights['BANK'] || $USER['ally_vlyat'] > TIMESTAMP) {
+			$this->redirectToHome();
+		} 
+        
+        $resourceStorage	= array();
+        $working_array = array_merge($reslist['resstype'][1],$reslist['resstype'][3]);
+        
+        foreach($working_array as $resourceID)
+        {
+            $resourceStorage[$resourceID]['name']			    = $resource[$resourceID];
+            $resourceStorage[$resourceID]['current']		    = $this->allianceData[$resource[$resourceID]];
+        }    
+
+		$max_res = 1000;
+		
+		$this->tplObj->loadscript("trader_all.js");
+		$this->tplObj->assign_vars(array(
+            'resourceStorage'		    => $resourceStorage,
+        
+			'max_res' 					=> $max_res,
+		));
+		
+		$this->display('page.alliance.vlyat.tpl');
+	}
+    
+    function vlyatsend()
+	{
+		global $USER, $PLANET, $LNG, $reslist, $resource;
+		
+		if (!$this->rights['BANK'] || $USER['ally_vlyat'] > TIMESTAMP) {
+			$this->redirectToHome();
+			return;
+		} 
+        
+        $working_array = array_merge($reslist['resstype'][1],$reslist['resstype'][3]);
+        $res           = array();
+        $total         = 0;
+        $max_res       = 1000;
+        
+        foreach($working_array as $resourceID)
+        {
+            $res[$resourceID]	= max(0, HTTP::_GP(''.$resourceID.'', 0));
+            $total += $res[$resourceID];
+        }  
+        
+        if(($total == 0) || ($total < 0)){
+			$this->printMessage(''.$LNG['al_storage_msg_enter'].'', true, array("?page=alliance&amp;mode=storage", 2));
+        }
+
+        if($total > $max_res){
+			$this->printMessage(''.$LNG['al_storage_msg_much'].'', true, array("?page=alliance&amp;mode=storage", 2));
+        }
+        
+        foreach($working_array as $resourceID)
+        {
+            if(isset($this->allianceData[$resource[$resourceID]])){
+                if($this->allianceData[$resource[$resourceID]] < $res[$resourceID]) {
+                    $this->printMessage(''.$LNG['al_storage_msg_not'].'', true, array("?page=alliance&amp;mode=storage", 2));
+                }
+            }
+        }
+        
+        foreach($working_array as $resourceID)
+        {
+            if(isset($PLANET[$resource[$resourceID]])){
+                $sql	= 'UPDATE %%PLANETS%% SET
+                '.$resource[$resourceID].' = '.$resource[$resourceID].' + '.$res[$resourceID].'
+                WHERE id = :Id;';
+                    
+                Database::get()->update($sql, array(
+                    ':Id'	=> $PLANET['id']
+                ));  
+                $PLANET[''.$resource[$resourceID].''] += $res[$resourceID];
+            }else{
+                $sql	= 'UPDATE %%USERS%% SET
+                '.$resource[$resourceID].' = '.$resource[$resourceID].' + '.$res[$resourceID].'
+                WHERE id = :Id;';
+                    
+                Database::get()->update($sql, array(
+                    ':Id'	=> $USER['id']
+                ));
+                $USER[''.$resource[$resourceID].''] += $res[$resourceID];
+            }
+        }
+        
+        $time = TIMESTAMP + 1;
+        
+        $sql	= 'UPDATE %%USERS%% SET
+        ally_vlyat = :newPost
+        WHERE
+        id = :userId;';
+
+        Database::get()->update($sql, array(
+            ':newPost'	=> $time,
+            ':userId'	=> $this->allianceData['id']
+        ));
+
+        foreach($working_array as $resourceID)
+        {
+            $sql	= 'UPDATE %%ALLIANCE%% SET
+            '.$resource[$resourceID].' = '.$resource[$resourceID].' - :newPost
+            WHERE
+            id = :userId;';
+
+            Database::get()->update($sql, array(
+                ':newPost'	=> $res[$resourceID],
+                ':userId'	=> $this->allianceData['id']
+            ));                                    
+		}
+        
+        $this->printMessage(''.$LNG['al_storage_msg_received'].'', true, array("?page=alliance&amp;mode=storage", 2));		
+	}
+    /*Выдача ресурсов администратором клана*/
+    function issue()
+	{
+		global $USER, $PLANET, $LNG, $reslist, $resource;
+        
+		if (!$this->rights['ADMIN']) {
+			$this->redirectToHome();
+		}
+		
+		$Userlist	= "";
+		
+		$UserWhileLogin	= $GLOBALS['DATABASE']->query("SELECT `id`, `username`, `id_planet`, `ally_id` FROM ".USERS." WHERE `ally_id` = ".$USER['ally_id'].";");
+		
+		while($UserList	= $GLOBALS['DATABASE']->fetch_array($UserWhileLogin))
+		{
+			$Userlist	.= "<option value=\"".$UserList['id_planet']."\">".$UserList['username']."</option>";
+		}
+
+        $resourceStorage	= array();
+        $working_array = $reslist['resstype'][1];
+        
+        foreach($working_array as $resourceID)
+        {
+            $resourceStorage[$resourceID]['name']			    = $resource[$resourceID];
+            $resourceStorage[$resourceID]['current']		    = $this->allianceData[$resource[$resourceID]];
+        }		
+		
+		$this->tplObj->loadscript('filterlist.js');	
+		$this->tplObj->loadscript("trader_issue.js");
+		$this->tplObj->assign_vars(array(
+			'Userlist'					=> $Userlist,
+            'resourceStorage'		    => $resourceStorage,
+			'ally_metal'				=> $this->allianceData['metal'],
+			'ally_crystal'				=> $this->allianceData['crystal'],
+			'ally_deuterium'			=> $this->allianceData['deuterium'],
+		));
+		
+		$this->display('page.alliance.issue.tpl');
+	}
+    
+    private function adminissue_send()
+	{
+		global $USER, $PLANET, $LNG, $reslist, $resource;
+		
+		if ($this->allianceData['ally_owner'] != $USER['id']) {
+			$this->redirectToHome();
+		}
+        
+        $working_array = $reslist['resstype'][1];
+        $res           = array();
+        $total         = 0;
+        $id_p	       = max(0, HTTP::_GP('id_u', 0));
+        
+        if($id_p == 0){
+			$this->printMessage(''.$LNG['al_storage_msg_coordinates'].'', true, array("?page=alliance&amp;mode=issue", 2));
+        }
+        
+        foreach($working_array as $resourceID)
+        {
+            $res[$resourceID]	= max(0, HTTP::_GP(''.$resourceID.'', 0));
+            $total += $res[$resourceID];
+        }  
+        
+        if(($total == 0) || ($total < 0)){
+			$this->printMessage(''.$LNG['al_storage_msg_enter'].'', true, array("?page=alliance&amp;mode=storage", 2));
+        }
+        
+        foreach($working_array as $resourceID)
+        {
+            if(isset($this->allianceData[$resource[$resourceID]])){
+                if($this->allianceData[$resource[$resourceID]] < $res[$resourceID]) {
+                    $this->printMessage(''.$LNG['al_storage_msg_not'].'', true, array("?page=alliance&amp;mode=storage", 2));
+                }
+            }
+        }
+        
+        foreach($working_array as $resourceID)
+        {
+            if(isset($PLANET[$resource[$resourceID]])){
+                if($id_p == $PLANET['id'])
+                {
+                    $PLANET[''.$resource[$resourceID].''] += $res[$resourceID];
+                }else{
+                    $sql	= 'UPDATE %%PLANETS%% SET
+                    '.$resource[$resourceID].' = '.$resource[$resourceID].' + '.$res[$resourceID].'
+                    WHERE id = :Id;';
+                        
+                    Database::get()->update($sql, array(
+                        ':Id'	=> $id_p
+                    )); 
+                }
+            }
+        }
+
+        foreach($working_array as $resourceID)
+        {
+            $sql	= 'UPDATE %%ALLIANCE%% SET
+            '.$resource[$resourceID].' = '.$resource[$resourceID].' - :newPost
+            WHERE
+            id = :userId;';
+
+            Database::get()->update($sql, array(
+                ':newPost'	=> $res[$resourceID],
+                ':userId'	=> $this->allianceData['id']
+            ));                                    
+		}
+        
+        $this->printMessage(''.$LNG['al_storage_msg_issued'].'', true, array("?page=alliance&amp;mode=issue", 2));
+	}
+    /******************************************************************************************************/
 
 	public function admin()
 	{
@@ -903,7 +1383,7 @@ class ShowAlliancePage extends AbstractGamePage
 
 	protected function adminClose()
 	{
-		global $USER;
+		global $USER, $PLANET, $LNG, $reslist, $resource;
 		if ($this->allianceData['ally_owner'] == $USER['id']) {
 			$db = Database::get();
 
@@ -936,6 +1416,19 @@ class ShowAlliancePage extends AbstractGamePage
 			$db->delete($sql, array(
 				':AllianceID'	=> $this->allianceData['id']
 			));
+            //Убираем бонусы у игроков
+            foreach($reslist['alliance'] as $Element)
+            {
+                $sql	= 'UPDATE %%USERS%% SET
+                '.$resource[$Element].' = :newPost
+                WHERE
+                ally_id = :id;';
+
+                Database::get()->update($sql, array(
+                    ':newPost'	=> 0,
+                    ':id'	    => $this->allianceData["id"]
+                ));
+            }  
 		}
 
 		$this->redirectToHome();
@@ -1049,45 +1542,12 @@ class ShowAlliancePage extends AbstractGamePage
 			r.`applyID`,
 			r.`time`,
 			r.`text`,
-			u.`username`,
-			u.`register_time`,
-			u.`onlinetime`,
-			u.`galaxy`,
-			u.`system`,
-			u.`planet`,
-			CONCAT_WS(\':\', u.`galaxy`, u.`system`, u.`planet`) AS `coordinates`,
-			@total_fights := u.`wons` + u.`loos` + u.`draws`,
-			@total_fights_percentage := @total_fights / 100,
-			@total_fights AS `total_fights`,
-			u.`wons`,
-			ROUND(u.`wons` / @total_fights_percentage, 2) AS `wons_percentage`,
-			u.`loos`,
-			ROUND(u.`loos` / @total_fights_percentage, 2) AS `loos_percentage`,
-			u.`draws`,
-			ROUND(u.`draws` / @total_fights_percentage, 2) AS `draws_percentage`,
-			u.`kbmetal`,
-			u.`kbcrystal`,
-			u.`lostunits`,
-			u.`desunits`,
-			stat.`tech_rank`,
-			stat.`tech_points`,
-			stat.`build_rank`,
-			stat.`build_points`,
-			stat.`defs_rank`,
-			stat.`defs_points`,
-			stat.`fleet_rank`,
-			stat.`fleet_points`,
-			stat.`total_rank`,
-			stat.`total_points`,
-			p.`name`
+            u.`id`,
+			u.`username`
 		FROM
 			%%ALLIANCE_REQUEST%% AS r
 		LEFT JOIN
 			%%USERS%% AS u ON r.userId = u.id
-		INNER JOIN
-			%%STATPOINTS%% AS stat ON r.userId = stat.id_owner
-		LEFT JOIN
-			%%PLANETS%% AS p ON p.id = u.id_planet
 		WHERE
 			applyID = :applyID;';
 
@@ -1105,16 +1565,10 @@ class ShowAlliancePage extends AbstractGamePage
 		require 'includes/classes/BBCode.class.php';
 
 		$applyDetail['text']    	= BBCode::parse($applyDetail['text']);
-		$applyDetail['kbmetal']    	= pretty_number($applyDetail['kbmetal']);
-		$applyDetail['kbcrystal']   = pretty_number($applyDetail['kbcrystal']);
-		$applyDetail['lostunits']   = pretty_number($applyDetail['lostunits']);
-		$applyDetail['desunits']    = pretty_number($applyDetail['desunits']);
 
 		$this->assign(array(
 			'applyDetail'	=> $applyDetail,
 			'apply_time'    => _date($LNG['php_tdformat'], $applyDetail['time'], $USER['timezone']),
-			'register_time' => _date($LNG['php_tdformat'], $applyDetail['register_time'], $USER['timezone']),
-			'onlinetime'    => _date($LNG['php_tdformat'], $applyDetail['onlinetime'], $USER['timezone']),
 		));
 
 		$this->display('page.alliance.admin.detailApply.tpl');
@@ -1122,7 +1576,7 @@ class ShowAlliancePage extends AbstractGamePage
 
 	protected function adminSendAnswerToApply()
 	{
-		global $LNG, $USER;
+		global $USER, $PLANET, $LNG, $reslist, $resource;
 		if (!$this->rights['SEEAPPLY'] || !$this->rights['MANAGEAPPLY']) {
 			$this->redirectToHome();
 		}
@@ -1166,6 +1620,19 @@ class ShowAlliancePage extends AbstractGamePage
 
 				$text		= $LNG['al_hi_the_alliance'] . $this->allianceData['ally_name'] . $LNG['al_has_accepted'] . $text;
 				$subject	= $LNG['al_you_was_acceted'] . $this->allianceData['ally_name'];
+                //Добавляем бонусы к игрокам
+                foreach($reslist['alliance'] as $Element)
+                {
+                    $sql	= 'UPDATE %%USERS%% SET
+                    '.$resource[$Element].' = :newPost
+                    WHERE
+                    ally_id = :id;';
+
+                    Database::get()->update($sql, array(
+                        ':newPost'	=> $this->allianceData[$resource[$Element]],
+                        ':id'	    => $this->allianceData["id"]
+                    ));
+                }
 			} else {
 				$sql = "DELETE FROM %%ALLIANCE_REQUEST%% WHERE applyID = :applyID";
 				$db->delete($sql, array(
@@ -1440,6 +1907,7 @@ class ShowAlliancePage extends AbstractGamePage
 
 	protected function adminMembersKick()
 	{
+        global $USER, $PLANET, $LNG, $reslist, $resource;
 		if (!$this->rights['KICK']) {
 			$this->redirectToHome();
 		}
@@ -1472,7 +1940,20 @@ class ShowAlliancePage extends AbstractGamePage
 		$db->update($sql, array(
 			':id'	        => $id,
 			':allianceId'   => $this->allianceData['id']
-		));
+		)); 
+        //Убираем бонус у игрока
+        foreach($reslist['alliance'] as $Element)
+        {
+            $sql	= 'UPDATE %%USERS%% SET
+            '.$resource[$Element].' = :newPost
+            WHERE
+            id = :id;';
+
+            Database::get()->update($sql, array(
+                ':newPost'	=> 0,
+                ':id'	    => $id
+            ));
+        } 
 
 		$this->redirectTo('game.php?page=alliance&mode=admin&action=members');
 	}

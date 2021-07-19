@@ -31,6 +31,8 @@ class template extends Smarty
 
 	private function smartySettings()
 	{
+        global $THEME;
+        
 		$this->php_handling = Smarty::PHP_REMOVE;
 
 		$this->setForceCompile(false);
@@ -40,7 +42,12 @@ class template extends Smarty
 		$this->setCaching(Smarty::CACHING_LIFETIME_CURRENT);
 		$this->setCompileDir(is_writable(CACHE_PATH) ? CACHE_PATH : $this->getTempPath());
 		$this->setCacheDir($this->getCompileDir().'templates');
-		$this->setTemplateDir('styles/templates/');
+ 
+        if((MODE === 'INSTALL') || (MODE === 'ADMIN') || (MODE === 'LOGIN')) {
+            $this->setTemplateDir('styles/theme/'.DEFAULT_THEME.'/templates/');
+		}elseif(MODE === 'INGAME') {
+            $this->setTemplateDir(''.$THEME->getTheme().'/templates/');
+		}
 	}
 
 	private function getTempPath()
@@ -92,7 +99,7 @@ class template extends Smarty
 			'date'				=> explode("|", date('Y\|n\|j\|G\|i\|s\|Z', TIMESTAMP)),
 			'Offset'			=> $dateTimeUser->getOffset() - $dateTimeServer->getOffset(),
 			'VERSION'			=> $config->VERSION,
-			'dpath'				=> 'styles/theme/gow/',
+			'dpath'				=> 'styles/theme/'.DEFAULT_THEME.'/',
 			'bodyclass'			=> 'full'
 		));
 	}
@@ -107,8 +114,8 @@ class template extends Smarty
 		}
 
 		$tplDir	= $this->getTemplateDir();
-			
-		if(MODE === 'INSTALL') {
+        
+        if(MODE === 'INSTALL') {
 			$this->setTemplateDir($tplDir[0].'install/');
 		} elseif(MODE === 'ADMIN') {
 			$this->setTemplateDir($tplDir[0].'adm/');
@@ -131,8 +138,13 @@ class template extends Smarty
 	
 	public function display($file = NULL, $cache_id = NULL, $compile_id = NULL, $parent = NULL)
 	{
-		global $LNG;
-		$this->compile_id	= $LNG->getLanguage();
+		global $LNG, $THEME;
+        
+        if((MODE === 'INSTALL') || (MODE === 'ADMIN') || (MODE === 'LOGIN')) {
+            $this->compile_id	= $LNG->getLanguage().'.'.DEFAULT_THEME;
+        }elseif(MODE === 'INGAME'){
+            $this->compile_id	= $LNG->getLanguage().'.'.$THEME->skin;
+        }
 		parent::display($file);
 	}
 	

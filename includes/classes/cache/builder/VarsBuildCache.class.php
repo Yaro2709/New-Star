@@ -55,6 +55,7 @@ class VarsBuildCache implements BuildCache
         $reslist['band']	                    = array();
         $reslist['fair']		                = array();
         $reslist['bon']		                    = array();
+        $reslist['alliance']		            = array();
         $reslist['achievements']	            = array();
 		
 		$db	= Database::get();
@@ -295,6 +296,9 @@ class VarsBuildCache implements BuildCache
 				break;
                 case 2400: 
 					$reslist['bon'][]	= $varsRow['elementID'];
+				break;
+                case 2500: 
+					$reslist['alliance'][]	= $varsRow['elementID'];
 				break;
                 case 5000: 
 					$reslist['achievements'][]	= $varsRow['elementID'];

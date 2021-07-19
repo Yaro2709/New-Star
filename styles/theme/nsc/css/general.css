@@ -1,0 +1,1164 @@
+/*встречается в альянсе и в PlayerCard*/
+.alleanza5{    color: #e6e6e6;
+    font-size: 14px;
+    text-align: center;
+    position: absolute;
+    padding-top: 7px;
+    width: 100%;}
+.alleanza6{    font-size: 14px;
+    font-weight: bold;}
+.alleanza7{    position: absolute;
+    top: 23px;
+    margin: 7px;
+    font-size: 13px;
+	text-align: center;
+	line-height: 21px;    margin-top: 3px;
+	color:#ccc}
+.alleanza8{    position: absolute;
+    top: 23px;
+    margin: 7px;
+    font-size: 13px;
+	right:0;
+	text-align: center;
+	line-height: 21px;    margin-top: 3px;
+	color:#ccc}
+.alleanza9{    position: absolute;
+    top: 23px;
+    margin: 7px;
+    font-size: 13px;
+	right:0;
+	left:0;
+	text-align: center;
+	line-height: 21px;    margin-top: 3px;
+	color:#ccc}
+.alleanza10{    position: absolute;
+    top: 80px;
+    padding-left: 7px;
+    width: 330px;
+    padding-right: 7px;
+	color:#ccc}
+.alleanza11{    position: absolute;
+    top: 95px;
+    padding-left: 7px;
+    width: 330px;
+    padding-right: 7px;
+	color:#ccc}
+.alleanza12{    background: rgba(0, 161, 2, 0.59);
+    height: 6px;
+    z-index: 2;
+    position: absolute;
+    bottom: 7px;
+    left: 0px;
+	max-width: 330px;}
+.alleanza13{ background: rgba(161, 0, 0, 0.59);
+    height: 6px;
+    z-index: 2;
+    position: absolute;
+    bottom:7px;
+    right: 0px;
+	max-width: 330px;}
+
+
+/*встречается много где, но бесполезно*/
+.fleettab8{
+	border-bottom: 1px solid rgba(163, 163, 163, 0.06);
+    height:0px;
+    width: 100%;
+    position: relative;
+    float: left;
+	margin-bottom: 7px;
+}
+
+/*tooltip_class*/
+.tooltip_class_table{
+	line-height:13px;
+	border-collapse:collapse;
+}
+.tooltip_class_table td, .tooltip_class_table th{
+	background:rgba(0,0,0,0.3);
+	border:1px solid #000;
+	color:#FFF;
+}
+.tooltip_class_table_text_left{
+	text-align:left;
+}
+.tooltip_class_table span{
+	color:#CCC;
+}
+.tooltip_class_td_img{
+	padding:0;
+	vertical-align:top;
+	width:80px;
+}
+.tooltip_class_td_img img{
+	width:80px;
+}
+.tooltip_class_table th{
+	color:#999;
+	background:rgba(0,0,0,0.6);
+}
+.tooltip_class_901{
+	color:#a47d7a !important;
+}
+.tooltip_class_902{
+	color:#5ca6aa !important;
+}
+.tooltip_class_903{
+	color:#339966 !important;
+}
+.tooltip_class_911{
+	color:#913399 !important;
+}
+.tooltip_class_921{
+	color:#39addd !important;
+}
+.tooltip_class_931{
+	color:#F30  !important;
+}
+.tooltip_class_a_bigbtn, .tooltip_class_a_btn{
+	display:block;
+	line-height: 25px;
+	height: 25px;
+	border: 1px solid #000000;
+	width:99.7%;
+	text-decoration:none;
+	text-shadow:0px 1px 0px rgba(0,0,0,0.3);
+	background:#091527;
+	-moz-box-shadow: inset 1px 1px #142c52, inset -1px -1px #142c52;
+	-webkit-box-shadow: inset 1px 1px #142c52, inset -1px -1px #142c52;
+	box-shadow: inset 1px 1px #142c52, inset -1px -1px #142c52;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#0a1629', endColorstr = '#091324');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#0a1629', endColorstr = '#091324')";
+	background-image: -moz-linear-gradient(top, #0a1629, #091324);
+	background-image: -ms-linear-gradient(top, #0a1629, #091324);
+	background-image: -o-linear-gradient(top, #0a1629, #091324);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#0a1629), to(#091324));
+	background-image: -webkit-linear-gradient(top, #0a1629, #091324);
+	background-image: linear-gradient(top, #0a1629, #091324);
+	text-align:center; 
+	padding: 0 0px;
+}
+.tooltip_class_a_btn{
+	line-height:normal;
+	height:auto;
+	padding: 2px 0px;
+}
+
+/*Таблица tooltip*/
+.reducefleet_table{
+	line-height:13px;
+	border-collapse:collapse;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	border:1px solid #000;
+}
+.reducefleet_table td{
+	padding:0px 2px;
+	background:rgba(0,0,0,0.3);
+	border:1px solid #000;
+}
+.reducefleet_img_ship, .reducefleet_img_ship img{
+	width:15px;
+	height:15px;
+	padding:0 !important;
+}
+.reducefleet_name_ship{
+	text-align:left;
+	color:#999;
+}
+.reducefleet_count_ship{
+	color:#FFF;
+}
+.reducefleet_img_res, .reducefleet_img_res img {
+    height: 15px;
+    padding: 0 !important;
+}
+
+/*Сообщения + бан лист - навигцаия страниц*/
+.message_page_navigation{
+	text-align:right;
+	padding:8px 6px;
+}
+.messagesnew2{
+	    background: #051524;
+    border-radius: 3px;
+    color: rgb(119, 144, 168);
+    text-shadow: 0px 1px 0px rgb(0, 0, 0);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0;
+    padding-right: 3px;
+    padding-left: 3px;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(115, 170, 210, 0.15)
+
+}
+
+.messagesnew2:hover{color:rgb(141, 173, 204);
+box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(115, 170, 210, 0.20)}
+
+.messagesnew3{box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(115, 170, 210, 0.30);
+    background: #0a243e;
+	padding-right: 4px;
+    padding-left: 4px;
+	}
+/*Информация о бонусах*/
+.info_bonus_img {
+    background: rgb(19 97 125 / 51%);
+    border-radius: 10px;
+    color: rgb(88 159 164);
+    text-shadow: 0px 1px 0px rgb(0, 0, 0);
+    z-index: 99999;
+    font-size: 11px;
+    border: 1px solid rgb(0 255 106 / 19%);
+    height: 20px;
+    width: 20px;
+}
+/* Бонус */
+div.fade {display: none;}
+
+/*FlettStep3 and information*/
+
+.fleettab14{    color: #e6e6e6;
+    height: 13px !important;
+    line-height: 17px !important;
+    text-shadow: 0px 1px 0px rgb(0, 0, 0);
+    text-align: right;
+    background: #000813 !important;
+    position: absolute;
+    right: 3px;
+    top: 3px;}
+.fleettab15{top: 25px;
+    height: 15px;
+    position: absolute;
+    line-height: 15px;
+    color: #ccc;
+    margin-bottom: 3px;
+    background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(9,29,46,0.65) 100%);
+    background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(9,29,46,0.65) 100%);
+    background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(9,29,46,0.65) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6091d2e',GradientType=1 );
+    border-radius: 0;
+    right: 0px;
+    width: 120px;
+    padding-right: 3px;
+    z-index: 1;
+    font-size: 12px;
+    text-align: right;}
+/*Диллер флота, отправка флота и ресурсов (глобальная)*/
+.build_band {
+    /* line-height: 32px; */
+    /* height: 33px; */
+    /* position: relative; */
+    /* color: #999999; */
+    /* padding: 0 10px; */
+    /* box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.04); */
+    /* background-color: #030c1b; */
+    /* border-top: 1px #000000 solid; */
+    /* margin-bottom: 7px; */
+    /* border-bottom: 1px #000000 solid; */
+    background: #091d2e;
+    line-height: 27px;
+    height: 27px;
+    border-top: 1px solid #000;
+    position: relative;
+    color: #999999;
+    padding: 0px 0px;
+}
+.build_band input {
+    padding: 0 30px;
+    background: #005a87;
+    border-left: 0;
+    display: block;
+    text-align: center;
+    margin: 1px 1px;
+    height: 24px;
+    color: #5579b9;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid #081938;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#050f21', endColorstr = '#050e1e');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#050f21', endColorstr = '#050e1e')";
+    background-image: -moz-linear-gradient(top, #050f21, #050e1e);
+    background-image: -ms-linear-gradient(top, #050f21, #050e1e);
+    background-image: -o-linear-gradient(top, #050f21, #050e1e);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#050f21), to(#050e1e));
+    background-image: -webkit-linear-gradient(top, #050f21, #050e1e);
+    transition-duration: 0.5s;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 0px 50px 10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 50px 10px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 50px 10px rgba(0,0,0,0.75);
+}
+.build_band input:hover{border: 1px solid #0c2d68;
+    color: #5a80c2;
+}
+
+/*Сообщения, отправка флота и ресурсов (глобальная)*/
+.bottom_band_submit{
+	float:right;
+	line-height: 15px !important;
+	-moz-border-radius: 0px 0px 4px;
+	-webkit-border-radius: 0px 0px 4px 0px;
+	border-radius: 0px 0px 4px;
+}
+
+/*навигациия картинки*/
+.imperia{
+	background-image:url(../img/iconav/imperia.png);
+}
+.techtree{
+	background-image:url(../img/iconav/techtree.png);
+}
+.stats{
+	background-image:url(../img/iconav/stats.png);
+}
+.topbk{
+	background-image:url(../img/iconav/topbk.png);
+}
+.record{
+	background-image:url(../img/iconav/record.png);
+}
+.frend{
+	background-image:url(../img/iconav/frend.png);
+}
+.chat{
+	background-image:url(../img/iconav/chat.png);
+}
+.forum{
+	background-image:url(../img/iconav/forum.png);
+}
+.mesages{
+	background-image:url(../img/iconav/mesages.png);
+}
+.rules{
+	background-image:url(../img/iconav/rules.png);
+}
+.soopart{
+	background-image:url(../img/iconav/soopart.png);
+}
+.achievv{
+	background-image:url(../img/iconav/achivements.png);
+}
+.seting{
+	background-image:url(../img/iconav/seting.png);
+}
+.exit{
+	background-image:url(../img/iconav/exit.png);
+}
+/*Альянс*/
+#ally_content .chat{ 
+	padding-left:21px;
+}
+#ally_content .mesages{ padding-left:27px;}
+.office{
+	background-image:url(../img/iconav/office.png);
+}
+#ally_content .office{padding-left:20px;}
+.storage{
+	background-image:url(../img/iconav/storage.png);
+}
+#ally_content .storage{padding-left:28px;}
+.development{
+	background-image:url(../img/iconav/development.png);
+}
+#ally_content .development{padding-left:18px;}
+
+.diplomacy{
+	background-image:url(../img/iconav/diplomacy.png);
+}
+#ally_content .diplomacy{
+    padding-left: 18px;}
+
+.ranks{
+	background-image:url(../img/iconav/ranks.png);
+}
+#ally_content .ranks{padding-left:23px;}
+
+.entry{
+	background-image:url(../img/iconav/entry.png);
+}
+#ally_content .entry{padding-left:22px;}
+.planets{
+	background-image:url(../img/iconav/planets.png);
+} 
+#ally_content .planets{padding-left:30px;}
+
+/*исллдеования*/
+.ars{
+	background-image:url(../img/iconav/ars.png);
+}
+.ico_tech_1{
+	background-image:url(../img/iconav/tech_1.png);
+}
+.ico_tech_2{
+	background-image:url(../img/iconav/tech_2.png);
+}
+.ico_tech_3{
+	background-image:url(../img/iconav/tech_3.png);
+}
+.ico_tech_4{
+	background-image:url(../img/iconav/tech_4.png);
+}
+/*постройки*/
+.seting2{
+	background-image:url(../img/iconav/seting2.png);
+}
+.ico_build_1{
+	background-image:url(../img/iconav/build_1.png);
+}
+.ico_build_2{
+	background-image:url(../img/iconav/build_2.png);
+}
+.ico_build_3{
+	background-image:url(../img/iconav/build_3.png);
+}
+.ico_build_4{
+	background-image:url(../img/iconav/build_4.png);
+}
+/*орбита*/
+.ico_reduceresources{
+	background-image:url(../img/iconav/reduceresources.png);
+}
+.ico_deliveryres{
+	background-image:url(../img/iconav/deliveryres.png);
+}
+.ico_trader{
+	background-image:url(../img/iconav/balance.png);
+}
+.ico_reducefleet{
+	background-image:url(../img/iconav/reducefleet.png);
+}
+.ico_finddebris{
+	background-image:url(../img/iconav/trash_big.png);
+}
+/*рекорды*/
+.ico_record_made{
+	background-image:url(../img/iconav/record_made.png);
+}
+.ico_star{
+	background-image:url(../img/iconav/star.png);
+}
+.ico_builds{
+	background-image:url(../img/iconav/build.png);
+}
+.ico_tech{
+	background-image:url(../img/iconav/tech.png);
+}
+.ico_fleet{
+	background-image:url(../img/iconav/fleet.png);
+}
+/*верфь*/
+.ico_rank_0{
+	background-image:url(../img/iconav/rank_0.png);
+}
+.ico_rank_1{
+	background-image:url(../img/iconav/rank_1.png);
+}
+.ico_rank_2{
+	background-image:url(../img/iconav/rank_2.png);
+}
+.ico_rank_3{
+	background-image:url(../img/iconav/rank_3.png);
+}
+/*дополнительно*/
+.ico_shield{
+	background-image:url(../img/iconav/shield.png);
+}
+.ico_oficer{
+	background-image:url(../img/iconav/oficer.png);
+}
+/*империя*/
+.ico_rows_planet{
+	background-image:url(../img/iconav/rows_planet.png);
+}
+/*навигация в псотройках, исследовниях, флот, арсенал...*/
+.record_btn{
+	display: block;
+    float: left;
+    height: 17px;
+    padding: 2px;
+    width: 17px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin: 2px;
+    background-color: rgb(0, 13, 32);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.50), 0 1px rgba(255, 255, 255, 0.08);
+    border: 1px solid #000;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    margin-left: 5px;
+    background-size: 14px;
+}
+.record_btn:hover{
+	border:1px solid #999999;
+}
+
+/*yнастройки и сообщения кнопка*/
+.build_band2 {
+    line-height: 32px; 
+    height: 34px;
+    position: relative; 
+    color: #999999; 
+    padding: 0 10px; 
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.04); 
+    background-color: #030c1b; 
+    border-top: 1px #000000 solid; 
+}
+.build_band2 input {
+    padding: 0 30px;
+    background: #005a87;
+    border-left: 0;
+    display: block;
+    text-align: center;
+    margin: 5px 5px;
+    height: 24px;
+    color: #5579b9;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid #081938;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#050f21', endColorstr = '#050e1e');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#050f21', endColorstr = '#050e1e')";
+    background-image: -moz-linear-gradient(top, #050f21, #050e1e);
+    background-image: -ms-linear-gradient(top, #050f21, #050e1e);
+    background-image: -o-linear-gradient(top, #050f21, #050e1e);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#050f21), to(#050e1e));
+    background-image: -webkit-linear-gradient(top, #050f21, #050e1e);
+    transition-duration: 0.5s;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 0px 50px 10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 50px 10px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 50px 10px rgba(0,0,0,0.75);
+}
+.build_band2 input:hover{border: 1px solid #0c2d68;
+    color: #5a80c2;
+}
+/*Используется в карточке игрока и в орбите STEP3 в обозначение флота*/
+.alleanza1 {
+    border: 1px solid #091d2e;
+    box-shadow: 0 4px 3px 0 rgba(0, 0, 0, 0.5) !important;
+    -webkit-box-shadow: 0 4px 3px 0 rgba(0, 0, 0, 0.5) !important;
+    -moz-box-shadow: 0 4px 3px 0 rgba(0, 0, 0, 0.5) !important;
+    background: #000813;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    width: 344px;
+    position: relative;
+    float: left;
+    margin: 7px;
+    height: 130px;
+    margin-top: 2px;
+}
+/*Постройки и на орбите виды флота (градация)*/
+#build_elements{
+	margin:0px 5px;
+	padding-top: 10px;
+}
+#build_elements .build_box{
+	position: relative;
+	height: 164px;
+	overflow: hidden;
+	text-align: left;
+	margin: 0px 4px 8px 4px;
+	float: left;
+	border: 1px solid #091d2e;
+	box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.54), -1px -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 1px 0 rgba(0, 0, 0, 0.5), 1px -1px 1px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.54), -1px -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 1px 0 rgba(0, 0, 0, 0.5), 1px -1px 1px 0 rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.54), -1px -1px 1px 0 rgba(0, 0, 0, 0.5), 1px 1px 1px 0 rgba(0, 0, 0, 0.5), 1px -1px 1px 0 rgba(0, 0, 0, 0.5);
+	/* background: #000813; */
+    background: linear-gradient( rgb(0 13 31 / 80%), rgb(0 13 31 / 70%) ), url(../img/general/bkd_page.jpg) #000813;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+#build_elements .build_box .content_box{
+	padding: 5px;
+	position:relative;
+	z-index:2;
+}
+#build_elements .build_box .content_box .image{
+	    height: 75px;
+	    width: 80px;
+	    margin-left: 0px;
+	    margin-top: 2px;
+	    float: left;
+	    overflow: hidden;
+	    border: 1px solid #000;
+	    -moz-border-radius: 6px;
+	    -webkit-border-radius: 6px;
+	    border-radius: 6px;
+	    text-align: center;
+	    /* padding: 5px; */
+	    background: rgba(0, 0, 0, 0.25);
+	    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+	    background-size: contain !important;
+	    background-repeat: no-repeat !important;
+}
+#build_elements .build_box .content_box .image img{
+	height:100%;
+	width:100%;
+}
+
+/*Симмулятор + орбита, это пропуск*/
+.alleanza57 {
+    border-bottom: 1px solid rgba(163, 163, 163, 0.07);
+    height: 1px;
+    width: 100%;
+    position: relative;
+    float: left;
+    margin-top: 7px;
+}
+
+/*Унопка симмулировать и отправить в орбите*/
+.fl_bigbtn_go{
+	     font-weight: bold;
+    left: 7px;
+    width: 700px;
+    border-left: 0;
+    display: block;
+    text-align: center;
+    margin: 0;
+    height: 29px;
+    line-height: 21px;
+    color: #5579b9;
+    font-size: 15px;
+    border: 1px solid #0a1f46;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#050f21', endColorstr = '#050e1e');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#050f21', endColorstr = '#050e1e')";
+    background-image: -moz-linear-gradient(top, #050f21, #050e1e);
+    background-image: -ms-linear-gradient(top, #050f21, #050e1e);
+    background-image: -o-linear-gradient(top, #050f21, #050e1e);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#050f21), to(#050e1e));
+    background-image: -webkit-linear-gradient(top, #050f21, #050e1e);
+    position: absolute;
+    z-index: 7;
+    bottom: 7px;
+    transition-duration: 0.5s;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+.fl_bigbtn_go:hover{
+	border: 1px solid #0c2d68;
+    color: #5a80c2;
+}
+
+/*У статистики блок времени, используется во многих местах для кнопки назад*/
+.tornaindietro {
+    float: right;
+    padding-right: 10px;
+    padding-left: 10px;
+    border: 1px solid #000;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+    padding-top: 0px;
+    height: 19px;
+    line-height: 19px;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    right: 10px;
+    width: fit-content;
+    margin-right: auto;
+    font-size: 13px;
+    color: #ccc;
+}
+.tornaindietro:hover {color:#fff}
+.tornaindietro a {color: #ccc;}
+.tornaindietro:hover a {color:#fff}
+
+/*две кнопки из ресурсов*/
+.rexx12{    text-align: center;
+    width: 250px;
+    height: 19px;
+    font-size: 12px;
+    line-height: 19px;
+    cursor: pointer;
+    border: 1px solid #081938;
+    background: #006191;
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#050f21', endColorstr = '#050e1e')";
+    background-image: -moz-linear-gradient(top, #050f21, #050e1e);
+    background-image: -ms-linear-gradient(top, #050f21, #050e1e);
+    background-image: -o-linear-gradient(top, #050f21, #050e1e);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#050f21), to(#050e1e));
+    background-image: -webkit-linear-gradient(top, #050f21, #050e1e);
+    background-image: linear-gradient(to top, #050f21, #050e1e);
+    padding: 0 4px;
+    transition-duration: 0.5s;
+    color: #5579b9;
+    margin: 6px;
+    float: right;}
+.rexx12:hover{    border: 1px solid #0c2d68;}
+.rexx13{    text-align: center;
+    width: 250px;
+    height: 19px;
+    font-size: 12px;
+    line-height: 19px;
+    cursor: pointer;
+    color: rgb(219, 55, 75) !important;
+    border: 1px solid #671f1f7d;
+    background: #200505;
+    padding: 0 4px;
+    transition-duration: 0.5s;
+    margin: 6px;
+    float: left;}
+.rexx13:hover{border: 1px solid #671f1f;}
+
+
+/*Из настроек испоьзуется в собщениях*/
+
+#achivment{
+	
+}
+#achivment .ach_main_block{
+	border: 1px solid #000000;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	width: 714px;
+	background:#000D20 url(../img/general/ach_menu_bg.gif) left repeat-y;
+	overflow:hidden;
+	    box-shadow: inset 0 1px 1px rgb(20, 44, 82), inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #040f1f;
+}
+.ach_main_content{
+}
+.ach_menu {
+    width: 176px;
+	float:left;
+}
+ 
+.ach_menu ul{
+	padding:0px;
+	margin:0;
+}
+ 
+.ach_menu li {
+    height: 38px;	
+	list-style-type:none;
+	cursor:pointer;
+	width:176px;
+}  
+.ach_menu li a {
+    line-height: 36px;
+	height:36px;
+    text-decoration: none;
+	padding-left:2px;
+	color:#5ca6aa;
+	display:block;
+	width:155px;
+	border-bottom:1px #000 solid;
+	border-top:1px #020c18 solid;
+}   
+.ach_menu li:hover a{
+    color: #FFFFFF;
+} 
+
+/*таблица*/
+.torneo4{
+	    height: 12px;
+	    border: 1px solid #000;
+	    -moz-border-radius: 3px;
+	    -webkit-border-radius: 3px;
+	    border-radius: 3px;
+	    text-align: center;
+	    position: relative;
+	    overflow: hidden;
+	    z-index: 2;
+	    background: rgba(0, 0, 0, 0.25);
+	    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+	    line-height: 4px;
+	    padding: 1px;
+	    font-size: 11px;
+	    width: 695px;
+	    float: left;
+	    margin: 7px 0px 7px 7px;
+	    text-decoration: none;
+	    text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #162e3c;
+	    vertical-align: unset;
+}
+
+.torneo4 th{
+	       color: #ccc;
+	       background: none;
+	       text-align: center;
+	       width: 226px;
+	       min-width: 10px;
+}
+.torneo4 th:nth-child(1){
+	 width: 55px;
+	 min-width: 55px;
+	 text-align: left;
+}
+.torneo4 th:nth-child(2){
+	width: 220px;
+	min-width: 220px;
+	text-align: left;
+}
+.torneo4 th:nth-child(4){
+	 width: 1px;
+	 min-width: 1px;
+	 text-align: right;
+}
+.torneo4 th:nth-child(5){
+	width: 145px;
+	min-width: 145px;
+	text-align: right;
+}
+
+/*нижняя панель друзей, альянса*/
+.fleettab1{
+	border-top: 1px solid rgba(0,0,0,0.3);
+	background: #000813;
+	height: 57px;
+	width: 100%;
+	position: relative;
+	float: left;
+}
+
+
+
+h1{ 	
+}
+h2{font-family: "BicubikRegular", Arial, Geneva, sans-serif;font-weight: 100;}
+h3{	
+}
+h4{
+}
+h5{
+}
+h6{
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #666;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #666;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #666;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #666;
+}
+input[type=checkbox]{
+	cursor:pointer;
+}
+#body{
+	width:100%;
+	margin:0;
+	padding:0;
+	position:relative;
+	
+}
+th, .ui-widget-header  {
+	background-image:url("../img/general/bkd_title.png");
+	color:#8b99b0;
+	font-weight:700;
+	text-align:left
+}
+th a:hover, .ui-widget-header a:hover, #menu a:hover  {
+	color:#a5b6d2;
+}
+
+th a:hover, .ui-widget-header a:hover {
+	text-decoration:underline;
+}
+* {
+    margin: auto;
+    padding: auto;
+}
+.ally_contents{
+	padding:10px 20px 20px 20px;
+	font-size:12px;
+	line-height:15px;
+	color:#fff;
+}
+.ally_img{
+	 height: 160px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 698px;
+    float: left;
+    overflow: hidden;
+    margin: 7px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+    border: 1px solid #000;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+	    background-color: #000813;
+        background-image: url(../img/alliance/all_img.jpg);
+}
+.ally_img .designation{
+	    padding: 0px 0px 7px 7px;
+    background: rgba(0, 0, 0, 0.8);
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-shadow: 0px 1px 0px #091d2e;
+    text-align: left;
+}
+.ally_img .designation span{
+	font-size:23px;
+	line-height:50px;
+	font-weight:bold;
+	text-transform:uppercase;
+}
+.ally_img a{
+	display:block;
+	width:100%;
+	height:100%;
+	text-decoration:underline;
+}
+.ally_img a:hover{
+	text-decoration:none;
+}
+table.no_visible{
+	width:100%;
+	height:100%;
+	padding:0;
+	margin:0;
+	border:0 !important;
+	border-spacing:0;
+	background:none !important;
+	text-align:center;
+}
+table.no_visible td{
+	padding:0;
+	border:0 !important;
+	border-spacing:0;
+	background:none !important;
+}
+
+.gray_flettab{
+        background: #091d2e;
+        line-height: 19px;
+        height: 20px;
+        border-bottom: 1px solid #000;
+        position: relative;
+        color: #fff;
+        padding: 0 10px;
+        border-top: 1px solid rgb(12, 40, 64);
+        color: #e6e6e6;
+        font-size: 13px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px 4px 0 0;
+        box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.15), 1px 1px 1px 0 rgba(0, 0, 0, 0.10);
+        -webkit-box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.15), 1px 1px 1px 0 rgba(0, 0, 0, 0.10);
+        -moz-box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.15), 1px 1px 1px 0 rgba(0, 0, 0, 0.10);
+    }
+.fleettab9{
+	    border-top: 1px solid rgba(0, 0, 0, 0.15);
+	    height: 0px;
+	    width: 100%;
+	    position: relative;
+	    float: left;
+	    margin-bottom: 10px;
+	    z-index:99;
+}
+
+body.mceContentBody,input,select,option,textarea, .ui-widget-content{
+	    background: #00060d;
+}
+
+
+body,input,select,button,textarea,td,th,tr,table{
+	color:#c9c9c9;
+}
+
+.tooltip, .tooltip_sticky {
+	cursor: pointer;
+}
+
+#ally_content{
+	width:714px;
+	padding:0;
+	overflow:hidden;
+	position:relative;
+}
+#ally_content img{
+	max-width:100% !important;
+	max-height:100% !important;
+}
+table.ally_ranks{
+	border-collapse:collapse;
+	background:none;
+	border-color:#000813;
+	max-width:100% !important;
+	width:100% !important;
+}
+table.ally_ranks td{
+	background:none;
+	border-color:#000813;
+	border-bottom: none !important;
+}
+.ally_planet_text{
+	float:left; 
+	width:400px; 
+	margin-left:18px;
+}
+table.gray_stripe_th th{
+    height: 25px;
+	    line-height: 14px;
+    background: #091d2e;
+    border-bottom: 1px solid #000;
+    border-left: 1px dashed #2d2d3a;
+    text-align: center;
+    font-weight: lighter;
+    border-top: 1px solid #000;
+    color: #ccc;
+	
+}
+table.gray_stripe_th td{
+	    border: 0;
+    height:25px;
+    color: #e6e6e6;
+    font-size: 13px;
+}
+.td_border_bottom td{
+	border-bottom:1px solid #000 !important;
+	padding:6px;
+}
+.big_ally_select{
+	    width: 610px;
+    margin-left: 7px;
+}
+
+
+.right_flank{
+	float:right;
+}
+.gray_stripe{
+	background:#091d2e;
+	line-height:27px;
+	height:27px;
+	border-bottom:1px solid #000;
+	position:relative;
+	color:#fff;
+	padding:0 20px;
+}
+.gray_stripo{
+	background:#08162b url(../img/general/bg_res_nava.jpg) repeat-x !important;
+	line-height: 25px;
+	height: 25px;
+	border-bottom:1px solid #000;
+	position:relative;
+	color:#fff;
+	padding:0 20px;
+	padding-right:0;
+	text-shadow: 0px 1px 0px rgb(0, 0, 0);
+}
+.gray_stripe button, .gray_stripe a.button{
+	display:block;
+	padding:3px 15px;
+	line-height:19px;
+	background:#01649d;
+	color:#fff;
+	border:1px solid #03cbff;
+    transition-duration: 0.5s;
+}
+.gray_stripe button, .gray_stripe a.button:hover{
+	border:1px solid #0077b1;;
+}
+.gray_stripe button.right_flank, .gray_stripe a.button{
+	-moz-border-radius: 0px 4px 0px 0px;
+	-webkit-border-radius: 0px 4px 0px 0px;
+	border-radius: 0px 4px 0px 0px;
+}
+.gray_stripo button, .gray_stripe a.button{
+    display: block;
+    padding: 4px 15px;
+    line-height: 17px;
+    background: #046;
+    color: #fff;
+    border: 1px solid #006292;
+}
+.gray_stripo button.right_flank, .gray_stripe a.button{
+	-moz-border-radius: 0px 4px 0px 0px;
+	-webkit-border-radius: 0px 4px 0px 0px;
+	border-radius: 0px 4px 0px 0px;
+}
+.gray_flettab{
+        background: #091d2e;
+        line-height: 19px;
+        height: 20px;
+        border-bottom: 1px solid #000;
+        position: relative;
+        color: #fff;
+        padding: 0 10px;
+        border-top: 1px solid rgb(12, 40, 64);
+        color: #e6e6e6;
+        font-size: 13px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px 4px 0 0;
+        box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.15), 1px 1px 1px 0 rgba(0, 0, 0, 0.10);
+        -webkit-box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.15), 1px 1px 1px 0 rgba(0, 0, 0, 0.10);
+        -moz-box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.15), 1px 1px 1px 0 rgba(0, 0, 0, 0.10);
+    }
+ .gray_ship1{
+    display: block;
+    position: relative;
+    float: left;
+    border-top: 1px solid rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(0,0,0,0.3);
+    border: 1px solid #000;
+    background: rgba(9, 29, 46, 0.71);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.04);
+    margin: 4px;
+    padding-bottom: 0px;
+    width: 704px;
+    }
+.tornaindietroa {
+        right: 0px;
+    width: auto;
+    text-align: right;
+    padding-right: 15px;
+    padding-left: 15px;
+    font-size: 13px;
+    color: #fff;
+    cursor: pointer;
+    background: #005987;
+    border-radius: 0px 4px 0px 0px;
+	-moz-border-radius: 0px 4px 0px 0px;
+-webkit-border-radius: 0px 4px 0px 0px;
+    line-height: 19px;
+    height: 19px;
+    position: absolute;
+    top: -1px;
+    border: 1px #00ccff63 solid;
+
+}
+.tornaindietroa:hover {text-decoration: underline;color:#fff}
+
+.conteinership{  
+-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+    padding: 3px;
+    height: auto;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    width: 714px;
+    overflow: hidden;
+    position: relative;
+	    box-shadow: inset 0 1px 1px rgb(20, 44, 82), inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #040f1f;
+    background: #000d1f;
+    border: 1px solid #000;
+}

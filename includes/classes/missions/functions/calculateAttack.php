@@ -96,6 +96,26 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
 	
             foreach ($attacker['unit'] as $element => $amount) 
 			{
+                //Удвоение
+                $DK		= 1;
+                $SK		= 1;
+                $UK		= 1;
+
+                $procen_DK = $attacker['player']['factor']['DoubleAttack'] * 100;
+                $procen_SK = $attacker['player']['factor']['DoubleShield'] * 100;
+                $procen_UK = $attacker['player']['factor']['DoubleDefensive'] * 100;
+                $power_DK = $attacker['player']['factor']['DoubleAttackBonus'];
+                $power_SK = $attacker['player']['factor']['DoubleShieldBonus'];
+                $power_UK = $attacker['player']['factor']['DoubleDefensiveBonus'];
+
+                if(mt_rand(1,100) <= $procen_DK) $DK	= 2 + $power_DK;
+                if(mt_rand(1,100) <= $procen_SK) $SK	= 2 + $power_SK;
+                if(mt_rand(1,100) <= $procen_UK) $UK	= 2 + $power_UK;
+                
+                $KritAttacker['DK'][$fleetID][$element] = $DK;
+                $KritAttacker['SK'][$fleetID][$element] = $SK;
+                $KritAttacker['UK'][$fleetID][$element] = $UK;
+                
 				switch($CombatCaps[$element]['type_gun'])
 				{	
 					case 'none':
@@ -105,7 +125,7 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
 					}
 					case 'notype':
 					{	
-						$thisAtt	= $amount * ($CombatCaps[$element]['attack']) * $attTech;
+						$thisAtt	= $amount * ($CombatCaps[$element]['attack']) * $attTech * $DK;
 						$attackShoting['light'] += round(($amount) * rand(45,55)/100);
 						$attackShoting['medium'] += round(($amount) * rand(1,5)/100);
 						$attackShoting['heavy'] += floor($amount * 0.00000015);
@@ -156,7 +176,7 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
 								}
 							}								
 						}
-						$thisAtt *= $amount * $attTech;				
+						$thisAtt *= $amount * $attTech * $DK;				
 						break;
 					}
 				}
@@ -167,33 +187,11 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
 				}						
 				else 
 				{
-					$thisShield	= $amount * ($CombatCaps[$element]['shield'] * (1 + $attacker['player']['factor']['ShieldS'.$CombatCaps[$element]['type_shield']])) * $shieldTech; 
+					$thisShield	= $amount * ($CombatCaps[$element]['shield'] * (1 + $attacker['player']['factor']['ShieldS'.$CombatCaps[$element]['type_shield']])) * $shieldTech * $SK; 
 				}				
 				
-				$thisDef	= $amount * ($CombatCaps[$element]['defend'] * (1 + $attacker['player']['factor']['DefensiveS'.$CombatCaps[$element]['type_defend']])) *  $defTech; 
-                //Удвоение
-                $DK		= 1;
-                $SK		= 1;
-                $UK		= 1;
+				$thisDef	= $amount * ($CombatCaps[$element]['defend'] * (1 + $attacker['player']['factor']['DefensiveS'.$CombatCaps[$element]['type_defend']])) *  $defTech * $UK; 
 
-                $procen_DK = $attacker['player']['factor']['DoubleAttack'] * 100;
-                $procen_SK = $attacker['player']['factor']['DoubleShield'] * 100;
-                $procen_UK = $attacker['player']['factor']['DoubleDefensive'] * 100;
-                $power_DK = $attacker['player']['factor']['DoubleAttackBonus'];
-                $power_SK = $attacker['player']['factor']['DoubleShieldBonus'];
-                $power_UK = $attacker['player']['factor']['DoubleDefensiveBonus'];
-
-                if(rand(1,100) <= $procen_DK) $DK	= 2 + $power_DK;
-                if(rand(1,100) <= $procen_SK) $SK	= 2 + $power_SK;
-                if(rand(1,100) <= $procen_UK) $UK	= 2 + $power_UK;
-                
-                $thisAtt 			*= $DK; 
-                $thisDef 		    *= $UK; 
-                $thisShield 		*= $SK; 
-			
-                $KritAttacker['DK'][$fleetID] = $DK;
-                $KritAttacker['SK'][$fleetID] = $SK;
-                $KritAttacker['UK'][$fleetID] = $UK;
 				//Конец
 				$attArray[$fleetID][$element] = array('def' => $thisDef, 'shield' => $thisShield, 'att' => $thisAtt);
 				
@@ -218,6 +216,26 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
 
             foreach ($defender['unit'] as $element => $amount) 
 			{
+                //Удвоение
+                $DK		= 1;
+                $SK		= 1;
+                $UK		= 1;
+
+                $procen_DK = $defender['player']['factor']['DoubleAttack'] * 100;
+                $procen_SK = $defender['player']['factor']['DoubleShield'] * 100;
+                $procen_UK = $defender['player']['factor']['DoubleDefensive'] * 100;
+                $power_DK = $defender['player']['factor']['DoubleAttackBonus'];
+                $power_SK = $defender['player']['factor']['DoubleShieldBonus'];
+                $power_UK = $defender['player']['factor']['DoubleDefensiveBonus'];
+						
+                if(rand(1,100) <= $procen_DK) $DK	= 2 + $power_DK;
+                if(rand(1,100) <= $procen_SK) $SK	= 2 + $power_SK;	
+                if(rand(1,100) <= $procen_UK) $UK	= 2 + $power_UK;
+			
+                $KritDefender['DK'][$fleetID][$element] = $DK;
+                $KritDefender['SK'][$fleetID][$element] = $SK;
+                $KritDefender['UK'][$fleetID][$element] = $UK;
+                
 				switch($CombatCaps[$element]['type_gun']) 
 				{	
 					case 'none':
@@ -227,7 +245,7 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
 					}
 					case 'notype':
 					{	
-						$thisAtt	= $amount * ($CombatCaps[$element]['attack']) * $attTech; 
+						$thisAtt	= $amount * ($CombatCaps[$element]['attack']) * $attTech * $DK; 
 						$defenseShoting['light'] += round(($amount) * rand(45,55)/100);
 						$defenseShoting['medium'] += round(($amount) * rand(1,5)/100);
 						$defenseShoting['heavy'] += floor($amount * 0.0000015);
@@ -278,7 +296,7 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
 								}
 							}															
 						}
-						$thisAtt *= $amount * $attTech;			
+						$thisAtt *= $amount * $attTech * $DK;			
 						break;
 					}
 				}
@@ -289,35 +307,13 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
 				}						
 				else 
 				{
-                    $thisShield	= $amount * ($CombatCaps[$element]['shield'] * (1 + $defender['player']['factor']['ShieldS'.$CombatCaps[$element]['type_shield']])) * $shieldTech; 
+                    $thisShield	= $amount * ($CombatCaps[$element]['shield'] * (1 + $defender['player']['factor']['ShieldS'.$CombatCaps[$element]['type_shield']])) * $shieldTech * $SK; 
 				}
 					
-                $thisDef	= $amount * ($CombatCaps[$element]['defend'] * (1 + $defender['player']['factor']['DefensiveS'.$CombatCaps[$element]['type_defend']])) *  $defTech; 
+                $thisDef	= $amount * ($CombatCaps[$element]['defend'] * (1 + $defender['player']['factor']['DefensiveS'.$CombatCaps[$element]['type_defend']])) *  $defTech * $UK; 
 			
 				if ($element == 407 || $element == 408 || $element == 409) $thisAtt = 0;
-                //Удвоение
-                $DK		= 1;
-                $SK		= 1;
-                $UK		= 1;
-
-                $procen_DK = $defender['player']['factor']['DoubleAttack'] * 100;
-                $procen_SK = $defender['player']['factor']['DoubleShield'] * 100;
-                $procen_UK = $defender['player']['factor']['DoubleDefensive'] * 100;
-                $power_DK = $defender['player']['factor']['DoubleAttackBonus'];
-                $power_SK = $defender['player']['factor']['DoubleShieldBonus'];
-                $power_UK = $defender['player']['factor']['DoubleDefensiveBonus'];
-						
-                if(rand(1,100) <= $procen_DK) $DK	= 2 + $power_DK;
-                if(rand(1,100) <= $procen_SK) $SK	= 2 + $power_SK;	
-                if(rand(1,100) <= $procen_UK) $UK	= 2 + $power_UK;
-			
-                $thisAtt 			*= $DK; 
-                $thisDef 		    *= $UK; 
-                $thisShield 		*= $SK; 
-			
-                $KritDefender['DK'][$fleetID] = $DK;
-                $KritDefender['SK'][$fleetID] = $SK;
-                $KritDefender['UK'][$fleetID] = $UK;		
+		
                 //Конец
 
 				$defArray[$fleetID][$element] = array('def' => $thisDef, 'shield' => $thisShield, 'att' => $thisAtt);

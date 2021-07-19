@@ -1,61 +1,62 @@
 var v  			= new Date();
+var auftr 		= {};
+var bx 			= {};
+var valShip		= {};
 
-function ShipyardInit() {
+$(function() {
+	$('.count_ships_dots input[type=text]').keyup(function() {
+		countDots();		
+	});
+	$('form').submit(function() {
+		DotsToCount();
+	});
+	
+	if(data.Queue != undefined)
+		ShipyardInit();
+});
+
+function ShipyardInit() 
+{
 	Shipyard		= data.Queue;
 	Amount			= new DecimalNumber(Shipyard[0][1],0);
 	hanger_id		= data.b_hangar_id_plus;
 	$('#timeleft').text(data.pretty_time_b_hangar);
-	ShipyardList();
 	BuildlistShipyard();
-	ShipyardInterval	= window.setInterval(BuildlistShipyard, 1000);
+	ShipyardInterval	= window.setInterval(BuildlistShipyard, 3000);
 }
 
 function BuildlistShipyard() {
 	var n = new Date();
-	var count_in_s = Math.round(1 / Shipyard[0][2]);
-	if (count_in_s<1) count_in_s = 1 ; 
 	var s = Shipyard[0][2] - hanger_id - Math.round((n.getTime() - v.getTime()) / 1000);
 	var s = Math.round(s);
 	var m = 0;
 	var h = 0;
-	var count_real = Math.min(count_in_s, Amount); 
-	if (s <= 0) {
-
-		Amount = Amount - count_real;
+    var perSec = Math.floor(1/Shipyard[0][2]);
+	
+	if (s <= 0) 
+	{
+        Amount.sub(perSec);
 		$('#val_'+Shipyard[0][3]).text(function(i, old){
-			return NumberGetHumanReadable(Number(old.replace(/[.]/g, ''))+Number(count_real));
+			return ' ('+bd_available+NumberGetHumanReadable(parseInt(old.replace(/.* (.*)\)/, '$1').replace(/\./g, ''))+(perSec))+')';
 		})
-		if (Amount.toString() == '0') {
+		if (parseInt(Amount) <= 0) {
 			Shipyard.shift();
 			if (Shipyard.length == 0) {
 				$("#bx").html(Ready);
-				document.getElementById('auftr').options[0] = new Option(Ready);
+				$("#auftr0").html(Ready);
 				document.location.href	= document.location.href;
-                window.clearInterval(ShipyardInterval);
+				window.clearInterval(ShipyardInterval);
 				return;
 			}
 			Amount = Amount.reset(Shipyard[0][1]);
-			ShipyardList();
 		} else {
-			document.getElementById('auftr').options[0].innerHTML	= Amount.toString() + " " + Shipyard[0][0] + " " + bd_operating;
+			$("#auftr0").text(Amount.toString());
 		}
 		hanger_id = 0;
 		v = new Date();
 		s = 0;
 	}
-	$("#bx").html(Shipyard[0][0]+" ("+GetRestTimeFormat(s)+")");
-}
-
-function ShipyardList() {
-	while (document.getElementById('auftr').length > 0)
-		document.getElementById('auftr').options[document.getElementById('auftr').length - 1] = null;
-
-	for (iv = 0; iv <= Shipyard.length - 1; iv++ ) {
-		if(iv == 0)
-			document.getElementById('auftr').options[iv] = new Option(Amount.toString()+ " " + Shipyard[iv][0] + " " + bd_operating, iv);
-		else
-			document.getElementById('auftr').options[iv] = new Option(Shipyard[iv][1]+ " " + Shipyard[iv][0] + " " + bd_operating, iv);
-	}
+	$("#bx").text(GetRestTimeFormat(s));
 }
 
 /*------------------------------------------------------------*/

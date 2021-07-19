@@ -26,7 +26,7 @@ class ShowShipyardPage extends AbstractGamePage
 		parent::__construct();
 	}
 	
-	private function CancelAuftr() 
+  	private function CancelAuftr() 
 	{
 		global $USER, $PLANET, $resource, $reslist;
 		$ElementQueue = unserialize($PLANET['b_hangar_id']);
@@ -65,6 +65,35 @@ class ShowShipyardPage extends AbstractGamePage
 		}
 
 		return true;
+	}  
+    
+    private function getShipData()
+	{
+		global $LNG, $PLANET, $USER, $pricelist;
+		
+		$scriptData		= array();
+		$quickinfo		= array();
+		
+		if ($PLANET['b_hangar_id'] == "")
+			return array('queue' => $scriptData, 'quickinfo' => $quickinfo);
+		
+		$buildQueue		= unserialize($PLANET['b_hangar_id']);
+		
+		foreach($buildQueue as $BuildArray) {
+			$ElementTime  	= BuildFunctions::getBuildingTime($USER, $PLANET, $BuildArray[0]);
+			$QueueTime   	= $ElementTime * $BuildArray[1];
+			
+			$quickinfo[$BuildArray[0]]	= $BuildArray[1];
+			
+			$scriptData[] = array(
+				'element'	=> $BuildArray[0], 
+				'amount'	=> $BuildArray[1], 
+				'timeque'	=> max($QueueTime - $PLANET['b_hangar'],0),
+				
+			);
+		}
+		
+		return array('queue' => $scriptData, 'quickinfo' => $quickinfo);
 	}
 	
 	private function BuildAuftr($fmenge)
@@ -201,6 +230,7 @@ class ShowShipyardPage extends AbstractGamePage
 		$elementInQueue	= array();
 		$ElementQueue 	= unserialize($PLANET['b_hangar_id']);
 		$Buildlist		= array();
+        $elementList	= array();
         
 		if(!empty($ElementQueue))
 		{
@@ -214,7 +244,7 @@ class ShowShipyardPage extends AbstractGamePage
 				$elementInQueue[$Element[0]]	= true;
 				$ElementTime  	= BuildFunctions::getBuildingTime($USER, $PLANET, $Element[0]);
 				$QueueTime   	+= $ElementTime * $Element[1];
-				$Shipyard[]		= array($LNG['tech'][$Element[0]], $Element[1], $ElementTime, $Element[0]);		
+				$Shipyard[]		= array($LNG['tech'][$Element[0]], $Element[1], ($ElementTime), $Element[0]);		
 			}
 			
 			$Buildlist	= array(
@@ -253,7 +283,7 @@ class ShowShipyardPage extends AbstractGamePage
 
 		foreach($elementIDs as $Element)
 		{
-            $techTreeList		= BuildFunctions::requirementsList($Element);
+            $techTreeList		= BuildFunctions::requirementsList($USER, $PLANET, $Element);
 			$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element);
 			$costOverflow		= BuildFunctions::getRestPrice($USER, $PLANET, $Element, $costResources);
 			$elementTime    	= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $costResources);
@@ -328,9 +358,14 @@ class ShowShipyardPage extends AbstractGamePage
                 'tech'			    => $pricelist[$Element]['tech'],
 			);
 		}
+        //Для очереди
+        $queueShipData	 			= $this->getShipData();
+		$Queue	 		            = $queueShipData['queue'];
 		
 		$this->tplObj->loadscript('shipyard.js');
 		$this->assign(array(
+            'Queue'	        => $Queue,
+            
 			'elementList'	=> $elementList,
 			'NotBuilding'	=> $NotBuilding,
 			'BuildList'		=> $Buildlist,

@@ -23,15 +23,18 @@ class ShowChatPage extends AbstractGamePage
 	{
 		parent::__construct();
 	}
-	
-	function show() 
+    
+    function show() 
 	{
-		$action	= HTTP::_GP('action', '');
-		if($action == 'alliance') {
-			$this->setWindow('popup');
-			$this->initTemplate();
+		global $LNG;
+		$chatUrl	= Config::get()->chat_url;
+		if(filter_var($chatUrl, FILTER_VALIDATE_URL))
+		{
+			HTTP::sendHeader('Location', $chatUrl);
 		}
-		
-		$this->display('page.chat.default.tpl');
+		else
+		{
+			$this->printMessage($LNG['bad_forum_url']);
+		}
 	}
 }

@@ -86,9 +86,9 @@ function GenerateReport($combatResult, $reportInfo)
                 $defKrit    = 1;
                 if($round_no < count($combatResult['rw']) && $round_no <= MAX_ATTACK_ROUNDS ){
                     $farkA        = ($Amount-$combatResult['rw'][$round_no]['attackers'][$FleetID]['unit'][$ShipID]);
-                    $shieldKrit   = $RoundInfo['kA']['DK'][$FleetID];
-                    $attKrit      = $RoundInfo['kA']['SK'][$FleetID];
-                    $defKrit      = $RoundInfo['kA']['UK'][$FleetID];
+                    $shieldKrit   = $RoundInfo['kA']['DK'][$FleetID][$ShipID];
+                    $attKrit      = $RoundInfo['kA']['SK'][$FleetID][$ShipID];
+                    $defKrit      = $RoundInfo['kA']['UK'][$FleetID][$ShipID];
                 }
 				$ShipInfo	= $RoundInfo['infoA'][$FleetID][$ShipID];
 				$playerData['ships'][$ShipID]	= array(
@@ -120,9 +120,9 @@ function GenerateReport($combatResult, $reportInfo)
                 $defKrit    = 1; 
                 if($round_no < count($combatResult['rw']) && $round_no <= MAX_ATTACK_ROUNDS ){
                     $farkD        = ($Amount-$combatResult['rw'][$round_no]['defenders'][$FleetID]['unit'][$ShipID]);
-                    $shieldKrit   = $RoundInfo['kD']['DK'][$FleetID];
-                    $attKrit      = $RoundInfo['kD']['SK'][$FleetID];
-                    $defKrit      = $RoundInfo['kD']['UK'][$FleetID];
+                    $shieldKrit   = $RoundInfo['kD']['DK'][$FleetID][$ShipID];
+                    $attKrit      = $RoundInfo['kD']['SK'][$FleetID][$ShipID];
+                    $defKrit      = $RoundInfo['kD']['UK'][$FleetID][$ShipID];
                 }
 				$ShipInfo	= $RoundInfo['infoD'][$FleetID][$ShipID];
 				$playerData['ships'][$ShipID]	= array(

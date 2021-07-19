@@ -85,7 +85,8 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
         {
             if (empty($amount))
                 continue;
-            $shipType = getShipType($element, $amount);
+            
+            $shipType = getShipType($element, $amount, $player);
             $attackerFleetObj->addShipType($shipType);
         }
         $attackerPlayerObj->addFleet($attackerFleetObj);
@@ -104,7 +105,8 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
         {
             if (empty($amount))
                 continue;
-            $shipType = getShipType($element, $amount);
+            
+            $shipType = getShipType($element, $amount, $player);
             $defenderFleetObj->addShipType($shipType);
         }
         $defenderPlayerObj->addFleet($defenderFleetObj);
@@ -284,14 +286,14 @@ function updatePlayers(PlayerGroup $playerGroup, &$players)
  * @param int $count
  * @return a Ship or Defense instance
  */
-function getShipType($id, $count)
+function getShipType($id, $count, $player)
 {
     $CombatCaps = $GLOBALS['CombatCaps'];
     $pricelist = $GLOBALS['pricelist'];
     $rf = isset($CombatCaps[$id]['sd']) ? $CombatCaps[$id]['sd'] : 0;
-    $shield = $CombatCaps[$id]['shield'];
-    $cost = array($pricelist[$id]['cost'][METAL_ID], $pricelist[$id]['cost'][CRYSTAL_ID]);
-    $power = $CombatCaps[$id]['attack'];
+    $shield = $CombatCaps[$id]['shield'] * (1 + Tech::TechFunShield($player));
+    $cost = array($pricelist[$id]['cost'][METAL_ID] * (1 + Tech::TechFunShield($player)), $pricelist[$id]['cost'][CRYSTAL_ID] * (1 + Tech::TechFunShield($player)));
+    $power = $CombatCaps[$id]['attack'] * (1 + Tech::TechFunAttack($player));
     if ($id > ID_MIN_SHIPS && $id < ID_MAX_SHIPS)
     {
         return new Ship($id, $count, $rf, $shield, $cost, $power);
@@ -316,11 +318,28 @@ function getFleet($id)
     return new Fleet($id);
 }
 
+class Tech {
+    public static function TechFunAttack($player) {
+        $attTech = $player['factor']['Attack'] + $player['military_tech'] * 0.1;
+        return $attTech;
+    }
+    
+    public static function TechFunShield($player) {
+        $attTech = $player['factor']['Shield'] + $player['shield_tech'] * 0.1;
+        return $attTech;
+    }
+    
+    public static function TechFunDefensive($player) {
+        $attTech = $player['factor']['Defensive'] + $player['defence_tech'] * 0.1;
+        return $attTech;
+    }
+}
+
 function getTechsFromArray($player)
 {
-    $attTech = $player['factor']['Attack'];
-    $shieldTech = $player['factor']['Shield'];
-    $defenceTech = $player['factor']['Defensive'];
+    $attTech = Tech::TechFunAttack($player);
+    $shieldTech = Tech::TechFunShield($player);
+    $defenceTech = Tech::TechFunDefensive($player);
     return array($attTech,$defenceTech,$shieldTech);
 }
 

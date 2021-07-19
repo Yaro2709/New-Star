@@ -482,7 +482,7 @@ class ShowResearchPage extends AbstractGamePage
 				$levelToBuild	= $USER[$resource[$Element]];
 			}
 			
-            $techTreeList		= BuildFunctions::requirementsList($Element);
+            $techTreeList		= BuildFunctions::requirementsList($USER, $PLANET, $Element);
 			$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element, false, $levelToBuild);
 			$costOverflow		= BuildFunctions::getRestPrice($USER, $PLANET, $Element, $costResources);
 			$elementTime    	= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $costResources);

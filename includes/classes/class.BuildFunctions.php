@@ -414,9 +414,9 @@ class BuildFunctions
         return $elementBonus;
     }
     
-    public static function requirementsList($Element)
+    public static function requirementsList($USER, $PLANET, $Element)
     {
-        global $USER, $PLANET, $pricelist, $reslist, $resource, $requeriments;
+        global $pricelist, $reslist, $resource, $requeriments;
         
         $factor = $pricelist[$Element]['factorTechnologie'];
 

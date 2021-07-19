@@ -1,0 +1,73 @@
+.prem_shop{
+	margin:0px !important;
+	padding:0;
+}
+.prem_shop .build_box{
+	margin:0 auto !important;
+	width: 99%;
+	margin-bottom:5px !important;
+}
+.prem_shop .head {
+    padding-right: 0px !important;
+    cursor: pointer;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 7px 0 9px;
+    background: #091d2e;
+}
+.prem_shop .content_box{
+	border-top:1px solid #000;
+	display:none;
+	padding:0 !important;
+	position:relative;
+	height:40px;
+}
+.prem_shop .content_form{
+	position:absolute;
+	background:#000813;
+	top:0;
+	right:80px;
+	left:80px;
+	height:28px;
+	padding:6px 20px;
+	border:1px solid #000;
+	border-top:0;
+	line-height:28px;
+	-moz-border-radius: 0px 0px 20px 20px;
+	-webkit-border-radius: 0px 0px 20px 20px;
+	border-radius: 0px 0px 20px 20px;
+	color:#CCC;
+}
+.prem_open_btn{
+    display: block;
+    float: right;
+    height: 20px;
+    width: 20px;
+    background: rgba(255,255,255,0.1);
+    color: #5ca6aa;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    -moz-border-radius: 0px 0px 20px 20px;
+    -webkit-border-radius: 0px 0px 20px 20px;
+    border-radius: 4px 4px 4px 4px;
+}
+.pren_btn_buy{
+	padding:0;
+	float:right;
+	display:block;
+	width:100px;
+	padding-left:20px;
+	text-align:center;
+	height:40px;
+	border:0;
+	-moz-border-radius: 0px 0px 5px;
+	-webkit-border-radius: 0px 0px 5px 0px;
+	border-radius: 0px 0px 5px;
+	line-height:36px;
+}
+.pren_btn_buy:hover{
+	color:#5ca6aa;
+	background:#091527;
+}

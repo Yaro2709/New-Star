@@ -65,7 +65,7 @@ class ShowFleetDealerPage extends AbstractGamePage
 	
 	function show()
 	{
-		global $PLANET, $LNG, $pricelist, $resource, $reslist;
+		global $PLANET, $LNG, $pricelist, $resource, $reslist, $resglobal;
 		
 		$Cost		= array();
 		
@@ -92,6 +92,8 @@ class ShowFleetDealerPage extends AbstractGamePage
 			'shipIDs'	=> $allowedShipIDs,
 			'CostInfos'	=> $Cost,
 			'Charge'	=> Config::get()->trade_charge,
+            
+            'buy_instantly'	=> $resglobal['buy_instantly'],
 		));
 		
 		$this->display('page.fleetDealer.default.tpl');
