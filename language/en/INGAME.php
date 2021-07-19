@@ -256,6 +256,7 @@ $LNG['fl_flying_return']					         = 'Return';
 $LNG['fl_fuel_consumption']			                 = 'Consumption of deuterium';
 $LNG['fl_max_speed']						         = 'Max Speed';
 $LNG['fl_cargo_capacity']				             = 'Cargo capacity';
+$LNG['fl_cargo_remainin']			                 = 'Consumption of deuterium';
 $LNG['fl_shortcut']							         = 'Shortcuts';
 $LNG['fl_shortcut_name']					         = 'Name';
 $LNG['fl_my_planets']					             = 'My planets';
