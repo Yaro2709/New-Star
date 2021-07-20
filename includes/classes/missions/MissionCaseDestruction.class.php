@@ -379,9 +379,8 @@ HTML;
 
 					$sql		= 'UPDATE %%FLEETS%% SET
 					fleet_end_type	= 1,
-					fleet_end_id	= :moonId,
-					fleet_mission	= IF(fleet_mission = 9, 1, fleet_mission)
-					WHERE fleet_end_id = :planetId
+					fleet_end_id	= :planetId
+                    WHERE fleet_end_id = :moonId
 					AND fleet_id != :fleetId;';
 
 					$db->update($sql, array(
