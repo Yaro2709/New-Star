@@ -192,11 +192,8 @@ select#statsmostr{
     color: #ccc;
     text-align: left;
 }
-.alleanza51{height:200px;
-    margin-top: 35px;
-    width: 240px;
+.alleanza51{
     font-size: 12px;
-    overflow: hidden;
     margin-left: 7px;}
 .alleanza52{
 	width: 290px;
@@ -439,7 +436,6 @@ select#reqall{
     margin: 7px;
     width: 684px;
     padding: 7px;
-    float: left;
     margin-top: 0;
     overflow: auto!important;
     max-height: 100px;

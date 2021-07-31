@@ -1,4 +1,425 @@
+p{
+    margin: auto;
+}
+/*Тени*/
+.shadow-none {
+    box-shadow: none!important;
+}
+.shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem 0 rgb(0 0 0 / 50%) !important;
+}
+.shadow {
+    box-shadow: 0 .5rem 1rem rgb(0 0 0 / 50%)!important;
+}
+.shadow-lg {
+    box-shadow: 0 1rem 3rem rgb(0 0 0 / 50%)!important;
+}
+/*Изображения*/
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+.float-start {
+    float: left!important;
+}
+.float-end {
+    float: right!important;
+}
+.border-radius-50{    
+    border-radius: 50%;
+}
+/*Разметка*/
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto {
+  position: relative;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .col-md-auto {
+    -ms-flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+  }
+  .col-md-1 {
+    -ms-flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+  }
+  .col-md-2 {
+    -ms-flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+  }
+  .col-md-3 {
+    -ms-flex: 0 0 25%;
+    max-width: 25%;
+  }
+  .col-md-4 {
+    -ms-flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+  .col-md-5 {
+    -ms-flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+  }
+  .col-md-6 {
+    -ms-flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .col-md-7 {
+    -ms-flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+  }
+  .col-md-8 {
+    -ms-flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+  .col-md-9 {
+    -ms-flex: 0 0 75%;
+    max-width: 75%;
+  }
+  .col-md-10 {
+    -ms-flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+  }
+  .col-md-11 {
+    -ms-flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+  }
+  .col-md-12 {
+    -ms-flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+.col-auto {
+  -ms-flex: 0 0 auto;
+  width: auto;
+  max-width: 100%;
+}
+
+.col-1 {
+  -ms-flex: 0 0 8.333333%;
+  max-width: 8.333333%;
+}
+
+.col-2 {
+  -ms-flex: 0 0 16.666667%;
+  max-width: 16.666667%;
+}
+
+.col-3 {
+  -ms-flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.col-4 {
+  -ms-flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+
+.col-5 {
+  -ms-flex: 0 0 41.666667%;
+  max-width: 41.666667%;
+}
+
+.col-6 {
+  -ms-flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.col-7 {
+  -ms-flex: 0 0 58.333333%;
+  max-width: 58.333333%;
+}
+
+.col-8 {
+  -ms-flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+}
+
+.col-9 {
+  -ms-flex: 0 0 75%;
+  max-width: 75%;
+}
+
+.col-10 {
+  -ms-flex: 0 0 83.333333%;
+  max-width: 83.333333%;
+}
+
+.col-11 {
+  -ms-flex: 0 0 91.666667%;
+  max-width: 91.666667%;
+}
+
+.col-12 {
+  -ms-flex: 0 0 100%;
+  max-width: 100%;
+}
+/*Отступы*/
+.m-0 {
+  margin: 0 !important;
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.mr-0 {
+  margin-right: 0 !important;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.ml-0 {
+  margin-left: 0 !important;
+}
+
+.m-1 {
+  margin: 0.25rem !important;
+}
+
+.mt-1 {
+  margin-top: 0.25rem !important;
+}
+
+.mr-1 {
+  margin-right: 0.25rem !important;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem !important;
+}
+
+.ml-1 {
+  margin-left: 0.25rem !important;
+}
+
+.m-2 {
+  margin: 0.5rem !important;
+}
+
+.mt-2 {
+  margin-top: 0.5rem !important;
+}
+
+.mr-2 {
+  margin-right: 0.5rem !important;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem !important;
+}
+
+.ml-2 {
+  margin-left: 0.5rem !important;
+}
+
+.m-3 {
+  margin: 1rem !important;
+}
+
+.mt-3 {
+  margin-top: 1rem !important;
+}
+
+.mr-3 {
+  margin-right: 1rem !important;
+}
+
+.mb-3 {
+  margin-bottom: 1rem !important;
+}
+
+.ml-3 {
+  margin-left: 1rem !important;
+}
+
+.m-4 {
+  margin: 1.5rem !important;
+}
+
+.mt-4 {
+  margin-top: 1.5rem !important;
+}
+
+.mr-4 {
+  margin-right: 1.5rem !important;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+.ml-4 {
+  margin-left: 1.5rem !important;
+}
+
+.m-5 {
+  margin: 3rem !important;
+}
+
+.mt-5 {
+  margin-top: 3rem !important;
+}
+
+.mr-5 {
+  margin-right: 3rem !important;
+}
+
+.mb-5 {
+  margin-bottom: 3rem !important;
+}
+
+.ml-5{
+  margin-left: 3rem !important;
+}
+.overflow-auto {
+    overflow: auto!important;
+}
+/*цвет*/
+.background-border-black-gray{
+    border: 1px solid #000;
+    background: rgba(0, 0, 0, 0.35);
+}
+.background-border-black-blue{
+    border: 1px solid #091d2e;
+    background: #000813;
+}
+.background-color-blue{
+    color: rgb(123, 152, 180);
+    background: #051524;
+}
+.background-color-red{
+    color: rgb(180, 123, 123);
+    background: rgb(36, 5, 5);
+}
+/*фокус текста*/
+.text-align-right{
+    text-align: right;
+}
+.text-align-center{
+    text-align: center;
+}
+/*градиент*/
+.gradient-gray{
+    background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(9,29,46,0.65) 100%);
+    background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(9,29,46,0.65) 100%);
+}
+/*анимация*/
+.opacity-70{
+    opacity: 0.7;
+}
+.opacity-70:hover{
+    opacity: 1;
+}
 /*встречается в альянсе и в PlayerCard*/
+.card{    
+    position: relative;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border-radius: 5px;
+}
+.card-img-left{
+    background-size: 40px !important;
+    bottom: 0px;
+    position: absolute;
+    height: 45px;
+    width: 45px;
+    float: left;
+    background-repeat: no-repeat !important;
+    background-position: center left !important;
+}
+.card-img-text{
+    position: absolute;
+    padding: 1px;
+    padding-left: 2px;
+    padding-right: 2px;
+    text-shadow: 0px 1px 0px rgb(0 0 0);
+    z-index: 1;
+    font-size: 10px;
+    right: 0px;
+    bottom: 0px;
+}
+.card-body{
+    flex: 1 1 auto;
+    padding: 7px 5px;
+}
+.card-title{    
+    color: #e6e6e6;
+    font-size: 14px;
+    margin-bottom: 6px;
+    /* text-align: center; */
+}
+.card-text{    
+    color: #8e8e8e;
+    font-size: 13px;
+}
+
+.alleanza_zone {
+    position: relative;
+    font-size: 13px;
+    text-align: center;
+    line-height: 21px;
+    color: #ccc;
+}
+/*Кнопки*/
+.alleanza61 {
+    height: 22px;
+    line-height: 22px;
+    color: #5579b9;
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid #081938;
+    background-color: #050f21;
+    position: relative;
+    float: left;
+    margin: 6px;
+    padding-left: 5px;
+    transition-duration: 0.5s;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    width: 142px;
+    background-position: 5px;
+    background-repeat: no-repeat;
+    margin-right: 0px;
+}
+/* color: #212529;
+    background-color: transparent;
+    border: 1px solid transparent; */
+
+.btn {
+    height: 25px;
+    line-height: 19px;
+    color: #5579b9;
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid #081938;
+    background-color: #050f21;
+    position: relative;
+    transition-duration: 0.5s;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    background-position: 5px;
+    background-repeat: no-repeat;
+    width: 100%;
+    text-align: left;
+}
+.btn:hover{    
+    border: 1px solid #0c2d68;
+    color: #5a80c2;
+	text-decoration:none
+}
+
+
 .alleanza5{    color: #e6e6e6;
     font-size: 14px;
     text-align: center;
@@ -873,10 +1294,6 @@ th a:hover, .ui-widget-header a:hover, #menu a:hover  {
 th a:hover, .ui-widget-header a:hover {
 	text-decoration:underline;
 }
-* {
-    margin: auto;
-    padding: auto;
-}
 .ally_contents{
 	padding:10px 20px 20px 20px;
 	font-size:12px;
@@ -889,10 +1306,10 @@ th a:hover, .ui-widget-header a:hover {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 698px;
-    float: left;
+/*     width: 698px;
+    float: left; */
     overflow: hidden;
-    margin: 7px;
+    /* margin: 7px; */
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
     border: 1px solid #000;
     -moz-border-radius: 6px;
@@ -990,6 +1407,7 @@ body,input,select,button,textarea,td,th,tr,table{
 	padding:0;
 	overflow:hidden;
 	position:relative;
+    margin: auto;
 }
 #ally_content img{
 	max-width:100% !important;

@@ -121,10 +121,6 @@ body {
 
 @charset "utf-8";
 /*@import "lib.flags.css" all;*/
-* {
-	margin: auto;
-	padding: auto;
-}
 html{
 	width:auto;
 	padding:0;
@@ -819,6 +815,7 @@ a span.active_page{
 	height: 23px;
 	background-position:left top;
 	 background-size:cover;
+     margin: auto;
 
 }
 #attack .icoi{

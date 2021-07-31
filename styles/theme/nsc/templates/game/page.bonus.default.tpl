@@ -17,16 +17,31 @@ $(document).ready(function(){
 <div id="page">
     <div id="content">
         <div id="ally_content" class="conteiner">
-            <div class="gray_stripo">{$LNG.lm_bonus}</div>
-            <div class="bonus1">
-                <span class="bonus5">{$LNG.lm_bonus}</span>
-                {foreach $bonusList as $ID => $Element}
-                <div class="bonus2 fade">
-                    <img src="{$dpath}gebaeude/{$ID}.gif">
-                    <span class="bonus3">{pretty_number($Element.bonus)}</span>
-                    <span class="bonus4">{$LNG.tech.{$ID}}</span>
+            <div class="gray_stripo">{$LNG.lm_bonus}</div>            
+            <div class="row" style="padding: 7px">
+            {foreach $bonusList as $ID => $Element}
+                <div class="col-md-4 fade">
+                    <div class="card mr-1 background-border-black-blue shadow"> 
+                        <div class="card-body">
+                            <div class="row" style="align-items: center; ">
+                                <div class="col-md-4">
+                                    <div class="card background-border-black-blue"> 
+                                        <img src="{$dpath}gebaeude/{$ID}.gif" class="img-fluid float-start opacity-70">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <p class="card-title text-align-right">{pretty_number($Element.bonus)}</p>
+                                            <p class="card-text text-align-right">{$LNG.tech.{$ID}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                {/foreach}
+            {/foreach}
             </div>
         </div>
     </div>

@@ -286,9 +286,6 @@ $LNG['debris_action_4']                              = 'Металл';
 $LNG['debris_action_5']                              = 'Кристалл';
 $LNG['debris_action_6']                              = 'Собрать';
 $LNG['debris_action_7']                              = 'Нет обломков';
-//Обзор
-$LNG['ov_bottom_panel_text']                         = 'Пригласите своих друзей и получите...';
-$LNG['ov_bottom_panel_head']                         = 'Подробнее...';
 //Галактика
 $LNG['gl_sp']                                        = 'Разведданные';
 //Карта игрока

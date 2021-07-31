@@ -18,7 +18,8 @@
     height:auto;
     width:680px;
     border:1px solid #000;
-    overflow:hidden
+    overflow:hidden;
+    margin: auto;
 }
 
 .locus .habena{

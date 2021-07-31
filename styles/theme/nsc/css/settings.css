@@ -45,6 +45,7 @@ margin:0 14px 7px 14px;
 }
 #achivment .academy_main_block1{
 	background-image: url(../img/general/academy_menu_bg1.gif);
+    margin: auto;
 }
 .ticket_bottom_band{
 	padding:0;

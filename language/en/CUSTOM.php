@@ -286,9 +286,6 @@ $LNG['debris_action_4']					             = 'Debris Metal';
 $LNG['debris_action_5']					             = 'Debris Crystal';
 $LNG['debris_action_6']					             = 'Collect';
 $LNG['debris_action_7']					             = 'There are no debris in your range';
-//Overview
-$LNG['ov_bottom_panel_text']                         = 'Invite your friends and get...';
-$LNG['ov_bottom_panel_head']                         = 'More info...';
 //Galaxy
 $LNG['gl_sp']                                        = 'Intelligence';
 //Player card

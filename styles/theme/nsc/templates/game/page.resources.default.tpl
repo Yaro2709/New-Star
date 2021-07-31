@@ -13,7 +13,6 @@
                 <div class="rexx1" style="width: 25%;">
                     <img src="{$dpath}planeten/small/s_{$planetImage}.jpg" class="rexx9">
                     <span class="rexx10">{$planetName}</span>
-                        {*<span class="rexx11">[{$planetGalaxy}:{$planetSystem}:{$planetPlanet}]</span>*}
                     <div class="rexx2 rexx3" style="margin-top:70px">{$LNG.rs_basic_income}</div>
                     {foreach $productionList as $productionID => $productionRow}
                         {if $productionID != 48}{if $productionID != 54}
