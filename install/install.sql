@@ -331,7 +331,7 @@ CREATE TABLE `%PREFIX%config` (
   `reslist_details` varchar(255) NOT NULL DEFAULT '1001,1002,1003,1004,1005,1006,1007,1008',
   `reslist_minerals` varchar(255) NOT NULL DEFAULT '1101,1102,1103,1104,1105,1106,1107,1108',
   `reslist_party` varchar(255) NOT NULL DEFAULT '1201,1202,1203,1204,1205,1206,1207,1208',
-  `reslist_ideologies` varchar(255) NOT NULL DEFAULT '1301,1302,1303,1304,1305,1306,1307,1308',
+  `reslist_ideologies` varchar(255) NOT NULL DEFAULT '1301,1302,1303,1304,1305,1306',
   `reslist_artifact` varchar(255) NOT NULL DEFAULT '1401,1402,1403,1404,1405,1406,1407,1408',
   `reslist_race` varchar(255) NOT NULL DEFAULT '1501,1502,1503,1504',
   `reslist_formgovernment` varchar(255) NOT NULL DEFAULT '1601,1602,1603,1604',

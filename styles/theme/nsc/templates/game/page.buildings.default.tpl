@@ -65,7 +65,7 @@
                         <span class="record_btn ico_build_3" onclick="build3();"></span>
                         <span class="record_btn ico_build_4" onclick="build4();"></span>
                         {if isModuleAvailable($smarty.const.MODULE_BUY_BUILD)}
-                        <a href="game.php?page=buybuild" class="right_flank button" style="margin-left: 10px;">{$LNG.lm_buybuild}</a>
+                        <a href="game.php?page=buyBuild" class="right_flank button" style="margin-left: 10px;">{$LNG.lm_buybuild}</a>
                         {/if}	
                     </div>
                     <div class="fildes_band_text">

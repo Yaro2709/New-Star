@@ -48,19 +48,19 @@ class ShowBuyBuildPage extends AbstractGamePage
         //Проверка на цену покупки
 		$Element			= HTTP::_GP('Element', 0);
 		if($Element == 0){
-			$this->printMessage(''.$LNG['bd_limit'].'',true, array('game.php?page=buybuild', 2));	
+			$this->printMessage(''.$LNG['bd_limit'].'',true, array('game.php?page=buyBuild', 2));	
         }
         //Проверка на колличество покупки
 		$Count			= max(0, round(HTTP::_GP('count', 0.0)));
         if($Count == 0){
-            $this->printMessage(''.$LNG['bd_limit'].'',true, array('game.php?page=buybuild', 2));	
+            $this->printMessage(''.$LNG['bd_limit'].'',true, array('game.php?page=buyBuild', 2));	
         }
         //Цена
 		$cost			= BuildFunctions::instantPurchasePrice($Element) * pow(($pricelist[$Element]['factor']), ($PLANET[$resource[$Element]] + $Count));
         //Условие блока
         if (!$this->CheckLabSettingsInQueue($Element) ||  ($PLANET['field_current'] + $Count) > $CurrentMaxFields)
 		{
-			$this->redirectTo('game.php?page=buybuild');
+			$this->redirectTo('game.php?page=buyBuild');
 			return;
 		}
         //Ограничение по технологиям и $reslist
@@ -69,7 +69,7 @@ class ShowBuyBuildPage extends AbstractGamePage
             //Нехватка ресурса.
 			if($USER[$resource[$resglobal['buy_instantly']]] < $cost )
 			{
-				$this->printMessage("".$LNG['bd_notres']."", true, array("game.php?page=buybuild", 1));
+				$this->printMessage("".$LNG['bd_notres']."", true, array("game.php?page=buyBuild", 1));
 				return;
 			}
 			//Всего хватает.
@@ -85,7 +85,7 @@ class ShowBuyBuildPage extends AbstractGamePage
             ));  
             $PLANET[$resource[$Element]]		+= $Count;
             
-			$this->printMessage(''.$LNG['bd_buy_yes'].'', true, array("game.php?page=buybuild", 1));
+			$this->printMessage(''.$LNG['bd_buy_yes'].'', true, array("game.php?page=buyBuild", 1));
 		}
 	}
 	

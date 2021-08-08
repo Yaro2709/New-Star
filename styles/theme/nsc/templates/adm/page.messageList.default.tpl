@@ -5,7 +5,7 @@
     <div class="card mb-3">
         <h5 class="card-header">{$LNG.lm_messagelist}</h5>
         <div class="card-body">
-            <form action="admin.php?page=messagelist" method="post" id="form">
+            <form action="admin.php?page=messageList" method="post" id="form">
             <input type="hidden" name="side" value="{$page}" id="side">
                 <table class="table table-dark table-hover"> 
                     <thead>

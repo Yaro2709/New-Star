@@ -19,7 +19,7 @@
    });
 </script>
 <div id="ally_content" class="conteiner">
-<form action="game.php?page=reducefleet&amp;mode=reduce" method="post" id="form">
+<form action="game.php?page=reduceFleet&amp;mode=reduce" method="post" id="form">
    <input type="hidden" />
    <div class="gray_stripe">
       {$LNG.rd_select_palet_fleet}

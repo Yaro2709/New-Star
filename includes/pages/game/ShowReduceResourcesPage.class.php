@@ -33,7 +33,7 @@ class ShowReduceResourcesPage extends AbstractGamePage
 		$Plnets_target		= HTTP::_GP('palanets', array());
 
 		if (empty($Plnets_target))
-		$this->printMessage(''.$LNG['rd_planet_no'].'',true,  array("game.php?page=reduceresources", 2));
+		$this->printMessage(''.$LNG['rd_planet_no'].'',true,  array("game.php?page=reduceResources", 2));
 		
 		
 		$activeSlots	= FleetFunctions::GetCurrentFleets($USER['id']);
@@ -165,7 +165,7 @@ class ShowReduceResourcesPage extends AbstractGamePage
 			0, 0, $USER['ally_id']);
 			unset($planeta);
 		}
-		$this->printMessage(''.$LNG['rd_fleet_go'].'',true,  array("game.php?page=reduceresources", 2));
+		$this->printMessage(''.$LNG['rd_fleet_go'].'',true,  array("game.php?page=reduceResources", 2));
 	}
 	
 	public function show()

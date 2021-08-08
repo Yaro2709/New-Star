@@ -31,12 +31,12 @@ class ShowBuyFleetPage extends AbstractGamePage
         //Проверка на цену покупки
 		$Element			= HTTP::_GP('Element', 0);
 		if($Element == 0){
-			$this->printMessage(''.$LNG['bd_limit'].'',true, array('game.php?page=buyfleet', 2));	
+			$this->printMessage(''.$LNG['bd_limit'].'',true, array('game.php?page=buyFleet', 2));	
         }
         //Проверка на колличество покупки
 		$Count			= max(0, round(HTTP::_GP('count', 0.0)));
         if($Count == 0){
-            $this->printMessage(''.$LNG['bd_limit'].'',true, array('game.php?page=buyfleet', 2));	
+            $this->printMessage(''.$LNG['bd_limit'].'',true, array('game.php?page=buyFleet', 2));	
         }
         //Цена
 		$cost			= BuildFunctions::instantPurchasePrice($Element) * $Count;
@@ -46,7 +46,7 @@ class ShowBuyFleetPage extends AbstractGamePage
             //Нехватка ресурса.
 			if($USER[$resource[$resglobal['buy_instantly']]] < $cost )
 			{
-				$this->printMessage("".$LNG['bd_notres']."", true, array("game.php?page=buyfleet", 1));
+				$this->printMessage("".$LNG['bd_notres']."", true, array("game.php?page=buyFleet", 1));
 				return;
 			}
 			//Всего хватает.
@@ -61,7 +61,7 @@ class ShowBuyFleetPage extends AbstractGamePage
             ));  
             $PLANET[$resource[$Element]]		+= $Count;
             
-			$this->printMessage(''.$LNG['bd_buy_yes'].'', true, array("game.php?page=buyfleet", 1));
+			$this->printMessage(''.$LNG['bd_buy_yes'].'', true, array("game.php?page=buyFleet", 1));
 		}
 	}
 	

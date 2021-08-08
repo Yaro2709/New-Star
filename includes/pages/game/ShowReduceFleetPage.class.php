@@ -34,7 +34,7 @@ class ShowReduceFleetPage extends AbstractGamePage
 		$fleetSpeed  		= HTTP::_GP('speed', 10);
 
 		if (empty($Plnets_target))
-		$this->printMessage(''.$LNG['rd_planet_no'].'',true,  array("game.php?page=reducefleet", 2));
+		$this->printMessage(''.$LNG['rd_planet_no'].'',true,  array("game.php?page=reduceFleet", 2));
 		
 		
 		$activeSlots	= FleetFunctions::GetCurrentFleets($USER['id']);
@@ -102,7 +102,7 @@ class ShowReduceFleetPage extends AbstractGamePage
 			FleetFunctions::sendFleet($fleetArray, 4, $USER['id'], $planeta['id'], $planeta['galaxy'], $planeta['system'], $planeta['planet'], $planeta['planet_type'],
 			$USER['id'], $PLANET['id'], $PLANET['galaxy'], $PLANET['system'], $PLANET['planet'], $PLANET['planet_type'], $fleetRessource, $fleetStartTime, $fleetStayTime, $fleetEndTime);
 		}
-		$this->printMessage(''.$LNG['rd_fleet_go'].'',true,  array("game.php?page=reducefleet", 2));
+		$this->printMessage(''.$LNG['rd_fleet_go'].'',true,  array("game.php?page=reduceFleet", 2));
 	}
 	
 	public function show()

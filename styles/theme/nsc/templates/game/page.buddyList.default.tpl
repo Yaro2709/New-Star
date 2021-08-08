@@ -6,7 +6,7 @@
         <div id="ally_content" class="conteinership">
             <div class="gray_flettab" style="padding-right:0;">{$LNG.bu_partners}
                 {if isModuleAvailable($smarty.const.MODULE_BANLIST)}
-                <a href="game.php?page=banlist" class="tornaindietroa">{$LNG.lm_banned}</a>
+                <a href="game.php?page=banList" class="tornaindietroa">{$LNG.lm_banned}</a>
                 {/if}
             </div>
             <div style="margin-bottom: 0;"></div>

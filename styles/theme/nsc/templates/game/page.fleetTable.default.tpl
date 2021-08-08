@@ -9,19 +9,19 @@
         {/if}
             <div class="fleettab7"> 
                 {if isModuleAvailable($smarty.const.MODULE_REDUCE_RESOURCES)}
-                <a href="game.php?page=reduceresources" class="fleet_reduce ico_reduceresources tooltip" data-tooltip-content="{$LNG.lm_reduceresources}"></a>
+                <a href="game.php?page=reduceResources" class="fleet_reduce ico_reduceresources tooltip" data-tooltip-content="{$LNG.lm_reduceresources}"></a>
                 {/if}
                 {if isModuleAvailable($smarty.const.MODULE_REDUCE_FLEET)}
-                <a href="game.php?page=reducefleet" class="fleet_reduce ico_reducefleet tooltip" data-tooltip-content="{$LNG.lm_reducefleet}"></a>
+                <a href="game.php?page=reduceFleet" class="fleet_reduce ico_reducefleet tooltip" data-tooltip-content="{$LNG.lm_reducefleet}"></a>
                 {/if}
                 {if isModuleAvailable($smarty.const.MODULE_DELIVERY)}
                 <a href="game.php?page=delivery" class="fleet_reduce ico_deliveryres tooltip" data-tooltip-content="{$LNG.lm_delivery}"></a>
                 {/if}
                 {if isModuleAvailable($smarty.const.MODULE_FLEET_TRADER)}
-                <a href="game.php?page=fleetdealer" class="fleet_reduce ico_trader tooltip" data-tooltip-content="{$LNG.lm_fleettrader}"></a>
+                <a href="game.php?page=fleetDealer" class="fleet_reduce ico_trader tooltip" data-tooltip-content="{$LNG.lm_fleettrader}"></a>
                 {/if}
                 {if isModuleAvailable($smarty.const.MODULE_FIND_DEBRIS)}
-                <a href="game.php?page=finddebris" class="fleet_reduce ico_finddebris tooltip" data-tooltip-content="{$LNG.lm_finddebris}"></a>
+                <a href="game.php?page=findDebris" class="fleet_reduce ico_finddebris tooltip" data-tooltip-content="{$LNG.lm_finddebris}"></a>
                 {/if}
             </div>
             <div class="fleettab8" style="margin-bottom:0"></div>

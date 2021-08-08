@@ -10,7 +10,7 @@
                 <a href="game.php?page=shipyard&mode=fleet" class="right_flank button">{$LNG.lm_shipshard}</a>
                 {/if}
             </div>
-            <form action="game.php?page=buyfleet" method="post">
+            <form action="game.php?page=buyFleet" method="post">
                 <input type="hidden" name="mode" value="send">
                 <input type="hidden" id="Element" name="Element" value="">                                                    
                 <div class="buy_content">

@@ -55,7 +55,7 @@
                     {if $mode == "defense"}
                     <div class="gray_stripe" style="height:0px; padding-right: 0; padding: 0;">
                         {if isModuleAvailable($smarty.const.MODULE_FLEET_TRADER)}
-                        <a href="game.php?page=fleetdealer" class="palanetarium_linck ico_trader tooltip" data-tooltip-content="{$LNG.lm_fleettrader}"></a>
+                        <a href="game.php?page=fleetDealer" class="palanetarium_linck ico_trader tooltip" data-tooltip-content="{$LNG.lm_fleettrader}"></a>
                         {/if}
                         <div style="float:left">{$LNG.lm_defenses}</div>
                         <span class="record_btn ico_star record_btn_active" onclick="rank();"></span>
@@ -64,13 +64,13 @@
                         <span class="record_btn ico_rank_2" onclick="rank2();"></span>
                         <span class="record_btn ico_rank_3" onclick="rank3();"></span>
                         {if isModuleAvailable($smarty.const.MODULE_BUY_DEFENSE)}
-                        <a href="game.php?page=buydefense" class="right_flank button" style="margin-left: 10px;">{$LNG.lm_buydefense}</a>
+                        <a href="game.php?page=buyDefense" class="right_flank button" style="margin-left: 10px;">{$LNG.lm_buydefense}</a>
                         {/if}
                     </div>
                     {else}
                     <div class="gray_stripe" style="height:0px; padding-right: 0; padding: 0;">
                         {if isModuleAvailable($smarty.const.MODULE_FLEET_TRADER)}
-                        <a href="game.php?page=fleetdealer" class="palanetarium_linck ico_trader tooltip" data-tooltip-content="{$LNG.lm_fleettrader}"></a>
+                        <a href="game.php?page=fleetDealer" class="palanetarium_linck ico_trader tooltip" data-tooltip-content="{$LNG.lm_fleettrader}"></a>
                         {/if}
                         <div style="float:left">{$LNG.lm_shipshard}</div>
                         <span class="record_btn ico_star record_btn_active" onclick="rank();"></span>
@@ -79,7 +79,7 @@
                         <span class="record_btn ico_rank_2" onclick="rank2();"></span>
                         <span class="record_btn ico_rank_3" onclick="rank3();"></span>
                         {if isModuleAvailable($smarty.const.MODULE_BUY_FLEET)}
-                        <a href="game.php?page=buyfleet" class="right_flank button" style="margin-left: 10px;">{$LNG.lm_buyfleet}</a>
+                        <a href="game.php?page=buyFleet" class="right_flank button" style="margin-left: 10px;">{$LNG.lm_buyfleet}</a>
                         {/if}
                     </div>
                     {/if}

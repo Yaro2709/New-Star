@@ -7,7 +7,7 @@ function check(){
 		Dialog.alert('{$LNG.mg_empty_text}');
 		return false;
 	} else {
-		$.post('admin.php?page=sendmessages&action=send&ajax=1', $('#message').serialize(), function(data) {
+		$.post('admin.php?page=sendMessages&action=send&ajax=1', $('#message').serialize(), function(data) {
 			Dialog.alert(data, function() {
 				location.reload();
 			});
@@ -20,7 +20,7 @@ function check(){
     <div class="card mb-3">
         <h5 class="card-header">{$LNG.lm_sendmessages}</h5>
         <div class="card-body">
-            <form name="message" id="message" action="admin.php?page=sendmessages&action=send&ajax=1">
+            <form name="message" id="message" action="admin.php?page=sendMessages&action=send&ajax=1">
                 <div class="form-group">
                     <label for="1">{$LNG.ma_mode}</label>
                     {html_options class="form-control" id="1" name=key options=$modes}

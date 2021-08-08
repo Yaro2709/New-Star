@@ -10,7 +10,7 @@
                     <a href="game.php?page=buildings" class="right_flank button">{$LNG.lm_research}</a>
                 {/if}
             </div>
-            <form action="game.php?page=buytech" method="post">
+            <form action="game.php?page=buyTech" method="post">
                 <input type="hidden" name="mode" value="send">
                 <input type="hidden" id="Element" name="Element" value="">                                                    
                 <div class="buy_content">

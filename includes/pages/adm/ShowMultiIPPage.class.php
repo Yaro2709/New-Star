@@ -33,11 +33,11 @@ class ShowMultiIPPage extends AbstractAdminPage
         {
             case 'known':
                 $GLOBALS['DATABASE']->query("INSERT INTO ".MULTI." SET userID = ".((int) $_GET['id']).";");
-                HTTP::redirectTo("admin.php?page=multiip");
+                HTTP::redirectTo("admin.php?page=multiIP");
             break;
             case 'unknown':
                 $GLOBALS['DATABASE']->query("DELETE FROM ".MULTI." WHERE userID = ".((int) $_GET['id']).";");
-                HTTP::redirectTo("admin.php?page=multiip");
+                HTTP::redirectTo("admin.php?page=multiIP");
             break;
         }
         $Query	= $GLOBALS['DATABASE']->query("SELECT id, username, email, register_time, onlinetime, user_lastip, IFNULL(multiID, 0) as isKnown FROM ".USERS." LEFT JOIN ".MULTI." ON userID = id WHERE `universe` = '".Universe::current()."' AND user_lastip IN (SELECT user_lastip FROM ".USERS." WHERE `universe` = '".Universe::current()."' GROUP BY user_lastip HAVING COUNT(*)>1) ORDER BY user_lastip, id ASC;");

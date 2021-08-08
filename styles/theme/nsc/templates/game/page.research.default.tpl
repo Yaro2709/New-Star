@@ -73,7 +73,7 @@
                         <span class="record_btn ico_tech_3" onclick="tech3();"></span>
                         <span class="record_btn ico_tech_4" onclick="tech4();"></span>
                         {if isModuleAvailable($smarty.const.MODULE_BUY_TECH)}
-                        <a href="game.php?page=buytech" class="right_flank button" style="margin-left: 10px;">{$LNG.lm_buytech}</a>
+                        <a href="game.php?page=buyTech" class="right_flank button" style="margin-left: 10px;">{$LNG.lm_buytech}</a>
                         {/if}
                     </div>
                 </div>

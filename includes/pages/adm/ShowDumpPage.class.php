@@ -8,7 +8,7 @@
  * ║╚═╗║╚╝║║║╚╝║║║║───║║║║║║─║║─╔╝║──║║╔═╝║║╚╝║──║║
  * ╚══╝╚══╝╚╝──╚╝╚╝───╚╝╚╝╚╝─╚╝─╚═╝──╚╝╚══╝╚══╝──╚╝
  *
- * @author Tsvira Yaroslav <https://github.com/Yaro2709>
+ * @author Tsvira Yaroslav <https://github.com/Yaro2709> @@ Ala
  * @info ***
  * @link https://github.com/Yaro2709/New-Star
  * @Basis 2Moons: XG-Project v2.8.0
@@ -34,18 +34,22 @@ class ShowDumpPage extends AbstractAdminPage
             case 'dump':
                 $dbTables	= HTTP::_GP('dbtables', array());
                 if(empty($dbTables)) {
-                    $this->printMessage($LNG['du_not_tables_selected'], true, array('game.php?page=dump', 3));
+                    $this->printMessage($LNG['du_not_tables_selected'], true, array('admin.php?page=dump', 3));
                 }
 			
-                $fileName	= '2MoonsBackup_'.date('d_m_Y_H_i_s', TIMESTAMP).'.sql';
-                $filePath	= 'includes/backups/'.$fileName;
+                $fileName	= 'Backup_'.date('d_m_Y_H_i_s', TIMESTAMP).'.sql';
+                $filePath	= 'includes/backups/';
 		
                 require 'includes/classes/SQLDumper.class.php';
+                require 'includes/config.php';
 		
-                $dump	= new SQLDumper;
-                $dump->dumpTablesToFile($dbTables, $filePath);
+                $dump	= new SQLDumper($database);
+                $dump->backUpAdmin($dbTables);
+                $dump->setFileDir($filePath);
+                $dump->setFileName($fileName);
+                $dump->saveToFile();
                 
-                $this->printMessage((sprintf($LNG['du_success'], 'includes/backups/'.$fileName)), true, array('game.php?page=dump', 3));
+                $this->printMessage((sprintf($LNG['du_success'], 'includes/backups/'.$fileName)), true, array('admin.php?page=dump', 3));
                 
             break;
             default:
