@@ -40,11 +40,11 @@
                 <table class="table table-dark table-hover"> 	
                     <thead>
                         <tr>
-                            <th class="right" colspan="{if $Selected == 100}6{else}5{/if}">{$LNG.mg_page}: {if $page != 1}<a href="#" onclick="gotoPage({$page - 1});return false;">&laquo;</a> {/if}{for $site=1 to $maxPage}<a href="#" onclick="gotoPage({$site});return false;">{if $site == $page}<span><b>[{$site}]</b></span>{else}[{$site}]{/if}</a>{if $site != $maxPage} {/if}{/for}{if $page != $maxPage} <a href="#" onclick="gotoPage({$page + 1});return false;">&raquo;</a>{/if}</th>
+                            <th class="right" colspan="{if $type == 100}6{else}5{/if}">{$LNG.mg_page}: {if $page != 1}<a href="#" onclick="gotoPage({$page - 1});return false;">&laquo;</a> {/if}{for $site=1 to $maxPage}<a href="#" onclick="gotoPage({$site});return false;">{if $site == $page}<span><b>[{$site}]</b></span>{else}[{$site}]{/if}</a>{if $site != $maxPage} {/if}{/for}{if $page != $maxPage} <a href="#" onclick="gotoPage({$page + 1});return false;">&raquo;</a>{/if}</th>
                         </tr>
                         <tr>
                             <th>{$LNG.input_id}</th>
-                            {if $Selected == 100}<th>{$LNG.ml_type}</th>{/if}
+                            {if $type == 100}<th>{$LNG.ml_type}</th>{/if}
                             <th>{$LNG.ml_date}</th>
                             <th>{$LNG.ml_sender}</th>
                             <th>{$LNG.ml_receiver}</th>
@@ -55,20 +55,20 @@
                         {foreach $messageList as $messageID => $messageRow}
                         <tr data-messageID="{$messageID}">
                             <td><a href="#" class="toggle">{$messageID}</a></td>
-                            {if $Selected == 100}<td><a href="#" class="toggle">{$LNG.mg_type[$messageRow.type]}</a></td>{/if}
+                            {if $type == 100}<td><a href="#" class="toggle">{$LNG.mg_type[$messageRow.type]}</a></td>{/if}
                             <td><a href="#" class="toggle">{$messageRow.time}</a></td>
                             <td><a href="#" class="toggle">{$messageRow.sender}</a></td>
                             <td><a href="#" class="toggle">{$messageRow.receiver}</a></td>
                             <td><a href="#" class="toggle">{$messageRow.subject}{if $messageRow.deleted}&nbsp;<img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$LNG.ml_deleted}">{/if}</a></td>
                         </tr>
                         <tr id="contentID{$messageID}" style="display:none;">
-                            <td class="left" colspan="{if $Selected == 100}6{else}5{/if}" style="padding:5px 8px;">{$messageRow.text}</td>
+                            <td class="left" colspan="{if $type == 100}6{else}5{/if}" style="padding:5px 8px;">{$messageRow.text}</td>
                         </tr>
                     {/foreach}
                     </tbody>
                     <thead>
                         <tr>
-                            <th class="right" colspan="{if $Selected == 100}6{else}5{/if}">{$LNG.mg_page}: {if $page != 1}<a href="#" onclick="gotoPage({$page - 1});return false;">&laquo;</a> {/if}{for $site=1 to $maxPage}<a href="#" onclick="gotoPage({$site});return false;">{if $site == $page}<span><b>[{$site}]</b></span>{else}[{$site}]{/if}</a>{if $site != $maxPage} {/if}{/for}{if $page != $maxPage} <a href="#" onclick="gotoPage({$page + 1});return false;">&raquo;</a>{/if}</th>
+                            <th class="right" colspan="{if $type == 100}6{else}5{/if}">{$LNG.mg_page}: {if $page != 1}<a href="#" onclick="gotoPage({$page - 1});return false;">&laquo;</a> {/if}{for $site=1 to $maxPage}<a href="#" onclick="gotoPage({$site});return false;">{if $site == $page}<span><b>[{$site}]</b></span>{else}[{$site}]{/if}</a>{if $site != $maxPage} {/if}{/for}{if $page != $maxPage} <a href="#" onclick="gotoPage({$page + 1});return false;">&raquo;</a>{/if}</th>
                         </tr>
                     </thead>
                 </table>

@@ -55,7 +55,8 @@ transition: all 0.2s ease-in;}
     left: 0;
     right: 0;
     width: fit-content;
-    top: 2px;}
+    top: 2px;
+    margin: auto;}
 .message_time{position: absolute;
     color: #ccc;
     top: 2px;

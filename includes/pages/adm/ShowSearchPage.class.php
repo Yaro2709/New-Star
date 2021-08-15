@@ -28,21 +28,33 @@ class ShowSearchPage extends AbstractAdminPage
 	function show()
     {
         global $LNG, $USER;
+        
+        if(!isset($_GET['delete'])){
+            $_GET['delete'] = 'user';
+        }
+        
+        if(!isset($_GET['user'])){
+            $_GET['user'] = '';
+        }
+        
+        if(!isset($_GET['planet'])){
+            $_GET['planet'] = '';
+        }
 	
         if ($_GET['delete'] == 'user') {
             PlayerUtil::deletePlayer((int) $_GET['user']);
-            message($LNG['se_delete_succes_p'], '?page=search&search=users&minimize=on', 2);
+            //message($LNG['se_delete_succes_p'], '?page=search&search=users&minimize=on', 2);
         } elseif ($_GET['delete'] == 'planet'){
             PlayerUtil::deletePlanet((int) $_GET['planet']);
-            message($LNG['se_delete_succes_p'], '?page=search&search=planet&minimize=on', 2);
+            //message($LNG['se_delete_succes_p'], '?page=search&search=planet&minimize=on', 2);
         }
 	
-        $SearchFile		= HTTP::_GP('search', '');
-        $SearchFor		= HTTP::_GP('search_in', '');
-        $SearchMethod	= HTTP::_GP('fuki', '');
+        $SearchFile		= HTTP::_GP('search', 'users');
+        $SearchFor		= HTTP::_GP('search_in', 'name');
+        $SearchMethod	= HTTP::_GP('fuki', 'normal');
         $SearchKey		= HTTP::_GP('key_user', '', UTF8_SUPPORT);
         $Page 			= HTTP::_GP('side', 0);
-        $Order			= HTTP::_GP('key_order', '');
+        $Order			= HTTP::_GP('key_order', 'ASC');
         $OrderBY		= HTTP::_GP('key_acc', '');
         $limit			= HTTP::_GP('limit', 25);
 
@@ -87,6 +99,7 @@ class ShowSearchPage extends AbstractAdminPage
             )
         );
 
+        $Minimize			= '';
         if (HTTP::_GP('minimize', '') == 'on')
         {
             $Minimize			= "&amp;minimize=on";
@@ -97,6 +110,30 @@ class ShowSearchPage extends AbstractAdminPage
         }
 
         $SpecialSpecify	= "";
+        
+        /*
+        if($SearchMethod = 'exacto'){
+            $SpecifyWhere	= "= '".$GLOBALS['DATABASE']->sql_escape($SearchKey)."'";
+        }elseif($SearchMethod = 'last'){
+            $SpecifyWhere	= "LIKE '".$GLOBALS['DATABASE']->sql_escape($SearchKey, true)."%'";
+        }elseif($SearchMethod = 'first'){
+            $SpecifyWhere	= "LIKE '%".$GLOBALS['DATABASE']->sql_escape($SearchKey, true)."'";
+        }else{
+            $SpecifyWhere	= "LIKE '%".$GLOBALS['DATABASE']->sql_escape($SearchKey, true)."%'";
+        }
+        */
+        /*
+        if (!empty($SearchMethod)){
+            if(in_array($SearchMethod, array('exacto'))){
+                $SpecifyWhere	= "= '".$GLOBALS['DATABASE']->sql_escape($SearchKey)."'";
+            }elseif(in_array($SearchMethod, array('last'))){
+                $SpecifyWhere	= "LIKE '".$GLOBALS['DATABASE']->sql_escape($SearchKey, true)."%'";
+            }elseif(in_array($SearchMethod, array('first'))){
+                $SpecifyWhere	= "LIKE '%".$GLOBALS['DATABASE']->sql_escape($SearchKey, true)."'";
+            }else{
+                $SpecifyWhere	= "LIKE '%".$GLOBALS['DATABASE']->sql_escape($SearchKey, true)."%'";
+            }
+        }*/
 	
         switch($SearchMethod)
         {
@@ -112,7 +149,7 @@ class ShowSearchPage extends AbstractAdminPage
             default:
                 $SpecifyWhere	= "LIKE '%".$GLOBALS['DATABASE']->sql_escape($SearchKey, true)."%'";
             break;
-        };
+        }
 
         if (!empty($SearchFile))
         {
@@ -293,6 +330,30 @@ class ShowSearchPage extends AbstractAdminPage
     function MyCrazyLittleSearch($SpecifyItems, $WhereItem, $SpecifyWhere, $SpecialSpecify, $Order, $OrderBY, $Limit, $Table, $Page, $NameLang, $ArrayOSec, $Minimize, $SName, $SearchFile)
     {
         global $USER, $LNG;
+        
+        if(!isset($_GET['search_in'])){
+            $_GET['search_in'] = '';
+        }
+        
+        if(!isset($_GET['fuki'])){
+            $_GET['fuki'] = '';
+        }
+        
+        if(!isset($_GET['key_user'])){
+            $_GET['key_user'] = '';
+        }
+        
+        if(!isset($_GET['key_order'])){
+            $_GET['key_order'] = '';
+        }
+        
+        if(!isset($_GET['key_acc'])){
+            $_GET['key_acc'] = '';
+        }
+        
+        if(!isset($_GET['search'])){
+            $_GET['search'] = '';
+        }
 	
         $parse	= $LNG;
 	
@@ -323,6 +384,8 @@ class ShowSearchPage extends AbstractAdminPage
         $QueryCSearch	.= $WhereItem." ";
         $QueryCSearch	.= $SpecifyWhere." ".$SpecialSpecify." ";
         $CountQuery		= $GLOBALS['DATABASE']->getFirstRow($QueryCSearch);
+        
+        $Search['PAGES'] = '';
 	
         if ($CountQuery['total'] > 0)
         {
@@ -455,10 +518,12 @@ class ShowSearchPage extends AbstractAdminPage
         }
         else
         {
+            $Result['PAGES'] = '';
             $Result['LIST']	 = "<br><table border='0px' style='background:url(images/Adm/blank.gif);' width='90%'>";
             $Result['LIST']	.= "<div class='alert alert-primary' role='alert'>".$LNG['se_no_data']."</div>";
             $Result['LIST']	.= "</table>";
-		return $Result;
+            
+            return $Result;
         }
     }   
 }

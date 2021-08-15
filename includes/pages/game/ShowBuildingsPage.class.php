@@ -63,8 +63,6 @@ class ShowBuildingsPage extends AbstractGamePage
 				$BuildEndTime	= TIMESTAMP;
 				$NewQueueArray	= array();
 				foreach($CurrentQueue as $ListIDArray) {
-					if($Element == $ListIDArray[0])
-						continue;
 					$BuildEndTime	   += BuildFunctions::getBuildingTime($USER, $PLANET, $ListIDArray[0], NULL, $ListIDArray[4] == 'destroy');
 					$ListIDArray[3]		= $BuildEndTime;
 					$NewQueueArray[]	= $ListIDArray;					

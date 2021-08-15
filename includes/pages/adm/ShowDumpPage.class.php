@@ -29,6 +29,10 @@ class ShowDumpPage extends AbstractAdminPage
 	{
         global $LNG;
         
+        if(!isset($_REQUEST['action'])){
+            $_REQUEST['action'] = '';
+        }
+        
         switch($_REQUEST['action'])
         {
             case 'dump':

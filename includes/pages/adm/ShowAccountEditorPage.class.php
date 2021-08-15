@@ -28,6 +28,16 @@ class ShowAccountEditorPage extends AbstractAdminPage
 	function show()
 	{
         global $LNG, $reslist, $resource;
+        
+        if(!isset($_GET['edit'])){
+            $_GET['edit'] = '';
+        }
+        
+        if(!isset($_POST['add'])){
+            $_POST['add'] = '';
+        }elseif(!isset($_POST['delete'])){
+            $_POST['delete'] = '';
+        }
 
         switch($_GET['edit'])
         {

@@ -28,6 +28,14 @@ class ShowNewsPage extends AbstractAdminPage
 	function show()
 	{
         global $LNG, $USER;
+        
+        if(!isset($_GET['action'])){
+            $_GET['action'] = '';
+        }
+        
+        if(!isset($_GET['key'])){
+            $_GET['key'] = '';
+        }
 
         if($_GET['action'] == 'send') {
             $edit_id 	= HTTP::_GP('id', 0);
@@ -42,6 +50,8 @@ class ShowNewsPage extends AbstractAdminPage
 
         $query = $GLOBALS['DATABASE']->query("SELECT * FROM ".NEWS." ORDER BY id ASC");
 
+        $NewsList	= array();
+        
         while ($u = $GLOBALS['DATABASE']->fetch_array($query)) {
             $NewsList[]	= array(
                 'id'		=> $u['id'],
@@ -64,6 +74,10 @@ class ShowNewsPage extends AbstractAdminPage
         } elseif($_GET['action'] == 'create') {
             $this->assign(array(	
                 'key'			=> 2,
+                'nws_head'		=> '',
+                'news_id'		=> '',
+                'news_title'	=> '',
+                'news_text'		=> '',
                 'nws_head'		=> $LNG['nws_head_create'],
             ));
         }

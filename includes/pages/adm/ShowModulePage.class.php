@@ -32,6 +32,10 @@ class ShowModulePage extends AbstractAdminPage
         $config	= Config::get();
         $module	= explode(';', $config->moduls);
         
+        if(!isset($_GET['act'])){
+            $_GET['act'] = '';
+        }
+        
         if($_GET['act']) {
             $module[HTTP::_GP('id', 0)]	= ($_GET['act'] == 'aktiv') ? 1 : 0;
             $config->moduls = implode(";", $module);

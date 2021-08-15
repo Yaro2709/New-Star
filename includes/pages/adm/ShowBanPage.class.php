@@ -28,6 +28,18 @@ class ShowBanPage extends AbstractAdminPage
 	function show()
 	{
         global $LNG, $USER;
+        
+        if(!isset($_GET['order'])){
+            $_GET['order'] = 'id';
+        }
+        
+        if(!isset($_GET['view'])){
+            $_GET['view'] = 'bana';
+        }
+        
+        if(!isset($_GET['order2'])){
+            $_GET['order2'] = 'id';
+        }
 	
         $ORDER = $_GET['order'] == 'id' ? "id" : "username";
 

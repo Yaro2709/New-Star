@@ -5,9 +5,12 @@
     <div class="card mb-3">
         <h5 class="card-header">{$LNG.lm_news}</h5>
         <div class="card-body">
-            {nocache}{if isset($key)}
+            {nocache}
+            {if isset($key)}
             <form method="POST" action="?page=news&amp;action=send&amp;key={$key}" class="mb-3">
-            {if $news_id}<input name="id" type="hidden" value="{$news_id}">{/if}
+                {if $news_id}
+                <input name="id" type="hidden" value="{$news_id}">
+                {/if}
                 <table class="table table-dark table-hover">
                     <thead>
                         <tr>
@@ -27,7 +30,8 @@
                 </table>
                 <button type="submit" name="Submit" class="btn btn-primary">{$LNG.button_submit}</button>
             </form>
-            {/if}{/nocache}
+            {/if}
+            {/nocache}
             <table class="table table-dark table-hover">
                 <thead>
                     <tr>
@@ -39,7 +43,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {foreach name=NewsList item=NewsRow from=$NewsList}
+                    {foreach $NewsList as $NewsRow}
                     <tr>
                         <td><a href="?page=news&amp;action=edit&amp;id={$NewsRow.id}">{$NewsRow.id}</a></td>
                         <td><a href="?page=news&amp;action=edit&amp;id={$NewsRow.id}">{$NewsRow.title}</a></td>

@@ -31,6 +31,10 @@ class ShowRightsPage extends AbstractAdminPage
         
         $key	= HTTP::_GP('key', '');
         
+        if(!isset($_GET['get'])){
+            $_GET['get'] = 'adm';
+        }
+        
         switch($key)
         {
             case 'rights':

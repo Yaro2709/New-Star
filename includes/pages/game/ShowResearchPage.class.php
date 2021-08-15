@@ -64,9 +64,6 @@ class ShowResearchPage extends AbstractGamePage
                 $BuildEndTime		= TIMESTAMP;
                 $NewCurrentQueue	= array();
                 foreach($CurrentQueue as $ListIDArray){
-                    if($Element == $ListIDArray[0] || empty($ListIDArray[0]))
-                        continue;
-
                     if($ListIDArray[4] != $PLANET['id']){
                         $sql = "SELECT :resource, id FROM %%PLANETS%% WHERE id = :id;";
                         $CPLANET = Database::get()->selectSingle($sql, array(

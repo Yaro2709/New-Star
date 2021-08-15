@@ -152,6 +152,14 @@ abstract class AbstractAdminPage
 	protected function display($file) {
         
 		global $THEME, $LNG, $reslist, $USER;
+        
+        $universeSelect	= array();
+		
+		foreach(Universe::availableUniverses() as $uniId)
+		{
+			$config = Config::get($uniId);
+			$universeSelect[$uniId]	= $config->uni_name.($config->game_disable == 0 ? $LNG['uni_closed'] : '');
+		}
 
 		$this->save();
 
@@ -165,6 +173,10 @@ abstract class AbstractAdminPage
 			'scripts'		=> $this->tplObj->jsscript,
 			'execscript'	=> implode("\n", $this->tplObj->script),
 			'basepath'		=> PROTOCOL.HTTP_HOST.HTTP_BASE,
+            'game_name'		=> $config->game_name,
+            'VERSION'		=> $config->VERSION,
+            'REV'			=> substr($config->VERSION, -4),
+            'authlevel'		=> $USER['authlevel'],
 		));
 
 		$this->assign(array(

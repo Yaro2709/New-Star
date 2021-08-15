@@ -29,7 +29,7 @@
                 {else}
                 <form action="game.php?page=createMoon" method="post" style="display: contents;">
                     <input type="hidden" name="mode" value="buy"> 
-                    <input class="bottom_band_submit" value="{$LNG.tech.$buy_moon_res} {$buy_moon_price|pretty_number}" type="reset">
+                    <input class="bottom_band_submit" value="{$LNG.tech.$buy_moon_res} {$buy_moon_price|pretty_number}" type="submit">
                 </form>
                 {/if}
             </div>

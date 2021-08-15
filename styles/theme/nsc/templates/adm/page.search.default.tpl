@@ -6,7 +6,7 @@
         <div class="card mb-3">
             <h5 class="card-header">{$LNG.lm_search}</h5>
             <div class="card-body">
-                <div id="seeker"{$diisplaay}>
+                <div id="seeker">
                 <table class="table table-dark">
                     <thead>
                         <tr>
@@ -29,7 +29,7 @@
                             </td>
                             <td>{html_options name=search options=$Selector.list selected=$SearchFile class="form-control"}</td>
                             <td>{html_options name=search_in options=$Selector.search selected=$SearchFor class="form-control"}</td>
-                            <td>{html_options name=fucki options=$Selector.filter selected=$Searchmethod class="form-control"}</td>
+                            <td>{html_options name=fucki options=$Selector.filter selected=$SearchMethod class="form-control"}</td>
                             <td>{html_options name=limit options=$Selector.limit selected=$limit class="form-control"}</td>
                             <td>{html_options name=key_acc options=$Selector.order selected=$OrderBY class="form-control"}</td>
                             {if $OrderBYParse}

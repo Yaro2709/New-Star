@@ -28,6 +28,10 @@ class ShowMultiIPPage extends AbstractAdminPage
 	function show()
 	{
         global $LNG;
+        
+        if(!isset($_GET['action'])){
+            $_GET['action'] = '';
+        }
 	
         switch($_GET['action'])
         {

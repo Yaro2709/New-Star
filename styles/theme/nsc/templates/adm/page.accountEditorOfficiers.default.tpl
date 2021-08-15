@@ -9,8 +9,8 @@
                 <table class="table table-dark table-hover">
                     <thead>
                         <tr>
-                            <th><label for="{$id}">{$LNG.input_id_user}</label></th>
-                            <th><input name="id" value="0" type="text" class="form-control" id="{$id}"></th>
+                            <th><label for="id">{$LNG.input_id_user}</label></th>
+                            <th><input name="id" value="0" type="text" class="form-control" id="id"></th>
                         </tr>
                     </thead>
                 </table>
@@ -22,15 +22,15 @@
                             <th>{$LNG.class_lvl}</th>
                         </tr>
                     </thead>
-                    {foreach key=id item=input from=$inputlist}
                     <tbody>
+                    {foreach key=id item=input from=$inputlist}
                         <tr>
                             <td><label for="{$id}">{$id}</label></td>
                             <td><label for="{$id}">{$LNG.tech.{$id}}</label></td>
                             <td><input name="{$input.type}" value="0" type="text" class="form-control" id="{$id}"></td>
                         </tr>
-                    </tbody>
                     {/foreach}
+                    </tbody>
                 </table>
                 <input class="btn btn-primary" type="reset" value="{$LNG.button_reset}">
                 <input class="btn btn-primary" type="submit" value="{$LNG.button_add}" name="add">

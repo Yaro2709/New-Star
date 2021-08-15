@@ -117,8 +117,15 @@
 	overflow:visible;
 	padding-left:15px;
 	z-index: 8;
+    margin: auto;
 }
 .gal_img_planet:hover .gl-actions{
+	display:block;
+}
+.gal_planet_name:hover .gl-actions{
+	display:block;
+}
+.gal_ico_moon:hover .gl-actions{
 	display:block;
 }
 .gl-actions-t, .gl-actions-t td, .gl-actions-t tr{

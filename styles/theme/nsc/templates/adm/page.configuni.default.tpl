@@ -24,14 +24,14 @@
                                 <th>{$LNG.status_value}</th>
                             </tr>
                         </thead>
-                        {foreach $name_list as $v2 => $name_config}
                         <tbody>
+                        {foreach $name_list as $v2 => $name_config}
                             <tr>
                                 <td><label for="{$name_config}">{$LNG["cu_{$name_config}"]} ({$name_config})</label></td>
                                 <td><input name="{$name_config}" value="{$config_before.$name_config}" type="text" class="form-control" id="{$name_config}"></td>
                             </tr>
-                        </tbody>
                         {/foreach}
+                        </tbody>
                     </table>
                     <input class="btn btn-primary" type="submit" value="{$LNG.button_submit}">
                 </div>

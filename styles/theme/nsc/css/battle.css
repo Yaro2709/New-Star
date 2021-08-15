@@ -57,6 +57,7 @@
 	height:100%;
 	position:relative;
 	width:1px;
+    margin: auto;
 }
 .batle_mem {
 	background:#000d20;
@@ -174,6 +175,7 @@
 	font-size:30px;
 	color:#00b0dc;
 	line-height:33px;
+    margin: auto;
 }
 .batle_round_info h3 {
 	font-size:12px;
@@ -183,6 +185,7 @@
 	display:block;
 	text-align:center;
 	margin-bottom:20px;
+    margin: auto;
 }
 .band_att {
 	width:535px;
@@ -260,6 +263,7 @@
 	-webkit-border-radius:3px;
 	border-radius:3px;
 	overflow:hidden;
+    margin: auto;
 }
 .band_itog .ico_part {
 	position:absolute;

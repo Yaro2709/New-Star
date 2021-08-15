@@ -9,8 +9,8 @@
                 <table class="table table-dark table-hover">
                     <thead>
                         <tr>
-                            <th><label for="{$id}">{$LNG.input_id_p_m}</label></th>
-                            <th><input name="id" value="0" type="text" class="form-control" id="{$id}"></th>
+                            <th><label for="id">{$LNG.input_id_p_m}</label></th>
+                            <th><input name="id" value="0" type="text" class="form-control" id="id"></th>
                         </tr>
                     </thead>
                     <tbody>

@@ -38,6 +38,6 @@ class ShowStatUpdatePage extends AbstractAdminPage
         $stats_end_time	= sprintf($LNG['sb_stats_update'], $result['totaltime']);
         $stats_sql		= sprintf($LNG['sb_sql_counts'], $result['sql_count']);
 
-        $this->printMessage($LNG['sb_stats_updated'].$stats_end_time.$memory_i.$memory_e.$memory_p.$stats_sql, false, 0, true);
+        $this->printMessage(''.$LNG['sb_stats_updated'].$stats_end_time.$memory_i.$memory_e.$memory_p.$stats_sql.'', false, NULL, true);
 	}
 }

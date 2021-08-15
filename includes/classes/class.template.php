@@ -100,7 +100,7 @@ class template extends Smarty
 			'Offset'			=> $dateTimeUser->getOffset() - $dateTimeServer->getOffset(),
 			'VERSION'			=> $config->VERSION,
 			'dpath'				=> 'styles/theme/'.DEFAULT_THEME.'/',
-			'bodyclass'			=> 'full'
+			'bodyclass'			=> 'full',
 		));
 	}
 	

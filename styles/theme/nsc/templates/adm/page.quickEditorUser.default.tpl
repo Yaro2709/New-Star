@@ -36,12 +36,12 @@ function check(){
                             <td>{$LNG.qe_hpcoords}:</td>
                             <td>{$planetname} [{$galaxy}:{$system}:{$planet}] ({$planetid})</td>
                         </tr>
-                        {if $authlevl != $smarty.const.AUTH_USER}
+                        {*if $authlevel != $smarty.const.AUTH_USER}
                             <tr>
                                 <td>{$LNG.qe_authattack}:</td>
                                 <td><input type="checkbox" name="authattack"{if $authattack != 0} checked{/if} class="form-control"></td>
                             </tr>
-                        {/if}
+                        {/if*}
                         {if $ChangePW}
                             <tr>
                                 <td>{$LNG.qe_password}:</td>

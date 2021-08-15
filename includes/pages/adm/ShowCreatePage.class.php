@@ -28,6 +28,10 @@ class ShowCreatePage extends AbstractAdminPage
 	function show()
 	{
         global $LNG, $USER;
+        
+        if(!isset($_GET['class'])){
+            $_GET['class'] = '';
+        }
 
         switch($_GET['class'])
         {
@@ -123,7 +127,7 @@ class ShowCreatePage extends AbstractAdminPage
                     $MoonName  	= HTTP::_GP('name', '', UTF8_SUPPORT);
                     $Diameter	= HTTP::_GP('diameter', 0);
 			
-                    $MoonPlanet	= $GLOBALS['DATABASE']->getFirstRow("SELECT temp_max, temp_min, id_luna, galaxy, system, planet, planet_type, destruyed, id_owner FROM ".PLANETS." WHERE id = '".$PlanetID."' AND universe = '".Universe::current()."' AND planet_type = '1' AND destruyed = '0';");
+                    $MoonPlanet	= $GLOBALS['DATABASE']->getFirstRow("SELECT temp_max, temp_min, id_luna, galaxy, `system`, planet, planet_type, destruyed, id_owner FROM ".PLANETS." WHERE id = '".$PlanetID."' AND universe = '".Universe::current()."' AND planet_type = '1' AND destruyed = '0';");
 
                     if (!isset($MoonPlanet)) {
                         $this->printMessage($LNG['cr_planet_doesnt_exist'], true, array('?page=create&class=moon', 3));

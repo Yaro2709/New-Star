@@ -19,7 +19,9 @@
     top: 25px;
     text-align: center;
  left: 0;
-     max-width: 300px;}
+     max-width: 300px;
+     margin: auto;
+}
 
 .gray_ship2{
        width: 697px;
@@ -563,6 +565,7 @@ div.shortcut-edit{
 	        width: -moz-max-content;
 	        width: fit-content;
 	        color: #e6e6e6;
+            margin: auto;
 			
 }
 .fleetstep1-15{
@@ -574,6 +577,7 @@ div.shortcut-edit{
 	    top: 30px;
 	    height: 32px;
 	    color: #e6e6e6;
+        margin: auto;
 }
 .fleetstep1-16{
     font-variant: all-small-caps;
