@@ -194,7 +194,7 @@ class ShowBuildingsPage extends AbstractGamePage
 		global $PLANET, $USER, $resource, $reslist, $pricelist;
 		
 		if(!in_array($Element, $reslist['allow'][$PLANET['planet_type']])
-			|| !BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element) 
+			|| !BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element, array()) 
 			|| (!$AddMode && $PLANET[$resource[$Element]] == 0)
 		)
 			return;
@@ -455,7 +455,7 @@ class ShowBuildingsPage extends AbstractGamePage
 				'buyable'				=> $buyable,
 				'levelToBuild'			=> $levelToBuild,
 				'AllTech'				=> $techTreeList,
-				'techacc' 				=> BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element),
+				'techacc' 				=> BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element, array()),
                 'ressources'		    => array_merge($reslist['resstype'][1], $reslist['resstype'][2]),
                 'storage'		        => $reslist['resstype'][1],
 			);

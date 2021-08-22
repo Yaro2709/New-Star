@@ -41,7 +41,7 @@ class ShowBuyTechPage extends AbstractGamePage
         //Цена
 		$cost			= BuildFunctions::instantPurchasePrice($Element) * pow(($pricelist[$Element]['factor']), ($USER[$resource[$Element]] + $Count));
         //Ограничение по технологиям и $reslist
-		if(!empty($Element) && in_array($Element, $reslist['tech']) && BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element) && in_array($Element, $reslist['tech']) || in_array($Element, $reslist['not_bought']))
+		if(!empty($Element) && in_array($Element, $reslist['tech']) && BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element, array()) && in_array($Element, $reslist['tech']) || in_array($Element, $reslist['not_bought']))
 		{ 
             //Нехватка ресурса.
 			if($USER[$resource[$resglobal['buy_instantly']]] < $cost )
@@ -73,7 +73,7 @@ class ShowBuyTechPage extends AbstractGamePage
 		$allowedElements = array();
 		foreach($reslist['tech'] as $Element)
 		{
-			if(!BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element) || !in_array($Element, $reslist['tech']) || in_array($Element, $reslist['not_bought']))
+			if(!BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element, array()) || !in_array($Element, $reslist['tech']) || in_array($Element, $reslist['not_bought']))
 				continue;
 			$allowedElements[] = $Element;
             

@@ -299,7 +299,7 @@ class ShowResearchPage extends AbstractGamePage
 		global $PLANET, $USER, $resource, $reslist, $pricelist;
 
 		if(!in_array($elementId, $reslist['tech'])
-			|| !BuildFunctions::isTechnologieAccessible($USER, $PLANET, $elementId)
+			|| !BuildFunctions::isTechnologieAccessible($USER, $PLANET, $elementId, array())
 			|| !$this->CheckLabSettingsInQueue($PLANET)
 		)
 		{
@@ -498,7 +498,7 @@ class ShowResearchPage extends AbstractGamePage
 				'levelToBuild'		    => $levelToBuild,
                 'elementBonus'		    => $elementBonus,
 				'AllTech'				=> $techTreeList,
-				'techacc' 				=> BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element),
+				'techacc' 				=> BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element, array()),
 			);
 		}
 		

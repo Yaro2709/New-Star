@@ -166,7 +166,7 @@ class BuildFunctions
         return $price;
     }
     
-    public static function isTechnologieAccessible($USER, $PLANET, $Element)
+    public static function isTechnologieAccessible($USER, $PLANET, $Element, $ReqArray)
     {
         global $requeriments, $pricelist, $resource;
 
@@ -177,13 +177,40 @@ class BuildFunctions
 
         foreach($requeriments[$Element] as $ReqElement => $EleLevel)
         {
-            if (
-                (isset($USER[$resource[$ReqElement]]) && isset($USER[$resource[$Element]]) && $USER[$resource[$ReqElement]] < ceil($EleLevel * (eval("return $factor;")))) ||
-                (isset($PLANET[$resource[$ReqElement]]) && isset($USER[$resource[$Element]]) && $PLANET[$resource[$ReqElement]] < ceil($EleLevel * (eval("return $factor;")))) ||
-                (isset($USER[$resource[$ReqElement]]) && isset($PLANET[$resource[$Element]]) && $USER[$resource[$ReqElement]] < ceil($EleLevel * (eval("return $factor;")))) ||
-                (isset($PLANET[$resource[$ReqElement]]) && isset($PLANET[$resource[$Element]]) && $PLANET[$resource[$ReqElement]] < ceil($EleLevel * (eval("return $factor;"))))
-            ) {
-                return false;
+            if((in_array($ReqElement, $ReqArray)) || ($ReqArray == array())){
+                if (
+                    (isset($USER[$resource[$ReqElement]]) && isset($USER[$resource[$Element]]) && $USER[$resource[$ReqElement]] < ceil($EleLevel * (eval("return $factor;")))) ||
+                    (isset($PLANET[$resource[$ReqElement]]) && isset($USER[$resource[$Element]]) && $PLANET[$resource[$ReqElement]] < ceil($EleLevel * (eval("return $factor;")))) ||
+                    (isset($USER[$resource[$ReqElement]]) && isset($PLANET[$resource[$Element]]) && $USER[$resource[$ReqElement]] < ceil($EleLevel * (eval("return $factor;")))) ||
+                    (isset($PLANET[$resource[$ReqElement]]) && isset($PLANET[$resource[$Element]]) && $PLANET[$resource[$ReqElement]] < ceil($EleLevel * (eval("return $factor;"))))
+                ) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    
+    public static function isTechnologieSorting($USER, $PLANET, $Element, $ReqArray)
+    {
+        global $requeriments, $pricelist, $resource;
+
+        if(!isset($requeriments[$Element]))
+            return true;
+        
+        $factor = $pricelist[$Element]['factorTechnologie'];
+
+        foreach($requeriments[$Element] as $ReqElement => $EleLevel)
+        {
+            if(in_array($ReqElement, $ReqArray) || $ReqArray == 0){
+                if (
+                    (isset($USER[$resource[$ReqElement]]) && isset($USER[$resource[$Element]]) && $USER[$resource[$ReqElement]] < ceil($EleLevel * (eval("return $factor;")))) ||
+                    (isset($PLANET[$resource[$ReqElement]]) && isset($USER[$resource[$Element]]) && $PLANET[$resource[$ReqElement]] < ceil($EleLevel * (eval("return $factor;")))) ||
+                    (isset($USER[$resource[$ReqElement]]) && isset($PLANET[$resource[$Element]]) && $USER[$resource[$ReqElement]] < ceil($EleLevel * (eval("return $factor;")))) ||
+                    (isset($PLANET[$resource[$ReqElement]]) && isset($PLANET[$resource[$Element]]) && $PLANET[$resource[$ReqElement]] < ceil($EleLevel * (eval("return $factor;"))))
+                ) {
+                    return false;
+                }
             }
         }
         return true;

@@ -64,7 +64,7 @@ class ShowBuyBuildPage extends AbstractGamePage
 			return;
 		}
         //Ограничение по технологиям и $reslist
-		if(!empty($Element) && in_array($Element, $Elements) && BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element) && in_array($Element, $Elements) || in_array($Element, $reslist['not_bought']))
+		if(!empty($Element) && in_array($Element, $Elements) && BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element, array()) && in_array($Element, $Elements) || in_array($Element, $reslist['not_bought']))
 		{ 
             //Нехватка ресурса.
 			if($USER[$resource[$resglobal['buy_instantly']]] < $cost )
@@ -98,7 +98,7 @@ class ShowBuyBuildPage extends AbstractGamePage
 		$allowedElements = array();
 		foreach($Elements as $Element)
 		{
-			if(!BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element) || !in_array($Element, $Elements) || in_array($Element, $reslist['not_bought']))
+			if(!BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element, array()) || !in_array($Element, $Elements) || in_array($Element, $reslist['not_bought']))
 				continue;
 			$allowedElements[] = $Element;
             

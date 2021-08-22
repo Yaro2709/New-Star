@@ -46,7 +46,7 @@ class ShowAchievementsPage extends AbstractGamePage
                     'factor'		    => $pricelist[$Element]['factor'],
 					'elementBonus'		=> $elementBonus,
 					'AllTech'			=> $techTreeList,
-					'techacc'			=> BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element),
+					'techacc'			=> BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element, array()),
 				);
 			}
 		}

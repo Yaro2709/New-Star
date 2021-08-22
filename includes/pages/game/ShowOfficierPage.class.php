@@ -30,7 +30,7 @@ class ShowOfficierPage extends AbstractGamePage
 		
 		$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element);
 			
-		if (!BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element) 
+		if (!BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element, array()) 
 			|| !BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources) 
 			|| $pricelist[$Element]['max'] <= $USER[$resource[$Element]]) {
 			return;
@@ -82,7 +82,7 @@ class ShowOfficierPage extends AbstractGamePage
 					'costOverflow'		=> $costOverflow,
 					'elementBonus'		=> $elementBonus,
 					'AllTech'			=> $techTreeList,
-					'techacc'			=> BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element),
+					'techacc'			=> BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element, array()),
 				);
 			}
 		}

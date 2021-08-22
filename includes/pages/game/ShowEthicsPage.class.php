@@ -30,7 +30,7 @@ class ShowEthicsPage extends AbstractGamePage
 		
 		$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element);
 			
-		if (!BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element) 
+		if (!BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element, array()) 
 			|| !BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources) 
 			|| $pricelist[$Element]['max'] <= $USER[$resource[$Element]]) {
 			return;

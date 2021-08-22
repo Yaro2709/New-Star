@@ -33,10 +33,12 @@ class ShowAccountEditorPage extends AbstractAdminPage
             $_GET['edit'] = '';
         }
         
-        if(!isset($_POST['add'])){
-            $_POST['add'] = '';
-        }elseif(!isset($_POST['delete'])){
-            $_POST['delete'] = '';
+        if(PHP_VERSION >= '8.0.0'){ 
+            if(!isset($_POST['add'])){
+                $_POST['add'] = '';
+            }elseif(!isset($_POST['delete'])){
+                $_POST['delete'] = '';
+            }
         }
 
         switch($_GET['edit'])
@@ -120,7 +122,7 @@ class ShowAccountEditorPage extends AbstractAdminPage
 
                     if ($_POST['add']) {
                         $this->printMessage($LNG['ac_add_sucess'], true, array('?page=accounteditor&edit=resources', 3));
-                    } else if ($_POST['delete']) {
+                    } elseif ($_POST['delete']) {
                         $this->printMessage($LNG['ac_delete_sucess'], true, array('?page=accounteditor&edit=resources', 3));
                     }
                     exit;
@@ -176,7 +178,7 @@ class ShowAccountEditorPage extends AbstractAdminPage
 
                     if ($_POST['add']) {
                         $this->printMessage($LNG['ac_add_sucess'], true, array('?page=accounteditor&edit=ships', 3));
-                    } else if ($_POST['delete']) {
+                    } elseif ($_POST['delete']) {
                         $this->printMessage($LNG['ac_delete_sucess'], true, array('?page=accounteditor&edit=ships', 3));
                     }
                     exit;
@@ -243,7 +245,7 @@ class ShowAccountEditorPage extends AbstractAdminPage
 
                     if ($_POST['add']) {
                         $this->printMessage($LNG['ac_add_sucess'], true, array('?page=accounteditor&edit=defenses', 3));
-                    } else if ($_POST['delete']) {
+                    } elseif ($_POST['delete']) {
                         $this->printMessage($LNG['ac_delete_sucess'], true, array('?page=accounteditor&edit=defenses', 3));
                     }
                     exit;
@@ -325,7 +327,7 @@ class ShowAccountEditorPage extends AbstractAdminPage
 
                     if ($_POST['add']) {
                         $this->printMessage($LNG['ac_add_sucess'], true, array('?page=accounteditor&edit=buildings', 3));
-                    } else if ($_POST['delete']) {
+                    } elseif ($_POST['delete']) {
                         $this->printMessage($LNG['ac_delete_sucess'], true, array('?page=accounteditor&edit=buildings', 3));
                     }
                     exit;
@@ -391,7 +393,7 @@ class ShowAccountEditorPage extends AbstractAdminPage
 				
                     if ($_POST['add']) {
                         $this->printMessage($LNG['ac_add_sucess'], true, array('?page=accounteditor&edit=researchs', 3));
-                    } else if ($_POST['delete']) {
+                    } elseif ($_POST['delete']) {
                         $this->printMessage($LNG['ac_delete_sucess'], true, array('?page=accounteditor&edit=researchs', 3));
                     }
                     exit;
@@ -524,7 +526,7 @@ class ShowAccountEditorPage extends AbstractAdminPage
 				
                     if ($_POST['add']) {
                         $this->printMessage($LNG['ac_add_sucess'], true, array('?page=accounteditor&edit=officiers', 3));
-                    } else if ($_POST['delete']) {
+                    } elseif ($_POST['delete']) {
                         $this->printMessage($LNG['ac_delete_sucess'], true, array('?page=accounteditor&edit=officiers', 3));
                     }
                     exit;

@@ -128,7 +128,7 @@ class ShowShipyardPage extends AbstractGamePage
 		{
 			if(empty($Count)
 				|| !in_array($Element, array_merge($reslist['fleet'], $reslist['defense'], $reslist['missile']))
-				|| !BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element)
+				|| !BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element, array())
 			) {
 				continue;
 			}
@@ -283,6 +283,9 @@ class ShowShipyardPage extends AbstractGamePage
 
 		foreach($elementIDs as $Element)
 		{
+            if(!BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element, $reslist['race']))
+				continue;
+            
             $techTreeList		= BuildFunctions::requirementsList($USER, $PLANET, $Element);
 			$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element);
 			$costOverflow		= BuildFunctions::getRestPrice($USER, $PLANET, $Element, $costResources);
@@ -343,7 +346,7 @@ class ShowShipyardPage extends AbstractGamePage
 				'maxBuildable'		=> floattostring($maxBuildable),
 				'AlreadyBuild'		=> $AlreadyBuild,
 				'AllTech'			=> $techTreeList,
-				'techacc' 			=> BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element),
+				'techacc' 			=> BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element, array()),
 				
                 'fleetgun'		    => $FleetGun,
                 'info'		        => $Info,

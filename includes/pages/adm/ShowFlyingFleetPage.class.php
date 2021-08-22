@@ -27,7 +27,7 @@ class ShowFlyingFleetPage extends AbstractAdminPage
 		
 	function show()
 	{
-        global $LNG;
+        global $LNG, $USER;
 	
         require 'includes/classes/class.FlyingFleetsTable.php';
     

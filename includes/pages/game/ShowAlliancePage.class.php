@@ -720,7 +720,7 @@ class ShowAlliancePage extends AbstractGamePage
 		
 		$costResources		= BuildFunctions::getElementPrice($this->allianceData, $this->allianceData, $Element);
 			
-		if (!BuildFunctions::isTechnologieAccessible($this->allianceData, $this->allianceData, $Element) 
+		if (!BuildFunctions::isTechnologieAccessible($this->allianceData, $this->allianceData, $Element, array()) 
 			|| !BuildFunctions::isElementBuyable($this->allianceData, $this->allianceData, $Element, $costResources) 
 			|| $pricelist[$Element]['max'] <= $this->allianceData[$resource[$Element]]) {
 			return;
@@ -825,7 +825,7 @@ class ShowAlliancePage extends AbstractGamePage
 					'costOverflow'		=> $costOverflow,
 					'elementBonus'		=> $elementBonus,
 					'AllTech'			=> $techTreeList,
-					'techacc'			=> BuildFunctions::isTechnologieAccessible($this->allianceData, $this->allianceData, $Element),
+					'techacc'			=> BuildFunctions::isTechnologieAccessible($this->allianceData, $this->allianceData, $Element, array()),
 				);
 			}
 		}

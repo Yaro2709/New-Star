@@ -310,7 +310,7 @@ abstract class AbstractGamePage
         foreach($reslist['achievements'] as $Element)
         {
             //Блок
-            if(!BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element) || $pricelist[$Element]['max'] <= $USER[$resource[$Element]])
+            if(!BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element, array()) || $pricelist[$Element]['max'] <= $USER[$resource[$Element]])
 				continue;
             //Получаешь награду
             $amount = 1;
