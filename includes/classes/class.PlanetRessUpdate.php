@@ -581,7 +581,7 @@ class ResourceUpdate
 				if(isset($costResources[921])) { $this->USER[$resource[921]]	-= $costResources[921]; }
                 $old_code*/
                 //$new_code
-                require_once('includes/subclasses/subclass.ResThis.php');
+                include('includes/subclasses/subclass.ResThis.php');
                 //$new_code
 				$NewQueue               	= serialize($CurrentQueue);
 				$Loop                  		= false;
@@ -724,7 +724,7 @@ class ResourceUpdate
 				if(isset($costResources[921])) { $this->USER[$resource[921]]	-= $costResources[921]; }
                 $old_code*/
                 //$new_code
-                require_once('includes/subclasses/subclass.ResPlanetThisUser.php');
+                include('includes/subclasses/subclass.ResPlanetThisUser.php');
                 //$new_code
                
 				$this->USER['b_tech_id']		= $Element;

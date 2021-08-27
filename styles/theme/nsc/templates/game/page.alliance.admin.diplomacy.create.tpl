@@ -8,19 +8,19 @@
    </div>
    <form name="message" id="message">
       <div class="statbarsup1" style="margin: 7px;">
-      <table class="tablesorter ally_ranks">
-         <tbody>
-            <tr>
-               <td>{$LNG.al_diplo_ally} {html_options name="ally_id" values=$IdList output=$AllyList}</td>
-               <td>{$LNG.al_diplo_level_des} {html_options name="level" values=range(1,6) output=$LNG.al_diplo_level selected=$diploMode}</td>
-            </tr>
-            <tr>
-               <td colspan="2">
-                  <textarea placeholder="{$LNG.nt_text}" name="text" cols="60" rows="10" onkeyup="$('#cntChars').text($(this).val().length);"></textarea>
-               </td>
-            </tr>
-         </tbody>
-      </table>
+          <table class="tablesorter ally_ranks">
+             <tbody>
+                <tr>
+                   <td>{$LNG.al_diplo_ally} {html_options name="ally_id" values=$IdList output=$AllyList}</td>
+                   <td>{$LNG.al_diplo_level_des} {html_options name="level" values=range(1,6) output=$LNG.al_diplo_level selected=$diploMode}</td>
+                </tr>
+                <tr>
+                   <td colspan="2">
+                      <textarea placeholder="{$LNG.nt_text}" name="text" cols="60" rows="10" onkeyup="$('#cntChars').text($(this).val().length);"></textarea>
+                   </td>
+                </tr>
+             </tbody>
+          </table>
       </div>
       <div class="fleettab1" style="height: 32px;"> 
             <button type="reset" class="rexx13">{$LNG.al_circular_reset}</button>
