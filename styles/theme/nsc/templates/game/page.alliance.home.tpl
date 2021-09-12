@@ -154,54 +154,52 @@
                 <div class="card mt-1 background-border-black-blue shadow"> 
                     <div class="card-body">
                         <p class="card-title text-align-center">{$LNG.al_diplo}</p>
-                        <p class="card-text" style="min-height: 85px;">
-                        
-                                              {if $DiploInfo}
-                      {if !empty($DiploInfo.0)}<div class="c-diplo-0">{$LNG.al_diplo_level.0}</div>
-                      <ul>
-                         {foreach item=PaktInfo from=$DiploInfo.0}
-                         <li><a href="?page=alliance&mode=info&amp;id={$PaktInfo.1}">{$PaktInfo.0}</a></li>
-                         {/foreach}
-                      </ul>
-                      {/if}
-                      {if !empty($DiploInfo.1)}<div class="c-diplo-1">{$LNG.al_diplo_level.1}</div>
-                      <ul>
-                         {foreach item=PaktInfo from=$DiploInfo.1}
-                         <li><a href="?page=alliance&mode=info&amp;id={$PaktInfo.1}">{$PaktInfo.0}</a></li>
-                         {/foreach}
-                      </ul>
-                      {/if}
-                      {if !empty($DiploInfo.2)}<div class="c-diplo-2">{$LNG.al_diplo_level.2}</div>
-                      <ul>
-                         {foreach item=PaktInfo from=$DiploInfo.2}
-                         <li><a href="?page=alliance&mode=info&amp;id={$PaktInfo.1}">{$PaktInfo.0}</a></li>
-                         {/foreach}
-                      </ul>
-                      {/if}
-                      {if !empty($DiploInfo.3)}<div class="c-diplo-3">{$LNG.al_diplo_level.3}</div>
-                      <ul>
-                         {foreach item=PaktInfo from=$DiploInfo.3}
-                         <li><a href="?page=alliance&mode=info&amp;id={$PaktInfo.1}">{$PaktInfo.0}</a></li>
-                         {/foreach}
-                      </ul>
-                      {/if}
-                      {if !empty($DiploInfo.4)}<div class="c-diplo-4">{$LNG.al_diplo_level.4}</div>
-                      <ul>
-                         {foreach item=PaktInfo from=$DiploInfo.4}
-                         <li><a href="?page=alliance&mode=info&amp;id={$PaktInfo.1}">{$PaktInfo.0}</a></li>
-                         {/foreach}
-                      </ul>
-                      {/if}
-                      {if !empty($DiploInfo.5)}<div class="c-diplo-5">{$LNG.al_diplo_level.5}</div>
-                      <ul>
-                         {foreach item=PaktInfo from=$DiploInfo.5}
-                         <li><a href="?page=alliance&mode=info&amp;id={$PaktInfo.1}">{$PaktInfo.0}</a><br>{/foreach}
-                      </ul>
-                      {/if}
-                      {else}
-                      <span>{$LNG.al_no_diplo}</span>
-                      {/if}
-                        
+                        <p class="card-text overflow-auto" style="min-height: 85px;">
+                          {if $DiploInfo}
+                          {if !empty($DiploInfo.0)}<div class="c-diplo-0">{$LNG.al_diplo_level.0}</div>
+                          <ul>
+                             {foreach item=PaktInfo from=$DiploInfo.0}
+                             <li><a href="?page=alliance&mode=info&amp;id={$PaktInfo.1}">{$PaktInfo.0}</a></li>
+                             {/foreach}
+                          </ul>
+                          {/if}
+                          {if !empty($DiploInfo.1)}<div class="c-diplo-1">{$LNG.al_diplo_level.1}</div>
+                          <ul>
+                             {foreach item=PaktInfo from=$DiploInfo.1}
+                             <li><a href="?page=alliance&mode=info&amp;id={$PaktInfo.1}">{$PaktInfo.0}</a></li>
+                             {/foreach}
+                          </ul>
+                          {/if}
+                          {if !empty($DiploInfo.2)}<div class="c-diplo-2">{$LNG.al_diplo_level.2}</div>
+                          <ul>
+                             {foreach item=PaktInfo from=$DiploInfo.2}
+                             <li><a href="?page=alliance&mode=info&amp;id={$PaktInfo.1}">{$PaktInfo.0}</a></li>
+                             {/foreach}
+                          </ul>
+                          {/if}
+                          {if !empty($DiploInfo.3)}<div class="c-diplo-3">{$LNG.al_diplo_level.3}</div>
+                          <ul>
+                             {foreach item=PaktInfo from=$DiploInfo.3}
+                             <li><a href="?page=alliance&mode=info&amp;id={$PaktInfo.1}">{$PaktInfo.0}</a></li>
+                             {/foreach}
+                          </ul>
+                          {/if}
+                          {if !empty($DiploInfo.4)}<div class="c-diplo-4">{$LNG.al_diplo_level.4}</div>
+                          <ul>
+                             {foreach item=PaktInfo from=$DiploInfo.4}
+                             <li><a href="?page=alliance&mode=info&amp;id={$PaktInfo.1}">{$PaktInfo.0}</a></li>
+                             {/foreach}
+                          </ul>
+                          {/if}
+                          {if !empty($DiploInfo.5)}<div class="c-diplo-5">{$LNG.al_diplo_level.5}</div>
+                          <ul>
+                             {foreach item=PaktInfo from=$DiploInfo.5}
+                             <li><a href="?page=alliance&mode=info&amp;id={$PaktInfo.1}">{$PaktInfo.0}</a><br>{/foreach}
+                          </ul>
+                          {/if}
+                          {else}
+                          <span>{$LNG.al_no_diplo}</span>
+                          {/if}
                         </p>
                     </div>
                 </div>

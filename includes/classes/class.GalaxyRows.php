@@ -200,20 +200,28 @@ class GalaxyRows
 			switch($this->galaxyRow['diploLevel'])
 			{
 				case 1:
+					$Class	= array('c-diplo-1');
+				break;
 				case 2:
-					$Class	= array('member');
+					$Class	= array('c-diplo-2');
+				break;
+                case 3:
+					$Class	= array('c-diplo-3');
 				break;
 				case 4:
-					$Class	= array('friend');
+					$Class	= array('c-diplo-4');
 				break;
 				case 5:
-					$Class	= array('enemy');
+					$Class	= array('c-diplo-5');
+				break;
+                case 6:
+					$Class	= array('c-diplo-6');
 				break;
 			}
 			
 			if($USER['ally_id'] == $this->galaxyRow['ally_id'])
 			{
-				$Class	= array('member');
+				$Class	= array('c-diplo-100');
 			}
 			
 			$this->galaxyData[$this->galaxyRow['planet']]['alliance']	= array(

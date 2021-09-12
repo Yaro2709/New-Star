@@ -1,3 +1,15 @@
+/*Цвета дипломатии*/
+
+.c-diplo-0{color:#fff;}
+.c-diplo-1{color:#FFDEAD;}
+.c-diplo-2{color:#abe171;}
+.c-diplo-3{color:#CDAD00;}
+.c-diplo-4{color:#D2691E;}
+.c-diplo-5{color:#f25858;}
+.c-diplo-6{color:#abe171;}
+.c-diplo-100{color:#05c3f1;}
+
+
 p{
     margin: auto;
 }
@@ -420,7 +432,7 @@ p{
 }
 
 
-.alleanza5{    color: #e6e6e6;
+.alleanza5{   
     font-size: 14px;
     text-align: center;
     position: absolute;

@@ -249,7 +249,7 @@
                                         </tr>
                                     </tbody>
                                 </table>">
-                                <span class="galaxy-alliance {foreach $currentPlanet.alliance.class as $class}{if !$class@first} {/if}galaxy-alliance {$class}{/foreach}"{$class}>{$currentPlanet.alliance.tag}</span>
+                                <span class="galaxy-alliance {foreach $currentPlanet.alliance.class as $class}{if !$class@first} {/if}{$class}{/foreach}"{$class}>{$currentPlanet.alliance.tag}</span>
                             </a>
                             {/if}	
                         </div>

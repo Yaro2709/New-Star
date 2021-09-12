@@ -33,6 +33,8 @@
     <link rel="stylesheet" type="text/css" href="./styles/resource/css/ingame/main.css">
     <link rel="stylesheet" type="text/css" href="{$dpath}css/navigation.css">
     <link rel="stylesheet" type="text/css" href="{$dpath}css/general.css">
+    
+    <link rel="stylesheet" type="text/css" href="{$dpath}formate.css">
     <!--game script-->
     <script type="text/javascript">
         var ServerTimezoneOffset = {$Offset};
