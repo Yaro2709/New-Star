@@ -1,0 +1,25 @@
+Bonjour {USERNAME},
+
+
+Merci de votre inscription sur {GAMENAME}
+
+Avant que nous puissions activer votre compte, une étape supplémentaire est nécessaire.
+Veuillez noter que cette étape est obligatoire afin de devenir un
+utilisateur enregistré. Vous devez cliquer une seule fois sur le lien ci-dessous pour vérifier votre identité.
+
+Afin de compléter votre inscription, veuillez cliquer sur le
+le lien d'activation suivant :
+
+{VERTIFYURL}
+
+Vos données de connexion :
+
+Nom d'utilisateur : {USERNAME}
+Mot de passe : {Mot de passe}
+
+Si vous rencontrez des problèmes avec l'enregistrement automatique,
+veuillez contacter le webmaster en utilisant l'email suivant :
+{GAMEMAIL}
+
+Salutations,
+{GAMENAME} Team
