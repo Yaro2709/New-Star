@@ -48,6 +48,11 @@ AddCharset utf-8 .css .js .xml .json .rss .atom
 	RewriteEngine on
 	RewriteRule uni([0-9]+)/?(.*)?$ $2 [L,QSA,E=UNI:$1]
 </IfModule>
+<IfModule mod_headers.c>
+    <FilesMatch "\.(gif|ico|jpeg|jpg|png|css|js)$">
+        Header set Cache-Control "max-age=604800, public"
+    </FilesMatch>
+</IfModule>
 
 <IfModule mod_expires.c>
 	ExpiresActive On
