@@ -128,12 +128,12 @@
                             <div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'>
                             </div> <span style='color:#999'>{$resouceData.current|number}/{$resouceData.max|number}</span>">
                             {if isModuleAvailable($smarty.const.MODULE_TRADER)}
-                            <a href="game.php?page=trader"><div class="ico_res"></div></a>
+                            <a href="game.php?page=resources"><div class="ico_res"></div></a>
                             {else}
                             <div class="ico_res"></div>
                             {/if}
                             {*<a href="game.php?page=trader&amp;mode=trade&amp;resource=901" class="exchange_res tooltip" data-tooltip-content="Обменять <span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span>"></a>*}
-                            <div class="stock_res">
+                            <div class="stock_res" onclick="document.location.uri='game.php?page=resources'">
                                 <div class="stock_percentage" style="width:{$resouceData.percent}%;"></div>
                                 <div class="stock_text">
                                     <span id="current_{$resouceData.name}" name="{$resouceData.current|number}" data-real="{$resouceData.current}">{shortly_number($resouceData.current)}</span>

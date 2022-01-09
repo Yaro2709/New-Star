@@ -595,31 +595,19 @@ class PlayerUtil
 
 	static public function allowPlanetPosition($position, $USER)
 	{
-		// http://owiki.de/index.php/Astrophysik#.C3.9Cbersicht
 
-		global $resource, $reslist;
-        
-		$config	= Config::get($USER['universe']);
-        
         $minPlanetPerTech = PlayerUtil::minPlanetPerTech($USER);
 
-		switch($position) {
-			case 1:
-			case ($config->max_planets):
-				return $minPlanetPerTech >= 8;
-			break;
-			case 2:
-			case ($config->max_planets-1):
-				return $minPlanetPerTech >= 6;
-			break;
-			case 3:
-			case ($config->max_planets-2):
-				return $minPlanetPerTech >= 4;
-			break;
-			default:
-				return $minPlanetPerTech >= 1;
-			break;
-		}
+		if($position >= 4 && $position <= 12){
+		    return true;
+        }elseif(($position == 3 && $minPlanetPerTech > 4) || ($position == 13 && $minPlanetPerTech > 4)){
+		    return true;
+        }elseif(($position == 2 && $minPlanetPerTech > 6) || ($position == 14 && $minPlanetPerTech > 6)){
+		    return true;
+        }elseif(($position == 1 && $minPlanetPerTech > 6) || ($position == 14 && $minPlanetPerTech > 15)){
+            return true;
+        }
+		return false;
 	}
 
 	static public function sendMessage($userId, $senderId, $senderName, $messageType, $subject, $text, $time, $parentID = NULL, $unread = 1, $universe = NULL)
