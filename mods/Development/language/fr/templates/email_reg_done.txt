@@ -1,0 +1,10 @@
+Bonjour {USERNAME},
+
+
+Merci de vous être inscrit sur {GAMENAME}.
+
+Nous sommes heureux que tu aies choisi de faire partie de notre communauté.
+et nous espérons que vous vous amuserez !
+
+Salutations,
+{GAMENAME} - Team

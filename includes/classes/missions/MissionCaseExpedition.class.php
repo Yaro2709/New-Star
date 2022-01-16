@@ -46,11 +46,13 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
 		$fleetArray		= FleetFunctions::unserialize($this->_fleet['fleet_array']);
 		$fleetPoints 	= 0;
 		$fleetCapacity	= 0;
+        $fleetPoints_id = array();
 
 		foreach ($fleetArray as $shipId => $shipAmount)
 		{
 			$fleetCapacity 			   += $shipAmount * $pricelist[$shipId]['capacity'];
 			$fleetPoints   			   += $shipAmount * $expeditionPoints[$shipId];
+            $fleetPoints_id[$shipId]   = $shipAmount * $expeditionPoints[$shipId]; //для поиска флота
 		}
         
         //Ограничитель по ресам и очкам. 
@@ -68,7 +70,7 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
         //1. Ресурсы. 
         if($GetEvent <= 40000){
             
-            $input = $reslist['resstype'][1];
+          $input = $reslist['resstype'][1];
             $rand_keys = array_rand($input, 1);
             $FindSize   = mt_rand(0, 100);
             $Size       = 0;
@@ -87,7 +89,7 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
 			//$Size 	+=  $Size;
             
             $fleetColName	= 'fleet_resource_'.$resource[$input[$rand_keys]];
-			$this->UpdateFleet($fleetColName, $this->_fleet[$fleetColName] + $Size);
+			$this->UpdateFleet($fleetColName, $this->_fleet[$fleetColName] + $Size); 
             
         //2. Поиск Темной материи. 
         }elseif($GetEvent > 40000 && $GetEvent <= 50000){
@@ -171,13 +173,55 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
                 $Message	    = $LNG['sys_expe_found_so_'.mt_rand(1,7)];
             }
           
-        //7. Пропажа флота.
-        }elseif($GetEvent > 72000 && $GetEvent <= 73000){
+        //7. Поиск флота.
+        }elseif($GetEvent > 72000 && $GetEvent <= 78000){
+            
+            if($fleetPoints < 200000 * $config->stat_settings){
+                $Message        = $LNG['sys_expe_nothing_'.mt_rand(1,8)];     
+            }else{
+                $Message        = $LNG['sys_expe_found_ships_'.mt_rand(1,8)];
+				
+				$FoundShipMess	= "";	
+				$NewFleetArray 	= "";
+				
+				$Found			= array();
+				foreach($reslist['fleet'] as $ID) 
+				{
+                    //убираем, что не должно попадаться
+					if(!isset($fleetArray[$ID]))
+						continue;
+
+					$Found[$ID]			= ($fleetPoints_id[$ID]/(($pricelist[$ID]['cost'][901] + $pricelist[$ID]['cost'][902]))) * ($exp_factor + (mt_rand(1,5)/100)); //колличество
+                    $FoundShipMess   	.= '<br><span style="color:#d3af00">'.$LNG['tech'][$ID].': '.pretty_number($Found[$ID]).'</span>';
+				}
+				
+				if (empty($Found)) {
+					$FoundShipMess .= '<br><br>'.$LNG['sys_expe_found_ships_'.mt_rand(1,8)];;
+				}
+
+				foreach($fleetArray as $ID => $Count)
+				{
+					if(!empty($Found[$ID]))
+					{
+						$Count	+= $Found[$ID];
+					}
+					
+					$NewFleetArray  	.= $ID.",".floatToString($Count).';';
+				}	
+				
+				$Message	.= $FoundShipMess;
+							
+				$this->UpdateFleet('fleet_array', $NewFleetArray);
+				$this->UpdateFleet('fleet_amount', array_sum($fleetArray));
+            }
+
+        //8. Пропажа флота.
+        }elseif($GetEvent > 78000 && $GetEvent <= 79000){
             
             $this->KillFleet();
 			$Message	= $LNG['sys_expe_lost_fleet_'.mt_rand(1,4)];
 
-        //8. Пусто.
+        //9. Пусто.
         }else{
             
             $Message        = $LNG['sys_expe_nothing_'.mt_rand(1,8)];
