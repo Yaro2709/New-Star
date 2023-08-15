@@ -134,8 +134,7 @@ class ShowCreatePage extends AbstractAdminPage
                     }
 
                     $moonId	= PlayerUtil::createMoon(Universe::current(), $MoonPlanet['galaxy'], $MoonPlanet['system'],
-                        $MoonPlanet['planet'], $MoonPlanet['id_owner'], 20,
-                        (($_POST['diameter_check'] == 'on') ? NULL : $Diameter), $MoonName);
+                        $MoonPlanet['planet'], $MoonPlanet['id_owner'], 20, $Diameter, $MoonName);
 
                     if($moonId !== false)
                     {
@@ -175,9 +174,8 @@ class ShowCreatePage extends AbstractAdminPage
                     $planetId	= PlayerUtil::createPlanet($Galaxy, $System, $Planet, Universe::current(), $id, NULL, false, $ISUser['authlevel']);
 						
                     $SQL  = "UPDATE ".PLANETS." SET ";
-				
-                    if ($_POST['diameter_check'] != 'on' || $field_max > 0)
-                        $SQL .= "field_max = '".$field_max."' ";
+
+                    $SQL .= "field_max = '".$field_max."' ";
 			
                     if (!empty($name))
                         $SQL .= ", name = '".$GLOBALS['DATABASE']->sql_escape($name)."' ";

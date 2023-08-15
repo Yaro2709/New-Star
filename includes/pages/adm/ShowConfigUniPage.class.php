@@ -52,6 +52,17 @@ class ShowConfigUniPage extends AbstractAdminPage
                 'facebook'				    => array('fb_on', 'fb_apikey', 'fb_skey'),
                 'contacts'				    => array('disclamerAddress', 'disclamerPhone', 'disclamerMail', 'disclamerNotice'),
             );
+
+            $config_checkbox = array('sendmail_inactive', 'capaktiv', 'mail_active', 'ga_active', 'game_disable', 'ref_active', 'reg_closed', 'user_valid', 'adm_attack', 'debug', 'debris_moon', 'noobprotection', 'OverviewNewsFrame', 'chat_nickchange', 'chat_logmessage', 'chat_allowmes', 'chat_allowchan', 'chat_closed', 'ts_modon', 'fb_on');
+            $config_select = array('timezone', 'mail_use', 'smtp_ssl', 'message_delete_behavior', 'lang', 'stat_level');
+            $config_special = array(
+                'lang'                          => $LNG->getAllowedLangs(false),
+                'mail_use'                      => array(0 => $LNG['se_mail_sel_0'], 1 => $LNG['se_mail_sel_1'], 2 => $LNG['se_mail_sel_2']),
+                'smtp_ssl'                      => array('' => $LNG['cu_smtp_ssl_1'], 'ssl' => $LNG['cu_smtp_ssl_2'], 'tls' => $LNG['cu_smtp_ssl_3']),
+                'timezone'                      => get_timezone_selector(),
+                'message_delete_behavior'       => array(0 => $LNG['se_message_delete_behavior_0'], 1 => $LNG['se_message_delete_behavior_1']),
+                'stat_level'                    => array(1 => $LNG['cs_yes'], 2 => $LNG['cs_no_view'], 0 => $LNG['cs_no']),
+            );
             //Лист всех настроек
             $list = array_merge($config_class['server'], $config_class['user'], $config_class['recapthca'], $config_class['smtp'], $config_class['messages'], $config_class['analytics'], $config_class['chat'], $config_class['teamspeak'], $config_class['universe'], $config_class['queqe'], $config_class['referral'], $config_class['colonization'], $config_class['start'], $config_class['other'], $config_class['merchant'], $config_class['news'], $config_class['stat'], $config_class['facebook'], $config_class['contacts']);
             //Запрос на изменение существующих параметров
@@ -60,9 +71,17 @@ class ShowConfigUniPage extends AbstractAdminPage
                 $config_after = array();
                 foreach($list as $parameter) 
                 {
-                    $config_after	+= array(
-                        ''.$parameter.''	=> HTTP::_GP(''.$parameter.'', '', true)
-                    );
+                    if(in_array($parameter, $config_checkbox)){
+                        $config_after += array(
+                            '' . $parameter . '' => isset($_POST['' . $parameter . '']) && $_POST['' . $parameter . ''] == 'on' ? 1 : 0
+                        );
+                    }elseif(in_array($parameter, $config_select)){
+                        $config_after += array();
+                    }else{
+                        $config_after += array(
+                            '' . $parameter . '' => HTTP::_GP('' . $parameter . '', '', true)
+                        );
+                    }
                 }
                 //Собор данных для лога
                 $config_before = array();
@@ -100,6 +119,9 @@ class ShowConfigUniPage extends AbstractAdminPage
             }
         
 		$this->assign(array(
+            'config_select'             => $config_select,
+            'config_special'            => $config_special,
+            'config_checkbox'           => $config_checkbox,
             'config_before'             => $config_before, 
             'config'                    => $config_class,    
 		)); 

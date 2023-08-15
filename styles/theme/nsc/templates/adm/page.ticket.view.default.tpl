@@ -11,7 +11,7 @@
                 <div class="media">
                     <img style="width:64px" src="../styles/resource/images/install/poster.jpg" class="mr-3" alt="...">
                     <div class="media-body">
-                        <h5 class="mt-0">{$answerRow.subject} {$categoryList[$answerRow.categoryID]}</h5>
+                        <h5 class="mt-0">{$answerRow.subject}</h5>
                         {$answerRow.message}
                         <p>
                             <small class="text-muted">{$answerRow.ownerName}: {$answerRow.time}</small>

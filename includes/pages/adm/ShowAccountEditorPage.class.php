@@ -32,14 +32,6 @@ class ShowAccountEditorPage extends AbstractAdminPage
         if(!isset($_GET['edit'])){
             $_GET['edit'] = '';
         }
-        
-        if(PHP_VERSION >= '8.0.0'){ 
-            if(!isset($_POST['add'])){
-                $_POST['add'] = '';
-            }elseif(!isset($_POST['delete'])){
-                $_POST['delete'] = '';
-            }
-        }
 
         switch($_GET['edit'])
         {

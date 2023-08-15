@@ -19,10 +19,6 @@
                     <label for="diameter">{$LNG.cr_diameter}</label>
                     <input type="text" name="diameter" class="form-control" id="diameter">
                 </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" checked="checked" name="diameter_check" class="form-check-input" id="diameter_check">
-                    <label class="form-check-label" for="diameter_check">{$LNG.cr_moon_random}</label>
-                </div>
                 <div class="form-group">
                     <label for="field_max">{$LNG.cr_fields_max}</label>
                     <input type="text" name="field_max" class="form-control" id="field_max">

@@ -26,10 +26,26 @@
                         </thead>
                         <tbody>
                         {foreach $name_list as $v2 => $name_config}
+                            {if in_array($name_config, $config_checkbox)}
+                                <tr>
+                                    <td><label for="{$name_config}">{$LNG["cu_{$name_config}"]} ({$name_config})</label></td>
+                                    <td><input {if $config_before.$name_config == '1'} checked="checked"{/if} id="{$name_config}" name="{$name_config}" type="checkbox"></td>
+                                </tr>
+                            {elseif in_array($name_config, $config_select)}
+                                <tr>
+                                    <td><label for="{$name_config}">{$LNG["cu_{$name_config}"]} ({$name_config})</label></td>
+                                    <td>
+                                        <select name="{$name_config}" id="{$name_config}" class="form-control changeAction">
+                                            {html_options options=$config_special.$name_config selected=$config_before.$name_config}
+                                        </select>
+                                    </td>
+                                </tr>
+                            {else}
                             <tr>
                                 <td><label for="{$name_config}">{$LNG["cu_{$name_config}"]} ({$name_config})</label></td>
                                 <td><input name="{$name_config}" value="{$config_before.$name_config}" type="text" class="form-control" id="{$name_config}"></td>
                             </tr>
+                            {/if}
                         {/foreach}
                         </tbody>
                     </table>

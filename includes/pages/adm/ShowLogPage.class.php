@@ -81,6 +81,7 @@ class ShowLogPage extends AbstractAdminPage
         }
 	
         $Wrapper = array();
+        $LogArray	= array();
 	
         foreach ($conf_before as $key => $val) {
             if ($key != 'universe') {
@@ -126,7 +127,8 @@ class ShowLogPage extends AbstractAdminPage
         $targetkey = array(
             0 => $LNG['log_usettings'],
         );
-	
+
+        $LogArray	= array();
         while ($LogRow = $GLOBALS['DATABASE']->fetch_array($result))
         {			
             $LogArray[]	= array(
@@ -155,7 +157,8 @@ class ShowLogPage extends AbstractAdminPage
 
         if(!$result)
             $this->printMessage($LNG['log_no_data'], true, array('?page=log&type=planet', 3));
-		
+
+        $LogArray	= array();
         while ($LogRow = $GLOBALS['DATABASE']->fetch_array($result))
         {			
             $LogArray[]	= array(
@@ -184,7 +187,8 @@ class ShowLogPage extends AbstractAdminPage
 	
         if(!$result)
             $this->printMessage($LNG['log_no_data'], true, array('?page=log&type=player', 3));
-		
+
+        $LogArray	= array();
         while ($LogRow = $GLOBALS['DATABASE']->fetch_array($result))
         {			
             $LogArray[]	= array(
@@ -213,7 +217,8 @@ class ShowLogPage extends AbstractAdminPage
 
         if(!$result)
             $this->printMessage($LNG['log_no_data'], true, array('?page=log&type=present', 3));
-		
+
+        $LogArray	= array();
         while ($LogRow = $GLOBALS['DATABASE']->fetch_array($result))
         {			
             $LogArray[]	= array(

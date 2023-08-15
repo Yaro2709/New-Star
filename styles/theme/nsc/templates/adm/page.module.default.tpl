@@ -11,6 +11,8 @@
                         <th>{$LNG.mod_id}</th>
                         <th>{$LNG.mod_name}</th>
                         <th>{$LNG.mod_status}</th>
+                        <th>Файл</th>
+                        <th>{$LNG.mod_status}</th>
                         <th>{$LNG.mod_value}</th>
                     </tr>
                 </thead>
@@ -19,12 +21,19 @@
                     <tr>
                         <td>{$ID}</td>
                         <td>{$Info.name}</td>
+                        {if $Info.patch == 1}
+                        <td style="color:green"><b>{$LNG.file_active}</b></td>
+                        <td>{$Info.file}</td>
+                        {else}
+                        <td style="color:red"><b>{$LNG.file_deactive}</b></td>
+                        <td>{$Info.file}</td>
+                        {/if}
                         {if $Info.state == 1}
                         <td style="color:green"><b>{$LNG.status_active}</b></td>
-                        <td><a href="?page=module&amp;act=deaktiv&amp;id={$ID}">{$LNG.button_active}</a></td>
+                        <td><a href="?page=module&amp;act=deaktiv&amp;id={$ID}">{$LNG.button_deactive}</a></td>
                         {else}
                         <td style="color:red"><b>{$LNG.status_deactive}</b></td>
-                        <td><a href="?page=module&amp;act=aktiv&amp;id={$ID}">{$LNG.button_deactive}</a></td>
+                        <td><a href="?page=module&amp;act=aktiv&amp;id={$ID}">{$LNG.button_active}</a></td>
                         {/if}
                     </tr>
                 {/foreach}

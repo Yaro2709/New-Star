@@ -48,6 +48,8 @@ class ShowModulePage extends AbstractAdminPage
             $Modules[$ID]	= array(
                 'name'	=> $LNG['mod_'.$ID],
                 'state'	=> isset($module[$ID]) ? $module[$ID] : 1,
+                'patch'	=> file_exists(MODULE_FILE[$ID]) ? 1 : 0,
+                'file'	=> MODULE_FILE[$ID],
             );
         }
 	

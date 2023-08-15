@@ -19,7 +19,7 @@ class ShowSupportPage extends AbstractAdminPage
 {
 	public static $requireModule = 0;
 
-	function __construct() 
+	function __construct()
 	{
         if (!allowedTo(str_replace(array(dirname(__FILE__), '\\', '/', '.php'), '', __FILE__))) throw new Exception("Permission error!");
 		parent::__construct();
