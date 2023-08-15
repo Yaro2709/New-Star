@@ -114,7 +114,7 @@
                                     <div class="res_global_info">
                                         {if !empty($Element.fleetgun)}
                                         {if $Element.fleetgun == 'notype'}
-                                        <div class="res_info info_res_901"><a class="tooltip" data-tooltip-content="
+                                        <div class="res_info res_info info_res_block valueTest2"><a class="tooltip" data-tooltip-content="
                                             <table class='reducefleet_table'>
                                                 <tr>
                                                     <td class='reducefleet_img_ship'><img src='{$dpath}img/information/notype.png'></td>
@@ -123,7 +123,7 @@
                                             </table>"><img height="15" width="15" src="{$dpath}img/information/notype.png"></a>
                                         </div>
                                         {else}
-                                        <div class="res_info info_res_901"><a class="tooltip" data-tooltip-content="
+                                        <div class="res_info res_info info_res_block valueTest2"><a class="tooltip" data-tooltip-content="
                                             <table class='reducefleet_table'>
                                                 {if !empty($Element.fleetgun.laser.attack)}
                                                 <tr>
@@ -153,7 +153,7 @@
                                         </div>
                                         {/if}
                                         {/if}
-                                        <div class="res_info info_res_901"><a class="tooltip" data-tooltip-content="
+                                        <div class="res_info res_info info_res_block valueTest2"><a class="tooltip" data-tooltip-content="
                                             <table class='reducefleet_table'>
                                                 <tr>
                                                     <td class='reducefleet_img_ship'><img src='{$dpath}img/information/d_{$Element.info.class_defend}.png'></td>
@@ -162,7 +162,7 @@
                                             </table>"><img height="15" width="15" src="{$dpath}img/information/d_{$Element.info.class_defend}.png"></a>
                                         </div>
                                         {if $Element.info.class_shield != 's_none'}
-                                        <div class="res_info info_res_901"><a class="tooltip" data-tooltip-content="
+                                        <div class="res_info res_info info_res_block valueTest2"><a class="tooltip" data-tooltip-content="
                                             <table class='reducefleet_table'>
                                                 <tr>
                                                     <td class='reducefleet_img_ship'><img src='{$dpath}img/information/s_{$Element.info.class_shield}.png'></td>
@@ -172,7 +172,7 @@
                                         </div>
                                         {/if}
                                         {if !empty($Element.tech) && !empty($Element.speed1)}
-                                        <div class="res_info info_res_901">
+                                        <div class="res_info res_info info_res_block valueTest2">
                                         <a class="tooltip" data-tooltip-content="
                                             <table class='reducefleet_table'>
                                                 <tr>
@@ -211,7 +211,7 @@
                                         </div>     
                                         {/if} 
                                         {if $ID == in_array($ID, $reslist.defense)}
-                                        <div class="res_info info_res_901"><a class="tooltip" data-tooltip-content="
+                                        <div class="res_info res_info info_res_block valueTest2"><a class="tooltip" data-tooltip-content="
                                             <table class='reducefleet_table'>
                                                 <tr>
                                                     <td class='reducefleet_img_ship'><img src='{$dpath}img/information/recovery.png'></td>

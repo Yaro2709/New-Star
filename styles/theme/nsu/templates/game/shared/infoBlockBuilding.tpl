@@ -1,6 +1,6 @@
 {foreach $ressources as $res}
     {if !empty($Element.{$res + $suffix})}
-    <div class="res_info info_res_{$res}">
+    <div class="res_info info_res_block valueTest2">
         <a class="tooltip" data-tooltip-content="
             <table class='reducefleet_table'>
                 <tr>

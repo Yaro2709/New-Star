@@ -737,85 +737,9 @@ display: block;
     font-size: 11px;
     border: 1px solid rgba(255, 215, 0, 0.19);
 }
-.info_res_902{
+.info_res_block {
     position: absolute;
-    background: rgba(84, 114, 159, 0.5);
-    border-radius: 31px;
-    color: rgb(59, 96, 150);
-    text-shadow: 0px 1px 0px rgb(0, 0, 0);
-    z-index: 3;
-    font-size: 11px;
-    border: 1px solid rgba(255, 215, 0, 0.19);
-}
-.info_res_903{
-    position: absolute;
-    background: rgb(19, 59, 30);
-    border-radius: 31px;
-    color: rgba(9, 183, 103, 0.9);
-    text-shadow: 0px 1px 0px rgb(0, 0, 0);
-    z-index: 3;
-    font-size: 11px;
-    border: 1px solid rgba(255, 215, 0, 0.19);
-}
-.info_res_911{
-    position: absolute;
-    background: rgba(205, 142, 67, 0.5);
-    border-radius: 31px;
-    color: rgba(255, 215, 0, 0.9);
-    text-shadow: 0px 1px 0px rgb(0, 0, 0);
-    z-index: 3;
-    font-size: 11px;
-    border: 1px solid rgba(255, 215, 0, 0.19);
-}
-.info_res_912{
-    position: absolute;
-    background: rgba(197, 97, 18, 0.5);
-    border-radius: 31px;
-    color: rgb(252, 101, 1);
-    text-shadow: 0px 1px 0px rgb(0, 0, 0);
-    z-index: 3;
-    font-size: 11px;
-    border: 1px solid rgba(222, 96, 9, 0.39);
-}
-.info_res_913{
-    position: absolute;
-    background: rgba(91, 129, 207, 0.35);
-    border-radius: 31px;
-    color: rgb(102, 130, 194);
-    text-shadow: 0px 1px 0px rgb(0, 0, 0);
-    z-index: 3;
-    font-size: 11px;
-    border: 1px solid rgb(40, 70, 220);
-}
-.info_res_914{
-    position: absolute;
-    background: hsla(55, 58%, 53%, 0.5);
-    border-radius: 31px;
-    color: rgb(239, 202, 3);
-    text-shadow: 0px 1px 0px rgb(0, 0, 0);
-    z-index: 3;
-    font-size: 11px;
-    border: 1px solid rgba(255, 215, 0, 0.39);
-}
-.info_res_915{
-    position: absolute;
-    background: rgba(143, 132, 178, 0.5);
-    border-radius: 31px;
-    color: rgba(39, 0, 255, 0.9);
-    text-shadow: 0px 1px 0px rgb(0, 0, 0);
-    z-index: 3;
-    font-size: 11px;
-    border: 1px solid rgba(255, 215, 0, 0.19);
-}
-.info_res_916{
-    position: absolute;
-    background: rgb(33, 68, 11);
-    border-radius: 31px;
-    color: rgb(14, 177, 5);
-    text-shadow: 0px 1px 0px rgb(0, 0, 0);
-    z-index: 3;
-    font-size: 11px;
-    border: 1px solid rgba(255, 215, 0, 0.19);
+    box-shadow: 0 0 0 1px rgb(43 211 237 / 30%), 0 0 0 1px #000;
 }
 #build_elements .build_box .content_box .res_global_info .res_info:nth-child(1){
     left: 7px;
