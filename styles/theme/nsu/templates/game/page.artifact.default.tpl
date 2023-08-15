@@ -12,7 +12,7 @@
                 {$LNG.lm_artifact}               
             </div>
             {include file="main.res.tpl"}
-            <div id="build_elements" class="officier_elements gov2">
+            <div id="build_elements">
                 {foreach $artifactList as $ID => $Element}
                 <div id="ofic_{$ID}" class="build_box valueTest2">
                     <div class="head valueTest4">
@@ -23,21 +23,19 @@
                         <div class="image_mini valueTest2">
                             <img src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}">
                         </div>
-                        <div class="prices_mini">
+                        <div class="prices_mini overflow-auto">
                             <font color="#096">{foreach $Element.elementBonus as $BonusName => $Bonus}{if $Bonus[0] < 0}-{else}+{/if}{if $Bonus[1] == 0}{abs($Bonus[0] * 100)}%{else}{floatval($Bonus[0])}{/if} {$LNG.bonus.$BonusName}<br>{/foreach}</font>
                         </div>
                         <div class="clear"></div>
                         <form action="game.php?page=artifact" method="post" class="build_form">
-                            <div class="time_build">
+                            <div class="price_build">
                                 {foreach $Element.costResources as $RessID => $RessAmount}{$LNG.tech.{$RessID}}: 
                                 <b><span id="price{$ID}" style="color:{if $Element.costOverflow[$RessID] == 0}lime{else}red{/if}">{$RessAmount|number}</span></b>
                                 {/foreach}
                             </div>
-                            <div class="clear"></div>
                             <div class="btn_build_border">
                             {if $Element.buyable}
                                 <form action="game.php?page=artifact" method="post" class="build_form">
-                                    <div class="clear"></div>
                                     <input name="id" value="{$ID}" type="hidden">      
                                     <div class="btn_build_border btn_build_border_left dm_btn_build_border_left valueTest">
                                         <label class="max_btn_ship">{$LNG.bd_time_day}</label>
@@ -56,11 +54,9 @@
                             {/if}
                             </div>
                         </form>
-                        <div class="clear"></div>
                     </div>
                 </div>
                 {/foreach}
-                <div class="clear"></div>
             </div>
         </div>
     {/if}

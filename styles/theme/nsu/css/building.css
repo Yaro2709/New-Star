@@ -248,7 +248,7 @@
 	margin:0px;
 }
 .build_elements{
-	margin:5px 5px;
+	/*margin:5px 5px;*/
 }
 #build_elements .build_box .head{
  /*background:#091d2e;*/
@@ -471,14 +471,14 @@
     /* clear: both; */
     /* display: block; */
 }
-#build_elements .build_box .content_box .time_build_mini {
-    color: #00608f;
-    height: 13px;
-    line-height: 19px;
-    margin-bottom: 5px;
-    float: none;
-    clear: both;
-    display: block;
+#build_elements .build_box .content_box .price_build {
+    /* color: #00608f; */
+    height: 25px;
+    line-height: 23px;
+    /* margin-bottom: 6px; */
+    /* float: none; */
+    /* clear: both; */
+    /* display: block; */
 }
 #build_elements .build_box .content_box .btn_build_border{
     /*
@@ -871,8 +871,10 @@ width: 98.5% !important;
     height: auto !important;
 }
 .gov2{
-	    margin: 0 !important;
+	/*
+    margin: 0 !important;
     padding: 5px !important;
+    */
 }
 .gov6{
 	right: 5px;

@@ -51,7 +51,7 @@
                 </div>
             </div>
         {/if}	
-            <div id="build_content" class="conteiner ship_build">
+            <div id="build_content" class="conteiner">
                 <div id="fildes_band" class="valueTest4">
                     <div id="fildes_band_proc" style="width:{$field_percent}%;"></div>
                     <div class="gray_stripe" style="height:0px; padding-right: 0; padding: 0;">
@@ -76,7 +76,6 @@
                 {include file="main.res.tpl"}
                 <div id="build_elements">
                     {foreach $BuildInfoList as $ID => $Element}
-                    <div class="build_elements">
                         <div id="build_{$ID}" class="build_box {if $ID == in_array($ID, $reslist.spec_build.1)}build1{elseif $ID == in_array($ID, $reslist.spec_build.2)}build2{elseif $ID == in_array($ID, $reslist.spec_build.3)}build3{elseif $ID == in_array($ID, $reslist.spec_build.4)}build4{/if} {if !$Element.techacc}required{/if} valueTest2 height164">
                             <div class="head valueTest4">
                                 {*<a href="#" onclick="return Dialog.info({$ID})" class="interrogation">?</a>      *}          
@@ -136,7 +135,6 @@
                                 {/foreach}
                                 </div>               
                                 {/if}
-                                <div class="clear"></div>
                                 <div class="time_build">
                                     {if !$Element.techacc}{elseif $Element.elementTime == 0}{else}
                                     <span class="time_build_text valueTest2"><img src="{$dpath}img/iconav/time.png" style="height: 12px; top: -1.4px;position: relative;"> <span class="time_build_edit">{$Element.elementTime|time}</span></span>
@@ -208,9 +206,7 @@
                                 {/if}    
                             </div>
                         </div>
-                    </div>
                     {/foreach}
-                    <div class="clear"></div>
                 </div>
             </div>
         </div>
