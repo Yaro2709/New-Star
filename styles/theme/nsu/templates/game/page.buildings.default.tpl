@@ -88,16 +88,7 @@
                                 </div>
                                 {if !$Element.techacc}
                                 <div class="prices">
-                                    <div class="necccos">{$LNG.bd_needed_tech}</div>
-                                    {foreach $Element.AllTech as $elementID => $requireList}
-                                        {foreach $requireList as $requireID => $NeedLevel}
-                                        <div class="required_block required_smal_text">
-                                            <a href="#" onclick="return Dialog.info({$requireID})" class="tooltip" data-tooltip-content="<span style='color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};'>{$LNG.tech.$requireID} {$LNG.tt_lvl}  {$NeedLevel.count} ({$NeedLevel.own}/{$NeedLevel.count})</span>">
-                                            <img src="{$dpath}gebaeude/{$requireID}.gif" alt="{$LNG.tech.$requireID}" />
-                                            <div class="text" style="color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};">{$NeedLevel.own}/{$NeedLevel.count}</div></a>            
-                                        </div>
-                                        {/foreach}
-                                    {/foreach}
+                                    {include file='shared\requiredBlockBuilding.tpl' AllTech = $Element.AllTech}
                                 </div>
                                 {else}	
                                 <div class="prices">
@@ -109,30 +100,8 @@
                                     {/foreach}    
                                 </div>  
                                 <div class="res_global_info">
-                                {foreach $Element.ressources as $res}
-                                    {if !empty($Element.{$res + $Element.class_production})}
-                                    <div class="res_info info_res_{$res}"><a class="tooltip" data-tooltip-content="
-                                        <table class='reducefleet_table'>
-                                            <tr>
-                                                <td class='reducefleet_img_ship'><img src='{$dpath}img/resources/{$res}f.png'></td>
-                                                <td class='reducefleet_name_ship'>{$LNG.tech.{$res}} <span class='reducefleet_count_ship'>{$Element.{$res + $Element.class_production}|number}</span></td>
-                                            </tr>
-                                        </table>"><img height="15" width="15" src="{$dpath}img/resources/{$res}f.png"></a>
-                                    </div>   
-                                    {/if}
-                                {/foreach}
-                                {foreach $Element.storage as $res}
-                                    {if !empty($Element.{$res + $Element.class_storage})}
-                                    <div class="res_info info_res_{$res}"><a class="tooltip" data-tooltip-content="
-                                        <table class='reducefleet_table'>
-                                            <tr>
-                                                <td class='reducefleet_img_ship'><img src='{$dpath}img/resources/{$res}f.png'></td>
-                                                <td class='reducefleet_name_ship'>{$LNG.tech.{$res}} <span class='reducefleet_count_ship'>{$Element.{$res + $Element.class_storage}|number}</span></td>
-                                            </tr>
-                                        </table>"><img height="15" width="15" src="{$dpath}img/resources/{$res}f.png"></a>
-                                    </div>   
-                                    {/if}
-                                {/foreach}
+                                    {include file='shared\infoBlockBuilding.tpl' ressources = $Element.ressources suffix = $Element.class_production}
+                                    {include file='shared\infoBlockBuilding.tpl' ressources = $Element.storage suffix = $Element.class_storage}
                                 </div>               
                                 {/if}
                                 <div class="time_build">

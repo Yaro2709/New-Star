@@ -93,16 +93,7 @@
                                 </div>
                                 {if !$Element.techacc}
                                 <div class="prices">
-                                    <div class="necccos">{$LNG.bd_needed_tech}</div>
-                                    {foreach $Element.AllTech as $elementID => $requireList}
-                                        {foreach $requireList as $requireID => $NeedLevel}
-                                        <div class="required_block required_smal_text">
-                                            <a href="#" onclick="return Dialog.info({$requireID})" class="tooltip" data-tooltip-content="<span style='color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};'>{$LNG.tech.$requireID} {$LNG.tt_lvl}  {$NeedLevel.count} ({$NeedLevel.own}/{$NeedLevel.count})</span>">
-                                            <img src="{$dpath}gebaeude/{$requireID}.gif" alt="{$LNG.tech.$requireID}" />
-                                            <div class="text" style="color:{if $NeedLevel.own < $NeedLevel.count}red{else}lime{/if};">{$NeedLevel.own}/{$NeedLevel.count}</div></a>            
-                                        </div>
-                                        {/foreach}
-                                    {/foreach}
+                                    {include file='shared\requiredBlockBuilding.tpl' AllTech = $Element.AllTech}
                                 </div>
                                 {else}	
                                 <div class="prices">
@@ -116,6 +107,7 @@
                                 {if !empty($Element.elementBonus)}
                                 <div class="res_global_info">
                                     {foreach $Element.elementBonus as $BonusName => $Bonus}
+                                    {if !empty($Element.elementBonus)}
                                     <div class="res_info info_res_901"><a class="tooltip" data-tooltip-content="
                                         <table class='reducefleet_table'>
                                             <tr>
@@ -124,6 +116,7 @@
                                             </tr>
                                         </table>"><img height="15" width="15" src="{$dpath}gebaeude/bonus/{$BonusName}.gif"></a>
                                     </div>
+                                    {/if}
                                     {/foreach}
                                 </div>
                                 {/if}
