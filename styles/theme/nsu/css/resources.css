@@ -1,0 +1,141 @@
+.rexx1{
+	     border-bottom: 1px solid rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(0,0,0,0.3);
+    border: 1px solid #000;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.04);
+    /*height: 363px;*/
+    /*width: 110px;*/
+    width: 6.4%;
+    float: left;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: 45px;
+    margin-right: 0px;
+    margin-left: 0.7%;
+    background-position: center top;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.rexx901{    background-image: url(../img/resources/901f.png);}
+.rexx902{    background-image: url(../img/resources/902f.png);}
+.rexx903{    background-image: url(../img/resources/903f.png);}
+.rexx911{    background-image: url(../img/resources/911f.png);}
+.rexx912{    background-image: url(../img/resources/912f.png);}
+.rexx913{    background-image: url(../img/resources/913f.png);}
+.rexx914{    background-image: url(../img/resources/914f.png);}
+.rexx915{    background-image: url(../img/resources/915f.png);}
+.rexx916{    background-image: url(../img/resources/916f.png);}
+.rexxprocent{background-image: url(../img/resources/procent.png);}
+.rexx2{
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(0,0,0,0.3);
+    border: 1px solid #000;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.04);
+    height: 16px;
+    /* width: 110px; */
+    width: 100%;
+    margin-left: -1px;
+    position: relative;
+    float: left;
+    margin-top: 5px;
+    line-height: 16px;
+    font-size: 11px;
+    text-align: center;
+    font-size: 11px;
+    color: #a0b0ca;
+    }
+.rexx3{
+    text-align: left;
+    padding-left: 1%;
+    flex-wrap: wrap-reverse;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: auto;
+    padding-right: 11%;
+    max-width: 88%;
+    min-width: 88%;
+    }
+.rexx2 span{font-size: 11px;}
+.rexx4{
+	    background: #051524;
+	    padding: 0px;
+	    position: absolute;
+	    padding-left: 3px;
+	    padding-right: 3px;
+	    color: rgb(123, 152, 180);
+	    text-shadow: 0px 1px 0px rgb(0, 0, 0);
+	    z-index: 1;
+	    font-size: 11px;
+	    float: right;
+	    margin: 2px;
+	    height: 13px;
+	    line-height: 13px;
+	    right: 0px;
+}
+.rexx5{
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(0,0,0,0.3);
+    border: 1px solid #000;
+    border-left: 0;
+    border-right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.04);
+    position: relative;
+    float: right;
+    width: 99%;
+    font-size: 11px;
+    padding: 0;
+    border-radius: 0;
+    height: 18px;
+    margin-bottom: 5px;
+    padding-left: 2px;}
+.rexx6{    width: 100%;
+    float: right;
+    position: relative;
+    margin-top: 70px;}
+.rexx7{text-align: center;
+    width: 95%;
+    height: 14px;
+    color: #c9c9c9;
+    font-size: 11px;
+    line-height: 12px;
+    cursor: pointer;
+    border: 1px solid #081938;
+    background: #006191;
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#050f21', endColorstr = '#050e1e')";
+    background-image: -moz-linear-gradient(top, #050f21, #050e1e);
+    background-image: -ms-linear-gradient(top, #050f21, #050e1e);
+    background-image: -o-linear-gradient(top, #050f21, #050e1e);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#050f21), to(#050e1e));
+    background-image: -webkit-linear-gradient(top, #050f21, #050e1e);
+    background-image: linear-gradient(to top, #050f21, #050e1e);
+    padding: 0 4px;
+    transition-duration: 0.5s;
+    color: #5579b9;
+    margin: 1px;}
+.rexx7:hover{    border: 1px solid #0c2d68;}
+.rexx8{position: absolute;
+    width: 111px;
+    text-align: center;
+    top: 48px;
+	font-size:13px}
+.rexx9{    position: absolute;
+    top: 3px;
+    left: 3px;
+    height: 55px;
+    width: 55px;}
+.rexx10{position: absolute;
+    left: 65px;
+    top: 18px;
+    color: #27db7d;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: "BicubikRegular", Arial, Geneva, sans-serif;}
+.rexx11{color: #ccc;
+    position: absolute;
+    font-size: 11px;
+    left: 65px;
+    top: 33px;}

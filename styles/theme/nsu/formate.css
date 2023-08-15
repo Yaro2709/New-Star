@@ -1,0 +1,666 @@
+/*general*/
+#content{
+	margin:0;
+	z-index: 3;
+    /* overflow: auto !important; */
+/*     overflow: scroll;
+    max-height: 100%; */
+}
+#page {
+    margin-left: 35px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    margin-right: 35px;
+}
+/*menu*/
+@media only screen and (max-device-width : 768px) and (orientation : portrait) {
+
+    html:before{
+        content:'';
+        position:fixed;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        margin:auto;
+        background: rgb(11 11 15 / 70%);
+        background: url(./img/test2/tele.png) no-repeat fixed center center rgb(11 11 15 / 70%);
+        z-index:999;
+        text-align:center;
+        z-index: 999999;
+    } 
+}
+
+button.text_btn{
+    padding:0px;
+    font-size:12px;
+    color: #74ddea;
+    text-shadow: 1px 1px 1px black;
+    background: 
+        url('./img/test/text_btn_left_n.png'), 
+        url('./img/test/text_btn_right_n.png'),
+        url('./img/test/text_btn_center_n.png');
+    background-repeat:no-repeat;    
+    background-position: 
+        top left, 
+        top right, 
+        center top;    
+}
+
+button.text_btn:hover{
+    color: #cef0f6;
+    background: url('./img/test/text_btn_left_h.png'), url('./img/test/text_btn_right_h.png'),url('./img/test/text_btn_center_h.png');
+    background-repeat:no-repeat;    
+    background-position: top left, top right, center top;    
+}
+
+button.text_btn:active{
+    color: #4b929b;
+    background: url('./img/test/text_btn_left_p.png'), url('./img/test/text_btn_right_p.png'),url('./img/test/text_btn_center_p.png');
+    background-repeat:no-repeat;    
+    background-position: top left, top right, center top;    
+}
+
+button.text_btn_bg{
+    padding:0px;
+    font-size:12px;
+    color: #74ddea;
+    background: url('./img/test/text_btn_bg_left_n.png'), url('./img/test/text_btn_bg_right_n.png'),url('./img/test/text_btn_bg_center_n.png');
+    background-repeat:no-repeat;    
+    background-position: top left, top right, center top;    
+}
+
+button.text_btn_bg:hover{
+    color: #cef0f6;
+    background: url('./img/test/text_btn_bg_left_h.png'), url('./img/test/text_btn_bg_right_h.png'),url('./img/test/text_btn_bg_center_h.png');
+    background-repeat:no-repeat;    
+    background-position: top left, top right, center top;    
+}
+
+button.text_btn_bg:active{
+    color: #4b929b;
+    background: url('./img/test/text_btn_bg_left_p.png'), url('./img/test/text_btn_bg_right_p.png'),url('./img/test/text_btn_bg_center_p.png');
+    background-repeat:no-repeat;    
+    background-position: top left, top right, center top;    
+}
+/*value*/
+.value, .valuecontainer {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: #00d000;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 1px solid rgba(45,152,169,0.3);
+    background-color: black!important;
+    background: url(./img/test/value_container_bg.png);
+    background-clip: padding-box;
+    background-origin: padding-box;
+    border-radius: 5px;
+}
+.vsep, .vsep_1
+{
+    background:url(./img/test/vseparator_1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position:center center;
+    background-size:3px 100%;
+    margin-left:2px;
+    margin-right:2px;
+}
+/*Кнопки*/
+button.image_btn{
+    width:40px;
+    height:40px;
+    background: url('./img/test/image_btn_n.png');
+    background-repeat:no-repeat;    
+    background-position: top left;    
+    background-size: 100% 100%;
+}
+
+button.image_btn:hover{
+    background: url('./img/test/image_btn_h.png');
+    background-repeat:no-repeat;    
+    background-position: top left;    
+    background-size: 100% 100%;
+}
+
+button.image_btn:active{
+    background: url('./img/test/image_btn_p.png');
+    background-repeat:no-repeat;    
+    background-position: top left;    
+    background-size: 100% 100%;
+}
+
+
+.image_btn_bg{
+    background: url('./img/test/image_btn_bg_n.png');
+    background-repeat:no-repeat;    
+    background-position: top left;    
+    background-size: 100% 100%;
+}
+
+.image_btn_bg:hover{
+    background: url('./img/test/image_btn_bg_h.png');
+    background-repeat:no-repeat;    
+    background-position: top left;    
+    background-size: 100% 100%;
+}
+
+.image_btn_bg:active{
+    background: url('./img/test/image_btn_bg_p.png');
+    background-repeat:no-repeat;    
+    background-position: top left;    
+    background-size: 100% 100%;
+}
+
+.image_btn_bg:disabled{
+    background: url('./img/test/image_btn_bg_n.png')!important;
+    background-repeat:no-repeat!important;    
+    background-position: top left!important;    
+    background-size: 100% 100% !important;
+    opacity:0.3!important;
+}
+
+/*Левое меню*/
+.game_left_frame{
+    height:630px; 
+    width:46px;
+    background:
+        url('./img/test/game_left_frame_top.png') no-repeat,
+        url('./img/test/game_left_frame_topright.png') no-repeat,
+        url('./img/test/game_left_frame_right.png') no-repeat,
+        url('./img/test/game_left_frame_bottomright.png') no-repeat,
+        url('./img/test/game_left_frame_bottom.png') no-repeat;
+    
+    background-position: 
+        left 0px top 0px,
+        right 0px top 16px,
+        right 0px top 52px,
+        right 0px bottom 16px,
+        right 0px bottom 0px;
+    
+    background-size:
+        46px 16px,
+        10px 36px,
+        10px 245px,
+        10px 36px,
+        46px 16px;
+}
+
+.game_left_frame_content {
+    position: absolute;
+    top: 16px;
+    left: 0px;
+    height: 313px;
+    width: 36px;
+    background:
+        url('./img/test/game_left_frame_bg.png') repeat;
+}
+/*Правое меню*/
+.game_right_frame{
+    height:630px; 
+    width:46px;
+    background:
+        url('./img/test/game_right_frame_top.png') no-repeat,
+        url('./img/test/game_rigth_frame_topright.png') no-repeat,
+        url('./img/test/game_right_frame_right.png') no-repeat,
+        url('./img/test/game_right_frame_bottomright.png') no-repeat,
+        url('./img/test/game_right_frame_bottom.png') no-repeat;
+    
+    background-position: 
+        right 0px top 0px,
+        left 0px top 16px,
+        left 0px top 52px,
+        left 0px bottom 16px,
+        left 0px bottom 0px;
+    
+    background-size:
+        46px 16px,
+        10px 36px,
+        10px 245px,
+        10px 36px,
+        46px 16px;
+}
+.game_right_frame_content {
+    position: absolute;
+    top: 16px;
+    right: 0px;
+    height: 313px;
+    width: 36px;
+    background:
+        url('./img/test/game_left_frame_bg.png') repeat;
+}
+
+.game_top_frame {
+    height: 50px;
+    width: 980px;
+    left: -490px;
+    top: 0px;
+    margin-left: 50%;
+    background: url(./img/test/game_top_frame_left.png) no-repeat, url(./img/test/game_top_frame_right.png) no-repeat, url(./img/test/game_top_frame_bottomleft.png) no-repeat, url(./img/test/game_top_frame_bottomright.png) no-repeat, url(./img/test/game_top_frame_bottom.png) no-repeat;
+    background-position: left 0px top 0px, right 0px top 0px, left 16px bottom 0px, right 16px bottom 0px, left 52px bottom 0px;
+    background-size: 16px 52px, 16px 52px, 36px 10px, 36px 10px, 920px 10px;
+}
+.game_top_frame_content {
+    position: absolute;
+    top: 0px;
+    left: 16px;
+    height: 40px;
+    width: 948px;
+    background: url(./img/test/game_top_frame_bg.png) repeat;
+}
+
+.game_top_frame_hinterface{
+    margin-left:50%;
+    top:0px;
+    left:-612px;
+    height:40px; 
+    width:1224px;
+    
+    
+    
+    background:
+        url('./img/test/game_top_frame_left.png') no-repeat,
+        url('./img/test/game_top_frame_right.png') no-repeat,
+        url('./img/test/game_top_frame_bottomleft.png') no-repeat,
+        url('./img/test/game_top_frame_bottomright.png') no-repeat,
+        url('./img/test/game_top_frame_bottom.png') no-repeat;
+    
+    background-position: 
+        left 0px top 0px,
+        right 0px top 0px,
+        left 16px bottom 0px,
+        right 16px bottom 0px,
+        left 52px bottom 0px;
+    
+    background-size:
+        16px 40px,
+        16px 40px,
+        36px 10px,
+        36px 10px,
+        1120px 10px;
+}
+
+.game_top_frame_content_hinterface{
+    position:absolute;
+    top:0px;
+    left:16px;
+    height:30px; 
+    width:1192px;
+    background:
+        url('./img/test/game_top_frame_bg.png') repeat;
+}
+/*Нижнее меню*/
+.game_bottom_frame{
+    
+    height:40px; 
+    width:980px;
+    background:
+        url('./img/test/game_bottom_frame_left.png') no-repeat,
+        url('./img/test/game_bottom_frame_right.png') no-repeat,
+        url('./img/test/game_bottom_frame_topleft.png') no-repeat,
+        url('./img/test/game_bottom_frame_topright.png') no-repeat,
+        url('./img/test/game_bottom_frame_top.png') no-repeat;
+    
+    background-position: 
+        left 0px top 0px,
+        right 0px top 0px,
+        left 16px top 0px,
+        right 16px top 0px,
+        left 52px top 0px;
+    
+    background-size:
+        16px 40px,
+        16px 40px,
+        36px 10px,
+        36px 10px,
+        920px 10px;
+}
+.game_bottom_frame_content{
+    position:absolute;
+    bottom:0px;
+    left:16px;
+    height:30px; 
+    width:948px;
+    background:
+        url('./img/test/game_bottom_frame_bg.png') repeat;
+}
+
+/*planet_select*/
+.link_next{
+	width:8px;
+	height:16px;
+	float:right;
+	display:block;
+	margin-top:7px;
+	cursor:pointer;
+	background:url(./img/iconav/arrows_mini_palanet_navig.png) -8px 0px;
+}
+.link_next:hover{
+	background-position:8px -16px;
+}
+.link_back{
+	width:8px;
+	height:16px;
+	float:left;
+	display:block;
+	margin-top:7px;
+	background:url(./img/iconav/arrows_mini_palanet_navig.png) 0px 0px;
+	cursor:pointer;
+}
+.link_back:hover{
+	background-position:0 -16px;
+}
+#planet_select {
+    height: 27px;
+    width: 206px;
+    line-height: 30px;
+    position: absolute;
+    margin-left: 14px;
+    border-radius: 3px;
+    overflow: hidden;
+    z-index: 1000;
+    padding: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 46px;
+    background: url(./img/test/value_container_bg.png);
+    background-clip: padding-box;
+    background-origin: padding-box;
+    border: 1px solid rgba(45,152,169,0.3);
+    background-color: black!important;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+/*content*/
+/*grid build*/
+@media screen and (max-width: 1220px) {
+	#build_elements .build_box
+	{
+		/*4 kol*/
+        width: 23.9%;
+		/*margin-left:8px;*/
+		/*margin-right:0;*/
+	}
+	#build_elements
+	{
+		/*margin-right:0;*/
+	}
+}
+@media (min-width: 1220px) and (max-width: 1530px){
+	#build_elements .build_box
+	{
+		/*5 kol*/
+        width: 19%;
+		/*margin-left:8px;*/
+		/*margin-right:0;*/
+	}
+	#build_elements
+	{
+		/*margin-right:1%;*/
+	}
+}
+@media (min-width: 1530px) and (max-width: 1840px){
+	#build_elements .build_box
+	{
+		/*6 kol*/
+        width: 15.95%;
+		/*margin-left:8px;*/
+		/*margin-right:0;*/
+	}
+	#build_elements
+	{
+		/*margin-right:0.5%;*/
+	}
+}
+@media (min-width: 1840px) and (max-width: 2145px){
+	#build_elements .build_box
+	{
+		/*7 kol*/
+        width: 13.7%;
+		/*margin-left:8px;*/
+		/*margin-right:0;*/
+	}
+	#build_elements
+	{
+		/*margin-right:1%;*/
+	}
+}
+@media (min-width: 2145px) and (max-width: 2455px){
+	#build_elements .build_box
+	{
+        /*8 kol*/
+        width: 11.9%;
+		/*margin-left:8px;*/
+		/*margin-right:0;*/
+	}
+	#build_elements
+	{
+		/*margin-right:1%;*/
+	}
+}
+@media (min-width: 2455px){
+	#build_elements .build_box
+	{
+        /*9 kol*/
+		width:10.65%;
+		/*margin-left:8px;*/
+		/*margin-right:0;*/
+	}
+	#build_elements
+	{
+		/*margin-right:1%;*/
+	}
+}
+
+
+#ally_content {
+    width: 990px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+}
+
+.conteiner {
+    border: 1px solid rgb(19 78 87);
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgb(43 211 237 / 30%), inset 0 0px 0px rgb(43 211 237 / 30%), 0px 0px 10px 0 rgb(43 211 237 / 30%), 0px 0px 1px 0 rgb(43 211 237 / 10%), 0 0 0 1px #040f1f;
+    padding: 10px;
+    height: auto;
+    position: relative;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    o-background-size: cover;
+    background-size: cover;
+    background: url(./img/test/img_skyline_1.png) repeat,url(./img/test/city_bps.jpg) no-repeat fixed center center #0d0d0d;;
+}
+
+/*scrollbar*/
+::-webkit-scrollbar{
+	width:5px;
+	height:5px;
+    position: fixed;
+}
+::-webkit-scrollbar-track-piece{
+	
+}
+::-webkit-scrollbar-track{
+    background: rgb(0 13 31 / 0.9);
+} 
+::-webkit-scrollbar-thumb{ 
+	background: rgb(20 109 127 / 90%);
+}
+::-webkit-scrollbar-corner {
+	display:none;
+}
+
+
+/*card*/
+.valueTest {
+    vertical-align: middle;
+    text-align: center;
+    color: #00D0D0;
+    font-size: 9px;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 1px solid rgba(28,136,153,0.4);
+    background-color: black!important;
+    border-radius: 3px;
+    background: radial-gradient(ellipse 90% 90%, rgba(0,0,0,0.35), rgba(0,0,0,1.0)) no-repeat, url(./img/test/value_bg_blue.png) repeat padding-box;
+    background-position: left 0px top 0px, left 0px top 0px;
+    background-size: 100% 100%, 3px 3px;
+}
+.valueTest2 {
+    border: 1px solid rgba(43,211,237, 0.3);
+    background: linear-gradient(to right, rgba(43,211,237,1.0),rgba(43,211,237,1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,1.0),rgba(43,211,237,1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,1.0),rgba(43,211,237,1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,1.0),rgba(43,211,237,1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,1.0),rgba(43,211,237,1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,1.0),rgba(43,211,237,1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,1.0),rgba(43,211,237,1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,1.0),rgba(43,211,237,1.0) 100%) no-repeat border-box, linear-gradient(to top, rgba(43,211,237,0.05), rgba(43,211,237,0.05) 100%) no-repeat border-box;
+    background-position: top 1px left 0px, top 0px left 0px, top 0px right 0px, top 1px right 0px, bottom 1px left 0px, bottom 0px left 0px, bottom 0px right 0px, bottom 1px right 0px, top 0px left 0px;
+    background-size: 1px 3px, 4px 1px, 4px 1px, 1px 3px, 1px 3px, 4px 1px, 4px 1px, 1px 3px, 100% 100%;
+    border-radius: 2px;
+}
+.valueTest3 {
+    color: #73d2e5!important;
+    text-align: center;
+    text-shadow: 0px 0px 10px rgb(43 211 237 / 50%);
+}
+
+.valueTest4 {
+    background: url(./img/test/title_bg.png) repeat border-box;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.valueTest5 {
+    top: 9px;
+    left: 32px;
+    color: #7ee8fe;
+    text-shadow: 0px 0px 2px rgb(127 227 252 / 50%);
+    font-family: sf_title_font, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    cursor: default;
+    white-space: nowrap;
+    overflow: hidden;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.valueTest6 {
+    border: 1px solid rgba(90, 0, 0, 0.5);
+    background: linear-gradient(to right, rgba(200, 0, 0, 1.0),rgba(200, 0, 0, 1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(200, 0, 0, 1.0),rgba(200, 0, 0, 1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(200, 0, 0, 1.0),rgba(200, 0, 0, 1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(200, 0, 0, 1.0),rgba(200, 0, 0, 1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(200, 0, 0, 1.0),rgba(200, 0, 0, 1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(200, 0, 0, 1.0),rgba(200, 0, 0, 1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(200, 0, 0, 1.0),rgba(200, 0, 0, 1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(200, 0, 0, 1.0),rgba(200, 0, 0, 1.0) 100%) no-repeat border-box, linear-gradient(to top, rgb(32 5 5 / 90%), rgb(32 5 5 / 90%) 100%) no-repeat border-box;
+    background-position: top 1px left 0px, top 0px left 0px, top 0px right 0px, top 1px right 0px, bottom 1px left 0px, bottom 0px left 0px, bottom 0px right 0px, bottom 1px right 0px, top 0px left 0px;
+    background-size: 1px 3px, 4px 1px, 4px 1px, 1px 3px, 1px 3px, 4px 1px, 4px 1px, 1px 3px, 100% 100%;
+    border-radius: 2px;
+}
+/*test*/
+.textcontainer-l {
+    border: 5px solid transparent;
+    box-sizing: border-box;
+    background: linear-gradient(to right, rgba(43,211,237,0.5),rgba(43,211,237,0.5) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,0.5),rgba(43,211,237,0.5) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,0.5),rgba(43,211,237,0.5) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,0.5),rgba(43,211,237,0.5) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,0.5),rgba(43,211,237,0.5) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,0.5),rgba(43,211,237,0.5) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,0.5),rgba(43,211,237,0.5) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,0.5),rgba(43,211,237,0.5) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,0.2),rgba(43,211,237,0.2) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,0.2),rgba(43,211,237,0.2) 100%) no-repeat border-box, linear-gradient(to top, rgba(43,211,237,0.05), rgba(43,211,237,0.05) 100%) no-repeat border-box;
+    width: auto;
+    height: auto;
+    background-position: top 1px left 0px, top 0px left 0px, top 0px right 0px, top 1px right 0px, bottom 1px left 0px, bottom 0px left 0px, bottom 0px right 0px, bottom 1px right 0px, top 0px left 0px, bottom 0px left 0px, top 0px left 0px;
+    background-size: 1px 3px, 4px 1px, 4px 1px, 1px 3px, 1px 3px, 4px 1px, 4px 1px, 1px 3px, 100% 1px, 100% 1px, 100% 100%;
+}
+.controls-center-col-top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: center;
+    flex-flow: column;
+}
+.controls-center-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-flow: row nowrap;
+}
+.w200 {
+    width: 200px!important;
+}
+.label, .value_label, .fieldLabel {
+    color: #59a4b3!important;
+    text-shadow: 1px 1px 1px black;
+}
+.value_label {
+    font-family: sf_font, Tahoma;
+    font-size: 12px;
+    font-weight: normal;
+    white-space: nowrap;
+    color: #22a6ba!important;
+    text-align: right!important;
+    padding-right: 2px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.text11 {
+    font-size: 11px!important;
+}
+.value, .valuecontainer, .value-n, .value_hdr, .inputText.value, .inputText.value:focus {
+    color: #00D0D0!important;
+}
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-content: space-around;
+    flex-flow: row wrap;
+}
+.value, .valuecontainer {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: #00D0D0;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 1px solid rgba(28,136,153,0.4);
+    background-color: black!important;
+    border-radius: 3px;
+    background: radial-gradient(ellipse 90% 90%, rgba(0,0,0,0.35), rgba(0,0,0,1.0)) no-repeat, url(./img/test/value_bg_blue.png) repeat padding-box;
+    background-position: left 0px top 0px, left 0px top 0px;
+    background-size: 100% 100%, 3px 3px;
+}
+.mr2 {
+    margin-right: 2px!important;
+}
+.ml2 {
+    margin-left: 2px!important;
+}
+
+.sep, .sep_1, .hsep {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, rgba(43,211,237, 0.1),rgba(43,211,237, 0.1) 30%, rgba(43,211,237, 0.6) 30%, rgba(43,211,237, 0.6) 70%, rgba(43,211,237, 0.1) 70%, rgba(43,211,237, 0.1) 100%);
+    background-repeat: no-repeat;
+    background-position: left 0px top 50%;
+    background-size: 100% 1px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.h3 {
+    height: 3px!important;
+}
+.h16 {
+    height: 16px!important;
+}
+
+.w58 {
+    width: 58px!important;
+}
+.w66 {
+    width: 66px!important;
+}
+.w90 {
+    width: 90px!important;
+}
+.w15 {
+    width: 15px!important;
+}

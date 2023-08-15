@@ -1,0 +1,43 @@
+.conteiner_rows {
+    margin: 0px 7px 4px 7px;
+    background: #000813;
+    padding: 2px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #091d2e;
+    box-shadow: 0 4px 3px 0 rgba(0, 0, 0, 0.5) !important;
+    -webkit-box-shadow: 0 4px 3px 0 rgba(0, 0, 0, 0.5) !important;
+    -moz-box-shadow: 0 4px 3px 0 rgba(0, 0, 0, 0.5) !important;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.conteiner_rows:hover {
+    background: #000818;
+}
+
+.conteiner_rows .conteiner_img_utits {
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin-right: 5px;
+}
+
+.conteiner_rows .conteiner_img_utits img {
+    width: 100%;
+    max-width: 100%;
+}
+
+.conteiner_rows .conteiner_name_utits {
+    line-height: 30px;
+    height: 30px;
+    width: 270px;
+    margin-left: 2px;
+    float: left;
+}
+.conteiner_rows .count_blocks {
+    float: left;
+    margin-left: 5px;
+    line-height: 30px;
+}

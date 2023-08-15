@@ -1,0 +1,303 @@
+#content_battle {
+	width:980px;
+	margin:0 auto!important;
+	padding:0 10px 30px!important;
+}
+#batle_top_nav {
+	height:87px;
+	position:relative;
+	-moz-border-radius:0 0 3px 3px;
+	-webkit-border-radius:0 0 3px 3px;
+	border-radius:0 0 3px 3px;
+	background:#07152b url(../img/battle/batle_top_bg.gif) no-repeat;
+	overflow:visible;border:1px solid #000;border-top:0;
+	z-index:100;
+
+}
+.batle_party table, tr, td, th {
+    border: 0;
+    background: none;
+    font-size: 15px;
+}
+#batle_vs {
+	width:182px;
+	height:30px;
+	line-height:30px;
+	background:url(../img/battle/vs.png) no-repeat;
+	text-align:center;
+	padding:62px 10px 14px;
+}
+.batle_party {
+	width:373px;
+	height:67px;
+	overflow:hidden;
+	padding:10px;
+}
+.batle_party table {
+	width:100%;
+}
+.batle_round {
+	position:relative;
+}
+.batle_part_att {
+	position:relative;
+	width:469px;
+	float:left;
+	padding:50px 20px 30px 0;
+}
+.batle_part_def {
+	position:relative;
+	width:469px;
+	float:right;
+	padding:50px 0 30px 20px;
+}
+.batle_part_sep {
+	border-left:1px solid #00b0dc;
+	background:#00b0dc;
+	height:100%;
+	position:relative;
+	width:1px;
+    margin: auto;
+}
+.batle_mem {
+	background:#000d20;
+	position:relative;
+	height:auto;
+	border:1px solid #000;
+	border-top:0;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	margin-bottom:10px;
+}
+.batle_mem_header {
+	background:#091d2e;
+	border-bottom:1px solid #000;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;height:36px;
+	line-height:18px;
+	position:relative;
+	overflow:hidden;
+	color:#699;
+	padding:8px 16px;
+}
+.batle_mem_die .batle_mem_header {
+	background:#800;
+	color:#fff;
+}
+.batle_mem_header span {
+	color:#fff;
+}
+.batle_mem_content {
+	display:none;
+	padding:10px 5px 5px;
+}
+.batle_scan {
+	position:absolute;
+	right:15px;
+	top:22px;
+	width:10px;
+	height:10px;
+	background:url(../img/battle/batle_scan.gif) no-repeat 0 0;
+	cursor:pointer;
+}
+.batle_scan_active {
+	background-position:bottom;
+}
+.batle_unit {
+	width:222px;
+	height:60px;
+	margin-bottom:5px;
+	float:left;
+	margin-right:5px;
+	line-height:20px;
+}
+.batle_unit .img_unit {
+	float:left;
+	width:60px;
+	height:60px;
+	margin-right:10px;
+	position:relative;
+}
+.batle_unit .img_unit img {
+	width:60px;
+	height:60px;
+}
+.batle_unit .img_unit .ico_ka {
+	position:absolute;
+	left:0;bottom:0;
+	width:19px;
+	height:14px;
+	background:rgba(153,0,0,0.4) url(../img/battle/ico_ka.png) center no-repeat;
+	-moz-border-radius:0 3px 0 0;
+	-webkit-border-radius:0 3px 0 0;
+	border-radius:0 3px 0 0;
+	padding:5px;
+}
+.batle_unit .img_unit .ico_kd {
+	position:absolute;
+	bottom:0;
+	right:0;
+	width:19px;
+	height:14px;
+	background:rgba(0,51,255,0.4) url(../img/battle/ico_kd.png) center no-repeat;
+	-moz-border-radius:3px 0 0;
+	-webkit-border-radius:3px 0 0 0;
+	border-radius:3px 0 0;
+	padding:5px;
+}
+.batle_unit .img_unit .ico_ks {
+    position: absolute;
+    bottom: 36px;
+    right: 0;
+    width: 19px;
+    height: 14px;
+    background: rgba(255, 141, 0, 0.4) url(../img/battle/ico_ks.png) center no-repeat;
+    -moz-border-radius: 3px 0 0;
+    -webkit-border-radius: 3px 0 0 0;
+    border-radius: 0px 0 0 3px;
+    padding: 5px;
+}
+.batle_unit .name_unit {
+	font-weight:700;
+}
+.batle_unit .destruct_unit {
+	color:#d00;
+}
+.batle_round_info {
+	cursor:pointer;
+	margin:15px 0;
+}
+.batle_round_info h2 {
+	text-align:center;
+	font-weight:lighter;
+	font-size:30px;
+	color:#00b0dc;
+	line-height:33px;
+    margin: auto;
+}
+.batle_round_info h3 {
+	font-size:12px;
+	color:#00b0dc;
+	line-height:15px;
+	font-weight:lighter;
+	display:block;
+	text-align:center;
+	margin-bottom:20px;
+    margin: auto;
+}
+.band_att {
+	width:535px;
+	height:23px;
+	position:relative;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	overflow:hidden;
+	margin-bottom:20px;
+}
+.band_att .ico_part {
+	position:absolute;
+	z-index:3;left:10px;
+	top:3px;
+	height:16px;
+	width:16px;
+	margin:0;
+}
+.band_att .ico_part img {
+	height:16px;
+}
+.band_att .left_part_att {
+	position:absolute;
+	left:0;
+	top:0;
+	height:100%;
+	border-right:1px solid #000;
+	background:#225000 url(../img/battle/band_att_att.gif) repeat-x;z-index:2;
+}
+.band_att .left_part_def {
+	position:absolute;right:0;
+	top:0;height:100%;
+	border-left:1px solid #000;
+	background:#1b5773 url(../img/battle/band_att_def.gif) repeat-x;
+	z-index:1;
+}
+.band_att .left_part_att .bsorb {
+	float:right;
+	overflow:hidden;
+	height:23px;
+}
+.band_att .left_part_def .bsorb {
+	float:left;
+	overflow:hidden;
+	height:23px;
+}
+.band_att .left_part_att .bsorb .bsorb_end {
+	float:left;
+	width:18px;
+	background:url(../img/battle/absorb_att_end.png) no-repeat;
+	height:23px;
+}
+.band_att .left_part_att .bsorb .bsorb_mid {
+	margin-left:18px;
+	background:url(../img/battle/absorb_att.png) repeat-x;
+	height:23px;
+}
+.band_att .left_part_def .bsorb .bsorb_end {
+	float:right;
+	width:19px;
+	background:url(../img/battle/absorb_def_end.png) no-repeat;
+	height:23px;
+}
+.band_att .left_part_def .bsorb .bsorb_mid {
+	margin-right:19px;
+	background:url(../img/battle/absorb_def.png) repeat-x right;
+	height:23px;
+}
+.band_itog {
+	width:535px;
+	height:34px;
+	position:relative;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	overflow:hidden;
+    margin: auto;
+}
+.band_itog .ico_part {
+	position:absolute;
+	z-index:3;
+	left:10px;
+	top:8px;
+	height:20px;
+	width:20px;
+	margin:0;
+}
+.band_itog .ico_part img {
+	height:20px;
+}
+.band_itog .left_part_att {
+	position:absolute;
+	left:0;
+	top:0;
+	height:100%;
+	border-right:1px solid #000;
+	background:#439900 url(../img/battle/band_itog_att.gif) repeat-x;
+	z-index:2;
+}
+.band_itog .left_part_def {
+	position:absolute;
+	right:0;
+	top:0;
+	height:100%;
+	border-left:1px solid #000;
+	background:#006797 url(../img/battle/band_itog_def.gif) repeat-x;
+	z-index:1;
+}
+.batle_text {
+	color:#699;
+	line-height:25px;
+	text-align:center;
+	padding:15px 0;
+}

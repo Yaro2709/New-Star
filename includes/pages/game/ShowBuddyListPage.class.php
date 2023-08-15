@@ -51,7 +51,7 @@ class ShowBuddyListPage extends AbstractGamePage
 			$this->printMessage($LNG['bu_request_exists']);
 		}
 		
-		$sql = "SELECT username, galaxy, system, planet FROM %%USERS%% WHERE id = :friendID;";
+		$sql = "SELECT username, galaxy, `system`, planet FROM %%USERS%% WHERE id = :friendID;";
         $userData = $db->selectSingle($sql, array(
             ':friendID'  => $id
         ));

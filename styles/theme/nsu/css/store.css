@@ -1,0 +1,45 @@
+/* Маркет */
+@charset "utf-8";@font-face{font-family:Roboto;src:url(/styles/resource/fonts/Roboto-Light.ttf)}#market .locus{background:0 0}#market .market_element{display:block;position:relative;float:left;width:226.6px;height:125px;overflow:hidden;background-color:transparent;background-size:cover;-moz-background-size:cover;-o-background-size:cover;-webkit-background-size:cover;-khtml-background-size:cover}#market .market_element_big{width:680px}#market .market_title{width:100%;text-align:center;height:50px;line-height:50px;font-size:25px;font-family:Roboto;display:block;position:absolute;bottom:0;float:left;background:rgba(0,0,0,.7)}#market .market_title:hover{background:rgba(0,0,0,.5)}#market .market_element a:hover{color:#fff}
+
+.locus .img_artifact{background:url(../img/content/artifact.jpg) center}
+.locus .img_development{background:url(../img/content/development.jpg) center}
+.locus .img_band{background:url(../img/content/band.jpg) center}
+.locus .img_bon{background:url(../img/content/bon.jpg) center}
+.locus .img_fair{background:url(../img/content/fair.jpg) center}
+.locus .img_auction{background:url(../img/content/auction.jpg) center}
+.locus .img_blueprints{background:url(../img/content/blueprints.jpg) center}
+.locus .img_premium{background:url(../img/content/premium.jpg) center}
+.locus .img_prime{background:url(../img/content/prime.jpg) center}
+
+.locus{
+    display:block;
+    position:relative;
+    background:#112533;
+    padding:0;
+    height:auto;
+    width:680px;
+    border:1px solid #000;
+    overflow:hidden;
+    margin: auto;
+}
+
+.locus .habena{
+    width:660px;
+    height:27px;
+    line-height:27px;
+    display:block;
+    position:relative;
+    float:left;
+    text-align:left;
+    vertical-align:middle;
+    padding:0 10px;
+    color:#fff;
+    background:linear-gradient(90deg,#003d66,#002448);
+    background:-moz-linear-gradient(0deg,#08182d,#0e1d34);
+    background:-ms-linear-gradient(0deg,#08182d,#0e1d34);
+    background:-o-linear-gradient(0deg,#08182d,#0e1d34);
+    background: -webkit-linear-gradient(0deg,#08182d,#0e1d34);
+    border-bottom:1px solid #000;
+    box-shadow:0 3px 10px 0 rgba(0,0,0,.7);
+    z-index:10
+}

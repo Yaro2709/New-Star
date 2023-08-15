@@ -1,0 +1,234 @@
+.delivress1{ margin: 1px;
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    left: 0;
+    text-align: center;
+    font-family: "BicubikRegular", Arial, Geneva, sans-serif;
+    pointer-events: none;
+font-size: 15px;}
+.delivress2{
+    background: #00060d center right no-repeat;
+    background-size: contain;
+    width: 200px;
+    height: 13px;
+    position: absolute;
+    right: 7px;
+    top: 4px;
+    }
+.delivress3{
+    background: #00060d center right no-repeat;
+    background-size: contain;
+    width: 200px;
+    height: 13px;
+    position: absolute;
+    right: 7px;
+    top: 28px;
+    }
+.delivress4{
+    background: #00060d center right no-repeat;
+    background-size: contain;
+    width: 200px;
+    height: 13px;
+    position: absolute;
+    right: 7px;
+    bottom: 4px;
+    }
+.delivress6{
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(0,0,0,0.3);
+    border: 1px solid #000;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.04);
+    margin: 7px;
+    height: 77px;
+    position: relative;
+}
+.delivress7{position: absolute;
+    height:60px;
+	width:60px;
+    top: 7px;
+    left: 7px;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+    border: 1px solid #000;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+	background: #000 url(../gebaeude/delivery.gif);
+	background-size: contain;
+    background-repeat: no-repeat ;}
+.delivress8{
+    width: 400px;
+    position: absolute;
+    top: 5px;
+    left: 105px;
+    height: 19px;
+    line-height: 19px;
+    }
+.delivress9{
+    color: #999999;
+    font-size: 12px;
+    width: 57px;
+    position: absolute;
+    left: 7px;
+    text-align: center;
+    bottom: 10px;
+    font-weight: bold;
+    z-index: 9;
+    background: #000000b8;
+    padding: 2px;
+    }
+.delivress10{
+    width: 400px;
+    position: absolute;
+    top: 29px;
+    left: 105px;
+    height: 19px;
+    line-height: 19px;
+    }
+.delivress11{
+    width: 400px;
+    position: absolute;
+    top: 53px;
+    left: 105px;
+    height: 19px;
+    line-height: 19px;
+    }
+.delivress12{    width: 191px;
+    height: 17px;
+    bottom: 1px;
+    line-height: 16px;
+    text-align: center;
+    color: #ccc;}
+
+
+.rd_planet_row{
+	position:relative;
+	overflow:hidden;
+	border: 1px solid #091d2e;
+	box-shadow: 0 4px 3px 0 rgba(0, 0, 0, 0.5) !important;
+	background: #000813;
+	border-radius: 5px;
+	margin: 4px;
+	margin-right: 2px;
+	width: 348px;
+	float: left;
+}
+.td_planet_delivery{
+	margin-left: 1%;
+	width: 48%;
+	float:left;
+}
+.rd_planet_row_select{
+	cursor:pointer;
+}
+.rd_planet_row_select{
+	cursor:pointer;
+}
+.rd_planet_row_select:hover{
+	background:rgba(0,102,204,0.1);
+}
+.rd_planet_row_active{
+	background:rgba(255, 255, 255, 0.11) !important
+}
+.rd_checkbox{
+	position:absolute;
+	left:0;
+	top:0;
+	z-index: 10;
+}
+.rd_planet_img{
+	width: 45px;
+	height: 45px;
+	float:left;
+	margin-top: 2px;
+    margin-left: 2px;
+}
+.rd_planet_data_name{
+	float:left;
+	line-height:16px;
+	width: 115px;
+	margin-left:5px;
+}
+.td_planet_delivery .rd_planet_data_name{
+	width:115px;
+	overflow:hidden;
+}
+.rd_planet_resours, .rd_planet_fleets{
+	float: right;
+	margin-left:5px;
+	width: 140px;
+	height:48px;
+}
+.td_planet_delivery .rd_planet_resours{
+	width:167px;
+	border-right:0;
+}
+.rd_planet_fleets{
+cursor: help;
+    position: absolute;
+    height: 15px;
+    width: auto;
+    top: 6px;
+    right: 7px;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / 25%), 0 1px rgb(255 255 255 / 8%);
+    border: 1px solid #000;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    background: #000 url(../img/iconav/hangar.png);
+    background-size: 12px;
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    padding-right: 10px;
+    line-height: 16px;
+    color: #5ca7ac;
+    background-position-y: 2px;
+    background-position-x: 2px;
+}
+.rd_planet_statuto{
+	    position: absolute;
+    width: auto;
+    right: 5px;
+    bottom: 3px;
+    font-size: 11px;
+}
+.rd_planet_resours .imper_block_td{
+	height: 11px;
+	line-height: 11px;
+	border-bottom:1px solid #000;
+	text-align:left;
+	border: 1px solid #000;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	background: rgba(0, 0, 0, 0.25);
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+	margin: 2px;
+	font-size: 11px;
+}
+.rd_planet_resours .imper_block_td .occupancy{
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	max-width: 99.6%;
+}
+.rd_planet_resours .imper_block_td .text_res{
+	text-align:left;
+	padding:0 4px;
+}
+.rd_planet_resours .imper_block_td .text_res span{
+	color:#CCC;
+}
+.rd_planet_status{
+	    position: absolute;
+    width: 160px;
+    left: 50px;
+    top: 32px;
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}

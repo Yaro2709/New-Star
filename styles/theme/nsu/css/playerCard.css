@@ -1,0 +1,73 @@
+.playercrd2{    height: 10px;
+    line-height: 9px;}
+.playercrd3{    position: relative;
+    width: 632px;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(0,0,0,0.3);
+    border: 1px solid #000;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.04);
+    height: 83px;
+    margin: 7px;}
+.playercrd4{ 
+    position: absolute;
+    left: 2px;
+    height: 80px;
+    width: 80px;
+    top: 0px;
+    float: right;
+    margin-top: 2px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    -webkit-box-shadow: inset 0 1px 1px rgb(20, 44, 82), inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #040f1f;
+    -moz-box-shadow: inset 0 1px 1px rgb(20, 44, 82), inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #040f1f;
+    box-shadow: inset 0 1px 1px rgb(20, 44, 82), inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #040f1f;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0b1a31), color-stop(100%, #040f1f));
+    background-image: -webkit-linear-gradient(#0b1a31, #040f1f);
+    background-image: -moz-linear-gradient(#0b1a31, #040f1f);
+    background-image: -o-linear-gradient(#0b1a31, #040f1f);
+    background-image: linear-gradient(#0b1a31, #040f1f);
+    text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #162e3c;
+    cursor: pointer;
+    }
+.playercrd5{
+    position: absolute;
+    left: 90px;
+    top: 35px;
+    font-size: 14px;
+    color: #e6e6e6;
+    -moz-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    }
+.playercrd5:hover{color:#adbeda }
+
+.playercrd10{
+        position: absolute;
+        left: 90px;
+        top: 58px;
+        color: #ccc;
+    }
+.playercrd13{
+    position: absolute;
+    left: 60px;
+    z-index: 9;
+    width: 20px;
+    background-size: contain;
+    height: 14px;
+    top: 61px;
+    }
+.playercrd14{
+    position: absolute;
+    font-size: 20px;
+    left: 90px;
+    top: 12px;
+    color: #ccc;
+    }
+.playercard_tables{
+	    border: 0;
+    margin-top: 22px;
+    font-size: 12px;
+}

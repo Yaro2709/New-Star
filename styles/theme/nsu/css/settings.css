@@ -1,0 +1,71 @@
+.left_label{
+	display:block;
+	margin:0 3px 8px 0;
+	float:left;
+	line-height:22px;
+	height:22px;
+	width:200px;
+}
+
+.ach_menu li.active {   
+	background:#020c18 url(../img/iconav/ach_menu_arrow.gif) right no-repeat;
+	padding-right:1px;
+}
+
+.ach_menu li.active a {
+    color: #FFFFFF;
+	cursor:default;
+	border-top:0;
+	padding-top:1px;	
+}
+.ach_content{
+margin:0 14px 7px 14px;
+	border:1px #000 solid;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	background:#000813;
+	padding-bottom:10px;
+	position:relative;
+	overflow:hidden;
+}
+#academy .ach_menu{
+	width:120px;
+}
+#academy .ach_menu li{
+	width:120px;
+}
+#academy .ach_menu li a{
+	width:119px;
+	padding-left:0;
+	text-align:center;
+}
+#achivment .academy_main_block{
+	background-image: url(../img/general/academy_menu_bg.gif);
+}
+#achivment .academy_main_block1{
+	background-image: url(../img/general/academy_menu_bg1.gif);
+    margin: auto;
+}
+.ticket_bottom_band{
+	padding:0;
+}
+.ach_menuc li:hover a{
+    color: #6fc8cd;
+} 
+.ach_menuc li.active {   
+	background:#020c18 url(../images/ach_menu_arrow.gif) right no-repeat;
+	padding-right:1px;
+}
+.settingleft{
+	    margin: 0px 7px 7px 0px;
+    border: 1px #000 solid;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background: #000813;
+    position: relative;
+    overflow: hidden;
+    padding-top: 10px;
+    margin-left: 128px;
+}

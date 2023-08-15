@@ -1,0 +1,88 @@
+.ticket_message{
+	float:left;
+	max-width:85%;
+	clear:both;
+	margin: 0px 7px 7px 7px;
+}
+.ticket_message_head{
+	margin:5px 5px 2px 5px;
+	color:#09C;
+	clear:both;
+}
+.ticket_message_head_name{
+	color:#CCC;
+	font-weight:bold;
+}
+.ticket_message_text{
+	border: 1px #000 solid;
+	-moz-border-radius: 0px 4px 4px 0px;
+	-webkit-border-radius: 0px 4px 4px 0px;
+	border-radius: 0px 4px 4px 0px;
+	background: #000813;
+	padding:8px 6px;
+	position: relative;
+	float:left;
+	clear:both;
+	color:#CCC;
+}
+.ticket_message_owner{
+	float:right;
+}
+.ticket_message_owner .ticket_message_text{
+	border: 1px #000 solid;
+	background: #001E1E;
+	float:right;
+	-moz-border-radius: 4px 0px 0px 4px;
+	-webkit-border-radius: 4px 0px 0px 4px;
+	border-radius: 4px 0px 0px 4px;
+}
+.ticket_message_owner .ticket_message_head{
+	color:#6C9;
+}
+.ticket_message_owner .ticket_message_head{
+	float:right;
+}
+.ticket_message_send_text{
+	display:block;
+}
+.ticket_create_info{
+	padding:6px 10px;
+	text-align:center;
+	color:#999;
+	font-size:11px;
+}
+.ticket_row_linck{
+	display:block;
+	background: #000813;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	border:1px solid #000;
+	margin:2px 2px 0px 2px;
+	padding:2px 0px 3px 0px;
+}
+.ticket_row_linck:hover{
+	background:#000C1E;
+}
+.ticket_row_linck span{
+	display:block;
+	float:left;
+	padding-right:5px;
+	padding-left:5px;
+}
+.ticket_row_linck .clear{
+	float:none;
+}
+.ticket_row_linck .ticket_row_linck_status{
+	float:right;
+}
+.ticket_row_linck_id{
+	border-right:1px solid #666;
+	color:#069;
+}
+.ticket_row_linck_subject{
+
+}
+.ticket_row_linck_time{
+	color:#999;
+}
