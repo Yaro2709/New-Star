@@ -12,7 +12,7 @@ There is also a [gallery](https://yaro2709.github.io/New-Star-website/gallery) o
 
 ## Community New-Star
 
-Want to keep abreast of the latest developments? Then come visit us on [Discord](https://discord.gg/pu7faEb), [Telegram](https://t.me/newstarnet), [Facebook](https://www.facebook.com/groups/newstarnet), [Instagram](https://www.instagram.com/newstarnet)!
+Want to keep abreast of the latest developments? Then come visit us on [Discord](https://discord.gg/pu7faEb).
 
 ## Repository structure
 
@@ -46,3 +46,10 @@ Want to keep abreast of the latest developments? Then come visit us on [Discord]
 - Setup mysql: `create user USER identified by PASSWORD; create database DB; grant all privileges on DB.* to USER;`
 - Set write privileges to dirs: `cache/`, `includes/`
 - Run wizard: `127.0.0.1/install/install.php`
+
+## Engine family
+
+There are several projects that are no longer being developed and have historical value. Their basis formed the basis of New-Star.
+ - [XG-Project](https://github.com/Yaro2709/XG-Project);
+ - [X-nova](https://github.com/Yaro2709/X-nova);
+ - [2Moons](https://github.com/Yaro2709/2Moons). 
