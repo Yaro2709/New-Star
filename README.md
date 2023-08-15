@@ -17,7 +17,6 @@ Want to keep abreast of the latest developments? Then come visit us on [Discord]
 ## Repository structure
 
 - [cache] - temporary cached server .tpl webpages
-- [chat] - AJAX ingame client-side chat
 - [includes]
   - game engine
   - configuration
