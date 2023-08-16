@@ -19,10 +19,6 @@
          {$countRank = count($availableRanks)}
          <form action="game.php?page=alliance&amp;mode=admin&amp;action=permissionsSend" method="post">
             <input type="hidden" value="1" name="send">
-            {*<div class="gray_stripe" style="padding-right:0;">
-               {$LNG.al_configura_ranks}
-               <button id="create_new_alliance_rank" class="right_flank">{$LNG.all_create}</button>
-            </div>*}
             <div class="gray_stripo" style="padding-right:0;">
                 {$LNG.al_configura_ranks}
                 <div class="tornaindietro">  <a href="game.php?page=alliance&amp;mode=admin">{$LNG.al_back}</a></div>
@@ -53,6 +49,8 @@
             </table>
          </form>
       </div>
+      
+      
       <div id="new_alliance_rank" title="{$LNG.al_create_new_rank}" style="display:none;">
             <form action="game.php?page=alliance&amp;mode=admin&amp;action=permissionsSend" method="post">
                 <table class="ally_ranks">
