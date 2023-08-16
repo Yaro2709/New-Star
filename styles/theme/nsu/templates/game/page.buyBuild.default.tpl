@@ -4,7 +4,7 @@
 <div id="page">
     <div id="content">
         <div id="ally_content" class="conteiner">
-            <div class="gray_stripe" style="padding-right: 0;">
+            <div class="gray_stripe valueTest4" style="padding-right: 0;">
                 <span>{$LNG.lm_buybuild}</span>  
                 {if isModuleAvailable($smarty.const.MODULE_BUILDING)}
                     <a href="game.php?page=buildings" class="right_flank button">{$LNG.lm_buildings}</a>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="buy_res_content">
                     {foreach $Elements as $Element}
-                        <img class="buy_res" onclick="updateVars({$Element})" src="{$dpath}gebaeude/{$Element}.gif" />
+                        <img class="buy_res valueTest2" onclick="updateVars({$Element})" src="{$dpath}gebaeude/{$Element}.gif" />
                     {/foreach}
                     </div>
                     <div class="clear"></div>
