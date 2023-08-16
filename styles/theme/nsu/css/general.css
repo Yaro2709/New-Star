@@ -526,6 +526,9 @@ body.mceContentBody, input, select, option, textarea, .ui-widget-content {
 .text-align-center{
     text-align: center;
 }
+.text-align-left{
+    text-align: left;
+}
 /*градиент*/
 .gradient-gray{
     background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(9,29,46,0.65) 100%);

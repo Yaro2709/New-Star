@@ -336,7 +336,8 @@ select#reqall{
     margin-top: 3px;
 }
 .sepor_conten{
-	    padding: 8px 8px 08px 20px;
+	padding: 8px 8px 6px 30px;
+        /*
     line-height: 17px;
     border: 1px solid #091d2e;
     box-shadow: 0 4px 3px 0 rgba(0, 0, 0, 0.5) !important;
@@ -348,6 +349,7 @@ select#reqall{
 	border-radius:5px;
     margin: 7px;
     font-size: 13px;
+    */
 	background-size: contain;
     background-repeat: no-repeat;
 }
@@ -363,13 +365,17 @@ select#reqall{
 	border-radius: 6px;
 }
 #ally_content .res_text{
+    /*
 	margin-left:10px;
 	float:left;
 	width:119px;
+    */
 }
 #ally_content .res_count{
+    /*
 	float:left;
 	width:500px;
+    */
 }
 #ally_content .res_count input {
     width: 98%;
