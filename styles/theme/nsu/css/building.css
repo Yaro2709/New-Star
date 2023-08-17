@@ -760,16 +760,16 @@ display: block;
 .time_build_text {
     color: #81b8cc;
     position: absolute;
-    right: 5px;
-    bottom: 37px;
-    font-size: 12px;
+    right: 7px;
+    bottom: 38px;
+    font-size: 11px;
     /* text-shadow: 0px 1px 0px rgb(0 0 0); */
     /* z-index: 99999; */
     /* overflow-wrap: break-word; */
     /* height: 14px; */
     /* text-align: right; */
     /* pointer-events: none; */
-    padding: 1px 6px 1px 6px;
+    padding: 1px 6px 0px 6px;
     /* border-radius: 3px 3px 3px 3px; */
     -moz-border-radius: 3px 3px 3px 3px;
     /* -webkit-border-radius: 3px 3px 3px 3px; */

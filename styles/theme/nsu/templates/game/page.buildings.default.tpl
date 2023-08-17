@@ -106,7 +106,7 @@
                                 {/if}
                                 <div class="time_build">
                                     {if !$Element.techacc}{elseif $Element.elementTime == 0}{else}
-                                    <span class="time_build_text valueTest2"><img src="{$dpath}img/iconav/time.png" style="height: 12px; top: -1.4px;position: relative;"> <span class="time_build_edit">{$Element.elementTime|time}</span></span>
+                                    <span class="time_build_text valueTest2"><img src="{$dpath}img/iconav/time.png" style="height: 11px; top: -1px; position: relative;"> <span class="time_build_edit">{$Element.elementTime|time}</span></span>
                                     {/if}
                                 </div>
                                 {if $Element.level > 0 && (($ID == 44 && 0==$HaveMissiles) ||  $ID != 44)}

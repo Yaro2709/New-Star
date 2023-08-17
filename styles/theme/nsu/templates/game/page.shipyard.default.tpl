@@ -235,11 +235,13 @@
                                 </div>
                                 {if $NotBuilding && $Element.buyable && $Element.techacc && $Element.maxBuildable} 
                                 <div id="res_{$ID}" style="display: block;">
-                                    <div class="btn_build_border btn_build_border_left valueTest">
+                                    <div class="btn_build_border btn_build_border_left valueTest2">
+                                    <div class="btn_build_border btn_build_border_left valueTest7">
                                         <label title="макс" onclick="$('#input_{$ID}').val('{$Element.maxBuildable}'); counting('{$ID}');" class="max_btn_ship">Max</label>
                                         <div class="div_text count_ships_dots">
                                             <input onkeyup="counting('{$ID}');" name="fmenge[{$ID}]" id="input_{$ID}" size="15" maxlength="15" value="0" class="text" tabindex="{$smarty.foreach.FleetList.iteration}" type="text" data-cip-id="input_210">
                                         </div>
+                                    </div>
                                     </div>
                                     <div class="btn_build_border btn_build_border_right">
                                         <button class="valueTest2 input_btn" type="submit">{$LNG.bd_build_ships}</button>

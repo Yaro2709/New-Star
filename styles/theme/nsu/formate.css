@@ -516,6 +516,20 @@ button.image_btn:active{
     background-position: left 0px top 0px, left 0px top 0px;
     background-size: 100% 100%, 3px 3px;
 }
+.valueTest7 {
+    vertical-align: middle;
+    text-align: center;
+    color: #00D0D0;
+    font-size: 9px;
+    white-space: nowrap;
+    overflow: hidden;
+    /*border: 1px solid rgba(28,136,153,0.4);*/
+    background-color: black!important;
+    border-radius: 3px;
+    background: radial-gradient(ellipse 90% 90%, rgba(0,0,0,0.35), rgba(0,0,0,1.0)) no-repeat, url(./img/test/value_bg_blue.png) repeat padding-box;
+    background-position: left 0px top 0px, left 0px top 0px;
+    background-size: 100% 100%, 3px 3px;
+}
 .valueTest2 {
     border: 1px solid rgba(43,211,237, 0.3);
     background: linear-gradient(to right, rgba(43,211,237,1.0),rgba(43,211,237,1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,1.0),rgba(43,211,237,1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,1.0),rgba(43,211,237,1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,1.0),rgba(43,211,237,1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,1.0),rgba(43,211,237,1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,1.0),rgba(43,211,237,1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,1.0),rgba(43,211,237,1.0) 100%) no-repeat border-box, linear-gradient(to right, rgba(43,211,237,1.0),rgba(43,211,237,1.0) 100%) no-repeat border-box, linear-gradient(to top, rgba(43,211,237,0.05), rgba(43,211,237,0.05) 100%) no-repeat border-box;
