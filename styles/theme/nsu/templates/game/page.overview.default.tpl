@@ -4,7 +4,6 @@
 <link rel="stylesheet" type="text/css" href="{$dpath}css/overview.css">
 <div id="page">
     <div id="content">
-    
         {if !empty($fleets)}
         <div id="ally_content" class="conteiner conteinership">
             <div class="fleettab10"></div>   
@@ -41,7 +40,7 @@
                 </div>
             </div> 
             <div class="row" style="padding: 7px">
-                <div class="col-6">
+                <div class="col-md-6">
                     <div class="card mr-1 valueTest2 shadow"> 
                         <div class="card-body" style="padding: 1px 1px;">
                         <div id="big_panet" style="background: url({$dpath}img/title/control_room.png) no-repeat, url({$dpath}planeten/{$planetimage}.jpg) top center no-repeat; background-size:cover;">
@@ -85,7 +84,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-md-3">
                     <div class="card mr-1 valueTest2 shadow">
                         <div class="card-body">
                             <p class="card-title valueTest3">{$LNG.ov_panel_root}</p>
@@ -145,264 +144,74 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-md-3">
                     <div class="card valueTest2 shadow">
                         <div class="card-body">
                             <p class="card-title valueTest3">{$LNG.ov_panel_root}</p>
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <div class="card mt-1 mr-1 valueTest">
-                                                <img class="noselect" style="cursor:pointer;" data-hint="Планетарные площадки" width="50px" height="50px" src="{$dpath}img/iconav/ov_tech.png">
-                                            </div>
-                                        </div>
-                                        <div class="col-9">
-                                            <div class="card mt-1 mr-1 valueTest">
-                                                <span><span class="v-norm"></span>dfgh</span>
-                                            </div> 
-                                        </div>                        
-                                    </div> 
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <div class="card mt-1 mr-1 valueTest">
-                                                <img class="noselect" style="cursor:pointer;" data-hint="Планетарные площадки" width="50px" height="50px" src="{$dpath}img/iconav/ov_build.png">
-                                            </div>
-                                        </div>
-                                        <div class="col-9">
-                                            <div class="card mt-1 mr-1 valueTest">
-                                                <span><span class="v-norm"></span>dfgh</span>
-                                            </div> 
-                                        </div>                        
-                                    </div> 
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <div class="card mt-1 mr-1 valueTest">
-                                                <img class="noselect" style="cursor:pointer;" data-hint="Планетарные площадки" width="50px" height="50px" src="{$dpath}img/iconav/ov_fleet.png">
-                                            </div>
-                                        </div>
-                                        <div class="col-9">
-                                            <div class="card mt-1 mr-1 valueTest">
-                                                <span><span class="v-norm"></span>dfgh</span>
-                                            </div> 
-                                        </div>                        
-                                    </div> 
-                                    {*
-                            
                             <div class="row">
-                            <div class="col-md-12">
-                                <div class="card background-border-black-gray">
-                                    <div class="ricerche">
-                                        <img src="{$dpath}img/iconav/ov_tech.png" class="overvieew27">
-                                        <span class="overvieew9">
-                                            <a href="game.php?page=research">
-                                                {if $buildInfo.tech}
-                                                    <span class="timer" data-time="{$buildInfo.tech['timeleft']}">??:??:??</span>
-                                                    - {$LNG.tech[$buildInfo.tech['id']]}
-                                                    <span class="level">({$buildInfo.tech['level']})</span>
-                                                {else}
-                                                    {$LNG.ov_free}
-                                                {/if}
-                                            </a>
-                                        </span>
+                                <div class="col-md-3">
+                                    <div class="card mt-1 mr-1 valueTest">
+                                        <img class="noselect" style="cursor:pointer;" data-hint="Планетарные площадки" width="50px" height="50px" src="{$dpath}img/iconav/ov_tech.png">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="card background-border-black-gray">
-                                    <div class="costruzioni">
-                                        <img src="{$dpath}img/iconav/ov_build.png" class="overvieew27">
-                                        <span class="overvieew9">
-                                            <a href="game.php?page=buildings">
-                                                {if $buildInfo.buildings}
-                                                    <span class="timer" data-time="{$buildInfo.buildings['timeleft']}">??:??:??</span>
-                                                    - {$LNG.tech[$buildInfo.buildings['id']]}
-                                                    <span class="level">({$buildInfo.buildings['level']})</span>
-                                                {else}
-                                                    {$LNG.ov_free}
-                                                {/if}
-                                            </a>
-                                        </span>
+                                <div class="col-md-9">
+                                    <div class="card mt-1 mr-1 valueTest">
+                                        <a href="game.php?page=research">
+                                        {if $buildInfo.tech}
+                                            <span class="timer" data-time="{$buildInfo.tech['timeleft']}">??:??:??</span>
+                                            - {$LNG.tech[$buildInfo.tech['id']]}
+                                            <span class="level">({$buildInfo.tech['level']})</span>
+                                        {else}
+                                            {$LNG.ov_free}
+                                        {/if}
+                                        </a>
+                                    </div> 
+                                </div>                        
+                            </div> 
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card mt-1 mr-1 valueTest">
+                                        <img class="noselect" style="cursor:pointer;" data-hint="Планетарные площадки" width="50px" height="50px" src="{$dpath}img/iconav/ov_build.png">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="card background-border-black-gray">
-                                    <div class="flotte">
-                                        <img src="{$dpath}img/iconav/ov_fleet.png" class="overvieew27">
-                                        <span class="overvieew9">
-                                            <a href="game.php?page=shipyard">
-                                                {if $buildInfo.fleet}
-                                                    <span class="timer" data-time="{$buildInfo.fleet['timeleft']}">??:??:??</span>
-                                                    - {$LNG.tech[$buildInfo.fleet['id']]}
-                                                    <span class="level">({$buildInfo.fleet['level']})</span>
-                                                {else}
-                                                    {$LNG.ov_free}
-                                                {/if}
-                                            </a>
-                                        </span>
+                                <div class="col-md-9">
+                                    <div class="card mt-1 mr-1 valueTest">
+                                        <a href="game.php?page=buildings">
+                                        {if $buildInfo.buildings}
+                                            <span class="timer" data-time="{$buildInfo.buildings['timeleft']}">??:??:??</span>
+                                            - {$LNG.tech[$buildInfo.buildings['id']]}
+                                            <span class="level">({$buildInfo.buildings['level']})</span>
+                                        {else}
+                                            {$LNG.ov_free}
+                                        {/if}
+                                        </a>
+                                    </div> 
+                                </div>                        
+                            </div> 
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card mt-1 mr-1 valueTest">
+                                        <img class="noselect" style="cursor:pointer;" data-hint="Планетарные площадки" width="50px" height="50px" src="{$dpath}img/iconav/ov_fleet.png">
                                     </div>
                                 </div>
-                            </div>
-                                    </div>*}
-                            
+                                <div class="col-md-9">
+                                    <div class="card mt-1 mr-1 valueTest">
+                                        <a href="game.php?page=shipyard">
+                                        {if $buildInfo.fleet}
+                                            <span class="timer" data-time="{$buildInfo.fleet['timeleft']}">??:??:??</span>
+                                            - {$LNG.tech[$buildInfo.fleet['id']]}
+                                            <span class="level">({$buildInfo.fleet['level']})</span>
+                                        {else}
+                                            {$LNG.ov_free}
+                                        {/if}
+                                        </a>
+                                    </div> 
+                                </div>                        
+                            </div> 
                         </div>
                     </div>
                 </div>
-        {*
-        <div id="res_nav">
-            {foreach $resourceTable as $resourceID => $resouceData} 
-                {if !isset($resouceData.current)}
-                    {$resouceData.current = $resouceData.max + $resouceData.used}
-                    <div id="res_block_{$resouceData.name}" class="bloc_res tooltip" data-tooltip-content="<span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span><div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>{$LNG.RE} {$resouceData.percent|number}%">
-                        <div class="ico_res"></div>
-                        <div class="stock_res">
-                            <div class="stock_percentage stock_percentage_left" style="width:{abs($resouceData.percent/2)}%;{if $resouceData.percent > -0.1}display:none;{/if}"></div>
-                            <div class="stock_percentage stock_percentage_right" style="width:{$resouceData.percent/2}%;{if $resouceData.percent < 0.1}display:none;{/if}"></div>
-                            <div class="separator_{$resouceData.name}"></div>
-                            <div class="stock_text"><span id="current_{$resouceData.name}" name="{$resouceData.current|number}" data-real="{$resouceData.current}">{$resouceData.used|shortly_number}</span>/{$resouceData.max|shortly_number}</div>
-                        </div>
-                    </div>
-                {else}
-                    {if !isset($resouceData.current) || !isset($resouceData.max)}
-                        <div id="res_block_{$resouceData.name}" class="bloc_res tooltip" data-tooltip-content="<span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span><div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>{$LNG.RE} {pretty_number($resouceData.current)}">
-                            {if isModuleAvailable($smarty.const.MODULE_FAIR)}
-                            <a href="game.php?page=fair"><div class="ico_res"></div></a>
-                            {else}
-                            <div class="ico_res"></div>
-                            {/if}
-                            <div class="stock_res2">
-                                <div class="stock_percentage" style="width:100%;"></div>
-                                <div class="separator_{$resouceData.name}"></div>
-                                <div class="stock_text"><span class='colore{$resourceID}' id="current_{$resouceData.name}" name="{$resouceData.current|number}" data-real="{$resouceData.current}">{shortly_number($resouceData.current)}</span></div>
-                            </div>
-                        </div>
-                    {else}
-                        <div id="res_block_{$resouceData.name}" class="bloc_res tooltip" 
-                            data-tooltip-content="
-                            <span class='colore{$resourceID}'>{$LNG.tech.$resourceID}</span>
-                            <div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'></div>
-                            {$LNG.PPS}: {$resouceData.information}
-                            <br/>{$LNG.PPD}: {$resouceData.informationd}
-                            <br/>{$LNG.PPW}: {$resouceData.informationz} 
-                            <div style='border-bottom:1px dashed #666; margin:7px 0 4px 0;'>
-                            </div> <span style='color:#999'>{$resouceData.current|number}/{$resouceData.max|number}</span>">
-                            {if isModuleAvailable($smarty.const.MODULE_TRADER)}
-                            <a href="game.php?page=trader"><div class="ico_res"></div></a>
-                            {else}
-                            <div class="ico_res"></div>
-                            {/if}
-                            <div class="stock_res">
-                                <div class="stock_percentage" style="width:{$resouceData.percent}%;"></div>
-                                <div class="stock_text">
-                                    <span id="current_{$resouceData.name}" name="{$resouceData.current|number}" data-real="{$resouceData.current}">{shortly_number($resouceData.current)}</span>
-                                    (<span class="pricent">{if $resouceData.percent <= 100}{$resouceData.percent}{else $resouceData.percent > 100}100{/if}</span>%)
-                                </div>
-                            </div>	
-                        </div>
-                    {/if}
-                {/if}
-            {/foreach}       
-        </div>
-        *}
-                    
-                    
-                    
-                    
-                    {*                    
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card background-border-black-blue">                     
-                                    <div class="gray_latdes overvieew2" style="background: url({$dpath}img/content/control_roompi.png) no-repeat, url({$dpath}img/content/mondpi.jpg) no-repeat ; background-size:cover;">
-                                    {if isModuleAvailable($smarty.const.MODULE_CREATE_MOON)}
-                                    {if $planet_type == 1}	
-                                    {if $Moon}
-                                        <div>
-                                            <a href="game.php?page=overview&amp;cp={$Moon.id}&amp;re=0"><span class="overvieew5">{$Moon.name}</span></a>
-                                            <a href="game.php?page=overview&amp;cp={$Moon.id}&amp;re=0" class=" ">
-                                                <img src="{$dpath}img/content/moon.png" class="overvieew4 tooltip" data-tooltip-content="{$Moon.name}" style="opacity:0.8">
-                                            </a>
-                                        </div>
-                                    {else}
-                                        <div>
-                                            <a href="game.php?page=createMoon"><span class="overvieew5">{$LNG.ov_create_moon}</span></a>
-                                            <a href="game.php?page=createMoon" class=" ">
-                                                <img src="{$dpath}img/content/moon.png" class="overvieew4 tooltip" data-tooltip-content="{$LNG.ov_create_moon}" style="opacity:0.8">
-                                            </a>
-                                        </div>
-                                    {/if}
-                                    {/if}
-                                    {/if}
-                                    </div>
-                                </div>
-                            </div>    
-                            <div class="col-md-6">
-                                <div class="card background-border-black-blue">  
-                                    <div class="gray_latdes overvieew2" style="background: url({$dpath}img/content/control_roompi.png) no-repeat, url({$dpath}img/content/control_acc.png) no-repeat ; background-size:cover;">
-                                        <div>
-                                            <a href="game.php?page=market"><span class="overvieew5">{$LNG.lm_market}</span></a>
-                                            <a href="game.php?page=market" class=" ">
-                                                <img src="{$dpath}img/content/market.png" class="overvieew4 tooltip" data-tooltip-content="{$LNG.lm_market}" style="opacity:0.8">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="card background-border-black-gray">
-                                    <div class="ricerche">
-                                        <img src="{$dpath}img/iconav/ov_tech.png" class="overvieew27">
-                                        <span class="overvieew9">
-                                            <a href="game.php?page=research">
-                                                {if $buildInfo.tech}
-                                                    <span class="timer" data-time="{$buildInfo.tech['timeleft']}">??:??:??</span>
-                                                    - {$LNG.tech[$buildInfo.tech['id']]}
-                                                    <span class="level">({$buildInfo.tech['level']})</span>
-                                                {else}
-                                                    {$LNG.ov_free}
-                                                {/if}
-                                            </a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="card background-border-black-gray">
-                                    <div class="costruzioni">
-                                        <img src="{$dpath}img/iconav/ov_build.png" class="overvieew27">
-                                        <span class="overvieew9">
-                                            <a href="game.php?page=buildings">
-                                                {if $buildInfo.buildings}
-                                                    <span class="timer" data-time="{$buildInfo.buildings['timeleft']}">??:??:??</span>
-                                                    - {$LNG.tech[$buildInfo.buildings['id']]}
-                                                    <span class="level">({$buildInfo.buildings['level']})</span>
-                                                {else}
-                                                    {$LNG.ov_free}
-                                                {/if}
-                                            </a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="card background-border-black-gray">
-                                    <div class="flotte">
-                                        <img src="{$dpath}img/iconav/ov_fleet.png" class="overvieew27">
-                                        <span class="overvieew9">
-                                            <a href="game.php?page=shipyard">
-                                                {if $buildInfo.fleet}
-                                                    <span class="timer" data-time="{$buildInfo.fleet['timeleft']}">??:??:??</span>
-                                                    - {$LNG.tech[$buildInfo.fleet['id']]}
-                                                    <span class="level">({$buildInfo.fleet['level']})</span>
-                                                {else}
-                                                    {$LNG.ov_free}
-                                                {/if}
-                                            </a>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    *}
-                <div class="col-12">
+                <div class="col-md-12">
                     <div class="card mt-1 valueTest2 shadow"> 
                         <div class="card-body">
                             <p class="card-title">{$LNG.ov_panel_root}</p>
@@ -461,7 +270,7 @@
                     </div>
                 </div>
                 {if $is_news}
-                <div class="col-12">
+                <div class="col-md-12">
                     <div class="card mt-1 valueTest2 shadow"> 
                         <div class="card-body">
                             <p class="card-title">{$LNG.ov_news}</p>
