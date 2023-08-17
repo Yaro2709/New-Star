@@ -1,22 +1,32 @@
 {block name="content"}
-<table style="width:760px" id="resulttable">
-	<tr>
-		<th>{$LNG.sh_name}</th>
-		<th>&nbsp;</th>
-		<th>{$LNG.sh_alliance}</th>
-		<th>{$LNG.sh_planet}</th>
-		<th>{$LNG.sh_coords}</th>
-		<th>{$LNG.sh_position}</th>
-	</tr>
-	{foreach $searchList as $searchRow}
-	<tr>
-		<td><a href="#" onclick="return Dialog.Playercard({$searchRow.userid});">{$searchRow.username}</a></td>
-		<td><a href="#" onclick="return Dialog.PM({$searchRow.userid});" title="{$LNG.sh_write_message}"><img src="{$dpath}img/m.gif"/></a>&nbsp;<a href="#" onclick="return Dialog.Buddy({$searchRow.userid});" title="{$LNG.sh_buddy_request}"><img src="{$dpath}img/b.gif" border="0"></a></td>
-		<td>{if $searchRow.allyname}<a href="game.php?page=alliance&amp;mode=info&amp;id={$searchRow.allyid}">{$searchRow.allyname}</a>{else}-{/if}</td>
-		<td>{$searchRow.planetname}</td>
-		<td><a href="game.php?page=galaxy&amp;galaxy={$searchRow.galaxy}&amp;system={$searchRow.system}">[{$searchRow.galaxy}:{$searchRow.system}:{$searchRow.planet}]</a></td>
-		<td>{$searchRow.rank}</td>
-	</tr>
-	{/foreach}
+<table class="tablesorter ally_ranks tabstatistica" id="resulttable">
+    <tbody class="row" style="padding: 7px;">
+    <tr class="row col-12 barraclass">
+        <th class="col-2">{$LNG.sh_name}</th>
+        <th class="col-2">{$LNG.sh_alliance}</th>
+        <th class="col-3">{$LNG.sh_planet}</th>
+        <th class="col-2">{$LNG.sh_coords}</th>
+        <th class="col-3">{$LNG.sh_position}</th>
+    </tr>
+    {foreach $searchList as $searchRow}
+    <tr class="row col-12 mt-1 classificabarra">
+        <td class="col-2">
+            <a href="#" onclick="return Dialog.Playercard({$searchRow.userid});">{$searchRow.username}</a>
+        </td>
+        <td class="col-2">
+            {if $searchRow.allyname}
+                <a href="game.php?page=alliance&amp;mode=info&amp;id={$searchRow.allyid}">{$searchRow.allyname}</a>
+            {else}
+                -
+            {/if}
+        </td>
+        <td class="col-3">{$searchRow.planetname}</td>
+        <td class="col-2">
+            <a href="game.php?page=galaxy&amp;galaxy={$searchRow.galaxy}&amp;system={$searchRow.system}">[{$searchRow.galaxy}:{$searchRow.system}:{$searchRow.planet}]</a>
+        </td>
+        <td class="col-3">{$searchRow.rank}</td>
+    </tr>
+    {/foreach}
+    </tbody>
 </table>
 {/block}

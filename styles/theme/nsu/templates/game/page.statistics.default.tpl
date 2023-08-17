@@ -3,36 +3,39 @@
 <link rel="stylesheet" type="text/css" href="{$dpath}css/statistics.css">
 <div id="page">
 	<div id="content">
-<div id="ally_content" class="conteiner">
-<div class="gray_stripo">
-    {$LNG.st_statistics}  ({$LNG.st_updated}: {$stat_date}) <span class="tornaindietro">{$LNG.st_next} <span style="color:#FC0"><b id="brpstats"><b><font></font></b></b></span></span>
+        <div id="ally_content" class="conteiner">
+            <div class="gray_stripo">
+                {$LNG.st_statistics}  ({$LNG.st_updated}: {$stat_date}) <span class="tornaindietro">{$LNG.st_next} <span style="color:#FC0"><b id="brpstats"><b><font></font></b></b></span></span>
+            </div>
+            <div class="row">
+                <div class="col-12 statbarsup1">
+                    <form name="stats" id="stats" method="post" action="">
+                       <table class="tablesorter ally_ranks">
+                          <tr>
+                             <td>
+                                <label for="who">{$LNG.st_show}</label> <select name="who" id="who" onchange="$('#stats').submit();">{html_options options=$Selectors.who selected=$who}</select>
+                             </td>
+                             <td>
+                                <label for="type">{$LNG.st_per}</label> <select name="type" id="type" onchange="$('#stats').submit();">{html_options options=$Selectors.type selected=$type}</select>
+                             </td>
+                             <td>
+                                <label for="range">{$LNG.st_in_the_positions}</label> <select name="range" id="range" onchange="$('#stats').submit();">{html_options options=$Selectors.range selected=$range}</select>
+                             </td>
+                          </tr>
+                       </table>
+                    </form>
+                </div>
+            </div>
+            <table class="tablesorter ally_ranks tabstatistica">
+            {if $who == 1}
+                {include file="shared.statistics.playerTable.tpl"}
+            {elseif $who == 2}
+                {include file="shared.statistics.allianceTable.tpl"}
+            {/if}
+            </table>
+        </div>
+    </div>
 </div>
-<div class="row">
-<div class="col-12 statbarsup1">
-<form name="stats" id="stats" method="post" action="">
-   <table class="tablesorter ally_ranks">
-      <tr>
-         <td>
-            <label for="who">{$LNG.st_show}</label> <select name="who" id="who" onchange="$('#stats').submit();">{html_options options=$Selectors.who selected=$who}</select>
-         </td>
-         <td>
-            <label for="type">{$LNG.st_per}</label> <select name="type" id="type" onchange="$('#stats').submit();">{html_options options=$Selectors.type selected=$type}</select>
-         </td>
-         <td>
-            <label for="range">{$LNG.st_in_the_positions}</label> <select name="range" id="range" onchange="$('#stats').submit();">{html_options options=$Selectors.range selected=$range}</select>
-         </td>
-      </tr>
-   </table>
-</form>
-</div>
-</div>
-<table class="tablesorter ally_ranks tabstatistica">
-{if $who == 1}
-	{include file="shared.statistics.playerTable.tpl"}
-{elseif $who == 2}
-	{include file="shared.statistics.allianceTable.tpl"}
-{/if}
-</table>
 <script type="text/javascript">
 	v = new Date();
 	var brpstats = document.getElementById('brpstats');
