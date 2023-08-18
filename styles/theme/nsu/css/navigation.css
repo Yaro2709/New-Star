@@ -196,7 +196,7 @@ body{
 	display:none;
 }
 body.full{
-	min-width:1100px;
+	min-width:950px;
 }
 img{
 	border:none;
