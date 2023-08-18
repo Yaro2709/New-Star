@@ -19,24 +19,11 @@
                             </td>
                         </tr>
                     </table>
-                    <div id="search"></div>
+                    <div id="search_table"></div>
                 </div>
             </div>
             
         </div>
     </div>
 </div>
-
-
-
-<div id="page">
-   <div id="content">
-   
-<table style="width:760px">
-
-</table>
-   
-</div>
-</div>
-
 {/block}

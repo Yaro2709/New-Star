@@ -42,7 +42,7 @@ function instant(event){
 	$('#loading').show();
 	$.get('game.php?page=search&mode=result&type='+$('#type').val()+'&search='+$('#searchtext').val()+'&ajax=1', function(data) {
 		$('#resulttable').remove();
-		$('#search').after(data);	
+		$('#search_table').after(data);	
 		$('#loading').hide();
 	});
 }
