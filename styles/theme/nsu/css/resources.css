@@ -1,22 +1,30 @@
-.rexx1{
-	     border-bottom: 1px solid rgba(0,0,0,0.3);
+
+.rexx1 {
+    /*
+    border-bottom: 1px solid rgba(0,0,0,0.3);
     border-top: 1px solid rgba(0,0,0,0.3);
     border: 1px solid #000;
     background: rgba(0, 0, 0, 0.25);
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.04);
-    /*height: 363px;*/
-    /*width: 110px;*/
-    width: 6.4%;
-    float: left;
-    position: relative;
+    */
+    /* height: 363px; */
+    /* width: 110px; */
+    /* width: 6.4%; */
+    /* float: left; */
+    /* position: relative; */
+    /*
     background-repeat: no-repeat;
     background-size: 45px;
-    margin-right: 0px;
-    margin-left: 0.7%;
+    */
+    /* margin-right: 0px; */
+    /* margin-left: 0.7%; */
+    /*
     background-position: center top;
-    margin-top: 5px;
-    margin-bottom: 0;
+    */
+    /* margin-top: 5px; */
+    /* margin-bottom: 0; */
 }
+/*
 .rexx901{    background-image: url(../img/resources/901f.png);}
 .rexx902{    background-image: url(../img/resources/902f.png);}
 .rexx903{    background-image: url(../img/resources/903f.png);}
@@ -27,12 +35,13 @@
 .rexx915{    background-image: url(../img/resources/915f.png);}
 .rexx916{    background-image: url(../img/resources/916f.png);}
 .rexxprocent{background-image: url(../img/resources/procent.png);}
-.rexx2{
-    border-bottom: 1px solid rgba(0,0,0,0.3);
-    border-top: 1px solid rgba(0,0,0,0.3);
-    border: 1px solid #000;
-    background: rgba(0, 0, 0, 0.25);
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.04);
+*/
+.rexx2 {
+    /* border-bottom: 1px solid rgba(0,0,0,0.3); */
+    /* border-top: 1px solid rgba(0,0,0,0.3); */
+    /* border: 1px solid #000; */
+    /* background: rgba(0, 0, 0, 0.25); */
+    /* box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.04); */
     height: 16px;
     /* width: 110px; */
     width: 100%;
@@ -45,19 +54,19 @@
     text-align: center;
     font-size: 11px;
     color: #a0b0ca;
-    }
-.rexx3{
+}
+.rexx3 {
     text-align: left;
-    padding-left: 1%;
-    flex-wrap: wrap-reverse;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    /* padding-left: 1%; */
+    /* flex-wrap: wrap-reverse; */
+    /* text-overflow: ellipsis; */
+    /* white-space: nowrap; */
     overflow: hidden;
-    width: auto;
-    padding-right: 11%;
-    max-width: 88%;
-    min-width: 88%;
-    }
+    /* width: auto; */
+    /* padding-right: 11%; */
+    /* max-width: 65%; */
+    /* min-width: 65%; */
+}
 .rexx2 span{font-size: 11px;}
 .rexx4{
 	    background: #051524;
@@ -75,23 +84,24 @@
 	    line-height: 13px;
 	    right: 0px;
 }
-.rexx5{
-    border-bottom: 1px solid rgba(0,0,0,0.3);
-    border-top: 1px solid rgba(0,0,0,0.3);
-    border: 1px solid #000;
-    border-left: 0;
-    border-right: 0;
-    background: rgba(0, 0, 0, 0.6);
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.04);
-    position: relative;
-    float: right;
-    width: 99%;
+.rexx5 {
+    /* border-bottom: 1px solid rgba(0,0,0,0.3); */
+    /* border-top: 1px solid rgba(0,0,0,0.3); */
+    /* border: 1px solid #000; */
+    /* border-left: 0; */
+    /* border-right: 0; */
+    /* background: rgba(0, 0, 0, 0.6); */
+    /* box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.04); */
+    /* position: relative; */
+    /* float: right; */
+    width: 100%;
     font-size: 11px;
     padding: 0;
-    border-radius: 0;
+    /* border-radius: 0; */
     height: 18px;
-    margin-bottom: 5px;
-    padding-left: 2px;}
+    margin-bottom: 4.5px;
+    padding-left: 2px;
+}
 .rexx6{    width: 100%;
     float: right;
     position: relative;

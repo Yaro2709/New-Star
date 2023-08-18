@@ -507,7 +507,7 @@ button.image_btn:active{
     text-align: center;
     color: #00D0D0;
     font-size: 9px;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     overflow: hidden;
     border: 1px solid rgba(28,136,153,0.4);
     background-color: black!important;
