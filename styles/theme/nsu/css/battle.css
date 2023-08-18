@@ -196,6 +196,7 @@
 	border-radius:3px;
 	overflow:hidden;
 	margin-bottom:20px;
+    margin: auto;
 }
 .band_att .ico_part {
 	position:absolute;
